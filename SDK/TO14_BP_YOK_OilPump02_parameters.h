@@ -19,11 +19,6 @@ struct ATO14_BP_YOK_OilPump02_C_UserConstructionScript_Params
 {
 };
 
-// Function TO14_BP_YOK_OilPump02.TO14_BP_YOK_OilPump02_C.򠪦􆖐񍳔_
-struct ATO14_BP_YOK_OilPump02_C_򠪦􆖐񍳔__Params
-{
-};
-
 // Function TO14_BP_YOK_OilPump02.TO14_BP_YOK_OilPump02_C.ReceiveBeginPlay
 struct ATO14_BP_YOK_OilPump02_C_ReceiveBeginPlay_Params
 {

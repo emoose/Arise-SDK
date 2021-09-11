@@ -1,6 +1,5 @@
 
-#include "../SDK.h"
-#include <Windows.h>
+#include "../pch.h"
 
 // Name: Arise, Version: 1.0.0
 
@@ -11,17 +10,10 @@
 namespace SDK
 {
 
-TNameEntryArray* FName::GNames = nullptr;
+ProcessEventFn UObject::ProcessEventPtr = nullptr;
 FUObjectArray* UObject::GObjects = nullptr;
+TNameEntryArray* FName::GNames = nullptr;
 
-//---------------------------------------------------------------------------
-void InitSdk(const std::string& moduleName, const size_t gObjectsOffset, const size_t gNamesOffset)
-{
-	auto mBaseAddress = reinterpret_cast<uintptr_t>(GetModuleHandleA(moduleName.c_str()));
-
-	UObject::GObjects = reinterpret_cast<SDK::FUObjectArray*>(mBaseAddress + gObjectsOffset);
-	FName::GNames = reinterpret_cast<SDK::TNameEntryArray*>(mBaseAddress + gNamesOffset);
-}
 //---------------------------------------------------------------------------
 bool FWeakObjectPtr::IsValid() const
 {

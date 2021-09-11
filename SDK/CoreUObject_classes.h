@@ -8,6 +8,8 @@
 
 namespace SDK
 {
+typedef void (*ProcessEventFn)(UObject*, class UFunction*, void*);
+
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
@@ -17,6 +19,7 @@ namespace SDK
 class UObject
 {
 public:
+	static ProcessEventFn ProcessEventPtr;
 	static FUObjectArray*                              GObjects;                                                 // 0x0000(0x0000)
 	void*                                              Vtable;                                                   // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
 	int32_t                                            ObjectFlags;                                              // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
@@ -33,6 +36,11 @@ public:
 	std::string GetName() const;
 
 	std::string GetFullName() const;
+
+	inline void ProcessEvent(class UFunction* function, void* parms)
+	{
+		ProcessEventPtr(this, function, parms);
+	}
 
 	template<typename T>
 	static T* FindObject(const std::string& name)

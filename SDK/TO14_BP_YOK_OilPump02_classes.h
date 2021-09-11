@@ -26,21 +26,21 @@ public:
 	float                                              _______move3_Uscrool_DFEEACB64DA7C4BDBEBEBBB2A44E1E09;    // 0x0358(0x0004) (ZeroConstructor, IsPlainOldData)
 	TEnumAsByte<ETimelineDirection>                    _______move3__Direction_DFEEACB64DA7C4BDBEBEBBB2A44E1E09; // 0x035C(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x035D(0x0003) MISSED OFFSET
-	class UTimelineComponent*                          򠪦􆖐񍳔_;                                            // 0x0360(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UTimelineComponent*                          BadString_;                                            // 0x0360(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	float                                              _______move2_Uscrool_E2BDC9074667930D793CE4876A6E0BA0;    // 0x0368(0x0004) (ZeroConstructor, IsPlainOldData)
 	TEnumAsByte<ETimelineDirection>                    _______move2__Direction_E2BDC9074667930D793CE4876A6E0BA0; // 0x036C(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x036D(0x0003) MISSED OFFSET
-	class UTimelineComponent*                          򠪦􆖐񍳔_02;                                          // 0x0370(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UTimelineComponent*                          BadString_02;                                          // 0x0370(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	float                                              _______move1_Uscrool_474973C84046CB67C3435EA977D48077;    // 0x0378(0x0004) (ZeroConstructor, IsPlainOldData)
 	TEnumAsByte<ETimelineDirection>                    _______move1__Direction_474973C84046CB67C3435EA977D48077; // 0x037C(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x3];                                       // 0x037D(0x0003) MISSED OFFSET
-	class UTimelineComponent*                          򠪦􆖐񍳔_03;                                          // 0x0380(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UTimelineComponent*                          BadString_03;                                          // 0x0380(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	float                                              play_Rate;                                                // 0x0388(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	float                                              藌QWn0爂n0貧U0;                                           // 0x038C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              BadString2;                                           // 0x038C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	class UChildActorComponent*                        NewVar_1;                                                 // 0x0390(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
 	class UChildActorComponent*                        NewVar_2;                                                 // 0x0398(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
 	float                                              base_rate;                                                // 0x03A0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                �_惁_;                                                 // 0x03A4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	int                                                BadString3;                                                 // 0x03A4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -50,7 +50,7 @@ public:
 
 
 	void UserConstructionScript();
-	void 򠪦􆖐񍳔_();
+	void BadString4_();
 	void ReceiveBeginPlay();
 	void ExecuteUbergraph_TO14_BP_YOK_OilPump02(int EntryPoint);
 };

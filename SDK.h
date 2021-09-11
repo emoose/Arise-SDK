@@ -229,6 +229,8 @@
 #include "SDK/Arise_structs.h"
 #include "SDK/Arise_classes.h"
 #include "SDK/Arise_parameters.h"
+
+/*
 #include "SDK/ABP_CHR_NFC_HUM_000_PHY_structs.h"
 #include "SDK/ABP_CHR_NFC_HUM_000_PHY_classes.h"
 #include "SDK/ABP_CHR_NFC_HUM_000_PHY_parameters.h"
@@ -4170,4 +4172,4 @@
 #include "SDK/WorldMap_parameters.h"
 #include "SDK/LevelUtility_structs.h"
 #include "SDK/LevelUtility_classes.h"
-#include "SDK/LevelUtility_parameters.h"
+#include "SDK/LevelUtility_parameters.h"*/
