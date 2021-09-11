@@ -1,0 +1,60 @@
+
+#include "../SDK.h"
+
+// Name: Arise, Version: 1.0.0
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x8)
+#endif
+
+namespace SDK
+{
+//---------------------------------------------------------------------------
+// Functions
+//---------------------------------------------------------------------------
+
+// Function TO14_BPI_GUI_MNU_TIT_RP.TO14_BPI_GUI_MNU_TIT_RP_C.OnRefresh
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// EArisePartyID                  PartyId                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void UTO14_BPI_GUI_MNU_TIT_RP_C::OnRefresh(EArisePartyID PartyId)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TO14_BPI_GUI_MNU_TIT_RP.TO14_BPI_GUI_MNU_TIT_RP_C.OnRefresh");
+
+	UTO14_BPI_GUI_MNU_TIT_RP_C_OnRefresh_Params params;
+	params.PartyId = PartyId;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function TO14_BPI_GUI_MNU_TIT_RP.TO14_BPI_GUI_MNU_TIT_RP_C.ExecuteUbergraph_TO14_BPI_GUI_MNU_TIT_RP
+// ()
+// Parameters:
+// int                            EntryPoint                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void UTO14_BPI_GUI_MNU_TIT_RP_C::ExecuteUbergraph_TO14_BPI_GUI_MNU_TIT_RP(int EntryPoint)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function TO14_BPI_GUI_MNU_TIT_RP.TO14_BPI_GUI_MNU_TIT_RP_C.ExecuteUbergraph_TO14_BPI_GUI_MNU_TIT_RP");
+
+	UTO14_BPI_GUI_MNU_TIT_RP_C_ExecuteUbergraph_TO14_BPI_GUI_MNU_TIT_RP_Params params;
+	params.EntryPoint = EntryPoint;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif

@@ -1,0 +1,39 @@
+#pragma once
+
+// Name: Arise, Version: 1.0.0
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x8)
+#endif
+
+namespace SDK
+{
+//---------------------------------------------------------------------------
+// Classes
+//---------------------------------------------------------------------------
+
+// BlueprintGeneratedClass BP_ArisePlayerController_Game.BP_ArisePlayerController_Game_C
+// 0x0008 (0x07E0 - 0x07D8)
+class ABP_ArisePlayerController_Game_C : public ABP_ArisePlayerController_C
+{
+public:
+	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x07D8(0x0008) (Transient, DuplicateTransient)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("BlueprintGeneratedClass BP_ArisePlayerController_Game.BP_ArisePlayerController_Game_C");
+		return ptr;
+	}
+
+
+	void UserConstructionScript();
+	void ReceiveBeginPlay();
+	void ExecuteUbergraph_BP_ArisePlayerController_Game(int EntryPoint);
+};
+
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif

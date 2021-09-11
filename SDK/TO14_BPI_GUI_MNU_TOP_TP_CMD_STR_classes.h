@@ -1,0 +1,51 @@
+#pragma once
+
+// Name: Arise, Version: 1.0.0
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x8)
+#endif
+
+namespace SDK
+{
+//---------------------------------------------------------------------------
+// Classes
+//---------------------------------------------------------------------------
+
+// WidgetBlueprintGeneratedClass TO14_BPI_GUI_MNU_TOP_TP_CMD_STR.TO14_BPI_GUI_MNU_TOP_TP_CMD_STR_C
+// 0x0029 (0x0279 - 0x0250)
+class UTO14_BPI_GUI_MNU_TOP_TP_CMD_STR_C : public UClickableWidgetBase
+{
+public:
+	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0250(0x0008) (Transient, DuplicateTransient)
+	class UAriseClickableArea*                         MouseArea;                                                // 0x0258(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, RepSkip, RepNotify, Interp, NonTransactional, EditorOnly, NoDestructor, AutoWeak, ContainsInstancedReference, AssetRegistrySearchable, SimpleDisplay, AdvancedDisplay, Protected, BlueprintCallable, BlueprintAuthorityOnly, TextExportTransient, NonPIEDuplicateTransient, ExposeOnSpawn, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, NativeAccessSpecifierProtected, NativeAccessSpecifierPrivate)
+	class UAriseTextWidget*                            Name;                                                     // 0x0260(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, RepSkip, RepNotify, Interp, NonTransactional, EditorOnly, NoDestructor, AutoWeak, ContainsInstancedReference, AssetRegistrySearchable, SimpleDisplay, AdvancedDisplay, Protected, BlueprintCallable, BlueprintAuthorityOnly, TextExportTransient, NonPIEDuplicateTransient, ExposeOnSpawn, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, NativeAccessSpecifierProtected, NativeAccessSpecifierPrivate)
+	class UImage*                                      Select;                                                   // 0x0268(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, RepSkip, RepNotify, Interp, NonTransactional, EditorOnly, NoDestructor, AutoWeak, ContainsInstancedReference, AssetRegistrySearchable, SimpleDisplay, AdvancedDisplay, Protected, BlueprintCallable, BlueprintAuthorityOnly, TextExportTransient, NonPIEDuplicateTransient, ExposeOnSpawn, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, NativeAccessSpecifierProtected, NativeAccessSpecifierPrivate)
+	class UTO14_BPI_GUI_SYS_CURSOR_C*                  TO14_BPI_GUI_SYS_CURSOR;                                  // 0x0270(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, RepSkip, RepNotify, Interp, NonTransactional, EditorOnly, NoDestructor, AutoWeak, ContainsInstancedReference, AssetRegistrySearchable, SimpleDisplay, AdvancedDisplay, Protected, BlueprintCallable, BlueprintAuthorityOnly, TextExportTransient, NonPIEDuplicateTransient, ExposeOnSpawn, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, NativeAccessSpecifierProtected, NativeAccessSpecifierPrivate)
+	bool                                               bEnable;                                                  // 0x0278(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("WidgetBlueprintGeneratedClass TO14_BPI_GUI_MNU_TOP_TP_CMD_STR.TO14_BPI_GUI_MNU_TOP_TP_CMD_STR_C");
+		return ptr;
+	}
+
+
+	void IsEnable(bool* Enable);
+	void SetEnable(bool Enable);
+	void SetMouseActive(bool Active);
+	bool OnDeselected();
+	bool OnSelected();
+	void SetActive(bool Active);
+	void SetText(const struct FDictionaryText& DicText);
+	void BndEvt__MouseArea_K2Node_ComponentBoundEvent_22_OnButtonHoverEvent__DelegateSignature();
+	void BndEvt__MouseArea_K2Node_ComponentBoundEvent_29_OnMouseClickedEvent__DelegateSignature();
+	void ExecuteUbergraph_TO14_BPI_GUI_MNU_TOP_TP_CMD_STR(int EntryPoint);
+};
+
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif

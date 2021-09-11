@@ -1,0 +1,38 @@
+#pragma once
+
+#include "../SDK.h"
+
+// Name: Arise, Version: 1.0.0
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x8)
+#endif
+
+namespace SDK
+{
+//---------------------------------------------------------------------------
+// Parameters
+//---------------------------------------------------------------------------
+
+// Function TO14_BP_WT_Base.TO14_BP_WT_Base_C.UserConstructionScript
+struct ATO14_BP_WT_Base_C_UserConstructionScript_Params
+{
+};
+
+// Function TO14_BP_WT_Base.TO14_BP_WT_Base_C.UpdateTime
+struct ATO14_BP_WT_Base_C_UpdateTime_Params
+{
+	float                                              CurrentHour;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function TO14_BP_WT_Base.TO14_BP_WT_Base_C.ExecuteUbergraph_TO14_BP_WT_Base
+struct ATO14_BP_WT_Base_C_ExecuteUbergraph_TO14_BP_WT_Base_Params
+{
+	int                                                EntryPoint;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif
