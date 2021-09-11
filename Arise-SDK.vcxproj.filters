@@ -51,6 +51,9 @@
     <ClCompile Include="SDK\CoreUObject_functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\Engine_functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -102,6 +105,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SDK\CoreUObject_structs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Engine_classes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Engine_parameters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Engine_structs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

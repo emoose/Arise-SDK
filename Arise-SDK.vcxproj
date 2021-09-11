@@ -118,7 +118,7 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <ModuleDefinitionFile>proxy.def</ModuleDefinitionFile>
       <OutputFile>$(OutDir)xinput1_3$(TargetExt)</OutputFile>
     </Link>
@@ -162,7 +162,7 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <ModuleDefinitionFile>proxy.def</ModuleDefinitionFile>
       <OutputFile>$(OutDir)xinput1_3$(TargetExt)</OutputFile>
     </Link>
@@ -231,6 +231,12 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">../pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="SDK\Engine_functions.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">../pch.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -251,6 +257,9 @@
     <ClInclude Include="SDK\CoreUObject_classes.h" />
     <ClInclude Include="SDK\CoreUObject_parameters.h" />
     <ClInclude Include="SDK\CoreUObject_structs.h" />
+    <ClInclude Include="SDK\Engine_classes.h" />
+    <ClInclude Include="SDK\Engine_parameters.h" />
+    <ClInclude Include="SDK\Engine_structs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

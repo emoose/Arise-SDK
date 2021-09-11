@@ -9,73 +9,60 @@ const uint32_t Addr_ProcessEvent = 0x14CBA50;
 const uint32_t Addr_GUObjectArray = 0x44DC350;
 const uint32_t Addr_Names = 0x4C6DE10;
 
+const uint32_t Addr_UPFNpcCameraFadeComponent__FadeUpdate = 0xE0A810;
+const uint32_t Addr_APFNpcManager__HandlesDistanceDespawn = 0xE1C010;
+
 using namespace SDK;
 
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
-const int NewNPCDistance = 10000;
+const int NewNPCDistance = 100000;
 
-DWORD updateThreadId = 0;
-HANDLE updateThreadHandle = 0;
-DWORD WINAPI UpdateThread(LPVOID lpParam)
+typedef void(*APFNpcManager__HandlesDistanceDespawn_Fn)(void* a1, void* a2, FPFNpcSpawnSettingsData* spawnSettings);
+APFNpcManager__HandlesDistanceDespawn_Fn APFNpcManager__HandlesDistanceDespawn_Orig;
+
+// a1 is a APFNpcManager**?
+// caller to this func calls it twice, once with APFNpcManager::SpawnSettings & once with APFNpcManager::SpawnSettingsHigh
+
+// it'd be nice if we could swap spawnSettings for our own FPFNpcSpawnSettingsData instance, so we wouldn't need these NewNPCDistance checks every time
+// unfortunately the orig func seems to access APFNpcManager::SpawnSettings directly too though, ignoring the spawnSettings param in some case :/
+void APFNpcManager__HandlesDistanceDespawn_Hook(void* a1, void* a2, FPFNpcSpawnSettingsData* spawnSettings)
 {
-  while (true)
+  // Seems that Arise.PF.NPC.AllowDistanceDespawn cvar is checked before this func is called
+  // Haven't had any luck making that work though...
+
+  if (NewNPCDistance > spawnSettings->DespawnDistance)
   {
-    Sleep(1000);
-
-    bool performAction = (GetKeyState(VK_HOME) & 0x8000) && (GetKeyState(VK_END) & 0x8000);
-    if (!performAction)
-      continue;
-
-    auto test = UObject::FindObjects<UPFNpcCameraFadeComponent>();
-    for (auto& obj : test)
-    {
-      if (NewNPCDistance > obj->CameraSettings.CameraFarFadeOutDistance)
-      {
-        obj->CameraSettings.CameraFarFadeOutDistance = NewNPCDistance;
-        obj->CameraSettings.CameraFarFadeInDistance = NewNPCDistance;
-      }
-    }
-
-    // Doesn't seem that these need to be updated:
-    /*auto test2 = UObject::FindObjects<APFNpcManager>();
-    for (auto& obj : test2)
-    {
-      if (NewNPCDistance > obj->CameraSettings.CameraFarFadeOutDistance)
-      {
-        obj->CameraSettings.CameraFarFadeOutDistance = NewNPCDistance;
-        obj->CameraSettings.CameraFarFadeInDistance = NewNPCDistance;
-      }
-      if (NewNPCDistance > obj->CameraSettingsHigh.CameraFarFadeOutDistance)
-      {
-        obj->CameraSettingsHigh.CameraFarFadeOutDistance = NewNPCDistance;
-        obj->CameraSettingsHigh.CameraFarFadeInDistance = NewNPCDistance;
-      }
-    }
-    auto test3 = UObject::FindObjects<UPFNpcSettingMetaData>();
-    for (auto& obj : test3)
-    {
-      if (NewNPCDistance > obj->CameraSettings.CameraFarFadeOutDistance)
-      {
-        obj->CameraSettings.CameraFarFadeOutDistance = NewNPCDistance;
-        obj->CameraSettings.CameraFarFadeInDistance = NewNPCDistance;
-      }
-    }
-    auto test4 = UObject::FindObjects<UPFNpcSettingsBase>();
-    for (auto& obj : test4)
-    {
-      if (NewNPCDistance > obj->CameraSettings.CameraFarFadeOutDistance)
-      {
-        obj->CameraSettings.CameraFarFadeOutDistance = NewNPCDistance;
-        obj->CameraSettings.CameraFarFadeInDistance = NewNPCDistance;
-      }
-    }*/
+    spawnSettings->DespawnDistance = NewNPCDistance;
+    spawnSettings->SpawnDistance = NewNPCDistance;
   }
+
+  return APFNpcManager__HandlesDistanceDespawn_Orig(a1, a2, spawnSettings);
+}
+
+typedef void(*UPFNpcCameraFadeComponent__FadeUpdate_Fn)(UPFNpcCameraFadeComponent* thisptr, void* a2);
+UPFNpcCameraFadeComponent__FadeUpdate_Fn UPFNpcCameraFadeComponent__FadeUpdate_Orig;
+
+void UPFNpcCameraFadeComponent__FadeUpdate_Hook(UPFNpcCameraFadeComponent* thisptr, void* a2)
+{
+  if (NewNPCDistance > thisptr->CameraSettings.CameraFarFadeOutDistance)
+  {
+    thisptr->CameraSettings.CameraFarFadeOutDistance = NewNPCDistance;
+    thisptr->CameraSettings.CameraFarFadeInDistance = NewNPCDistance;
+  }
+  if (NewNPCDistance > thisptr->FarFadeOutDistance)
+  {
+    thisptr->FarFadeOutDistance = NewNPCDistance;
+    thisptr->FarFadeInDistance = NewNPCDistance;
+  }
+  UPFNpcCameraFadeComponent__FadeUpdate_Orig(thisptr, a2);
 }
 
 void InitPlugin()
 {
+  printf("\nArise-SDK 0.1 - https://github.com/emoose/Arise-SDK\n");
+
   GameHModule = GetModuleHandleA("Tales of Arise.exe");
 
   if (!GameHModule)
@@ -87,16 +74,15 @@ void InitPlugin()
   UObject::GObjects = reinterpret_cast<FUObjectArray*>(mBaseAddress + Addr_GUObjectArray);
   FName::GNames = reinterpret_cast<TNameEntryArray*>(mBaseAddress + Addr_Names);
 
-  updateThreadHandle = CreateThread(
-    NULL,                   // default security attributes
-    0,                      // use default stack size  
-    UpdateThread,       // thread function name
-    NULL,          // argument to thread function 
-    0,                      // use default creation flags 
-    &updateThreadId);   // returns the thread identifier 
+  MH_Initialize();
 
-  //MH_Initialize();
-  //MH_EnableHook(MH_ALL_HOOKS);
+  MH_CreateHook((LPVOID)(mBaseAddress + Addr_UPFNpcCameraFadeComponent__FadeUpdate), 
+    UPFNpcCameraFadeComponent__FadeUpdate_Hook, (LPVOID*)&UPFNpcCameraFadeComponent__FadeUpdate_Orig);
+
+  MH_CreateHook((LPVOID)(mBaseAddress + Addr_APFNpcManager__HandlesDistanceDespawn),
+    APFNpcManager__HandlesDistanceDespawn_Hook, (LPVOID*)&APFNpcManager__HandlesDistanceDespawn_Orig);
+
+  MH_EnableHook(MH_ALL_HOOKS);
 }
 
 HMODULE ourModule;
