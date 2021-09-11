@@ -11,6 +11,15 @@ extern uintptr_t mBaseAddress;
 #include "SDK.h"
 using namespace SDK;
 
+// dllmain.cpp
+extern HMODULE DllHModule;
+extern HMODULE GameHModule;
+extern uintptr_t mBaseAddress;
+void InitPlugin();
+
+// proxy.cpp
+void Proxy_InitSteamStub();
+
 // Utility.cpp
 bool FileExists(const WCHAR* Filename);
 bool DirExists(const WCHAR* DirPath);

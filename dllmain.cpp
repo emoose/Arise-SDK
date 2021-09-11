@@ -14,6 +14,7 @@ const uint32_t Addr_APFNpcManager__HandlesDistanceDespawn = 0xE1C010;
 
 using namespace SDK;
 
+HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
@@ -61,7 +62,7 @@ void UPFNpcCameraFadeComponent__FadeUpdate_Hook(UPFNpcCameraFadeComponent* thisp
 
 void InitPlugin()
 {
-  printf("\nArise-SDK 0.1 - https://github.com/emoose/Arise-SDK\n");
+  printf("\nArise-SDK 0.1.1 - https://github.com/emoose/Arise-SDK\n");
 
   GameHModule = GetModuleHandleA("Tales of Arise.exe");
 
@@ -85,8 +86,6 @@ void InitPlugin()
   MH_EnableHook(MH_ALL_HOOKS);
 }
 
-HMODULE ourModule;
-
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
                        LPVOID lpReserved
@@ -95,12 +94,12 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-      ourModule = hModule;
+      DllHModule = hModule;
 
       bool Proxy_Attach(); // proxy.cpp
       Proxy_Attach();
 
-      InitPlugin();
+      Proxy_InitSteamStub();
       break;
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:

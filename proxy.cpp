@@ -166,19 +166,144 @@ PLUGIN_API HRESULT WINAPI DXGIReportAdapterConfiguration(DWORD unk)
 	return DXGIReportAdapterConfiguration_orig(unk);
 }
 
+// IAT hooks for getting around SteamStub, bleh
+
+typedef void(*GetSystemTimeAsFileTime_ptr)(LPFILETIME lpSystemTimeAsFileTime);
+GetSystemTimeAsFileTime_ptr GetSystemTimeAsFileTime_orig = NULL;
+GetSystemTimeAsFileTime_ptr* GetSystemTimeAsFileTime_iat = NULL;
+
+typedef BOOL(*QueryPerformanceCounter_ptr)(LARGE_INTEGER* lpPerformanceCount);
+QueryPerformanceCounter_ptr QueryPerformanceCounter_orig = NULL;
+QueryPerformanceCounter_ptr* QueryPerformanceCounter_iat = NULL;
+
+static void GetSystemTimeAsFileTime_Hook(LPFILETIME lpSystemTimeAsFileTime)
+{
+  // call original hooked func
+  GetSystemTimeAsFileTime_orig(lpSystemTimeAsFileTime);
+
+  SafeWrite(uintptr_t(GetSystemTimeAsFileTime_iat), GetSystemTimeAsFileTime_orig);
+  SafeWrite(uintptr_t(QueryPerformanceCounter_iat), QueryPerformanceCounter_orig);
+
+  // run our code :)
+  InitPlugin();
+}
+
+static BOOL QueryPerformanceCounter_hook(LARGE_INTEGER* lpPerformanceCount)
+{
+  // patch iats back to original
+  SafeWrite(uintptr_t(GetSystemTimeAsFileTime_iat), GetSystemTimeAsFileTime_orig);
+  SafeWrite(uintptr_t(QueryPerformanceCounter_iat), QueryPerformanceCounter_orig);
+
+  // run our code :)
+  InitPlugin();
+
+  // call original hooked func
+  return QueryPerformanceCounter_orig(lpPerformanceCount);
+}
+
+void* ModuleDirectoryEntryData(void* Module, int DirectoryEntry, int* EntrySize = nullptr)
+{
+  auto* base = (BYTE*)Module;
+  auto* dosHeader = (IMAGE_DOS_HEADER*)base;
+  if (dosHeader->e_magic != IMAGE_DOS_SIGNATURE)
+    return nullptr; // invalid header :(
+
+  auto* ntHeader = (IMAGE_NT_HEADERS*)(base + dosHeader->e_lfanew);
+  if (ntHeader->Signature != IMAGE_NT_SIGNATURE)
+    return nullptr; // invalid header :(
+
+  auto entryAddr = ntHeader->OptionalHeader.DataDirectory[DirectoryEntry].VirtualAddress;
+  if (!entryAddr)
+    return nullptr;
+
+  if (EntrySize)
+    *EntrySize = ntHeader->OptionalHeader.DataDirectory[DirectoryEntry].Size;
+
+  return base + entryAddr;
+}
+
+FARPROC* GetIATPointer(void* Module, const char* LibraryName, const char* ImportName)
+{
+  auto* base = (BYTE*)Module;
+  auto* importTable = (IMAGE_IMPORT_DESCRIPTOR*)ModuleDirectoryEntryData(Module, IMAGE_DIRECTORY_ENTRY_IMPORT);
+  if (!importTable)
+    return nullptr;
+
+  for (; importTable->Characteristics; ++importTable)
+  {
+    auto* dllName = (const char*)(base + importTable->Name);
+
+    if (!_stricmp(dllName, LibraryName))
+    {
+      // found the dll
+
+      auto* thunkData = (IMAGE_THUNK_DATA*)(base + importTable->OriginalFirstThunk);
+      auto* iat = (FARPROC*)(base + importTable->FirstThunk);
+
+      for (; thunkData->u1.Ordinal; ++thunkData, ++iat)
+      {
+        if (!IMAGE_SNAP_BY_ORDINAL(thunkData->u1.Ordinal))
+        {
+          auto* importInfo = (IMAGE_IMPORT_BY_NAME*)(base + thunkData->u1.AddressOfData);
+
+          if (!_stricmp((char*)importInfo->Name, ImportName))
+          {
+            // found the import
+            return iat;
+          }
+        }
+      }
+
+      return nullptr;
+    }
+  }
+
+  return nullptr;
+}
+
+void Proxy_InitSteamStub()
+{
+  // Hook the GetSystemTimeAsFileTime function, in most games this seems to be one of the first imports called once SteamStub has finished.
+  bool hooked = false;
+  GetSystemTimeAsFileTime_iat = (GetSystemTimeAsFileTime_ptr*)GetIATPointer(GameHModule, "KERNEL32.DLL", "GetSystemTimeAsFileTime");
+  if (GetSystemTimeAsFileTime_iat)
+  {
+    // Found IAT address, hook the function to run our own code instead
+
+    GetSystemTimeAsFileTime_orig = *GetSystemTimeAsFileTime_iat;
+    SafeWrite(uintptr_t(GetSystemTimeAsFileTime_iat), GetSystemTimeAsFileTime_Hook);
+
+    hooked = true;
+  }
+
+  // As a backup we'll also hook QueryPerformanceCounter, almost every game makes use of this
+  QueryPerformanceCounter_iat = (QueryPerformanceCounter_ptr*)GetIATPointer(GameHModule, "KERNEL32.DLL", "QueryPerformanceCounter");
+  if (QueryPerformanceCounter_iat)
+  {
+    // Found IAT address, hook the function to run our own code instead
+
+    QueryPerformanceCounter_orig = *QueryPerformanceCounter_iat;
+    SafeWrite(uintptr_t(QueryPerformanceCounter_iat), QueryPerformanceCounter_hook);
+
+    hooked = true;
+  }
+
+  // If we failed to hook, try running our code directly
+  if (!hooked)
+    InitPlugin();
+}
+
 HMODULE origModule = NULL;
 
 bool Proxy_Attach()
 {
-	extern HMODULE ourModule;
-
 	// get the filename of our DLL and try loading the DLL with the same name from system dir
 	WCHAR modulePath[MAX_PATH] = { 0 };
 	if (!GetSystemDirectoryW(modulePath, _countof(modulePath)))
 		return false;
 
 	WCHAR ourModulePath[MAX_PATH] = { 0 };
-	GetModuleFileNameW(ourModule, ourModulePath, _countof(ourModulePath));
+	GetModuleFileNameW(DllHModule, ourModulePath, _countof(ourModulePath));
 
 	WCHAR exeName[MAX_PATH] = { 0 };
 	WCHAR extName[MAX_PATH] = { 0 };
