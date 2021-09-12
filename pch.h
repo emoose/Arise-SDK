@@ -11,6 +11,29 @@ extern uintptr_t mBaseAddress;
 #include "SDK.h"
 using namespace SDK;
 
+struct __declspec(align(8)) FOutputDevice
+{
+  void* __vftable; /*VFT*/
+  bool bSuppressEventTag;
+  bool bAutoEmitLineTerminator;
+};
+
+struct __declspec(align(8)) FFrame : public FOutputDevice
+{
+  UFunction* Node;
+  UObject* Object;
+  unsigned __int8* Code;
+  unsigned __int8* Locals;
+  UProperty* MostRecentProperty;
+  unsigned __int8* MostRecentPropertyAddress;
+  TArray<unsigned int> FlowStack;
+  FFrame* PreviousFrame;
+  void* OutParms; /* FOutParmRec* */
+  UField* PropertyChainForCompiledIn;
+  UFunction* CurrentNativeFunction;
+  bool bArrayContextFailed;
+};
+
 #define MH_Hook(addr, hook, orig) MH_CreateHook((LPVOID)(mBaseAddress + addr), hook, (LPVOID*)orig)
 
 // Creates a hook for function defined in GameAddresses, requires _Hook function & _Orig variable

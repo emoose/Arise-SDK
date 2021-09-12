@@ -68,9 +68,17 @@ void UPFNpcCameraFadeComponent__FadeUpdate_Hook(UPFNpcCameraFadeComponent* thisp
   UPFNpcCameraFadeComponent__FadeUpdate_Orig(thisptr, a2);
 }
 
+void UAriseGameInstance__ReturnTrue(void* a1, FFrame* a2, bool* a3)
+{
+  if (a2->Code)
+    a2->Code++;
+
+  *a3 = 1;
+}
+
 bool InitGame()
 {
-  printf("\nArise-SDK 0.1.3 - https://github.com/emoose/Arise-SDK\n");
+  printf("\nArise-SDK 0.1.4 - https://github.com/emoose/Arise-SDK\n");
 
   GameHModule = GetModuleHandleA("Tales of Arise.exe");
 
@@ -104,6 +112,14 @@ void InitPlugin()
 
   MH_GameHook(UPFNpcCameraFadeComponent__FadeUpdate);
   MH_GameHook(APFNpcManager__HandlesDistanceDespawn);
+
+  // This needs to be handled differently to other hooks
+  // the IsBootDisplaySkip (and others like IsDebugMode) point to a func which just always returns 0
+  // This func is used by a bunch of different functions, so hooking it & forcing the value isn't a great idea
+  // Instead, we overwrite the addr used to set up the IsBootDisplaySkip UFunction, so it points to our func
+
+  // UAriseGameInstance::IsBootDisplaySkip
+  SafeWriteModule(0x3D465E8, uint64_t(&UAriseGameInstance__ReturnTrue));
 
   Init_UE4Hook();
 
