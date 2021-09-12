@@ -99,14 +99,9 @@ void InitPlugin()
 
   MH_GameHook(APFNpcManager__InitsDistances);
 
-  // This needs to be handled differently to other hooks
-  // IsBootDisplaySkip (and others like IsDebugMode) point to a func which just always returns 0
-  // This func is used by a bunch of different functions, so hooking it & forcing the value isn't a great idea
-  // Instead, we overwrite the addr used to set up the IsBootDisplaySkip UFunction, so it points to our func
-  SafeWriteModule(Addr_UAriseGameInstance__IsBootDisplaySkip_Ptr, uint64_t(&UAriseGameInstance__ReturnTrue));
-  // N.B: if our DLL was injected later on after the IsBootDisplaySkip UFunction was created, changing addr above probably wouldn't make a difference
-  // In that case we'd need to find the UFunction object and change the Func field manually
-  // Since this function is only used at startup that's not really required here though
+  // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
+  const uint32_t PatchAddr_UBootSceneController__Start = 0xF4B213;
+  SafeWriteModule(PatchAddr_UBootSceneController__Start, uint16_t(0x9090));
 
   // TODO: patch out the code that overwrites r.Shadow.MaxCSMResolution, so it can be changed inside Engine.ini freely
   // without patching it the game will always overwrite any INI value set for this, limiting it to 4096 and below
