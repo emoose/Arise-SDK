@@ -60,9 +60,9 @@ void UPFNpcCameraFadeComponent__FadeUpdate_Hook(UPFNpcCameraFadeComponent* thisp
   UPFNpcCameraFadeComponent__FadeUpdate_Orig(thisptr, a2);
 }
 
-void InitPlugin()
+void InitGame()
 {
-  printf("\nArise-SDK 0.1.1 - https://github.com/emoose/Arise-SDK\n");
+  printf("\nArise-SDK 0.1.2 - https://github.com/emoose/Arise-SDK\n");
 
   GameHModule = GetModuleHandleA("Tales of Arise.exe");
 
@@ -70,7 +70,10 @@ void InitPlugin()
     return;
 
   mBaseAddress = reinterpret_cast<uintptr_t>(GameHModule);
+}
 
+void InitPlugin()
+{
   UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(mBaseAddress + Addr_ProcessEvent);
   UObject::GObjects = reinterpret_cast<FUObjectArray*>(mBaseAddress + Addr_GUObjectArray);
   FName::GNames = reinterpret_cast<TNameEntryArray*>(mBaseAddress + Addr_Names);
@@ -98,6 +101,8 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
       bool Proxy_Attach(); // proxy.cpp
       Proxy_Attach();
+
+      InitGame();
 
       Proxy_InitSteamStub();
       break;
