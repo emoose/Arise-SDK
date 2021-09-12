@@ -41,22 +41,22 @@ void APFNpcManager__InitsDistances_Hook(APFNpcManager* a1, bool a2)
   if (NewNPCDistance > a1->SpawnSettings.DespawnDistance)
   {
     a1->SpawnSettings.DespawnDistance = NewNPCDistance;
-    a1->SpawnSettings.SpawnDistance = NewNPCDistance;
+    a1->SpawnSettings.SpawnDistance = NewNPCDistance - 500;
   }
   if (NewNPCDistance > a1->SpawnSettingsHigh.DespawnDistance)
   {
     a1->SpawnSettingsHigh.DespawnDistance = NewNPCDistance;
-    a1->SpawnSettingsHigh.SpawnDistance = NewNPCDistance;
+    a1->SpawnSettingsHigh.SpawnDistance = NewNPCDistance - 500;
   }
   if (NewNPCDistance > a1->CameraSettings.CameraFarFadeOutDistance)
   {
     a1->CameraSettings.CameraFarFadeOutDistance = NewNPCDistance;
-    a1->CameraSettings.CameraFarFadeInDistance = NewNPCDistance;
+    a1->CameraSettings.CameraFarFadeInDistance = NewNPCDistance - 500;
   }
   if (NewNPCDistance > a1->CameraSettingsHigh.CameraFarFadeOutDistance)
   {
     a1->CameraSettingsHigh.CameraFarFadeOutDistance = NewNPCDistance;
-    a1->CameraSettingsHigh.CameraFarFadeInDistance = NewNPCDistance;
+    a1->CameraSettingsHigh.CameraFarFadeInDistance = NewNPCDistance - 500;
   }
 }
 
