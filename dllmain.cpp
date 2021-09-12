@@ -113,6 +113,15 @@ void InitPlugin()
   // In that case we'd need to find the UFunction object and change the Func field manually
   // Since this function is only used at startup that's not really required here though
 
+  // TODO: patch out the code that overwrites r.Shadow.MaxCSMResolution, so it can be changed inside Engine.ini freely
+  // without patching it the game will always overwrite any INI value set for this, limiting it to 4096 and below
+  // using console you can set this to 8192+, but there's no way to make it stick, since game will overwrite your INI changes
+  // uncommenting this will prevent that, but will also leave it stuck at 2048 for people that don't have it setup inside INI...
+  // maybe worth trying to hook this and make it so overwrite only happens when it's larger than the current value?
+  // (so it can overwrite the default 2048 with 4096 fine, but won't overwrite your custom 8192 setting with 4096...)
+    // uint8_t nop[] = { 0x90, 0x90, 0x90, 0x90, 0x90 };
+    // SafeWriteModule(0xE52F7A, nop, 5);
+
   Init_UE4Hook();
 
   MH_EnableHook(MH_ALL_HOOKS);
