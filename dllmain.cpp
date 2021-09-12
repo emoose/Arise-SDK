@@ -1,5 +1,4 @@
-﻿// dllmain.cpp : Defines the entry point for the DLL application.
-#include "pch.h"
+﻿#include "pch.h"
 #include <fstream>
 #include <sstream>
 #include <Shlobj.h>
@@ -103,11 +102,8 @@ void InitPlugin()
 
   MH_Initialize();
 
-  MH_CreateHook((LPVOID)(mBaseAddress + Addr_UPFNpcCameraFadeComponent__FadeUpdate), 
-    UPFNpcCameraFadeComponent__FadeUpdate_Hook, (LPVOID*)&UPFNpcCameraFadeComponent__FadeUpdate_Orig);
-
-  MH_CreateHook((LPVOID)(mBaseAddress + Addr_APFNpcManager__HandlesDistanceDespawn),
-    APFNpcManager__HandlesDistanceDespawn_Hook, (LPVOID*)&APFNpcManager__HandlesDistanceDespawn_Orig);
+  MH_GameHook(UPFNpcCameraFadeComponent__FadeUpdate);
+  MH_GameHook(APFNpcManager__HandlesDistanceDespawn);
 
   Init_UE4Hook();
 
@@ -129,6 +125,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
       if(InitGame())
         Proxy_InitSteamStub();
+
       break;
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
