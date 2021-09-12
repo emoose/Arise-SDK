@@ -36,7 +36,7 @@ void* UGameViewportClient__SetupInitialLocalPlayer_Hook(UGameViewportClient* thi
   return ret;
 }
 
-typedef void* (*FPakPlatformFile__FindFileInPakFilesFn)(void* Paks, const TCHAR* Filename, void** OutPakFile);
+typedef void* (*FPakPlatformFile__FindFileInPakFilesFn)(void* thisptr, const TCHAR* Filename, void** OutPakFile, void* OutEntry);
 typedef bool (*FPakPlatformFile__IsNonPakFilenameAllowedFn)(void* thisptr, const FString& InFilename);
 
 const wchar_t* gameDataStart = L"../../../"; // seems to be at the start of every game path
@@ -45,7 +45,7 @@ const wchar_t* gameDataStart = L"../../../"; // seems to be at the start of ever
 // If a loose file is found will return null (ie: saying that the .pak doesn't contain it)
 // 90% of UE4 games will then try loading loose files, luckily DQXI is part of that 90% :D
 FPakPlatformFile__FindFileInPakFilesFn FPakPlatformFile__FindFileInPakFiles_Orig;
-void* FPakPlatformFile__FindFileInPakFiles_Hook(void* Paks, const TCHAR* Filename, void** OutPakFile)
+void* FPakPlatformFile__FindFileInPakFiles_Hook(void* thisptr, const TCHAR* Filename, void** OutPakFile, void* OutEntry)
 {
   if (OutPakFile)
     *OutPakFile = nullptr;
@@ -53,7 +53,7 @@ void* FPakPlatformFile__FindFileInPakFiles_Hook(void* Paks, const TCHAR* Filenam
   if (Filename && wcsstr(Filename, gameDataStart) && FileExists(Filename))
     return 0; // file exists, tell game it's not in pak
 
-  return FPakPlatformFile__FindFileInPakFiles_Orig(Paks, Filename, OutPakFile);
+  return FPakPlatformFile__FindFileInPakFiles_Orig(thisptr, Filename, OutPakFile, OutEntry);
 }
 
 FPakPlatformFile__IsNonPakFilenameAllowedFn FPakPlatformFile__IsNonPakFilenameAllowed_Orig;
@@ -75,8 +75,8 @@ void Init_UE4Hook()
 
   //if (Options.LoadUnpackedFiles)
   {
-    //MH_GameHook(FPakPlatformFile__FindFileInPakFiles);
-    //MH_GameHook(FPakPlatformFile__IsNonPakFilenameAllowed);
+    MH_GameHook(FPakPlatformFile__FindFileInPakFiles);
+    MH_GameHook(FPakPlatformFile__IsNonPakFilenameAllowed);
   }
 
   if (UObject::GObjects->ObjObjects.Num())

@@ -18,8 +18,8 @@ const uint32_t Addr_APFNpcManager__HandlesDistanceDespawn = 0xE1C010;
 // Addresses for UE4Hook.cpp
 const uint32_t Addr_StaticConstructObject_Internal = 0x14EA190;
 extern const uint32_t Addr_UGameViewportClient__SetupInitialLocalPlayer = 0x2034460; // requires extern to be visible outside of dllmain...
-extern const uint32_t Addr_FPakPlatformFile__FindFileInPakFiles = 0;
-extern const uint32_t Addr_FPakPlatformFile__IsNonPakFilenameAllowed = 0;
+extern const uint32_t Addr_FPakPlatformFile__FindFileInPakFiles = 0x27E93C0;
+extern const uint32_t Addr_FPakPlatformFile__IsNonPakFilenameAllowed = 0x27F4130;
 
 using namespace SDK;
 
@@ -71,7 +71,7 @@ void UPFNpcCameraFadeComponent__FadeUpdate_Hook(UPFNpcCameraFadeComponent* thisp
 
 bool InitGame()
 {
-  printf("\nArise-SDK 0.1.2 - https://github.com/emoose/Arise-SDK\n");
+  printf("\nArise-SDK 0.1.3 - https://github.com/emoose/Arise-SDK\n");
 
   GameHModule = GetModuleHandleA("Tales of Arise.exe");
 
