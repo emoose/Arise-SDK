@@ -11,7 +11,6 @@ const uint32_t Addr_ProcessEvent = 0x14CBA50;
 const uint32_t Addr_GUObjectArray = 0x44DC350;
 const uint32_t Addr_Names = 0x4C6DE10;
 
-const uint32_t Addr_UPFNpcCameraFadeComponent__FadeUpdate = 0xE0A810;
 const uint32_t Addr_APFNpcManager__InitsDistances = 0xE1C860;
 
 const uint32_t Addr_UAriseGameInstance__IsBootDisplaySkip_Ptr = 0x3D465E8;
@@ -49,23 +48,16 @@ void APFNpcManager__InitsDistances_Hook(APFNpcManager* a1, bool a2)
     a1->SpawnSettingsHigh.DespawnDistance = NewNPCDistance;
     a1->SpawnSettingsHigh.SpawnDistance = NewNPCDistance;
   }
-}
-
-typedef void(*UPFNpcCameraFadeComponent__FadeUpdate_Fn)(UPFNpcCameraFadeComponent* thisptr, void* a2);
-UPFNpcCameraFadeComponent__FadeUpdate_Fn UPFNpcCameraFadeComponent__FadeUpdate_Orig;
-void UPFNpcCameraFadeComponent__FadeUpdate_Hook(UPFNpcCameraFadeComponent* thisptr, void* a2)
-{
-  if (NewNPCDistance > thisptr->CameraSettings.CameraFarFadeOutDistance)
+  if (NewNPCDistance > a1->CameraSettings.CameraFarFadeOutDistance)
   {
-    thisptr->CameraSettings.CameraFarFadeOutDistance = NewNPCDistance;
-    thisptr->CameraSettings.CameraFarFadeInDistance = NewNPCDistance;
+    a1->CameraSettings.CameraFarFadeOutDistance = NewNPCDistance;
+    a1->CameraSettings.CameraFarFadeInDistance = NewNPCDistance;
   }
-  if (NewNPCDistance > thisptr->FarFadeOutDistance)
+  if (NewNPCDistance > a1->CameraSettingsHigh.CameraFarFadeOutDistance)
   {
-    thisptr->FarFadeOutDistance = NewNPCDistance;
-    thisptr->FarFadeInDistance = NewNPCDistance;
+    a1->CameraSettingsHigh.CameraFarFadeOutDistance = NewNPCDistance;
+    a1->CameraSettingsHigh.CameraFarFadeInDistance = NewNPCDistance;
   }
-  UPFNpcCameraFadeComponent__FadeUpdate_Orig(thisptr, a2);
 }
 
 void UAriseGameInstance__ReturnTrue(void* a1, FFrame* a2, bool* a3)
@@ -78,7 +70,7 @@ void UAriseGameInstance__ReturnTrue(void* a1, FFrame* a2, bool* a3)
 
 bool InitGame()
 {
-  printf("\nArise-SDK 0.1.4 - https://github.com/emoose/Arise-SDK\n");
+  printf("\nArise-SDK 0.1.5 - https://github.com/emoose/Arise-SDK\n");
 
   GameHModule = GetModuleHandleA("Tales of Arise.exe");
 
@@ -110,7 +102,6 @@ void InitPlugin()
 
   MH_Initialize();
 
-  MH_GameHook(UPFNpcCameraFadeComponent__FadeUpdate);
   MH_GameHook(APFNpcManager__InitsDistances);
 
   // This needs to be handled differently to other hooks
