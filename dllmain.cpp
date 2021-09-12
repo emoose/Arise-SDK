@@ -5,6 +5,9 @@
 #include <Shlobj.h>
 #include <filesystem>
 
+const uint32_t Addr_Timestamp = 0x1E0;
+const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
+
 const uint32_t Addr_ProcessEvent = 0x14CBA50;
 const uint32_t Addr_GUObjectArray = 0x44DC350;
 const uint32_t Addr_Names = 0x4C6DE10;
@@ -60,16 +63,28 @@ void UPFNpcCameraFadeComponent__FadeUpdate_Hook(UPFNpcCameraFadeComponent* thisp
   UPFNpcCameraFadeComponent__FadeUpdate_Orig(thisptr, a2);
 }
 
-void InitGame()
+bool InitGame()
 {
   printf("\nArise-SDK 0.1.2 - https://github.com/emoose/Arise-SDK\n");
 
   GameHModule = GetModuleHandleA("Tales of Arise.exe");
 
   if (!GameHModule)
-    return;
-
+  {
+    MessageBoxA(0, "Failed to get module handle for 'Tales of Arise.exe', aborting Arise-SDK load...", "Arise-SDK", 0);
+    return false;
+  }
   mBaseAddress = reinterpret_cast<uintptr_t>(GameHModule);
+
+  // Check that this is the EXE we were built against...
+  uint32_t timestamp = *reinterpret_cast<uint32_t*>(mBaseAddress + Addr_Timestamp);
+  if (timestamp != Value_Timestamp)
+  {
+    MessageBoxA(0, "Unsupported 'Tales of Arise.exe' version, aborting Arise-SDK load...", "Arise-SDK", 0);
+    return false;
+  }
+
+  return true;
 }
 
 void InitPlugin()
@@ -102,9 +117,8 @@ BOOL APIENTRY DllMain( HMODULE hModule,
       bool Proxy_Attach(); // proxy.cpp
       Proxy_Attach();
 
-      InitGame();
-
-      Proxy_InitSteamStub();
+      if(InitGame())
+        Proxy_InitSteamStub();
       break;
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
