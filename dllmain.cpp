@@ -21,16 +21,11 @@ extern const uint32_t Addr_UGameViewportClient__SetupInitialLocalPlayer = 0x2034
 extern const uint32_t Addr_FPakPlatformFile__FindFileInPakFiles = 0x27E93C0;
 extern const uint32_t Addr_FPakPlatformFile__IsNonPakFilenameAllowed = 0x27F4130;
 
-using namespace SDK;
-
 HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
 const int NewNPCDistance = 100000;
-
-typedef void(*APFNpcManager__HandlesDistanceDespawn_Fn)(void* a1, void* a2, FPFNpcSpawnSettingsData* spawnSettings);
-APFNpcManager__HandlesDistanceDespawn_Fn APFNpcManager__HandlesDistanceDespawn_Orig;
 
 typedef void(*APFNpcManager__InitsDistances_Fn)(APFNpcManager* a1, bool a2);
 APFNpcManager__InitsDistances_Fn APFNpcManager__InitsDistances_Orig;
@@ -65,7 +60,7 @@ void UAriseGameInstance__ReturnTrue(void* a1, FFrame* a2, bool* a3)
   if (a2->Code)
     a2->Code++;
 
-  *a3 = 1;
+  *a3 = true;
 }
 
 bool InitGame()
