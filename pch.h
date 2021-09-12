@@ -57,6 +57,8 @@ void Init_UE4Hook();
 bool FileExists(const WCHAR* Filename);
 bool DirExists(const WCHAR* DirPath);
 HWND FindMainWindow(DWORD process_id);
+bool INI_GetBool(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key, bool DefaultValue);
+float INI_GetFloat(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key, float DefaultValue);
 
 template <typename T>
 void SafeWrite(uintptr_t address, T value)

@@ -4,6 +4,8 @@
 #include <Shlobj.h>
 #include <filesystem>
 
+#define SDK_VERSION "0.1.6"
+
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
 
@@ -25,7 +27,38 @@ HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
-const int NewNPCDistance = 100000;
+// How much difference between the FadeOut & the FadeIn variables
+const int FadeInDelta = 500;
+
+WCHAR IniPath[4096];
+struct
+{
+  int MinNPCDistance = 100000;
+  bool SkipIntroLogos = true;
+  bool StopMaxCSMResolutionOverwrite = false;
+  bool StopScreenPercentageOverwrite = false;
+} Options;
+
+bool TryLoadINIOptions(const WCHAR* IniFilePath)
+{
+  // Read config INI from given folder
+
+  if (!FileExists(IniFilePath))
+    return false;
+
+  // Store ini path in case it's ever needed later
+  wcscpy_s(IniPath, IniFilePath);
+
+  Options.SkipIntroLogos = INI_GetBool(IniPath, L"Patches", L"SkipIntroLogos", Options.SkipIntroLogos);
+  Options.StopMaxCSMResolutionOverwrite = INI_GetBool(IniPath, L"Patches", L"StopMaxCSMResolutionOverwrite", Options.StopMaxCSMResolutionOverwrite);
+  Options.StopScreenPercentageOverwrite = INI_GetBool(IniPath, L"Patches", L"StopScreenPercentageOverwrite", Options.StopScreenPercentageOverwrite);
+  Options.MinNPCDistance = GetPrivateProfileInt(L"Graphics", L"MinimumNPCDistance", Options.MinNPCDistance, IniPath);
+
+  if (FadeInDelta >= Options.MinNPCDistance)
+    Options.MinNPCDistance = (FadeInDelta + 1);
+
+  return true;
+}
 
 typedef void(*APFNpcManager__InitsDistances_Fn)(APFNpcManager* a1, bool a2);
 APFNpcManager__InitsDistances_Fn APFNpcManager__InitsDistances_Orig;
@@ -33,39 +66,31 @@ void APFNpcManager__InitsDistances_Hook(APFNpcManager* a1, bool a2)
 {
   // Seems to only be called once during scene load, should be perfect place to hook!
   APFNpcManager__InitsDistances_Orig(a1, a2);
-  if (NewNPCDistance > a1->SpawnSettings.DespawnDistance)
+  if (Options.MinNPCDistance > a1->SpawnSettings.DespawnDistance)
   {
-    a1->SpawnSettings.DespawnDistance = NewNPCDistance;
-    a1->SpawnSettings.SpawnDistance = NewNPCDistance - 500;
+    a1->SpawnSettings.DespawnDistance = Options.MinNPCDistance;
+    a1->SpawnSettings.SpawnDistance = Options.MinNPCDistance - FadeInDelta;
   }
-  if (NewNPCDistance > a1->SpawnSettingsHigh.DespawnDistance)
+  if (Options.MinNPCDistance > a1->SpawnSettingsHigh.DespawnDistance)
   {
-    a1->SpawnSettingsHigh.DespawnDistance = NewNPCDistance;
-    a1->SpawnSettingsHigh.SpawnDistance = NewNPCDistance - 500;
+    a1->SpawnSettingsHigh.DespawnDistance = Options.MinNPCDistance;
+    a1->SpawnSettingsHigh.SpawnDistance = Options.MinNPCDistance - FadeInDelta;
   }
-  if (NewNPCDistance > a1->CameraSettings.CameraFarFadeOutDistance)
+  if (Options.MinNPCDistance > a1->CameraSettings.CameraFarFadeOutDistance)
   {
-    a1->CameraSettings.CameraFarFadeOutDistance = NewNPCDistance;
-    a1->CameraSettings.CameraFarFadeInDistance = NewNPCDistance - 500;
+    a1->CameraSettings.CameraFarFadeOutDistance = Options.MinNPCDistance;
+    a1->CameraSettings.CameraFarFadeInDistance = Options.MinNPCDistance - FadeInDelta;
   }
-  if (NewNPCDistance > a1->CameraSettingsHigh.CameraFarFadeOutDistance)
+  if (Options.MinNPCDistance > a1->CameraSettingsHigh.CameraFarFadeOutDistance)
   {
-    a1->CameraSettingsHigh.CameraFarFadeOutDistance = NewNPCDistance;
-    a1->CameraSettingsHigh.CameraFarFadeInDistance = NewNPCDistance - 500;
+    a1->CameraSettingsHigh.CameraFarFadeOutDistance = Options.MinNPCDistance;
+    a1->CameraSettingsHigh.CameraFarFadeInDistance = Options.MinNPCDistance - FadeInDelta;
   }
-}
-
-void UAriseGameInstance__ReturnTrue(void* a1, FFrame* a2, bool* a3)
-{
-  if (a2->Code)
-    a2->Code++;
-
-  *a3 = true;
 }
 
 bool InitGame()
 {
-  printf("\nArise-SDK 0.1.5 - https://github.com/emoose/Arise-SDK\n");
+  printf("\nArise-SDK " SDK_VERSION " - https://github.com/emoose/Arise-SDK\n");
 
   GameHModule = GetModuleHandleA("Tales of Arise.exe");
 
@@ -84,6 +109,30 @@ bool InitGame()
     return false;
   }
 
+  // Get folder path of currently running EXE
+  GetModuleFileName(GameHModule, IniPath, 4096);
+  int len = wcslen(IniPath);
+  int lastPathSep = -1;
+  for (int i = len - 2; i >= 0; i--)
+  {
+    if (IniPath[i] == '\\' || IniPath[i] == '/')
+    {
+      lastPathSep = i;
+      break;
+    }
+  }
+
+  if (lastPathSep >= 0)
+  {
+    IniPath[lastPathSep + 1] = 0;
+    swprintf_s(IniPath, L"%s/Arise-SDK.ini", IniPath);
+
+    if (!TryLoadINIOptions(IniPath))
+    {
+      // TODO: Failed to find INI inside EXE dir, try searching inside documents folders
+    }
+  }
+
   return true;
 }
 
@@ -100,17 +149,21 @@ void InitPlugin()
   MH_GameHook(APFNpcManager__InitsDistances);
 
   // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
-  const uint32_t PatchAddr_UBootSceneController__Start = 0xF4B213;
-  SafeWriteModule(PatchAddr_UBootSceneController__Start, uint16_t(0x9090));
+  if (Options.SkipIntroLogos)
+  {
+    const uint32_t PatchAddr_UBootSceneController__Start = 0xF4B213;
+    SafeWriteModule(PatchAddr_UBootSceneController__Start, uint16_t(0x9090)); // jne -> nop
+  }
 
-  // TODO: patch out the code that overwrites r.Shadow.MaxCSMResolution, so it can be changed inside Engine.ini freely
+  // patch out the code that overwrites r.ScreenPercentage/r.Shadow.MaxCSMResolution, so it can be changed inside Engine.ini freely
   // without patching it the game will always overwrite any INI value set for this, limiting it to 4096 and below
   // using console you can set this to 8192+, but there's no way to make it stick, since game will overwrite your INI changes
-  // uncommenting this will prevent that, but will also leave it stuck at 2048 for people that don't have it setup inside INI...
-  // maybe worth trying to hook this and make it so overwrite only happens when it's larger than the current value?
-  // (so it can overwrite the default 2048 with 4096 fine, but won't overwrite your custom 8192 setting with 4096...)
-    // uint8_t nop[] = { 0x90, 0x90, 0x90, 0x90, 0x90 };
-    // SafeWriteModule(0xE52F7A, nop, 5);
+  // using this patch will prevent that, but will also break the in-game setting...
+  uint8_t nop[] = { 0x90, 0x90, 0x90, 0x90, 0x90 };
+  if (Options.StopScreenPercentageOverwrite)
+    SafeWriteModule(0xE52EDD, nop, 5);
+  if (Options.StopMaxCSMResolutionOverwrite)
+    SafeWriteModule(0xE52F7A, nop, 5);
 
   Init_UE4Hook();
 
