@@ -15,6 +15,12 @@ const uint32_t Addr_Names = 0x4C6DE10;
 const uint32_t Addr_UPFNpcCameraFadeComponent__FadeUpdate = 0xE0A810;
 const uint32_t Addr_APFNpcManager__HandlesDistanceDespawn = 0xE1C010;
 
+// Addresses for UE4Hook.cpp
+const uint32_t Addr_StaticConstructObject_Internal = 0x14EA190;
+extern const uint32_t Addr_UGameViewportClient__SetupInitialLocalPlayer = 0x2034460; // requires extern to be visible outside of dllmain...
+extern const uint32_t Addr_FPakPlatformFile__FindFileInPakFiles = 0;
+extern const uint32_t Addr_FPakPlatformFile__IsNonPakFilenameAllowed = 0;
+
 using namespace SDK;
 
 HMODULE DllHModule;
@@ -93,6 +99,8 @@ void InitPlugin()
   UObject::GObjects = reinterpret_cast<FUObjectArray*>(mBaseAddress + Addr_GUObjectArray);
   FName::GNames = reinterpret_cast<TNameEntryArray*>(mBaseAddress + Addr_Names);
 
+  StaticConstructObject_Internal = reinterpret_cast<StaticConstructObject_InternalFn>(mBaseAddress + Addr_StaticConstructObject_Internal);
+
   MH_Initialize();
 
   MH_CreateHook((LPVOID)(mBaseAddress + Addr_UPFNpcCameraFadeComponent__FadeUpdate), 
@@ -100,6 +108,8 @@ void InitPlugin()
 
   MH_CreateHook((LPVOID)(mBaseAddress + Addr_APFNpcManager__HandlesDistanceDespawn),
     APFNpcManager__HandlesDistanceDespawn_Hook, (LPVOID*)&APFNpcManager__HandlesDistanceDespawn_Orig);
+
+  Init_UE4Hook();
 
   MH_EnableHook(MH_ALL_HOOKS);
 }

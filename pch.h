@@ -11,6 +11,11 @@ extern uintptr_t mBaseAddress;
 #include "SDK.h"
 using namespace SDK;
 
+#define MH_Hook(addr, hook, orig) MH_CreateHook((LPVOID)(mBaseAddress + addr), hook, (LPVOID*)orig)
+
+// Creates a hook for function defined in GameAddresses, requires _Hook function & _Orig variable
+#define MH_GameHook(func) MH_Hook(Addr_##func, func##_Hook, &func##_Orig)
+
 // dllmain.cpp
 extern HMODULE DllHModule;
 extern HMODULE GameHModule;
@@ -19,6 +24,11 @@ void InitPlugin();
 
 // proxy.cpp
 void Proxy_InitSteamStub();
+
+// UE4Hook.cpp
+typedef UObject* (*StaticConstructObject_InternalFn)(UClass* Class, UObject* InOuter, FName Name, void* SetFlags, void* InternalSetFlags, UObject* Template, bool bCopyTransientsFromClassDefaults, struct FObjectInstancingGraph* InstanceGraph, bool bAssumeTemplateIsArchetype);
+extern StaticConstructObject_InternalFn StaticConstructObject_Internal;
+void Init_UE4Hook();
 
 // Utility.cpp
 bool FileExists(const WCHAR* Filename);
