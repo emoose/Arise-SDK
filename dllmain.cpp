@@ -12,11 +12,13 @@ const uint32_t Addr_GUObjectArray = 0x44DC350;
 const uint32_t Addr_Names = 0x4C6DE10;
 
 const uint32_t Addr_UPFNpcCameraFadeComponent__FadeUpdate = 0xE0A810;
-const uint32_t Addr_APFNpcManager__HandlesDistanceDespawn = 0xE1C010;
+const uint32_t Addr_APFNpcManager__InitsDistances = 0xE1C860;
+
+const uint32_t Addr_UAriseGameInstance__IsBootDisplaySkip_Ptr = 0x3D465E8;
 
 // Addresses for UE4Hook.cpp
 const uint32_t Addr_StaticConstructObject_Internal = 0x14EA190;
-extern const uint32_t Addr_UGameViewportClient__SetupInitialLocalPlayer = 0x2034460; // requires extern to be visible outside of dllmain...
+extern const uint32_t Addr_UGameViewportClient__SetupInitialLocalPlayer = 0x2034460; // requires extern for it to be visible outside of dllmain...
 extern const uint32_t Addr_FPakPlatformFile__FindFileInPakFiles = 0x27E93C0;
 extern const uint32_t Addr_FPakPlatformFile__IsNonPakFilenameAllowed = 0x27F4130;
 
@@ -31,28 +33,26 @@ const int NewNPCDistance = 100000;
 typedef void(*APFNpcManager__HandlesDistanceDespawn_Fn)(void* a1, void* a2, FPFNpcSpawnSettingsData* spawnSettings);
 APFNpcManager__HandlesDistanceDespawn_Fn APFNpcManager__HandlesDistanceDespawn_Orig;
 
-// a1 is a APFNpcManager**?
-// caller to this func calls it twice, once with APFNpcManager::SpawnSettings & once with APFNpcManager::SpawnSettingsHigh
-
-// it'd be nice if we could swap spawnSettings for our own FPFNpcSpawnSettingsData instance, so we wouldn't need these NewNPCDistance checks every time
-// unfortunately the orig func seems to access APFNpcManager::SpawnSettings directly too though, ignoring the spawnSettings param in some case :/
-void APFNpcManager__HandlesDistanceDespawn_Hook(void* a1, void* a2, FPFNpcSpawnSettingsData* spawnSettings)
+typedef void(*APFNpcManager__InitsDistances_Fn)(APFNpcManager* a1, bool a2);
+APFNpcManager__InitsDistances_Fn APFNpcManager__InitsDistances_Orig;
+void APFNpcManager__InitsDistances_Hook(APFNpcManager* a1, bool a2)
 {
-  // Seems that Arise.PF.NPC.AllowDistanceDespawn cvar is checked before this func is called
-  // Haven't had any luck making that work though...
-
-  if (NewNPCDistance > spawnSettings->DespawnDistance)
+  // Seems to only be called once during scene load, should be perfect place to hook!
+  APFNpcManager__InitsDistances_Orig(a1, a2);
+  if (NewNPCDistance > a1->SpawnSettings.DespawnDistance)
   {
-    spawnSettings->DespawnDistance = NewNPCDistance;
-    spawnSettings->SpawnDistance = NewNPCDistance;
+    a1->SpawnSettings.DespawnDistance = NewNPCDistance;
+    a1->SpawnSettings.SpawnDistance = NewNPCDistance;
   }
-
-  return APFNpcManager__HandlesDistanceDespawn_Orig(a1, a2, spawnSettings);
+  if (NewNPCDistance > a1->SpawnSettingsHigh.DespawnDistance)
+  {
+    a1->SpawnSettingsHigh.DespawnDistance = NewNPCDistance;
+    a1->SpawnSettingsHigh.SpawnDistance = NewNPCDistance;
+  }
 }
 
 typedef void(*UPFNpcCameraFadeComponent__FadeUpdate_Fn)(UPFNpcCameraFadeComponent* thisptr, void* a2);
 UPFNpcCameraFadeComponent__FadeUpdate_Fn UPFNpcCameraFadeComponent__FadeUpdate_Orig;
-
 void UPFNpcCameraFadeComponent__FadeUpdate_Hook(UPFNpcCameraFadeComponent* thisptr, void* a2)
 {
   if (NewNPCDistance > thisptr->CameraSettings.CameraFarFadeOutDistance)
@@ -111,15 +111,16 @@ void InitPlugin()
   MH_Initialize();
 
   MH_GameHook(UPFNpcCameraFadeComponent__FadeUpdate);
-  MH_GameHook(APFNpcManager__HandlesDistanceDespawn);
+  MH_GameHook(APFNpcManager__InitsDistances);
 
   // This needs to be handled differently to other hooks
-  // the IsBootDisplaySkip (and others like IsDebugMode) point to a func which just always returns 0
+  // IsBootDisplaySkip (and others like IsDebugMode) point to a func which just always returns 0
   // This func is used by a bunch of different functions, so hooking it & forcing the value isn't a great idea
   // Instead, we overwrite the addr used to set up the IsBootDisplaySkip UFunction, so it points to our func
-
-  // UAriseGameInstance::IsBootDisplaySkip
-  SafeWriteModule(0x3D465E8, uint64_t(&UAriseGameInstance__ReturnTrue));
+  SafeWriteModule(Addr_UAriseGameInstance__IsBootDisplaySkip_Ptr, uint64_t(&UAriseGameInstance__ReturnTrue));
+  // N.B: if our DLL was injected later on after the IsBootDisplaySkip UFunction was created, changing addr above probably wouldn't make a difference
+  // In that case we'd need to find the UFunction object and change the Func field manually
+  // Since this function is only used at startup that's not really required here though
 
   Init_UE4Hook();
 
