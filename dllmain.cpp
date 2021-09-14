@@ -4,7 +4,7 @@
 #include <Shlobj.h>
 #include <filesystem>
 
-#define SDK_VERSION "0.1.7"
+#define SDK_VERSION "0.1.8"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -37,7 +37,7 @@ const int FadeInDelta = 500;
 WCHAR IniPath[4096];
 struct
 {
-  int MinNPCDistance = 100000;
+  float MinNPCDistance = 100000;
   bool SkipIntroLogos = true;
   bool StopMaxCSMResolutionOverwrite = false;
   bool StopScreenPercentageOverwrite = false;
@@ -56,7 +56,7 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.SkipIntroLogos = INI_GetBool(IniPath, L"Patches", L"SkipIntroLogos", Options.SkipIntroLogos);
   Options.StopMaxCSMResolutionOverwrite = INI_GetBool(IniPath, L"Patches", L"StopMaxCSMResolutionOverwrite", Options.StopMaxCSMResolutionOverwrite);
   Options.StopScreenPercentageOverwrite = INI_GetBool(IniPath, L"Patches", L"StopScreenPercentageOverwrite", Options.StopScreenPercentageOverwrite);
-  Options.MinNPCDistance = GetPrivateProfileInt(L"Graphics", L"MinimumNPCDistance", Options.MinNPCDistance, IniPath);
+  Options.MinNPCDistance = INI_GetFloat(IniPath, L"Graphics", L"MinimumNPCDistance", Options.MinNPCDistance);
 
   if (FadeInDelta >= Options.MinNPCDistance)
     Options.MinNPCDistance = (FadeInDelta + 1);
@@ -101,47 +101,6 @@ void BP_PF_NPC_Walk_AIController__InitNPCDistance_Hook(void* a1, void* a2, float
   BP_PF_NPC_Walk_AIController__InitNPCDistance_Orig(a1, a2, a3);
   // ^ updates a1 + 0x388 with the distance
   // which is then checked at 0x140E2AC96 to see if NPC should be deleted or not
-  a1 = a1;
-}
-
-typedef void(*APFNpcManager__HandlesDistanceDespawn_Fn)(void* a1, void* a2, FPFNpcSpawnSettingsData* spawnSettings);
-APFNpcManager__HandlesDistanceDespawn_Fn APFNpcManager__HandlesDistanceDespawn_Orig;
-
-// a1 is a APFNpcManager**?
-// caller to this func calls it twice, once with APFNpcManager::SpawnSettings & once with APFNpcManager::SpawnSettingsHigh
-
-// it'd be nice if we could swap spawnSettings for our own FPFNpcSpawnSettingsData instance, so we wouldn't need these NewNPCDistance checks every time
-// unfortunately the orig func seems to access APFNpcManager::SpawnSettings directly too though, ignoring the spawnSettings param in some case :/
-void APFNpcManager__HandlesDistanceDespawn_Hook(void* a1, void* a2, FPFNpcSpawnSettingsData* spawnSettings)
-{
-  // Seems that Arise.PF.NPC.AllowDistanceDespawn cvar is checked before this func is called
-  // Haven't had any luck making that work though...
-
-  if (Options.MinNPCDistance > spawnSettings->DespawnDistance)
-  {
-    spawnSettings->DespawnDistance = Options.MinNPCDistance;
-    spawnSettings->SpawnDistance = Options.MinNPCDistance;
-  }
-
-  return APFNpcManager__HandlesDistanceDespawn_Orig(a1, a2, spawnSettings);
-}
-
-typedef void(*UPFNpcCameraFadeComponent__FadeUpdate_Fn)(UPFNpcCameraFadeComponent* thisptr, void* a2);
-UPFNpcCameraFadeComponent__FadeUpdate_Fn UPFNpcCameraFadeComponent__FadeUpdate_Orig;
-
-void UPFNpcCameraFadeComponent__FadeUpdate_Hook(UPFNpcCameraFadeComponent* thisptr, void* a2)
-{
-  if (Options.MinNPCDistance > thisptr->CameraSettings.CameraFarFadeOutDistance)
-  {
-    thisptr->CameraSettings.CameraFarFadeOutDistance = Options.MinNPCDistance;
-    thisptr->CameraSettings.CameraFarFadeInDistance = Options.MinNPCDistance;
-  }
-  if (Options.MinNPCDistance > thisptr->FarFadeOutDistance)
-  {
-    thisptr->FarFadeOutDistance = Options.MinNPCDistance;
-    thisptr->FarFadeInDistance = Options.MinNPCDistance;
-  }
-  UPFNpcCameraFadeComponent__FadeUpdate_Orig(thisptr, a2);
 }
 
 bool InitGame()
@@ -203,12 +162,18 @@ void InitPlugin()
   MH_Initialize();
 
   MH_GameHook(APFNpcManager__InitsDistances);
-
-  MH_GameHook(UPFNpcCameraFadeComponent__FadeUpdate);
-
-  MH_GameHook(APFNpcManager__HandlesDistanceDespawn);
-
   MH_GameHook(BP_PF_NPC_Walk_AIController__InitNPCDistance);
+
+  // Patch fade distances used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController
+  SafeWriteModule(0x116BD47 + 6, Options.MinNPCDistance - FadeInDelta);
+  SafeWriteModule(0x116BD51 + 6, Options.MinNPCDistance);
+  SafeWriteModule(0x116BD83 + 6, Options.MinNPCDistance - FadeInDelta);
+  SafeWriteModule(0x116BD8D + 6, Options.MinNPCDistance);
+
+  // These have same value as the ones patched above, but don't seem to be used by walking NPCs, unsure what uses them
+ // SafeWriteModule(0x1180595 + 3, Options.MinNPCDistance - FadeInDelta);
+ // SafeWriteModule(0x118059C + 3, Options.MinNPCDistance);
+
 
   // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
   if (Options.SkipIntroLogos)
@@ -245,7 +210,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
       bool Proxy_Attach(); // proxy.cpp
       Proxy_Attach();
 
-      if(InitGame())
+      if (InitGame())
         Proxy_InitSteamStub();
 
       break;
