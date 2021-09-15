@@ -4,7 +4,7 @@
 #include <Shlobj.h>
 #include <filesystem>
 
-#define SDK_VERSION "0.1.10"
+#define SDK_VERSION "0.1.11"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -188,6 +188,11 @@ void InitPlugin()
   SafeWriteModule(PatchAddr_FSceneView__FSceneView_AAMethodCheck, uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
   SafeWriteModule(PatchAddr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck, uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
 
+  // Remove ECVF_Cheat flag check from FConsoleManager::ProcessUserConsoleInput
+  // (allows even more cvars to be changed from dev-console)
+  const uint32_t PatchAddr_FConsoleManager__ProcessUserConsoleInput_CheatCheck = 0x124D3A2;
+  SafeWriteModule(PatchAddr_FConsoleManager__ProcessUserConsoleInput_CheatCheck, uint8_t(0x90), 6);
+
   // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
   if (Options.SkipIntroLogos)
   {
@@ -199,11 +204,10 @@ void InitPlugin()
   // without patching it the game will always overwrite any INI value set for this, limiting it to 4096 and below
   // using console you can set this to 8192+, but there's no way to make it stick, since game will overwrite your INI changes
   // using this patch will prevent that, but will also break the in-game setting...
-  uint8_t nop[] = { 0x90, 0x90, 0x90, 0x90, 0x90 };
   if (Options.StopScreenPercentageOverwrite)
-    SafeWriteModule(0xE52EDD, nop, 5);
+    SafeWriteModule(0xE52EDD, uint8_t(0x90), 5);
   if (Options.StopMaxCSMResolutionOverwrite)
-    SafeWriteModule(0xE52F7A, nop, 5);
+    SafeWriteModule(0xE52F7A, uint8_t(0x90), 5);
 
   // patches out check for r.OverridePostProcessSettingsTO14, which seems to be used in cutscenes, adding effexts like CA/vignette/etc
   const uint32_t PatchAddr_FSceneView__EndFinalPostprocessSettings_PostProcOverride = 0x217F833;
