@@ -4,7 +4,7 @@
 #include <Shlobj.h>
 #include <filesystem>
 
-#define SDK_VERSION "0.1.8"
+#define SDK_VERSION "0.1.9"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -41,6 +41,8 @@ struct
   bool SkipIntroLogos = true;
   bool StopMaxCSMResolutionOverwrite = false;
   bool StopScreenPercentageOverwrite = false;
+  bool DisableCutsceneEffects = false;
+  bool DisableCutsceneCA = false;
 } Options;
 
 bool TryLoadINIOptions(const WCHAR* IniFilePath)
@@ -57,6 +59,9 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.StopMaxCSMResolutionOverwrite = INI_GetBool(IniPath, L"Patches", L"StopMaxCSMResolutionOverwrite", Options.StopMaxCSMResolutionOverwrite);
   Options.StopScreenPercentageOverwrite = INI_GetBool(IniPath, L"Patches", L"StopScreenPercentageOverwrite", Options.StopScreenPercentageOverwrite);
   Options.MinNPCDistance = INI_GetFloat(IniPath, L"Graphics", L"MinimumNPCDistance", Options.MinNPCDistance);
+
+  Options.DisableCutsceneEffects = INI_GetBool(IniPath, L"Patches", L"DisableCutsceneEffects", Options.DisableCutsceneEffects);
+  Options.DisableCutsceneCA = INI_GetBool(IniPath, L"Patches", L"DisableCutsceneCA", Options.DisableCutsceneCA);
 
   if (FadeInDelta >= Options.MinNPCDistance)
     Options.MinNPCDistance = (FadeInDelta + 1);
@@ -191,6 +196,16 @@ void InitPlugin()
     SafeWriteModule(0xE52EDD, nop, 5);
   if (Options.StopMaxCSMResolutionOverwrite)
     SafeWriteModule(0xE52F7A, nop, 5);
+
+  // patches out check for r.OverridePostProcessSettingsTO14, which seems to be used in cutscenes, adding effexts like CA/vignette/etc
+  const uint32_t PatchAddr_FSceneView__EndFinalPostprocessSettings_PostProcOverride = 0x217F833;
+  if (Options.DisableCutsceneEffects)
+    SafeWriteModule(PatchAddr_FSceneView__EndFinalPostprocessSettings_PostProcOverride, uint16_t(0xE990));
+
+  const uint32_t PatchAddr_FSceneView__EndFinalPostprocessSettings_CAFloat = 0x217F84D + 6;
+  // just patches out the CA part of the postproc override, for people that want to keep the rest of the effects
+  if (Options.DisableCutsceneCA)
+    SafeWriteModule(PatchAddr_FSceneView__EndFinalPostprocessSettings_CAFloat, float(0));
 
   Init_UE4Hook();
 
