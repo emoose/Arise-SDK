@@ -41,7 +41,6 @@ struct
   bool SkipIntroLogos = true;
   bool StopMaxCSMResolutionOverwrite = false;
   bool StopScreenPercentageOverwrite = false;
-  bool DisableCutsceneEffects = false;
   bool DisableCutsceneCA = false;
 } Options;
 
@@ -60,7 +59,6 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.StopScreenPercentageOverwrite = INI_GetBool(IniPath, L"Patches", L"StopScreenPercentageOverwrite", Options.StopScreenPercentageOverwrite);
   Options.MinNPCDistance = INI_GetFloat(IniPath, L"Graphics", L"MinimumNPCDistance", Options.MinNPCDistance);
 
-  Options.DisableCutsceneEffects = INI_GetBool(IniPath, L"Patches", L"DisableCutsceneEffects", Options.DisableCutsceneEffects);
   Options.DisableCutsceneCA = INI_GetBool(IniPath, L"Patches", L"DisableCutsceneCA", Options.DisableCutsceneCA);
 
   if (FadeInDelta >= Options.MinNPCDistance)
@@ -209,13 +207,9 @@ void InitPlugin()
   if (Options.StopMaxCSMResolutionOverwrite)
     SafeWriteModule(0xE52F7A, uint8_t(0x90), 5);
 
-  // patches out check for r.OverridePostProcessSettingsTO14, which seems to be used in cutscenes, adding effexts like CA/vignette/etc
-  const uint32_t PatchAddr_FSceneView__EndFinalPostprocessSettings_PostProcOverride = 0x217F833;
-  if (Options.DisableCutsceneEffects)
-    SafeWriteModule(PatchAddr_FSceneView__EndFinalPostprocessSettings_PostProcOverride, uint16_t(0xE990));
-
+  // patches out the CA part of the code that handles r.OverridePostProcessSettingsTO14
+  // (we used to include a patch to skip that code entirely, but turned out some cutscenes relied on the settings it would change...)
   const uint32_t PatchAddr_FSceneView__EndFinalPostprocessSettings_CAFloat = 0x217F84D + 6;
-  // just patches out the CA part of the postproc override, for people that want to keep the rest of the effects
   if (Options.DisableCutsceneCA)
     SafeWriteModule(PatchAddr_FSceneView__EndFinalPostprocessSettings_CAFloat, float(0));
 
