@@ -4,7 +4,7 @@
 #include <Shlobj.h>
 #include <filesystem>
 
-#define SDK_VERSION "0.1.9"
+#define SDK_VERSION "0.1.10"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -179,6 +179,14 @@ void InitPlugin()
  // SafeWriteModule(0x1180595 + 3, Options.MinNPCDistance - FadeInDelta);
  // SafeWriteModule(0x118059C + 3, Options.MinNPCDistance);
 
+  // Fix EPrimaryScreenPercentageMethod::TemporalUpscale checks (when using r.TemporalAA.Upsampling = 1)
+  // code is making sure AntiAliasingMethod == AAM_TemporalAA
+  // but Arise added custom AAM_SMAA & AAM_HybridAA methods, and seems they forgot to fix the TemporalUpscale checks :/
+  // seems AAM_TemporalAA is never actually used (even when the non-hybrid AA option is selected), so we'll apply these automatically
+  const uint32_t PatchAddr_FSceneView__FSceneView_AAMethodCheck = 0x217581E + 6;
+  const uint32_t PatchAddr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck = 0x1A30111 + 6;
+  SafeWriteModule(PatchAddr_FSceneView__FSceneView_AAMethodCheck, uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
+  SafeWriteModule(PatchAddr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck, uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
 
   // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
   if (Options.SkipIntroLogos)
