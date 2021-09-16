@@ -186,6 +186,20 @@ void InitPlugin()
   SafeWriteModule(PatchAddr_FSceneView__FSceneView_AAMethodCheck, uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
   SafeWriteModule(PatchAddr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck, uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
 
+  // Prevent resolution change on game launch
+  // (requires r.SetRes = 2560x1440f line inside Engine.ini to work properly, change with your desired resolution)
+  // TODO: find a way so setres isn't required
+  {
+    // Disable UGameUserSettings::PreloadResolutionSettings
+    // (seems to read from an unused settings file, making game switch to 1280x720 briefly)
+    const uint32_t Addr_UGameUserSettings__PreloadResolutionSettings = 0x202D940;
+    SafeWriteModule(Addr_UGameUserSettings__PreloadResolutionSettings, uint8_t(0xC3));
+
+    // Disable r.setres being changed by game code to 1280x720
+    const uint32_t PatchAddr_SetRes_720p = 0x1200730;
+    SafeWriteModule(PatchAddr_SetRes_720p, uint8_t(0x90), 4);
+  }
+
   // Remove ECVF_Cheat flag check from FConsoleManager::ProcessUserConsoleInput
   // (allows even more cvars to be changed from dev-console)
   const uint32_t PatchAddr_FConsoleManager__ProcessUserConsoleInput_CheatCheck = 0x124D3A2;
