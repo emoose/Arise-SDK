@@ -4,7 +4,7 @@
 #include <Shlobj.h>
 #include <filesystem>
 
-#define SDK_VERSION "0.1.11"
+#define SDK_VERSION "0.1.12"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -37,11 +37,14 @@ const int FadeInDelta = 500;
 WCHAR IniPath[4096];
 struct
 {
-  float MinNPCDistance = 100000;
+  float MinNPCDistance = 50000;
   bool SkipIntroLogos = true;
   bool StopMaxCSMResolutionOverwrite = false;
   bool StopScreenPercentageOverwrite = false;
   bool DisableCutsceneCA = false;
+  float OverrideCharaSharpenFilterStrength = -1;
+  float OverrideStageSharpenFilterStrength = -1;
+  float MinStageEdgeBaseDistance = 0;
 } Options;
 
 bool TryLoadINIOptions(const WCHAR* IniFilePath)
@@ -57,9 +60,12 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.SkipIntroLogos = INI_GetBool(IniPath, L"Patches", L"SkipIntroLogos", Options.SkipIntroLogos);
   Options.StopMaxCSMResolutionOverwrite = INI_GetBool(IniPath, L"Patches", L"StopMaxCSMResolutionOverwrite", Options.StopMaxCSMResolutionOverwrite);
   Options.StopScreenPercentageOverwrite = INI_GetBool(IniPath, L"Patches", L"StopScreenPercentageOverwrite", Options.StopScreenPercentageOverwrite);
-  Options.MinNPCDistance = INI_GetFloat(IniPath, L"Graphics", L"MinimumNPCDistance", Options.MinNPCDistance);
-
   Options.DisableCutsceneCA = INI_GetBool(IniPath, L"Patches", L"DisableCutsceneCA", Options.DisableCutsceneCA);
+
+  Options.MinNPCDistance = INI_GetFloat(IniPath, L"Graphics", L"MinimumNPCDistance", Options.MinNPCDistance);
+  Options.OverrideCharaSharpenFilterStrength = INI_GetFloat(IniPath, L"Graphics", L"OverrideCharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength);
+  Options.OverrideStageSharpenFilterStrength = INI_GetFloat(IniPath, L"Graphics", L"OverrideStageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength);
+  Options.MinStageEdgeBaseDistance = INI_GetFloat(IniPath, L"Graphics", L"MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance);
 
   if (FadeInDelta >= Options.MinNPCDistance)
     Options.MinNPCDistance = (FadeInDelta + 1);
@@ -154,6 +160,25 @@ bool InitGame()
   return true;
 }
 
+const uint32_t Offset_FSceneView__FinalPostProcessSettings = 0xD60;
+
+const uint32_t Addr_FSceneView__EndFinalPostprocessSettings = 0x217F490;
+typedef void*(*FSceneView__EndFinalPostprocessSettings_Fn)(uint8_t* thisptr, void* a2);
+FSceneView__EndFinalPostprocessSettings_Fn FSceneView__EndFinalPostprocessSettings_Orig;
+void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
+{
+  auto ret = FSceneView__EndFinalPostprocessSettings_Orig(thisptr, a2);
+
+  FPostProcessSettings* FinalPostProcessSettings = (FPostProcessSettings*)(thisptr + Offset_FSceneView__FinalPostProcessSettings);
+  if (Options.OverrideCharaSharpenFilterStrength != -1)
+    FinalPostProcessSettings->CharaSharpenFilterStrengthTO14 = Options.OverrideCharaSharpenFilterStrength;
+  if (Options.OverrideStageSharpenFilterStrength != -1)
+    FinalPostProcessSettings->StageSharpenFilterStrengthTO14 = Options.OverrideStageSharpenFilterStrength;
+  if (Options.MinStageEdgeBaseDistance > FinalPostProcessSettings->StageEdgeBaseDistance_TO14)
+    FinalPostProcessSettings->StageEdgeBaseDistance_TO14 = Options.MinStageEdgeBaseDistance;
+
+  return ret;
+}
 void InitPlugin()
 {
   UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(mBaseAddress + Addr_ProcessEvent);
@@ -166,6 +191,8 @@ void InitPlugin()
 
   MH_GameHook(APFNpcManager__InitsDistances);
   MH_GameHook(BP_PF_NPC_Walk_AIController__InitNPCDistance);
+
+  MH_GameHook(FSceneView__EndFinalPostprocessSettings);
 
   // Patch fade distances used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController
   SafeWriteModule(0x116BD47 + 6, Options.MinNPCDistance - FadeInDelta);
