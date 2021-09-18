@@ -241,6 +241,7 @@
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IConsoleManager.h" />
     <ClInclude Include="MinHook\buffer.h" />
     <ClInclude Include="MinHook\hde\hde32.h" />
     <ClInclude Include="MinHook\hde\hde64.h" />

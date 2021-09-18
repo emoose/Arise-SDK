@@ -4,7 +4,7 @@
 #include <Shlobj.h>
 #include <filesystem>
 
-#define SDK_VERSION "0.1.12"
+#define SDK_VERSION "0.1.13"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -179,6 +179,23 @@ void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
 
   return ret;
 }
+
+const uint32_t Addr_IConsoleManager__Singleton = 0x4A97AC8;
+
+const uint32_t Addr_CVarSystemResolution_ctor = 0x4F46C0;
+typedef void(*CVarSystemResolution_ctor_Fn)();
+CVarSystemResolution_ctor_Fn CVarSystemResolution_ctor_Orig;
+void CVarSystemResolution_ctor_Hook()
+{
+  CVarSystemResolution_ctor_Orig();
+  auto consoleManager = *(IConsoleManager**)(mBaseAddress + Addr_IConsoleManager__Singleton);
+
+  consoleManager->RegisterConsoleVariableRef(L"sdk.CharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength, L"OverrideCharaSharpenFilterStrength", 0);
+  consoleManager->RegisterConsoleVariableRef(L"sdk.StageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength, L"OverrideStageSharpenFilterStrength", 0);
+  consoleManager->RegisterConsoleVariableRef(L"sdk.MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance, L"MinStageEdgeBaseDistance", 0);
+  consoleManager->RegisterConsoleVariableRef(L"sdk.DisableCutsceneCA", Options.DisableCutsceneCA, L"DisableCutsceneCA", 0);
+}
+
 void InitPlugin()
 {
   UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(mBaseAddress + Addr_ProcessEvent);
@@ -193,6 +210,8 @@ void InitPlugin()
   MH_GameHook(BP_PF_NPC_Walk_AIController__InitNPCDistance);
 
   MH_GameHook(FSceneView__EndFinalPostprocessSettings);
+
+  MH_GameHook(CVarSystemResolution_ctor);
 
   // Patch fade distances used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController
   SafeWriteModule(0x116BD47 + 6, Options.MinNPCDistance - FadeInDelta);

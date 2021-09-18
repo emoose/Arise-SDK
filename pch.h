@@ -10,6 +10,7 @@ extern uintptr_t mBaseAddress;
 
 #include "SDK.h"
 using namespace SDK;
+#include "IConsoleManager.h"
 
 struct __declspec(align(8)) FOutputDevice
 {
