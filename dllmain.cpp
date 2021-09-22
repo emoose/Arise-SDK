@@ -4,7 +4,7 @@
 #include <Shlobj.h>
 #include <filesystem>
 
-#define SDK_VERSION "0.1.13"
+#define SDK_VERSION "0.1.14"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -260,6 +260,31 @@ void FRelevancePacket__FRelevancePacket_Hook(
     InMarkMasks, InPrimitiveCustomDataMemStack, InOutHasViewCustomDataMasks);
 }
 
+const uint32_t Addr_UTextureRenderTarget2D__UpdateResourceImmediate = 0x225F9D0;
+typedef void(*UTextureRenderTarget2D__UpdateResourceImmediate_Fn)(UTextureRenderTarget2D* thisptr, bool bClearRenderTarget);
+UTextureRenderTarget2D__UpdateResourceImmediate_Fn UTextureRenderTarget2D__UpdateResourceImmediate_Orig;
+void UTextureRenderTarget2D__UpdateResourceImmediate_Hook(UTextureRenderTarget2D* thisptr, bool bClearRenderTarget)
+{
+  // UTextureRenderTarget2D::UpdateResourceImmediate gets called immediately after game sets up render targets resolution
+  // So it's a good spot for us to resize it
+
+  float ScreenSizeX = *(uint32_t*)(mBaseAddress + 0x455A4F0);
+  float ScreenSizeY = *(uint32_t*)(mBaseAddress + 0x455A4F4);
+  // todo: scale size by r.ScreenPercentage?
+
+  float CurSizeX = thisptr->SizeX;
+  float CurSizeY = thisptr->SizeY;
+
+  float widthRatio = ScreenSizeX / CurSizeX;
+  float heightRatio = ScreenSizeY / CurSizeY;
+  auto bestRatio = min(widthRatio, heightRatio);
+
+  thisptr->SizeX = (CurSizeX * bestRatio);
+  thisptr->SizeY = (CurSizeY * bestRatio);
+
+  UTextureRenderTarget2D__UpdateResourceImmediate_Orig(thisptr, bClearRenderTarget);
+}
+
 void InitPlugin()
 {
   UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(mBaseAddress + Addr_ProcessEvent);
@@ -281,6 +306,9 @@ void InitPlugin()
 
   // for r.ForceLOD
   MH_GameHook(FRelevancePacket__FRelevancePacket);
+
+  // for render target resizing (fixing cutscene/skit resolution)
+  MH_GameHook(UTextureRenderTarget2D__UpdateResourceImmediate);
 
   // Patch fade distances used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController
   SafeWriteModule(0x116BD47 + 6, Options.MinNPCDistance - FadeInDelta);
