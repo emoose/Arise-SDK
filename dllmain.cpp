@@ -45,6 +45,7 @@ struct
   float OverrideCharaSharpenFilterStrength = -1;
   float OverrideStageSharpenFilterStrength = -1;
   float MinStageEdgeBaseDistance = 0;
+  int32_t ForcedLODLevel = -1;
 } Options;
 
 bool TryLoadINIOptions(const WCHAR* IniFilePath)
@@ -180,6 +181,12 @@ void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
   return ret;
 }
 
+IConsoleVariable* CVarCharaSharpenFilterStrength;
+IConsoleVariable* CVarStageSharpenFilterStrength;
+IConsoleVariable* CVarMinStageEdgeBaseDistance;
+IConsoleVariable* CVarDisableCutsceneCA;
+IConsoleVariable* CVarForceLOD;
+
 const uint32_t Addr_IConsoleManager__Singleton = 0x4A97AC8;
 
 const uint32_t Addr_CVarSystemResolution_ctor = 0x4F46C0;
@@ -190,10 +197,67 @@ void CVarSystemResolution_ctor_Hook()
   CVarSystemResolution_ctor_Orig();
   auto consoleManager = *(IConsoleManager**)(mBaseAddress + Addr_IConsoleManager__Singleton);
 
-  consoleManager->RegisterConsoleVariableRef(L"sdk.CharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength, L"OverrideCharaSharpenFilterStrength", 0);
-  consoleManager->RegisterConsoleVariableRef(L"sdk.StageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength, L"OverrideStageSharpenFilterStrength", 0);
-  consoleManager->RegisterConsoleVariableRef(L"sdk.MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance, L"MinStageEdgeBaseDistance", 0);
-  consoleManager->RegisterConsoleVariableRef(L"sdk.DisableCutsceneCA", Options.DisableCutsceneCA, L"DisableCutsceneCA", 0);
+  CVarCharaSharpenFilterStrength = consoleManager->RegisterConsoleVariableRef(L"sdk.CharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength, L"OverrideCharaSharpenFilterStrength", 0);
+  CVarStageSharpenFilterStrength = consoleManager->RegisterConsoleVariableRef(L"sdk.StageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength, L"OverrideStageSharpenFilterStrength", 0);
+  CVarMinStageEdgeBaseDistance = consoleManager->RegisterConsoleVariableRef(L"sdk.MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance, L"MinStageEdgeBaseDistance", 0);
+  CVarDisableCutsceneCA = consoleManager->RegisterConsoleVariableRef(L"sdk.DisableCutsceneCA", Options.DisableCutsceneCA, L"DisableCutsceneCA", 0);
+  
+  // usually created by UE4 inside EXPOSE_FORCE_LOD builds, which shipping builds sadly aren't
+  // not too hard to reimpl though
+  CVarForceLOD = consoleManager->RegisterConsoleVariableRef(L"r.ForceLOD", Options.ForcedLODLevel, L"LOD level to force, -1 is off.", ECVF_Scalability | ECVF_Default | ECVF_RenderThreadSafe);
+}
+
+const uint32_t Addr_CVarSystemResolution_dtor = 0x3023470;
+typedef void(*CVarSystemResolution_dtor_Fn)();
+CVarSystemResolution_dtor_Fn CVarSystemResolution_dtor_Orig;
+void CVarSystemResolution_dtor_Hook()
+{
+  CVarSystemResolution_dtor_Orig();
+  auto consoleManager = *(IConsoleManager**)(mBaseAddress + Addr_IConsoleManager__Singleton);
+  consoleManager->UnregisterConsoleObject(CVarDisableCutsceneCA);
+  consoleManager->UnregisterConsoleObject(CVarMinStageEdgeBaseDistance);
+  consoleManager->UnregisterConsoleObject(CVarStageSharpenFilterStrength);
+  consoleManager->UnregisterConsoleObject(CVarCharaSharpenFilterStrength);
+  consoleManager->UnregisterConsoleObject(CVarForceLOD);
+}
+
+struct __declspec(align(4)) FMarkRelevantStaticMeshesForViewData
+{
+  FVector ViewOrigin;
+  int ForcedLODLevel;
+  float LODScale;
+  float InvLODScale;
+  float MinScreenRadiusForCSMDepthSquared;
+  float MinScreenRadiusForDepthPrepassSquared;
+  bool bFullEarlyZPass;
+};
+
+const uint32_t Addr_FRelevancePacket__FRelevancePacket = 0x1A3F7F0;
+typedef void (*FRelevancePacket__FRelevancePacket_Fn)(
+  void* thisptr, 
+  void* InRHICmdList,
+  void* InScene,
+  void* InView,
+  uint8_t InViewBit,
+  FMarkRelevantStaticMeshesForViewData& InViewData, 
+  void* InOutHasDynamicMeshElementsMasks, void* InOutHasDynamicEditorMeshElementsMasks, 
+  uint8_t* InMarkMasks, void* InPrimitiveCustomDataMemStack, void* InOutHasViewCustomDataMasks);
+FRelevancePacket__FRelevancePacket_Fn FRelevancePacket__FRelevancePacket_Orig;
+void FRelevancePacket__FRelevancePacket_Hook(
+  void* thisptr,
+  void* InRHICmdList,
+  void* InScene,
+  void* InView,
+  uint8_t InViewBit,
+  FMarkRelevantStaticMeshesForViewData& InViewData,
+  void* InOutHasDynamicMeshElementsMasks, void* InOutHasDynamicEditorMeshElementsMasks,
+  uint8_t* InMarkMasks, void* InPrimitiveCustomDataMemStack, void* InOutHasViewCustomDataMasks)
+{
+  if (Options.ForcedLODLevel >= 0)
+    InViewData.ForcedLODLevel = Options.ForcedLODLevel;
+
+  FRelevancePacket__FRelevancePacket_Orig(thisptr, InRHICmdList, InScene, InView, InViewBit, InViewData, InOutHasDynamicMeshElementsMasks, InOutHasDynamicEditorMeshElementsMasks,
+    InMarkMasks, InPrimitiveCustomDataMemStack, InOutHasViewCustomDataMasks);
 }
 
 void InitPlugin()
@@ -211,7 +275,12 @@ void InitPlugin()
 
   MH_GameHook(FSceneView__EndFinalPostprocessSettings);
 
+  // Add our custom cvars, need to handle constructor & destructor for them
   MH_GameHook(CVarSystemResolution_ctor);
+  MH_GameHook(CVarSystemResolution_dtor);
+
+  // for r.ForceLOD
+  MH_GameHook(FRelevancePacket__FRelevancePacket);
 
   // Patch fade distances used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController
   SafeWriteModule(0x116BD47 + 6, Options.MinNPCDistance - FadeInDelta);

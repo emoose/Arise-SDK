@@ -18665,6 +18665,65 @@ public:
 	void OnInterpToggle(bool bEnable);
 };
 
+struct FEngineShowFlags
+{
+	unsigned __int32 PostProcessing : 1;
+	unsigned __int32 Bloom : 1;
+	unsigned __int32 AntiAliasing : 1;
+	unsigned __int32 TemporalAA : 1;
+	unsigned __int32 AmbientCubemap : 1;
+	unsigned __int32 EyeAdaptation : 1;
+	unsigned __int32 GlobalIllumination : 1;
+	unsigned __int32 AmbientOcclusion : 1;
+	unsigned __int32 Decals : 1;
+	unsigned __int32 OnScreenDebug : 1;
+	unsigned __int32 PointLights : 1;
+	unsigned __int32 SpotLights : 1;
+	unsigned __int32 RectLights : 1;
+	unsigned __int32 MotionBlur : 1;
+	unsigned __int32 CameraInterpolation : 1;
+	unsigned __int32 SeparateTranslucency : 1;
+	unsigned __int32 ScreenPercentage : 1;
+	unsigned __int32 ReflectionEnvironment : 1;
+	unsigned __int32 Specular : 1;
+	unsigned __int32 ScreenSpaceReflections : 1;
+	unsigned __int32 ContactShadows : 1;
+	unsigned __int32 RayTracedDistanceFieldShadows : 1;
+	unsigned __int32 CapsuleShadows : 1;
+	unsigned __int32 VolumetricLightmap : 1;
+	unsigned __int32 IndirectLightingCache : 1;
+	unsigned __int32 TexturedLightProfiles : 1;
+	unsigned __int32 LightFunctions : 1;
+	unsigned __int32 InstancedStaticMeshes : 1;
+	unsigned __int32 InstancedFoliage : 1;
+	unsigned __int32 InstancedGrass : 1;
+	unsigned __int32 DynamicShadows : 1;
+	unsigned __int32 Particles : 1;
+	unsigned __int32 SkeletalMeshes : 1;
+	unsigned __int32 Translucency : 1;
+	unsigned __int32 LOD : 1;
+	unsigned __int32 Lighting : 1;
+	unsigned __int32 DeferredLighting : 1;
+	unsigned __int32 StaticMeshes : 1;
+	unsigned __int32 Landscape : 1;
+	unsigned __int32 Fog : 1;
+	unsigned __int32 Game : 1;
+	unsigned __int32 BSP : 1;
+	unsigned __int32 LightShafts : 1;
+	unsigned __int32 AtmosphericFog : 1;
+	unsigned __int32 TextRender : 1;
+	unsigned __int32 Rendering : 1;
+	unsigned __int32 HMDDistortion : 1;
+	unsigned __int32 StereoRendering : 1;
+	unsigned __int32 DistanceCulledPrimitives : 1;
+	unsigned __int32 SkyLighting : 1;
+	unsigned __int32 Paper2DSprites : 1;
+	unsigned __int32 ScreenSpaceAO : 1;
+	unsigned __int32 DistanceFieldAO : 1;
+	unsigned __int32 VolumetricFog : 1;
+	unsigned __int32 WidgetComponents : 1;
+	unsigned __int32 MediaPlanes : 1;
+};
 
 // Class Engine.SceneCaptureComponent
 // 0x00A0 (0x02F0 - 0x0250)
@@ -18685,7 +18744,8 @@ public:
 	float                                              MaxViewDistanceOverride;                                  // 0x02A0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	int                                                CaptureSortPriority;                                      // 0x02A4(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	TArray<struct FEngineShowFlagsSetting>             ShowFlagSettings;                                         // 0x02A8(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	unsigned char                                      UnknownData02[0x10];                                      // 0x02B8(0x0010) MISSED OFFSET
+	FEngineShowFlags																	 ShowFlags;// 0x2B8
+	unsigned char                                      UnknownData02[0xC];                                       // 0x02B8(0x0010) MISSED OFFSET
 	struct FString                                     ProfilingEventName;                                       // 0x02C8(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 	unsigned char                                      UnknownData03[0x18];                                      // 0x02D8(0x0018) MISSED OFFSET
 
