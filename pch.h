@@ -114,3 +114,12 @@ inline void UnsafeWriteModule(uintptr_t offset, T value)
 {
   *reinterpret_cast<T*>(mBaseAddress + offset) = value;
 }
+
+inline void PatchCall(uintptr_t callAddr, uintptr_t callDest)
+{
+  uint8_t callBuf[] = { 0xE8, 0x00, 0x00, 0x00, 0x00 };
+  uint32_t diff = uint32_t(callDest - (callAddr + 5));
+  *(uint32_t*)&callBuf[1] = diff;
+
+  SafeWrite(callAddr, callBuf, 5);
+}

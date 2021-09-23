@@ -271,46 +271,52 @@ void FRelevancePacket__FRelevancePacket_Hook(
     InMarkMasks, InPrimitiveCustomDataMemStack, InOutHasViewCustomDataMasks);
 }
 
-const uint32_t Addr_UTextureRenderTarget2D__UpdateResourceImmediate = 0x225F9D0;
-typedef void(*UTextureRenderTarget2D__UpdateResourceImmediate_Fn)(UTextureRenderTarget2D* thisptr, bool bClearRenderTarget);
-UTextureRenderTarget2D__UpdateResourceImmediate_Fn UTextureRenderTarget2D__UpdateResourceImmediate_Orig;
-void UTextureRenderTarget2D__UpdateResourceImmediate_Hook(UTextureRenderTarget2D* thisptr, bool bClearRenderTarget)
+// Called during UKismetRenderingLibrary::execCreateRenderTarget2D, so we can overwrite the target size etc.
+void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 {
   // UTextureRenderTarget2D::UpdateResourceImmediate gets called immediately after game sets up render targets resolution
   // So it's a good spot for us to resize it
 
-  float ScreenSizeX = float(*(uint32_t*)(mBaseAddress + 0x455A4F0));
-  float ScreenSizeY = float(*(uint32_t*)(mBaseAddress + 0x455A4F4));
-
-  if (Options.CutsceneRenderFix_EnableScreenPercentage)
+  if (Options.CutsceneRenderFix)
   {
-    // Apply screen-percentage to the RT, because UE4 disables percentage being applied to them...
-    float* ScreenPercentage = *(float**)(mBaseAddress + 0x4C08908);
-    float ScreenPercentageMult = max(ScreenPercentage[1], 1) / 100.f; // [1] to get the RenderThread version of cvar
-    ScreenPercentageMult = min(ScreenPercentageMult, 4); // 400% seems to be max allowed by UE4, so we'll limit to that too
+    float ScreenSizeX = float(*(uint32_t*)(mBaseAddress + 0x455A4F0));
+    float ScreenSizeY = float(*(uint32_t*)(mBaseAddress + 0x455A4F4));
 
-    ScreenSizeX *= ScreenPercentageMult;
-    ScreenSizeY *= ScreenPercentageMult;
+    if (Options.CutsceneRenderFix_EnableScreenPercentage)
+    {
+      // Apply screen-percentage to the RT, because UE4 disables percentage being applied to them...
+      float* ScreenPercentage = *(float**)(mBaseAddress + 0x4C08908);
+      float ScreenPercentageMult = max(ScreenPercentage[1], 1) / 100.f; // [1] to get the RenderThread version of cvar
+      ScreenPercentageMult = min(ScreenPercentageMult, 4); // 400% seems to be max allowed by UE4, so we'll limit to that too
+
+      ScreenSizeX *= ScreenPercentageMult;
+      ScreenSizeY *= ScreenPercentageMult;
+    }
+
+    float ScreenArea = ScreenSizeX * ScreenSizeY;
+
+    float CurSizeX = float(thisptr->SizeX);
+    float CurSizeY = float(thisptr->SizeY);
+    float CurArea = CurSizeX * CurSizeY;
+
+    // Only resize RT if it's using less pixels than our screen
+    if (ScreenArea > CurArea)
+    {
+      float widthRatio = ScreenSizeX / CurSizeX;
+      float heightRatio = ScreenSizeY / CurSizeY;
+      auto bestRatio = min(widthRatio, heightRatio);
+
+      thisptr->SizeX = (int)ceilf(CurSizeX * bestRatio);
+      thisptr->SizeY = (int)ceilf(CurSizeY * bestRatio);
+    }
   }
 
-  float ScreenArea = ScreenSizeX * ScreenSizeY;
+  uint8_t* vftable = *(uint8_t**)thisptr;
 
-  float CurSizeX = float(thisptr->SizeX);
-  float CurSizeY = float(thisptr->SizeY);
-  float CurArea = CurSizeX * CurSizeY;
+  typedef void(*UTexture__UpdateResource_Fn)(UTexture* thisptr);
+  UTexture__UpdateResource_Fn UTexture__UpdateResource = (UTexture__UpdateResource_Fn)(*(uintptr_t*)(vftable + 0x248));
 
-  // Only resize RT if it's using less pixels than our screen
-  if (ScreenArea > CurArea)
-  {
-    float widthRatio = ScreenSizeX / CurSizeX;
-    float heightRatio = ScreenSizeY / CurSizeY;
-    auto bestRatio = min(widthRatio, heightRatio);
-
-    thisptr->SizeX = (int)ceilf(CurSizeX * bestRatio);
-    thisptr->SizeY = (int)ceilf(CurSizeY * bestRatio);
-  }
-
-  UTextureRenderTarget2D__UpdateResourceImmediate_Orig(thisptr, bClearRenderTarget);
+  UTexture__UpdateResource(thisptr);
 }
 
 void InitPlugin()
@@ -334,8 +340,18 @@ void InitPlugin()
 
   // for render target resizing (fixing cutscene/skit resolution)
   if (Options.CutsceneRenderFix)
-    MH_GameHook(UTextureRenderTarget2D__UpdateResourceImmediate);
+  {
+    // Have to write a trampoline somewhere near the hooked addr, needs 12 bytes...
+    uint8_t trampoline[] = { 0x48, 0xB8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xFF, 0xE0 };
 
+    *(uintptr_t*)&trampoline[2] = (uintptr_t)&CreateRenderTarget2D_Hook;
+
+    SafeWrite(mBaseAddress + 0x2699E12, trampoline, 12);
+
+    // Hook UKismetRenderingLibrary::execCreateRenderTarget2D
+    SafeWrite(mBaseAddress + 0x2699D98, uint8_t(0x90));
+    PatchCall(mBaseAddress + 0x2699D98 + 1, mBaseAddress + 0x2699E12);
+  }
 
   if (Options.MinNPCDistance >= 0)
   {
