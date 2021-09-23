@@ -4,7 +4,7 @@
 #include <Shlobj.h>
 #include <filesystem>
 
-#define SDK_VERSION "0.1.14"
+#define SDK_VERSION "0.1.15"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -46,6 +46,7 @@ struct
   float OverrideStageSharpenFilterStrength = -1;
   float MinStageEdgeBaseDistance = 0;
   int32_t ForcedLODLevel = -1;
+  bool CutsceneRenderFix = false;
 } Options;
 
 bool TryLoadINIOptions(const WCHAR* IniFilePath)
@@ -67,8 +68,9 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.OverrideCharaSharpenFilterStrength = INI_GetFloat(IniPath, L"Graphics", L"OverrideCharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength);
   Options.OverrideStageSharpenFilterStrength = INI_GetFloat(IniPath, L"Graphics", L"OverrideStageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength);
   Options.MinStageEdgeBaseDistance = INI_GetFloat(IniPath, L"Graphics", L"MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance);
+  Options.CutsceneRenderFix = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix", Options.CutsceneRenderFix);
 
-  if (FadeInDelta >= Options.MinNPCDistance)
+  if (Options.MinNPCDistance >= 0 && FadeInDelta >= Options.MinNPCDistance)
     Options.MinNPCDistance = (FadeInDelta + 1);
 
   return true;
@@ -268,19 +270,33 @@ void UTextureRenderTarget2D__UpdateResourceImmediate_Hook(UTextureRenderTarget2D
   // UTextureRenderTarget2D::UpdateResourceImmediate gets called immediately after game sets up render targets resolution
   // So it's a good spot for us to resize it
 
-  float ScreenSizeX = *(uint32_t*)(mBaseAddress + 0x455A4F0);
-  float ScreenSizeY = *(uint32_t*)(mBaseAddress + 0x455A4F4);
-  // todo: scale size by r.ScreenPercentage?
+  float ScreenSizeX = float(*(uint32_t*)(mBaseAddress + 0x455A4F0));
+  float ScreenSizeY = float(*(uint32_t*)(mBaseAddress + 0x455A4F4));
 
-  float CurSizeX = thisptr->SizeX;
-  float CurSizeY = thisptr->SizeY;
+  // Apply screen-percentage to the RT, because UE4 disables percentage being applied to them...
+  float* ScreenPercentage = *(float**)(mBaseAddress + 0x4C08908);
+  float ScreenPercentageMult = max(ScreenPercentage[1], 1) / 100.f; // [1] to get the RenderThread version of cvar
+  ScreenPercentageMult = min(ScreenPercentageMult, 4); // 400% seems to be max allowed by UE4, so we'll limit to that too
 
-  float widthRatio = ScreenSizeX / CurSizeX;
-  float heightRatio = ScreenSizeY / CurSizeY;
-  auto bestRatio = min(widthRatio, heightRatio);
+  ScreenSizeX *= ScreenPercentageMult;
+  ScreenSizeY *= ScreenPercentageMult;
 
-  thisptr->SizeX = (CurSizeX * bestRatio);
-  thisptr->SizeY = (CurSizeY * bestRatio);
+  float ScreenArea = ScreenSizeX * ScreenSizeY;
+
+  float CurSizeX = float(thisptr->SizeX);
+  float CurSizeY = float(thisptr->SizeY);
+  float CurArea = CurSizeX * CurSizeY;
+
+  // Only resize RT if it's using less pixels than our screen
+  if (ScreenArea > CurArea)
+  {
+    float widthRatio = ScreenSizeX / CurSizeX;
+    float heightRatio = ScreenSizeY / CurSizeY;
+    auto bestRatio = min(widthRatio, heightRatio);
+
+    thisptr->SizeX = (int)ceilf(CurSizeX * bestRatio);
+    thisptr->SizeY = (int)ceilf(CurSizeY * bestRatio);
+  }
 
   UTextureRenderTarget2D__UpdateResourceImmediate_Orig(thisptr, bClearRenderTarget);
 }
@@ -295,9 +311,6 @@ void InitPlugin()
 
   MH_Initialize();
 
-  MH_GameHook(APFNpcManager__InitsDistances);
-  MH_GameHook(BP_PF_NPC_Walk_AIController__InitNPCDistance);
-
   MH_GameHook(FSceneView__EndFinalPostprocessSettings);
 
   // Add our custom cvars, need to handle constructor & destructor for them
@@ -308,17 +321,24 @@ void InitPlugin()
   MH_GameHook(FRelevancePacket__FRelevancePacket);
 
   // for render target resizing (fixing cutscene/skit resolution)
-  MH_GameHook(UTextureRenderTarget2D__UpdateResourceImmediate);
+  if (Options.CutsceneRenderFix)
+    MH_GameHook(UTextureRenderTarget2D__UpdateResourceImmediate);
 
-  // Patch fade distances used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController
-  SafeWriteModule(0x116BD47 + 6, Options.MinNPCDistance - FadeInDelta);
-  SafeWriteModule(0x116BD51 + 6, Options.MinNPCDistance);
-  SafeWriteModule(0x116BD83 + 6, Options.MinNPCDistance - FadeInDelta);
-  SafeWriteModule(0x116BD8D + 6, Options.MinNPCDistance);
 
-  // These have same value as the ones patched above, but don't seem to be used by walking NPCs, unsure what uses them
- // SafeWriteModule(0x1180595 + 3, Options.MinNPCDistance - FadeInDelta);
- // SafeWriteModule(0x118059C + 3, Options.MinNPCDistance);
+  if (Options.MinNPCDistance >= 0)
+  {
+    MH_GameHook(APFNpcManager__InitsDistances);
+    MH_GameHook(BP_PF_NPC_Walk_AIController__InitNPCDistance);
+    // Patch fade distances used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController
+    SafeWriteModule(0x116BD47 + 6, Options.MinNPCDistance - FadeInDelta);
+    SafeWriteModule(0x116BD51 + 6, Options.MinNPCDistance);
+    SafeWriteModule(0x116BD83 + 6, Options.MinNPCDistance - FadeInDelta);
+    SafeWriteModule(0x116BD8D + 6, Options.MinNPCDistance);
+
+    // These have same value as the ones patched above, but don't seem to be used by walking NPCs, unsure what uses them
+   // SafeWriteModule(0x1180595 + 3, Options.MinNPCDistance - FadeInDelta);
+   // SafeWriteModule(0x118059C + 3, Options.MinNPCDistance);
+  }
 
   // Fix EPrimaryScreenPercentageMethod::TemporalUpscale checks (when using r.TemporalAA.Upsampling = 1)
   // code is making sure AntiAliasingMethod == AAM_TemporalAA
