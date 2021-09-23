@@ -4,7 +4,7 @@
 #include <Shlobj.h>
 #include <filesystem>
 
-#define SDK_VERSION "0.1.15"
+#define SDK_VERSION "0.1.16"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -47,6 +47,7 @@ struct
   float MinStageEdgeBaseDistance = 0;
   int32_t ForcedLODLevel = -1;
   bool CutsceneRenderFix = false;
+  bool CutsceneRenderFix_EnableScreenPercentage = false;
 } Options;
 
 bool TryLoadINIOptions(const WCHAR* IniFilePath)
@@ -69,6 +70,7 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.OverrideStageSharpenFilterStrength = INI_GetFloat(IniPath, L"Graphics", L"OverrideStageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength);
   Options.MinStageEdgeBaseDistance = INI_GetFloat(IniPath, L"Graphics", L"MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance);
   Options.CutsceneRenderFix = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix", Options.CutsceneRenderFix);
+  Options.CutsceneRenderFix_EnableScreenPercentage = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix_EnableScreenPercentage", Options.CutsceneRenderFix_EnableScreenPercentage);
 
   if (Options.MinNPCDistance >= 0 && FadeInDelta >= Options.MinNPCDistance)
     Options.MinNPCDistance = (FadeInDelta + 1);
@@ -187,6 +189,8 @@ IConsoleVariable* CVarCharaSharpenFilterStrength;
 IConsoleVariable* CVarStageSharpenFilterStrength;
 IConsoleVariable* CVarMinStageEdgeBaseDistance;
 IConsoleVariable* CVarDisableCutsceneCA;
+IConsoleVariable* CVarCutsceneRenderFix;
+IConsoleVariable* CVarCutsceneRenderFixScreenPercentage;
 IConsoleVariable* CVarForceLOD;
 
 const uint32_t Addr_IConsoleManager__Singleton = 0x4A97AC8;
@@ -203,6 +207,9 @@ void CVarSystemResolution_ctor_Hook()
   CVarStageSharpenFilterStrength = consoleManager->RegisterConsoleVariableRef(L"sdk.StageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength, L"OverrideStageSharpenFilterStrength", 0);
   CVarMinStageEdgeBaseDistance = consoleManager->RegisterConsoleVariableRef(L"sdk.MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance, L"MinStageEdgeBaseDistance", 0);
   CVarDisableCutsceneCA = consoleManager->RegisterConsoleVariableRef(L"sdk.DisableCutsceneCA", Options.DisableCutsceneCA, L"DisableCutsceneCA", 0);
+
+  CVarCutsceneRenderFix = consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFix", Options.CutsceneRenderFix, L"CutsceneRenderFix", 0);
+  CVarCutsceneRenderFixScreenPercentage = consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFixScreenPercentage", Options.CutsceneRenderFix_EnableScreenPercentage, L"CutsceneRenderFix_EnableScreenPercentage", 0);
   
   // usually created by UE4 inside EXPOSE_FORCE_LOD builds, which shipping builds sadly aren't
   // not too hard to reimpl though
@@ -216,11 +223,13 @@ void CVarSystemResolution_dtor_Hook()
 {
   CVarSystemResolution_dtor_Orig();
   auto consoleManager = *(IConsoleManager**)(mBaseAddress + Addr_IConsoleManager__Singleton);
+  consoleManager->UnregisterConsoleObject(CVarForceLOD);
+  consoleManager->UnregisterConsoleObject(CVarCutsceneRenderFixScreenPercentage);
+  consoleManager->UnregisterConsoleObject(CVarCutsceneRenderFix);
   consoleManager->UnregisterConsoleObject(CVarDisableCutsceneCA);
   consoleManager->UnregisterConsoleObject(CVarMinStageEdgeBaseDistance);
   consoleManager->UnregisterConsoleObject(CVarStageSharpenFilterStrength);
   consoleManager->UnregisterConsoleObject(CVarCharaSharpenFilterStrength);
-  consoleManager->UnregisterConsoleObject(CVarForceLOD);
 }
 
 struct __declspec(align(4)) FMarkRelevantStaticMeshesForViewData
@@ -273,13 +282,16 @@ void UTextureRenderTarget2D__UpdateResourceImmediate_Hook(UTextureRenderTarget2D
   float ScreenSizeX = float(*(uint32_t*)(mBaseAddress + 0x455A4F0));
   float ScreenSizeY = float(*(uint32_t*)(mBaseAddress + 0x455A4F4));
 
-  // Apply screen-percentage to the RT, because UE4 disables percentage being applied to them...
-  float* ScreenPercentage = *(float**)(mBaseAddress + 0x4C08908);
-  float ScreenPercentageMult = max(ScreenPercentage[1], 1) / 100.f; // [1] to get the RenderThread version of cvar
-  ScreenPercentageMult = min(ScreenPercentageMult, 4); // 400% seems to be max allowed by UE4, so we'll limit to that too
+  if (Options.CutsceneRenderFix_EnableScreenPercentage)
+  {
+    // Apply screen-percentage to the RT, because UE4 disables percentage being applied to them...
+    float* ScreenPercentage = *(float**)(mBaseAddress + 0x4C08908);
+    float ScreenPercentageMult = max(ScreenPercentage[1], 1) / 100.f; // [1] to get the RenderThread version of cvar
+    ScreenPercentageMult = min(ScreenPercentageMult, 4); // 400% seems to be max allowed by UE4, so we'll limit to that too
 
-  ScreenSizeX *= ScreenPercentageMult;
-  ScreenSizeY *= ScreenPercentageMult;
+    ScreenSizeX *= ScreenPercentageMult;
+    ScreenSizeY *= ScreenPercentageMult;
+  }
 
   float ScreenArea = ScreenSizeX * ScreenSizeY;
 
