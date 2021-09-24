@@ -45,16 +45,10 @@
     <ClCompile Include="SDK\Basic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\Arise_functions.cpp">
+    <ClCompile Include="UE4Hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SDK\CoreUObject_functions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\Engine_functions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UE4Hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
