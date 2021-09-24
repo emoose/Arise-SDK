@@ -4,7 +4,7 @@
 #include <Shlobj.h>
 #include <filesystem>
 
-#define SDK_VERSION "0.1.16"
+#define SDK_VERSION "0.1.17"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -402,6 +402,10 @@ void InitPlugin()
     const uint32_t PatchAddr_UBootSceneController__Start = 0xF4B213;
     SafeWriteModule(PatchAddr_UBootSceneController__Start, uint16_t(0x9090)); // jne -> nop
   }
+
+  // Remove limit from r.Shadow.DistanceScale
+  const uint32_t PatchAddr_GetCSMMaxDistance = 0x2382021;
+  SafeWriteModule(PatchAddr_GetCSMMaxDistance, uint8_t(0x90), 8);
 
   // patch out the code that overwrites r.ScreenPercentage/r.Shadow.MaxCSMResolution, so it can be changed inside Engine.ini freely
   // without patching it the game will always overwrite any INI value set for this, limiting it to 4096 and below
