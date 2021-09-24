@@ -1,8 +1,4 @@
 ﻿#include "pch.h"
-#include <fstream>
-#include <sstream>
-#include <Shlobj.h>
-#include <filesystem>
 
 #define SDK_VERSION "0.1.17"
 
