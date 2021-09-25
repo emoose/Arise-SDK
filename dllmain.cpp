@@ -175,6 +175,9 @@ void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
   auto ret = FSceneView__EndFinalPostprocessSettings_Orig(thisptr, a2);
 
   FPostProcessSettings* FinalPostProcessSettings = (FPostProcessSettings*)(thisptr + Offset_FSceneView__FinalPostProcessSettings);
+
+  if (Options.DisableCutsceneCA)
+    FinalPostProcessSettings->SceneFringeIntensity = 0;
   if (Options.OverrideCharaSharpenFilterStrength != -1)
     FinalPostProcessSettings->CharaSharpenFilterStrengthTO14 = Options.OverrideCharaSharpenFilterStrength;
   if (Options.OverrideStageSharpenFilterStrength != -1)
@@ -288,35 +291,35 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 {
   if (Options.CutsceneRenderFix)
   {
-    float ScreenSizeX = float(*(uint32_t*)(mBaseAddress + 0x455A4F0));
-    float ScreenSizeY = float(*(uint32_t*)(mBaseAddress + 0x455A4F4));
+    double ScreenSizeX = double(*(uint32_t*)(mBaseAddress + 0x455A4F0));
+    double ScreenSizeY = double(*(uint32_t*)(mBaseAddress + 0x455A4F4));
 
     if (Options.CutsceneRenderFix_EnableScreenPercentage)
     {
       // Apply screen-percentage to the RT, because UE4 disables percentage being applied to them...
       float* ScreenPercentage = *(float**)(mBaseAddress + 0x4C08908);
-      float ScreenPercentageMult = max(ScreenPercentage[1], 1) / 100.f; // [1] to get the RenderThread version of cvar
+      double ScreenPercentageMult = max(ScreenPercentage[1], 1) / 100.f; // [1] to get the RenderThread version of cvar
       ScreenPercentageMult = min(ScreenPercentageMult, 4); // 400% seems to be max allowed by UE4, so we'll limit to that too
 
       ScreenSizeX *= ScreenPercentageMult;
       ScreenSizeY *= ScreenPercentageMult;
     }
 
-    float ScreenArea = ScreenSizeX * ScreenSizeY;
+    double ScreenArea = ScreenSizeX * ScreenSizeY;
 
-    float CurSizeX = float(thisptr->SizeX);
-    float CurSizeY = float(thisptr->SizeY);
-    float CurArea = CurSizeX * CurSizeY;
+    double CurSizeX = double(thisptr->SizeX);
+    double CurSizeY = double(thisptr->SizeY);
+    double CurArea = CurSizeX * CurSizeY;
 
     // Only resize RT if it's using less pixels than our screen
     if (ScreenArea > CurArea)
     {
-      float widthRatio = ScreenSizeX / CurSizeX;
-      float heightRatio = ScreenSizeY / CurSizeY;
+      double widthRatio = ScreenSizeX / CurSizeX;
+      double heightRatio = ScreenSizeY / CurSizeY;
       auto bestRatio = min(widthRatio, heightRatio);
 
-      thisptr->SizeX = (int)ceilf(CurSizeX * bestRatio);
-      thisptr->SizeY = (int)ceilf(CurSizeY * bestRatio);
+      thisptr->SizeX = int(floor(CurSizeX * bestRatio));
+      thisptr->SizeY = int(floor(CurSizeY * bestRatio));
     }
   }
 
@@ -328,8 +331,63 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
   UTexture__UpdateResource(thisptr);
 }
 
+#ifdef _DEBUG
+
+// thread for testing stuff
+// TODO: make this hook into the engines update loop instead...
+
+DWORD updateThreadId = 0;
+HANDLE updateThreadHandle = 0;
+DWORD WINAPI UpdateThread(LPVOID lpParam)
+{
+  while (true)
+  {
+    Sleep(1000);
+
+    bool performAction = (GetKeyState(VK_HOME) & 0x8000);
+    if (!performAction)
+      continue;
+
+    static float newDist = 1.0f;
+    static float newFactor = 10.0f;
+    static bool whoa = false;
+
+    auto test1 = UObject::FindObjects<UEngine>();
+    for (auto& eng : test1)
+    {
+      eng->StreamingDistanceFactor = newFactor;
+    }
+
+    auto test = UObject::FindObjects<ALandscapeProxy>();
+    for (auto& obj : test)
+    {
+      for (int i = 0; i < obj->LandscapeComponents.Num(); i++)
+      {
+        auto& comp = obj->LandscapeComponents[i];
+       // comp->LODBias = -1;
+        comp->ForcedLOD = 0;
+      }
+      float prevDist = obj->StreamingDistanceMultiplier;
+      if (whoa)
+        obj->StreamingDistanceMultiplier = newDist;
+    }
+  }
+}
+
+#endif
+
 void InitPlugin()
 {
+#ifdef _DEBUG
+  updateThreadHandle = CreateThread(
+    NULL,                   // default security attributes
+    0,                      // use default stack size  
+    UpdateThread,       // thread function name
+    NULL,          // argument to thread function 
+    0,                      // use default creation flags 
+    &updateThreadId);   // returns the thread identifier 
+#endif
+
   UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(mBaseAddress + Addr_ProcessEvent);
   UObject::GObjects = reinterpret_cast<FUObjectArray*>(mBaseAddress + Addr_GUObjectArray);
   FName::GNames = reinterpret_cast<TNameEntryArray*>(mBaseAddress + Addr_Names);
@@ -344,7 +402,7 @@ void InitPlugin()
   MH_GameHook(CVarSystemResolution_ctor);
   MH_GameHook(CVarSystemResolution_dtor);
 
-  // for r.ForceLOD
+  // Add support for r.ForceLOD
   MH_GameHook(FRelevancePacket__FRelevancePacket);
 
   // for render target resizing (fixing cutscene/skit resolution)
@@ -425,12 +483,7 @@ void InitPlugin()
   if (Options.StopMaxCSMResolutionOverwrite)
     SafeWriteModule(0xE52F7A, uint8_t(0x90), 5);
 
-  // patches out the CA part of the code that handles r.OverridePostProcessSettingsTO14
-  // (we used to include a patch to skip that code entirely, but turned out some cutscenes relied on the settings it would change...)
-  const uint32_t PatchAddr_FSceneView__EndFinalPostprocessSettings_CAFloat = 0x217F84D + 6;
-  if (Options.DisableCutsceneCA)
-    SafeWriteModule(PatchAddr_FSceneView__EndFinalPostprocessSettings_CAFloat, float(0));
-
+  // Unlock dev-console & allow loading loose files
   Init_UE4Hook();
 
   MH_EnableHook(MH_ALL_HOOKS);

@@ -230,6 +230,10 @@
 #include "SDK/Arise_classes.h"
 #include "SDK/Arise_parameters.h"
 
+#include "SDK/Landscape_structs.h"
+#include "SDK/Landscape_classes.h"
+#include "SDK/Landscape_parameters.h"
+
 /*
 #include "SDK/ABP_CHR_NFC_HUM_000_PHY_structs.h"
 #include "SDK/ABP_CHR_NFC_HUM_000_PHY_classes.h"
@@ -3963,9 +3967,6 @@
 #include "SDK/Foliage_structs.h"
 #include "SDK/Foliage_classes.h"
 #include "SDK/Foliage_parameters.h"
-#include "SDK/Landscape_structs.h"
-#include "SDK/Landscape_classes.h"
-#include "SDK/Landscape_parameters.h"
 #include "SDK/BP_EventManager_structs.h"
 #include "SDK/BP_EventManager_classes.h"
 #include "SDK/BP_EventManager_parameters.h"
