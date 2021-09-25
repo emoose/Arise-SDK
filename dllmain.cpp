@@ -44,6 +44,8 @@ struct
   int32_t ForcedLODLevel = -1;
   bool CutsceneRenderFix = false;
   bool CutsceneRenderFix_EnableScreenPercentage = false;
+  float OverrideTemporalAAJitterScale = -1;
+  float OverrideTemporalAASharpness = -1;
 } Options;
 
 bool TryLoadINIOptions(const WCHAR* IniFilePath)
@@ -67,6 +69,8 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.MinStageEdgeBaseDistance = INI_GetFloat(IniPath, L"Graphics", L"MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance);
   Options.CutsceneRenderFix = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix", Options.CutsceneRenderFix);
   Options.CutsceneRenderFix_EnableScreenPercentage = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix_EnableScreenPercentage", Options.CutsceneRenderFix_EnableScreenPercentage);
+  Options.OverrideTemporalAAJitterScale = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAAJitterScale", Options.OverrideTemporalAAJitterScale);
+  Options.OverrideTemporalAASharpness = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAASharpness", Options.OverrideTemporalAASharpness);
 
   if (Options.MinNPCDistance >= 0 && FadeInDelta >= Options.MinNPCDistance)
     Options.MinNPCDistance = (FadeInDelta + 1);
@@ -175,6 +179,11 @@ void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
     FinalPostProcessSettings->CharaSharpenFilterStrengthTO14 = Options.OverrideCharaSharpenFilterStrength;
   if (Options.OverrideStageSharpenFilterStrength != -1)
     FinalPostProcessSettings->StageSharpenFilterStrengthTO14 = Options.OverrideStageSharpenFilterStrength;
+  if (Options.OverrideTemporalAAJitterScale != -1)
+    FinalPostProcessSettings->TemporalAACameraJitterScaleTO14 = Options.OverrideTemporalAAJitterScale;
+  if (Options.OverrideTemporalAASharpness != -1)
+    FinalPostProcessSettings->TemporalAASharpnessFactorTO14 = Options.OverrideTemporalAASharpness;
+
   if (Options.MinStageEdgeBaseDistance > FinalPostProcessSettings->StageEdgeBaseDistance_TO14)
     FinalPostProcessSettings->StageEdgeBaseDistance_TO14 = Options.MinStageEdgeBaseDistance;
 
@@ -188,6 +197,8 @@ IConsoleVariable* CVarDisableCutsceneCA;
 IConsoleVariable* CVarCutsceneRenderFix;
 IConsoleVariable* CVarCutsceneRenderFixScreenPercentage;
 IConsoleVariable* CVarForceLOD;
+IConsoleVariable* CVarTAAJitterScale;
+IConsoleVariable* CVarTAASharpness;
 
 const uint32_t Addr_IConsoleManager__Singleton = 0x4A97AC8;
 
@@ -206,7 +217,10 @@ void CVarSystemResolution_ctor_Hook()
 
   CVarCutsceneRenderFix = consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFix", Options.CutsceneRenderFix, L"CutsceneRenderFix", 0);
   CVarCutsceneRenderFixScreenPercentage = consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFixScreenPercentage", Options.CutsceneRenderFix_EnableScreenPercentage, L"CutsceneRenderFix_EnableScreenPercentage", 0);
-  
+
+  CVarTAAJitterScale = consoleManager->RegisterConsoleVariableRef(L"sdk.TAAJitterScale", Options.OverrideTemporalAAJitterScale, L"OverrideTemporalAAJitterScale", 0);
+  CVarTAASharpness = consoleManager->RegisterConsoleVariableRef(L"sdk.TAASharpness", Options.OverrideTemporalAASharpness, L"OverrideTemporalAASharpness", 0);
+
   // usually created by UE4 inside EXPOSE_FORCE_LOD builds, which shipping builds sadly aren't
   // not too hard to reimpl though
   CVarForceLOD = consoleManager->RegisterConsoleVariableRef(L"r.ForceLOD", Options.ForcedLODLevel, L"LOD level to force, -1 is off.", ECVF_Scalability | ECVF_Default | ECVF_RenderThreadSafe);
@@ -219,6 +233,8 @@ void CVarSystemResolution_dtor_Hook()
 {
   CVarSystemResolution_dtor_Orig();
   auto consoleManager = *(IConsoleManager**)(mBaseAddress + Addr_IConsoleManager__Singleton);
+  consoleManager->UnregisterConsoleObject(CVarTAASharpness);
+  consoleManager->UnregisterConsoleObject(CVarTAAJitterScale);
   consoleManager->UnregisterConsoleObject(CVarForceLOD);
   consoleManager->UnregisterConsoleObject(CVarCutsceneRenderFixScreenPercentage);
   consoleManager->UnregisterConsoleObject(CVarCutsceneRenderFix);
@@ -270,9 +286,6 @@ void FRelevancePacket__FRelevancePacket_Hook(
 // Called during UKismetRenderingLibrary::execCreateRenderTarget2D, so we can overwrite the target size etc.
 void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 {
-  // UTextureRenderTarget2D::UpdateResourceImmediate gets called immediately after game sets up render targets resolution
-  // So it's a good spot for us to resize it
-
   if (Options.CutsceneRenderFix)
   {
     float ScreenSizeX = float(*(uint32_t*)(mBaseAddress + 0x455A4F0));
