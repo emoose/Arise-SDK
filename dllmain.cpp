@@ -314,12 +314,17 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
     // Only resize RT if it's using less pixels than our screen
     if (ScreenArea > CurArea)
     {
-      double widthRatio = ScreenSizeX / CurSizeX;
-      double heightRatio = ScreenSizeY / CurSizeY;
-      auto bestRatio = min(widthRatio, heightRatio);
+      // Figure out a width/height with the same ratio as the original RT resolution, that has near enough the same area as our screen resolution
+      // (in effect, this will make the panels super-sampled in a way, since they'll be rendering with the same number of pixels as the full screen, but only get displayed in a small box)
+      // (since only 1 or 2 boxes are actually rendering at once this shouldn't give a big performance impact though)
 
-      thisptr->SizeX = int(floor(CurSizeX * bestRatio));
-      thisptr->SizeY = int(floor(CurSizeY * bestRatio));
+      double CurRatio = CurSizeX / CurSizeY;
+
+      double NewWidth = sqrt(CurRatio * ScreenArea);
+      double NewHeight = NewWidth / CurRatio;
+
+      thisptr->SizeX = floor(NewWidth);
+      thisptr->SizeY = floor(NewHeight);
     }
   }
 
