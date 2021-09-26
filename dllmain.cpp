@@ -23,6 +23,11 @@ extern const uint32_t Addr_UGameViewportClient__SetupInitialLocalPlayer = 0x2034
 extern const uint32_t Addr_FPakPlatformFile__FindFileInPakFiles = 0x27E93C0;
 extern const uint32_t Addr_FPakPlatformFile__IsNonPakFilenameAllowed = 0x27F4130;
 
+// TODO: move this to IConsoleManager.h/.cpp
+const uint32_t Addr_FConsoleVariable__GetFloat = 0x124A690;
+typedef float(*FConsoleVariable__GetFloat_Fn)(IConsoleVariable* thisptr);
+FConsoleVariable__GetFloat_Fn FConsoleVariable__GetFloat;
+
 HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
@@ -297,8 +302,9 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
     if (Options.CutsceneRenderFix_EnableScreenPercentage)
     {
       // Apply screen-percentage to the RT, because UE4 disables percentage being applied to them...
-      float* ScreenPercentage = *(float**)(mBaseAddress + 0x4C08908);
-      double ScreenPercentageMult = max(double(ScreenPercentage[1]), 1) / double(100.f); // [1] to get the RenderThread version of cvar
+      IConsoleVariable* ScreenPercentagePtr = *(IConsoleVariable**)(mBaseAddress + 0x4C08900);
+      double ScreenPercentageMult = FConsoleVariable__GetFloat(ScreenPercentagePtr);
+      ScreenPercentageMult = max(ScreenPercentageMult, 1) / double(100.f);
       ScreenPercentageMult = min(ScreenPercentageMult, 4); // 400% seems to be max allowed by UE4, so we'll limit to that too
 
       ScreenSizeX *= ScreenPercentageMult;
@@ -386,6 +392,7 @@ void InitPlugin()
   UObject::GObjects = reinterpret_cast<FUObjectArray*>(mBaseAddress + Addr_GUObjectArray);
   FName::GNames = reinterpret_cast<TNameEntryArray*>(mBaseAddress + Addr_Names);
   StaticConstructObject_Internal = reinterpret_cast<StaticConstructObject_InternalFn>(mBaseAddress + Addr_StaticConstructObject_Internal);
+  FConsoleVariable__GetFloat = reinterpret_cast<FConsoleVariable__GetFloat_Fn>(mBaseAddress + Addr_FConsoleVariable__GetFloat);
 
   MH_Initialize();
 
