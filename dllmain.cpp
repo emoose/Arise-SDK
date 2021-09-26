@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.17"
+#define SDK_VERSION "0.1.18"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -323,8 +323,8 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
       double NewWidth = sqrt(CurRatio * ScreenArea);
       double NewHeight = NewWidth / CurRatio;
 
-      thisptr->SizeX = floor(NewWidth);
-      thisptr->SizeY = floor(NewHeight);
+      thisptr->SizeX = int(ceil(NewWidth));
+      thisptr->SizeY = int(ceil(NewHeight));
     }
   }
 
