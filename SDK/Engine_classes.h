@@ -18744,8 +18744,8 @@ public:
 	float                                              MaxViewDistanceOverride;                                  // 0x02A0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	int                                                CaptureSortPriority;                                      // 0x02A4(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	TArray<struct FEngineShowFlagsSetting>             ShowFlagSettings;                                         // 0x02A8(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	FEngineShowFlags																	 ShowFlags;// 0x2B8
-	unsigned char                                      UnknownData02[0xC];                                       // 0x02B8(0x0010) MISSED OFFSET
+	FEngineShowFlags																	 ShowFlags;                                                // 0x02B8(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData02[0xC];                                       // 0x02BC(0x000C) MISSED OFFSET
 	struct FString                                     ProfilingEventName;                                       // 0x02C8(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 	unsigned char                                      UnknownData03[0x18];                                      // 0x02D8(0x0018) MISSED OFFSET
 

@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.18"
+#define SDK_VERSION "0.1.19"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -385,7 +385,6 @@ void InitPlugin()
   UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(mBaseAddress + Addr_ProcessEvent);
   UObject::GObjects = reinterpret_cast<FUObjectArray*>(mBaseAddress + Addr_GUObjectArray);
   FName::GNames = reinterpret_cast<TNameEntryArray*>(mBaseAddress + Addr_Names);
-
   StaticConstructObject_Internal = reinterpret_cast<StaticConstructObject_InternalFn>(mBaseAddress + Addr_StaticConstructObject_Internal);
 
   MH_Initialize();
@@ -394,6 +393,7 @@ void InitPlugin()
   MH_GameHook(FEngineLoop__Tick);
 #endif
 
+  // Hook EndFinalPostprocessSettings so we can adjust the FPostProcessSettings struct
   MH_GameHook(FSceneView__EndFinalPostprocessSettings);
 
   // Add our custom cvars, need to handle constructor & destructor for them
@@ -403,7 +403,7 @@ void InitPlugin()
   // Add support for r.ForceLOD
   MH_GameHook(FRelevancePacket__FRelevancePacket);
 
-  // for render target resizing (fixing cutscene/skit resolution)
+  // Render target resizing (fixing cutscene/skit resolution)
   if (Options.CutsceneRenderFix)
   {
     // Have to write a trampoline somewhere near the hooked addr, needs 12 bytes...
@@ -416,6 +416,13 @@ void InitPlugin()
     // Hook UKismetRenderingLibrary::execCreateRenderTarget2D
     SafeWrite(mBaseAddress + 0x2699D98, uint8_t(0x90));
     PatchCall(mBaseAddress + 0x2699D98 + 1, mBaseAddress + 0x2699E12);
+
+    // USceneCaptureComponent2D ctor: change "ShowFlags.TemporalAA = false; ShowFlags.MotionBlur = false;" to " = true" 
+    // Not certain if ToA's custom TAA impl. works on this or not though (may need more AAM_TemporalAA checks to be fixed...)
+    const uint32_t PatchAddr_USceneCaptureComponent2D_ctor = 0x279200F;
+    // Change "and dword ptr [rbx+2B8h], 0FFFFDFF7h" to "or dword ptr [rbx+2B8h], 2008h", so it sets the bits instead of removing them
+    uint8_t Patch_USceneCaptureComponent2D_ctor[] = { 0x81, 0x8B, 0xB8, 0x02, 0x00, 0x00, 0x08, 0x20, 0x00, 0x00 };
+    SafeWriteModule(PatchAddr_USceneCaptureComponent2D_ctor, Patch_USceneCaptureComponent2D_ctor, 0xA);
   }
 
   if (Options.MinNPCDistance >= 0)
