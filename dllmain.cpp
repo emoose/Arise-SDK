@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.19b"
+#define SDK_VERSION "0.1.20"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -44,8 +44,6 @@ struct
 {
   float MinNPCDistance = 50000;
   bool SkipIntroLogos = true;
-  bool StopMaxCSMResolutionOverwrite = false;
-  bool StopScreenPercentageOverwrite = false;
   bool DisableCutsceneCA = false;
   float OverrideCharaSharpenFilterStrength = -1;
   float OverrideStageSharpenFilterStrength = -1;
@@ -68,8 +66,6 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   wcscpy_s(IniPath, IniFilePath);
 
   Options.SkipIntroLogos = INI_GetBool(IniPath, L"Patches", L"SkipIntroLogos", Options.SkipIntroLogos);
-  Options.StopMaxCSMResolutionOverwrite = INI_GetBool(IniPath, L"Patches", L"StopMaxCSMResolutionOverwrite", Options.StopMaxCSMResolutionOverwrite);
-  Options.StopScreenPercentageOverwrite = INI_GetBool(IniPath, L"Patches", L"StopScreenPercentageOverwrite", Options.StopScreenPercentageOverwrite);
   Options.DisableCutsceneCA = INI_GetBool(IniPath, L"Patches", L"DisableCutsceneCA", Options.DisableCutsceneCA);
 
   Options.MinNPCDistance = INI_GetFloat(IniPath, L"Graphics", L"MinimumNPCDistance", Options.MinNPCDistance);
@@ -2683,14 +2679,12 @@ void InitPlugin()
   const uint32_t PatchAddr_GetCSMMaxDistance = 0x2382021;
   SafeWriteModule(PatchAddr_GetCSMMaxDistance, uint8_t(0x90), 8);
 
-  // patch out the code that overwrites r.ScreenPercentage/r.Shadow.MaxCSMResolution, so it can be changed inside Engine.ini freely
+  // Patch the games ScreenPercentage & MaxCSMResolution overwriting code to use a lower priority
+  // This'll make the users Engine.ini settings preferred over the games choice - without us needing to break the games in-game setting for people that don't use Engine.ini!)
   // without patching it the game will always overwrite any INI value set for this, limiting it to 4096 and below
-  // using console you can set this to 8192+, but there's no way to make it stick, since game will overwrite your INI changes
-  // using this patch will prevent that, but will also break the in-game setting...
-  if (Options.StopScreenPercentageOverwrite)
-    SafeWriteModule(0xE52EDD, uint8_t(0x90), 5);
-  if (Options.StopMaxCSMResolutionOverwrite)
-    SafeWriteModule(0xE52F7A, uint8_t(0x90), 5);
+  // using console you can set this to 8192+, but without this there's no way to make it stick, since game will overwrite your INI changes
+  SafeWriteModule(0xE52F74 + 2, uint32_t(EConsoleVariableFlags::ECVF_SetByScalability));
+  SafeWriteModule(0xE52ED7 + 2, uint32_t(EConsoleVariableFlags::ECVF_SetByScalability));
 
   // Unlock dev-console & allow loading loose files
   Init_UE4Hook();
