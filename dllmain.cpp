@@ -298,7 +298,7 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
     {
       // Apply screen-percentage to the RT, because UE4 disables percentage being applied to them...
       float* ScreenPercentage = *(float**)(mBaseAddress + 0x4C08908);
-      double ScreenPercentageMult = max(ScreenPercentage[1], 1) / 100.f; // [1] to get the RenderThread version of cvar
+      double ScreenPercentageMult = max(double(ScreenPercentage[1]), 1) / double(100.f); // [1] to get the RenderThread version of cvar
       ScreenPercentageMult = min(ScreenPercentageMult, 4); // 400% seems to be max allowed by UE4, so we'll limit to that too
 
       ScreenSizeX *= ScreenPercentageMult;
@@ -338,44 +338,43 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 
 #ifdef _DEBUG
 
-// thread for testing stuff
-// TODO: make this hook into the engines update loop instead...
+// hook for testing stuff
+// previously was a seperate thread, but that wasn't in sync with the game engine that well
+// hooking engine loop should solve that though :)
 
-DWORD updateThreadId = 0;
-HANDLE updateThreadHandle = 0;
-DWORD WINAPI UpdateThread(LPVOID lpParam)
+const uint32_t Addr_FEngineLoop__Tick = 0x5CF1F0;
+typedef void(*FEngineLoop__Tick_Fn)(void* thisptr);
+FEngineLoop__Tick_Fn FEngineLoop__Tick_Orig;
+void FEngineLoop__Tick_Hook(void* thisptr)
 {
-  while (true)
+  FEngineLoop__Tick_Orig(thisptr);
+
+  bool performAction = (GetKeyState(VK_HOME) & 0x8000);
+  if (!performAction)
+    return;
+
+  static float newDist = 1.0f;
+  static float newFactor = 10.0f;
+  static bool whoa = false;
+
+  auto test1 = UObject::FindObjects<UEngine>();
+  for (auto& eng : test1)
   {
-    Sleep(1000);
+    eng->StreamingDistanceFactor = newFactor;
+  }
 
-    bool performAction = (GetKeyState(VK_HOME) & 0x8000);
-    if (!performAction)
-      continue;
-
-    static float newDist = 1.0f;
-    static float newFactor = 10.0f;
-    static bool whoa = false;
-
-    auto test1 = UObject::FindObjects<UEngine>();
-    for (auto& eng : test1)
+  auto test = UObject::FindObjects<ALandscapeProxy>();
+  for (auto& obj : test)
+  {
+    for (int i = 0; i < obj->LandscapeComponents.Num(); i++)
     {
-      eng->StreamingDistanceFactor = newFactor;
+      auto& comp = obj->LandscapeComponents[i];
+      // comp->LODBias = -1;
+      comp->ForcedLOD = 0;
     }
-
-    auto test = UObject::FindObjects<ALandscapeProxy>();
-    for (auto& obj : test)
-    {
-      for (int i = 0; i < obj->LandscapeComponents.Num(); i++)
-      {
-        auto& comp = obj->LandscapeComponents[i];
-       // comp->LODBias = -1;
-        comp->ForcedLOD = 0;
-      }
-      float prevDist = obj->StreamingDistanceMultiplier;
-      if (whoa)
-        obj->StreamingDistanceMultiplier = newDist;
-    }
+    float prevDist = obj->StreamingDistanceMultiplier;
+    if (whoa)
+      obj->StreamingDistanceMultiplier = newDist;
   }
 }
 
@@ -383,16 +382,6 @@ DWORD WINAPI UpdateThread(LPVOID lpParam)
 
 void InitPlugin()
 {
-#ifdef _DEBUG
-  updateThreadHandle = CreateThread(
-    NULL,                   // default security attributes
-    0,                      // use default stack size  
-    UpdateThread,       // thread function name
-    NULL,          // argument to thread function 
-    0,                      // use default creation flags 
-    &updateThreadId);   // returns the thread identifier 
-#endif
-
   UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(mBaseAddress + Addr_ProcessEvent);
   UObject::GObjects = reinterpret_cast<FUObjectArray*>(mBaseAddress + Addr_GUObjectArray);
   FName::GNames = reinterpret_cast<TNameEntryArray*>(mBaseAddress + Addr_Names);
@@ -400,6 +389,10 @@ void InitPlugin()
   StaticConstructObject_Internal = reinterpret_cast<StaticConstructObject_InternalFn>(mBaseAddress + Addr_StaticConstructObject_Internal);
 
   MH_Initialize();
+
+#ifdef _DEBUG
+  MH_GameHook(FEngineLoop__Tick);
+#endif
 
   MH_GameHook(FSceneView__EndFinalPostprocessSettings);
 
