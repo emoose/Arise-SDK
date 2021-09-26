@@ -302,8 +302,8 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
     if (Options.CutsceneRenderFix_EnableScreenPercentage)
     {
       // Apply screen-percentage to the RT, because UE4 disables percentage being applied to them...
-      IConsoleVariable* ScreenPercentagePtr = *(IConsoleVariable**)(mBaseAddress + 0x4C08900);
-      double ScreenPercentageMult = FConsoleVariable__GetFloat(ScreenPercentagePtr);
+      IConsoleVariable* CVarScreenPercentage = *(IConsoleVariable**)(mBaseAddress + 0x4C08900);
+      double ScreenPercentageMult = FConsoleVariable__GetFloat(CVarScreenPercentage);
       ScreenPercentageMult = max(ScreenPercentageMult, 1) / double(100.f);
       ScreenPercentageMult = min(ScreenPercentageMult, 4); // 400% seems to be max allowed by UE4, so we'll limit to that too
 
@@ -320,7 +320,7 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
     // Only resize RT if it's using less pixels than our screen
     if (ScreenArea > CurArea)
     {
-      // Figure out a width/height with the same ratio as the original RT resolution, that has near enough the same area as our screen resolution
+      // Figure out a width/height with the same ratio as the original RT resolution & near enough the same area as our screen resolution
       // (in effect, this will make the panels super-sampled in a way, since they'll be rendering with the same number of pixels as the full screen, but only get displayed in a small box)
       // (since only 1 or 2 boxes are actually rendering at once this shouldn't give a big performance impact though)
 
@@ -474,6 +474,10 @@ void InitPlugin()
   // (allows even more cvars to be changed from dev-console)
   const uint32_t PatchAddr_FConsoleManager__ProcessUserConsoleInput_CheatCheck = 0x124D3A2;
   SafeWriteModule(PatchAddr_FConsoleManager__ProcessUserConsoleInput_CheatCheck, uint8_t(0x90), 6);
+
+  // Remove ECVF_ReadOnly flag check
+  const uint32_t PatchAddr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck = 0x124D6F9;
+  SafeWriteModule(PatchAddr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck, uint16_t(0xC031)); // xor eax, eax
 
   // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
   if (Options.SkipIntroLogos)
