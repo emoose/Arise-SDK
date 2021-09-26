@@ -28,6 +28,10 @@ const uint32_t Addr_FConsoleVariable__GetFloat = 0x124A690;
 typedef float(*FConsoleVariable__GetFloat_Fn)(IConsoleVariable* thisptr);
 FConsoleVariable__GetFloat_Fn FConsoleVariable__GetFloat;
 
+const uint32_t Addr_FConsoleVariableRef_bool__Set = 0x124E640;
+typedef void (*FConsoleVariableRef_bool__Set_Fn)(IConsoleVariable* thisptr, const wchar_t* InValue, EConsoleVariableFlags SetBy);
+FConsoleVariableRef_bool__Set_Fn FConsoleVariableRef_bool__Set;
+
 HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
@@ -172,6 +176,7 @@ bool InitGame()
 
 FPostProcessSettings_Overrides PostProcOverrides;
 bool PostProc_CopyValuesToCVars;
+FConsoleVariableRef<bool>* CVarCopyValuesToCVars;
 
 void PostProcInit()
 {
@@ -904,11 +909,13 @@ void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
   // or
   // - if CVar isn't set to -1, will override the FinalPostProcessSettings value with the CVar value
 
+  bool CurPostProc_CopyValuesToCVars = PostProc_CopyValuesToCVars;
+
 #pragma region OVERRIDE_POSTPROC - post-proc value overrides
 #define OVERRIDE_POSTPROC(x) \
-if (PostProc_CopyValuesToCVars) \
+if (CurPostProc_CopyValuesToCVars) \
   PostProcOverrides.x = FinalPostProcessSettings->x; \
-else if(PostProcOverrides.x != -1) \
+else if (PostProcOverrides.x != -1) \
   FinalPostProcessSettings->x = PostProcOverrides.x;
 
   OVERRIDE_POSTPROC(WhiteTemp);
@@ -1628,8 +1635,13 @@ else if(PostProcOverrides.x != -1) \
   OVERRIDE_POSTPROC(ScreenClearTextureUVStartTO14.Y);
   OVERRIDE_POSTPROC(ScreenClearTextureUVEndTO14.X);
   OVERRIDE_POSTPROC(ScreenClearTextureUVEndTO14.Y);
+
 #undef OVERRIDE_POSTPROC
 #pragma endregion
+
+  // Unset CopyValuesToCVars once we've finished copying them all
+  if (CurPostProc_CopyValuesToCVars)
+    FConsoleVariableRef_bool__Set(CVarCopyValuesToCVars, L"False", EConsoleVariableFlags::ECVF_SetByConsole);
 
   if (Options.DisableCutsceneCA)
     FinalPostProcessSettings->SceneFringeIntensity = 0;
@@ -1684,7 +1696,7 @@ void CVarSystemResolution_ctor_Hook()
   // not too hard to reimpl though
   CVarForceLOD = consoleManager->RegisterConsoleVariableRef(L"r.ForceLOD", Options.ForcedLODLevel, L"LOD level to force, -1 is off.", ECVF_Scalability | ECVF_Default | ECVF_RenderThreadSafe);
 
-  CVarsPostProc.push_back(consoleManager->RegisterConsoleVariableRef(L"pp.CopyValuesToCVars", PostProc_CopyValuesToCVars, L"If set, will copy values from FPostProcessSettings into cvars for viewing", 0));
+  CVarCopyValuesToCVars = consoleManager->RegisterConsoleVariableRef(L"pp.CopyValuesToCVars", PostProc_CopyValuesToCVars, L"If set, will copy values from FPostProcessSettings into cvars for viewing", 0);
 
   // Add CVars for each supported FPostProcessSetting value
 
@@ -2418,6 +2430,7 @@ void CVarSystemResolution_dtor_Hook()
   for (auto& CVarPostProc : CVarsPostProc)
     consoleManager->UnregisterConsoleObject(CVarPostProc);
 
+  consoleManager->UnregisterConsoleObject(CVarCopyValuesToCVars);
   consoleManager->UnregisterConsoleObject(CVarTAASharpness);
   consoleManager->UnregisterConsoleObject(CVarTAAJitterScale);
   consoleManager->UnregisterConsoleObject(CVarForceLOD);
@@ -2572,6 +2585,7 @@ void InitPlugin()
   FName::GNames = reinterpret_cast<TNameEntryArray*>(mBaseAddress + Addr_Names);
   StaticConstructObject_Internal = reinterpret_cast<StaticConstructObject_InternalFn>(mBaseAddress + Addr_StaticConstructObject_Internal);
   FConsoleVariable__GetFloat = reinterpret_cast<FConsoleVariable__GetFloat_Fn>(mBaseAddress + Addr_FConsoleVariable__GetFloat);
+  FConsoleVariableRef_bool__Set = reinterpret_cast<FConsoleVariableRef_bool__Set_Fn>(mBaseAddress + Addr_FConsoleVariableRef_bool__Set);
 
   MH_Initialize();
 
