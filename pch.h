@@ -61,6 +61,12 @@ HWND FindMainWindow(DWORD process_id);
 bool INI_GetBool(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key, bool DefaultValue);
 float INI_GetFloat(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key, float DefaultValue);
 
+// PostProcOverrides.cpp
+void PostProc_AddCVars(IConsoleManager* ConsoleManager);
+void PostProc_RemoveCVars(IConsoleManager* ConsoleManager);
+void PostProc_Init();
+void PostProc_DoOverrides(bool CopyValuesToCVars, FPostProcessSettings* FinalPostProcessSettings);
+
 template <typename T>
 void SafeWrite(uintptr_t address, T value)
 {
