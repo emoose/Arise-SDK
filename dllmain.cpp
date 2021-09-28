@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.20"
+#define SDK_VERSION "0.1.21"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -53,6 +53,10 @@ struct
   bool CutsceneRenderFix_EnableScreenPercentage = false;
   float OverrideTemporalAAJitterScale = -1;
   float OverrideTemporalAASharpness = -1;
+#ifdef _DEBUG
+  bool UseUE4TAA = false;
+#endif
+  float CharaLODMultiplier = 1;
 } Options;
 
 bool TryLoadINIOptions(const WCHAR* IniFilePath)
@@ -76,6 +80,12 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.CutsceneRenderFix_EnableScreenPercentage = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix_EnableScreenPercentage", Options.CutsceneRenderFix_EnableScreenPercentage);
   Options.OverrideTemporalAAJitterScale = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAAJitterScale", Options.OverrideTemporalAAJitterScale);
   Options.OverrideTemporalAASharpness = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAASharpness", Options.OverrideTemporalAASharpness);
+
+#ifdef _DEBUG
+  Options.UseUE4TAA = INI_GetBool(IniPath, L"Graphics", L"UseUE4TAA", Options.UseUE4TAA);
+#endif
+
+  Options.CharaLODMultiplier = INI_GetFloat(IniPath, L"Graphics", L"CharaLODMultiplier", Options.CharaLODMultiplier);
 
   if (Options.MinNPCDistance >= 0 && FadeInDelta >= Options.MinNPCDistance)
     Options.MinNPCDistance = (FadeInDelta + 1);
@@ -208,15 +218,7 @@ void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
   return ret;
 }
 
-IConsoleVariable* CVarCharaSharpenFilterStrength;
-IConsoleVariable* CVarStageSharpenFilterStrength;
-IConsoleVariable* CVarMinStageEdgeBaseDistance;
-IConsoleVariable* CVarDisableCutsceneCA;
-IConsoleVariable* CVarCutsceneRenderFix;
-IConsoleVariable* CVarCutsceneRenderFixScreenPercentage;
-IConsoleVariable* CVarForceLOD;
-IConsoleVariable* CVarTAAJitterScale;
-IConsoleVariable* CVarTAASharpness;
+std::vector<IConsoleVariable*> CVarPointers;
 
 const uint32_t Addr_IConsoleManager__Singleton = 0x4A97AC8;
 
@@ -228,20 +230,26 @@ void CVarSystemResolution_ctor_Hook()
   CVarSystemResolution_ctor_Orig();
   auto consoleManager = *(IConsoleManager**)(mBaseAddress + Addr_IConsoleManager__Singleton);
 
-  CVarCharaSharpenFilterStrength = consoleManager->RegisterConsoleVariableRef(L"sdk.CharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength, L"Adjust sharpen filter applied to characters", 0);
-  CVarStageSharpenFilterStrength = consoleManager->RegisterConsoleVariableRef(L"sdk.StageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength, L"Adjust sharpen filter applied to the game world", 0);
-  CVarMinStageEdgeBaseDistance = consoleManager->RegisterConsoleVariableRef(L"sdk.MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance, L"Allows increasing the distance that cel-shading is applied for", 0);
-  CVarDisableCutsceneCA = consoleManager->RegisterConsoleVariableRef(L"sdk.DisableCutsceneCA", Options.DisableCutsceneCA, L"Whether to prevent chromatic aberration from being applied (this setting affects the whole game, not just cutscenes)", 0);
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength, L"Adjust sharpen filter applied to characters", 0));
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.StageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength, L"Adjust sharpen filter applied to the game world", 0));
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance, L"Allows increasing the distance that cel-shading is applied for", 0));
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.DisableCutsceneCA", Options.DisableCutsceneCA, L"Whether to prevent chromatic aberration from being applied (this setting affects the whole game, not just cutscenes)", 0));
 
-  CVarCutsceneRenderFix = consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFix", Options.CutsceneRenderFix, L"Enable/disable skit cutscene resolution scaling", 0);
-  CVarCutsceneRenderFixScreenPercentage = consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFixScreenPercentage", Options.CutsceneRenderFix_EnableScreenPercentage, L"Whether or not r.ScreenPercentage should affect skit cutscene resolution", 0);
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFix", Options.CutsceneRenderFix, L"Enable/disable skit cutscene resolution scaling", 0));
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFixScreenPercentage", Options.CutsceneRenderFix_EnableScreenPercentage, L"Whether or not r.ScreenPercentage should affect skit cutscene resolution", 0));
 
-  CVarTAAJitterScale = consoleManager->RegisterConsoleVariableRef(L"sdk.TAAJitterScale", Options.OverrideTemporalAAJitterScale, L"Adjust jittering applied to the games TAA (game default has this set to 0, doesn't really seem to work that well, was probably disabled for a reason...)", 0);
-  CVarTAASharpness = consoleManager->RegisterConsoleVariableRef(L"sdk.TAASharpness", Options.OverrideTemporalAASharpness, L"Adjust sharpening effect applied to TAA", 0);
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAAJitterScale", Options.OverrideTemporalAAJitterScale, L"Adjust jittering applied to the games TAA (game default has this set to 0, doesn't really seem to work that well, was probably disabled for a reason...)", 0));
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAASharpness", Options.OverrideTemporalAASharpness, L"Adjust sharpening effect applied to TAA", 0));
+
+#ifdef _DEBUG
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.UseUE4TAA", Options.UseUE4TAA, L"Use UE4's TAA method instead of TO14 custom one", 0));
+#endif
+
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CharaLODMultiplier", Options.CharaLODMultiplier, L"Multiplier of Chara LODs", 0));
 
   // usually created by UE4 inside EXPOSE_FORCE_LOD builds, which shipping builds sadly aren't
   // not too hard to reimpl though
-  CVarForceLOD = consoleManager->RegisterConsoleVariableRef(L"r.ForceLOD", Options.ForcedLODLevel, L"LOD level to force, -1 is off.", ECVF_Scalability | ECVF_Default | ECVF_RenderThreadSafe);
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"r.ForceLOD", Options.ForcedLODLevel, L"LOD level to force, -1 is off.", ECVF_Scalability | ECVF_Default | ECVF_RenderThreadSafe));
 
   CVarCopyValuesToCVars = consoleManager->RegisterConsoleVariableRef(L"pp.CopyValuesToCVars", PostProc_CopyValuesToCVars, L"If set, will copy values from FPostProcessSettings into cvars for viewing", 0);
 
@@ -256,18 +264,11 @@ void CVarSystemResolution_dtor_Hook()
   CVarSystemResolution_dtor_Orig();
   auto consoleManager = *(IConsoleManager**)(mBaseAddress + Addr_IConsoleManager__Singleton);
 
-  PostProc_RemoveCVars(consoleManager);
-
   consoleManager->UnregisterConsoleObject(CVarCopyValuesToCVars);
-  consoleManager->UnregisterConsoleObject(CVarTAASharpness);
-  consoleManager->UnregisterConsoleObject(CVarTAAJitterScale);
-  consoleManager->UnregisterConsoleObject(CVarForceLOD);
-  consoleManager->UnregisterConsoleObject(CVarCutsceneRenderFixScreenPercentage);
-  consoleManager->UnregisterConsoleObject(CVarCutsceneRenderFix);
-  consoleManager->UnregisterConsoleObject(CVarDisableCutsceneCA);
-  consoleManager->UnregisterConsoleObject(CVarMinStageEdgeBaseDistance);
-  consoleManager->UnregisterConsoleObject(CVarStageSharpenFilterStrength);
-  consoleManager->UnregisterConsoleObject(CVarCharaSharpenFilterStrength);
+
+  for (auto& cvar : CVarPointers)
+    consoleManager->UnregisterConsoleObject(cvar);
+  CVarPointers.clear();
 }
 
 struct __declspec(align(4)) FMarkRelevantStaticMeshesForViewData
@@ -360,8 +361,34 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
   UTexture__UpdateResource(thisptr);
 }
 
-#ifdef _DEBUG
+const uint32_t Addr_FAchCharacterLODData_Reader_Hook = 0x6D46A7;
+const uint32_t Addr_FAchCharacterLODData_Reader_Trampoline = 0x6D3CB1;
 
+void FAchCharacterLODData_Reader_Hook(void* Dst, void* Src, size_t Size)
+{
+  // this func copies some floats from FAchCharacterLODData.LODDistances into some stack var
+  // we just hook the memcpy call it uses and modify the floats after :)
+  // TODO: would be better if we could hook the code that actually reads this data in the first place, and modify the FAchCharacterLODData directly instead...
+
+  memcpy(Dst, Src, Size);
+
+  if (Options.CharaLODMultiplier != 1)
+  {
+    uint32_t NumLods = Size / sizeof(float);
+    float* DstFloats = (float*)Dst;
+    for (int i = 0; i < NumLods; i++)
+    {
+      DstFloats[i] *= Options.CharaLODMultiplier;
+    }
+  }
+
+  // the copied floats seem to get read by
+  // 1406D46D0 - F3 0F10 00  - movss xmm0,[rax] <<
+  // 141253C47 - 48 89 03  - mov [rbx],rax <<
+  // 141253B2E - 48 8B 06  - mov rax,[rsi] <<
+}
+
+#ifdef _DEBUG
 // hook for testing stuff
 // previously was a seperate thread, but that wasn't in sync with the game engine that well
 // hooking engine loop should solve that though :)
@@ -373,10 +400,40 @@ void FEngineLoop__Tick_Hook(void* thisptr)
 {
   FEngineLoop__Tick_Orig(thisptr);
 
+  static bool PrevUseUE4TAA = false;
+  if (PrevUseUE4TAA != Options.UseUE4TAA)
+  {
+    PrevUseUE4TAA = Options.UseUE4TAA;
+    // Options.UseUE4TAA was changed, modify our patch...
+    SafeWriteModule(0x2175D8A + 6, PrevUseUE4TAA ? uint32_t(EAntiAliasingMethod::AAM_TemporalAA) : uint32_t(EAntiAliasingMethod::AAM_HybirdAA));
+  }
+
   bool performAction = (GetKeyState(VK_HOME) & 0x8000);
   if (!performAction)
     return;
 
+  auto ttt = UObject::FindObjects<UAchCharacterLODDatabase>();
+  auto ttt2 = UObject::FindObjects<UAchProjectSettings>();
+
+  for (auto& bleh : ttt)
+  {
+    for (int i = 0; i < bleh->Database.Record.Num(); i++)
+    {
+      auto* record = &bleh->Database.Record[i];
+      record = record;
+    }
+  }
+
+  for (auto& bleh : ttt2)
+  {
+    for (int i = 0; i < bleh->DefaultCharacterLODs.Num(); i++)
+    {
+      auto* record = &bleh->DefaultCharacterLODs[i];
+      record = record;
+    }
+  }
+
+  /*
   static float newDist = 1.0f;
   static float newFactor = 10.0f;
   static bool whoa = false;
@@ -399,10 +456,10 @@ void FEngineLoop__Tick_Hook(void* thisptr)
     float prevDist = obj->StreamingDistanceMultiplier;
     if (whoa)
       obj->StreamingDistanceMultiplier = newDist;
-  }
+  }*/
 }
-
 #endif
+
 
 void InitPlugin()
 {
@@ -430,6 +487,18 @@ void InitPlugin()
 
   // Add support for r.ForceLOD
   MH_GameHook(FRelevancePacket__FRelevancePacket);
+
+  if (true)
+  {
+    // Have to write a trampoline somewhere near the hooked addr, needs 12 bytes...
+    uint8_t trampoline[] = { 0x48, 0xB8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xFF, 0xE0 };
+
+    *(uintptr_t*)&trampoline[2] = (uintptr_t)&FAchCharacterLODData_Reader_Hook;
+
+    SafeWrite(mBaseAddress + Addr_FAchCharacterLODData_Reader_Trampoline, trampoline, 12);
+
+    PatchCall(mBaseAddress + Addr_FAchCharacterLODData_Reader_Hook, mBaseAddress + Addr_FAchCharacterLODData_Reader_Trampoline);
+  }
 
   // Render target resizing (fixing cutscene/skit resolution)
   if (Options.CutsceneRenderFix)

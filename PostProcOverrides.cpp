@@ -1,7 +1,7 @@
 #include "pch.h"
 
 FPostProcessSettings_Overrides PostProcOverrides;
-std::vector<IConsoleVariable*> CVarsPostProc;
+extern std::vector<IConsoleVariable*> CVarPointers;
 
 void PostProc_AddCVars(IConsoleManager* ConsoleManager)
 {
@@ -10,7 +10,7 @@ void PostProc_AddCVars(IConsoleManager* ConsoleManager)
 #pragma region FPostProcessSetting CVars
 
 #define OVERRIDE_CVAR(x) \
-  CVarsPostProc.push_back(ConsoleManager->RegisterConsoleVariableRef(L"" #x, PostProcOverrides.x, L"", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"" #x, PostProcOverrides.x, L"", 0));
 
   OVERRIDE_CVAR(WhiteTemp);
   OVERRIDE_CVAR(WhiteTint);
@@ -724,12 +724,6 @@ void PostProc_AddCVars(IConsoleManager* ConsoleManager)
 
 #undef OVERRIDE_CVAR
 #pragma endregion
-}
-
-void PostProc_RemoveCVars(IConsoleManager* ConsoleManager)
-{
-  for (auto& CVarPostProc : CVarsPostProc)
-    ConsoleManager->UnregisterConsoleObject(CVarPostProc);
 }
 
 void PostProc_Init()

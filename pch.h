@@ -63,7 +63,6 @@ float INI_GetFloat(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key,
 
 // PostProcOverrides.cpp
 void PostProc_AddCVars(IConsoleManager* ConsoleManager);
-void PostProc_RemoveCVars(IConsoleManager* ConsoleManager);
 void PostProc_Init();
 void PostProc_DoOverrides(bool CopyValuesToCVars, FPostProcessSettings* FinalPostProcessSettings);
 
