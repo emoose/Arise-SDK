@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.21"
+#define SDK_VERSION "0.1.22"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -368,17 +368,22 @@ void FAchCharacterLODData_Reader_Hook(void* Dst, void* Src, size_t Size)
 {
   // this func copies some floats from FAchCharacterLODData.LODDistances into some stack var
   // we just hook the memcpy call it uses and modify the floats after :)
-  // TODO: would be better if we could hook the code that actually reads this data in the first place, and modify the FAchCharacterLODData directly instead...
+  // TODO: would be better if we could hook the code that actually reads this data into FAchCharacterLODData in the first place, and modify FAchCharacterLODData directly instead...
 
   memcpy(Dst, Src, Size);
 
-  if (Options.CharaLODMultiplier != 1)
+  if (Options.CharaLODMultiplier != 1 && Size >= 4)
   {
     uint32_t NumLods = Size / sizeof(float);
-    float* DstFloats = (float*)Dst;
+    float* DstFloats = static_cast<float*>(Dst);
+
+    // multiply the first LOD level by multiplier, then add the difference to the other LODs
+    // should make the LOD change work better this way, using multiplier on all the LOD levels could result in some crazy high distances that aren't good for perf
+    float OrigLOD0 = DstFloats[0];
+    float NewLOD0 = OrigLOD0 * Options.CharaLODMultiplier;
     for (int i = 0; i < NumLods; i++)
     {
-      DstFloats[i] *= Options.CharaLODMultiplier;
+      DstFloats[i] = (DstFloats[i] + NewLOD0) - OrigLOD0;
     }
   }
 
