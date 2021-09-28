@@ -1,16 +1,21 @@
 #include "pch.h"
+#include <unordered_map>
 
 FPostProcessSettings_Overrides PostProcOverrides;
 extern std::vector<IConsoleVariable*> CVarPointers;
+
+std::vector<IConsoleVariable*> CVarsPostProc;
 
 void PostProc_AddCVars(IConsoleManager* ConsoleManager)
 {
   // Add CVars for each supported FPostProcessSetting value
 
-#pragma region FPostProcessSetting CVars
+  IConsoleVariable* var;
 
 #define OVERRIDE_CVAR(x) \
-  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"" #x, PostProcOverrides.x, L"", 0));
+  var = ConsoleManager->RegisterConsoleVariableRef(L"" #x, PostProcOverrides.x, L"", 0); \
+  CVarPointers.push_back(var); \
+  CVarsPostProc.push_back(var);
 
   OVERRIDE_CVAR(WhiteTemp);
   OVERRIDE_CVAR(WhiteTint);
@@ -2175,4 +2180,16 @@ else if (PostProcOverrides.x != -1) \
 
 #undef OVERRIDE_POSTPROC
 #pragma endregion
+
+  if (!CopyValuesToCVars)
+    return;
+
+  // Copying values to CVars - need to update CVar mainvalue to match refvalue, ugh
+  for (auto& cvar_raw : CVarsPostProc)
+  {
+    // Treat all cvars as int, we only have int/float cvars which are the same size, so this works out fine
+    // It is kinda hacky tho..
+    FConsoleVariableRef<int>* cvar = static_cast<FConsoleVariableRef<int>*>(cvar_raw);
+    cvar->MainValue = *cvar->RefValue;
+  }
 }
