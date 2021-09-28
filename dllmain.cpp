@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.22a"
+#define SDK_VERSION "0.1.23"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -53,9 +53,7 @@ struct
   bool CutsceneRenderFix_EnableScreenPercentage = false;
   float OverrideTemporalAAJitterScale = -1;
   float OverrideTemporalAASharpness = -1;
-#ifdef _DEBUG
   bool UseUE4TAA = false;
-#endif
   float CharaLODMultiplier = 1;
 } Options;
 
@@ -80,10 +78,7 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.CutsceneRenderFix_EnableScreenPercentage = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix_EnableScreenPercentage", Options.CutsceneRenderFix_EnableScreenPercentage);
   Options.OverrideTemporalAAJitterScale = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAAJitterScale", Options.OverrideTemporalAAJitterScale);
   Options.OverrideTemporalAASharpness = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAASharpness", Options.OverrideTemporalAASharpness);
-
-#ifdef _DEBUG
   Options.UseUE4TAA = INI_GetBool(IniPath, L"Graphics", L"UseUE4TAA", Options.UseUE4TAA);
-#endif
 
   Options.CharaLODMultiplier = INI_GetFloat(IniPath, L"Graphics", L"CharaLODMultiplier", Options.CharaLODMultiplier);
 
@@ -241,9 +236,7 @@ void CVarSystemResolution_ctor_Hook()
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAAJitterScale", Options.OverrideTemporalAAJitterScale, L"Adjust jittering applied to the games TAA (game default has this set to 0, doesn't really seem to work that well, was probably disabled for a reason...)", 0));
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAASharpness", Options.OverrideTemporalAASharpness, L"Adjust sharpening effect applied to TAA", 0));
 
-#ifdef _DEBUG
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.UseUE4TAA", Options.UseUE4TAA, L"Use UE4's TAA method instead of TO14 custom one", 0));
-#endif
 
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CharaLODMultiplier", Options.CharaLODMultiplier, L"Multiplier of Chara LODs", 0));
 
@@ -372,10 +365,10 @@ void FAchCharacterLODData_Reader_Hook(void* Dst, void* Src, size_t Size)
 
   memcpy(Dst, Src, Size);
 
-  if (Options.CharaLODMultiplier != 1 && Size >= 4)
+  if (Options.CharaLODMultiplier >= 0 && Options.CharaLODMultiplier != 1 && Size >= 4)
   {
     uint32_t NumLods = Size / sizeof(float);
-    float* DstFloats = static_cast<float*>(Dst);
+    float* DstFloats = reinterpret_cast<float*>(Dst);
 
     // multiply the first LOD level by multiplier, then add the difference to the other LODs
     // should make the LOD change work better this way, using multiplier on all the LOD levels could result in some crazy high distances that aren't good for perf
@@ -383,6 +376,7 @@ void FAchCharacterLODData_Reader_Hook(void* Dst, void* Src, size_t Size)
     float NewLOD0 = OrigLOD0 * Options.CharaLODMultiplier;
     for (int i = 0; i < NumLods; i++)
     {
+      float cur = DstFloats[i];
       DstFloats[i] = (DstFloats[i] + NewLOD0) - OrigLOD0;
     }
   }
@@ -404,14 +398,6 @@ FEngineLoop__Tick_Fn FEngineLoop__Tick_Orig;
 void FEngineLoop__Tick_Hook(void* thisptr)
 {
   FEngineLoop__Tick_Orig(thisptr);
-
-  static bool PrevUseUE4TAA = false;
-  if (PrevUseUE4TAA != Options.UseUE4TAA)
-  {
-    PrevUseUE4TAA = Options.UseUE4TAA;
-    // Options.UseUE4TAA was changed, modify our patch...
-    SafeWriteModule(0x2175D8A + 6, PrevUseUE4TAA ? uint32_t(EAntiAliasingMethod::AAM_TemporalAA) : uint32_t(EAntiAliasingMethod::AAM_HybirdAA));
-  }
 
   bool performAction = (GetKeyState(VK_HOME) & 0x8000);
   if (!performAction)
@@ -465,9 +451,43 @@ void FEngineLoop__Tick_Hook(void* thisptr)
 }
 #endif
 
+bool inited = false;
+
+const uint32_t Addr_RefreshEngineSettings = 0x2280550;
+typedef void(*RefreshEngineSettings_Fn)();
+RefreshEngineSettings_Fn RefreshEngineSettings_Orig;
+void RefreshEngineSettings_Hook()
+{
+  // Check if any CVars updated
+
+  // Disable CharaLODs if CharaLODMultiplier == -1, else make sure they're enabled
+  static float PrevCharaLODMultiplier = -2;
+  if (!inited || PrevCharaLODMultiplier != Options.CharaLODMultiplier)
+  {
+    const uint32_t PatchAddr_CharacterSkipLODs = 0x6D46C1;
+    // change JLE to JMP if we're skipping them
+    SafeWriteModule(PatchAddr_CharacterSkipLODs, Options.CharaLODMultiplier == -1 ? uint8_t(0xEB) : uint8_t(0x7E));
+
+    PrevCharaLODMultiplier = Options.CharaLODMultiplier;
+  }
+
+  // use AAM_TemporalAA if UseUE4TAA is set, otherwise use AAM_HybirdAA
+  static bool PrevUseUE4TAA = false;
+  if (!inited || PrevUseUE4TAA != Options.UseUE4TAA)
+  {
+    PrevUseUE4TAA = Options.UseUE4TAA;
+    // Options.UseUE4TAA was changed, modify our patch...
+    SafeWriteModule(0x2175D8A + 6, PrevUseUE4TAA ? uint32_t(EAntiAliasingMethod::AAM_TemporalAA) : uint32_t(EAntiAliasingMethod::AAM_HybirdAA));
+  }
+
+  if(inited)
+    RefreshEngineSettings_Orig();
+}
+
 
 void InitPlugin()
 {
+  inited = false;
   PostProc_Init();
 
   UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(mBaseAddress + Addr_ProcessEvent);
@@ -489,9 +509,14 @@ void InitPlugin()
   // Add our custom cvars, need to handle constructor & destructor for them
   MH_GameHook(CVarSystemResolution_ctor);
   MH_GameHook(CVarSystemResolution_dtor);
+  MH_GameHook(RefreshEngineSettings);
 
   // Add support for r.ForceLOD
   MH_GameHook(FRelevancePacket__FRelevancePacket);
+
+  // Apply any patches requested by cvars
+  // (inited must be false before calling this!)
+  RefreshEngineSettings_Hook();
 
   if (true)
   {
@@ -596,6 +621,7 @@ void InitPlugin()
   Init_UE4Hook();
 
   MH_EnableHook(MH_ALL_HOOKS);
+  inited = true;
 }
 
 BOOL APIENTRY DllMain( HMODULE hModule,

@@ -1,5 +1,4 @@
 #include "pch.h"
-#include <unordered_map>
 
 FPostProcessSettings_Overrides PostProcOverrides;
 extern std::vector<IConsoleVariable*> CVarPointers;
