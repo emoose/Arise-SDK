@@ -50,7 +50,7 @@ struct
   float MinStageEdgeBaseDistance = 0;
   int32_t ForcedLODLevel = -1;
   bool CutsceneRenderFix = false;
-  bool CutsceneRenderFix_EnableScreenPercentage = false;
+  float CutsceneScreenPercentage = 100;
   float OverrideTemporalAAJitterScale = -1;
   float OverrideTemporalAASharpness = -1;
   bool UseUE4TAA = false;
@@ -75,11 +75,10 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.OverrideStageSharpenFilterStrength = INI_GetFloat(IniPath, L"Graphics", L"OverrideStageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength);
   Options.MinStageEdgeBaseDistance = INI_GetFloat(IniPath, L"Graphics", L"MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance);
   Options.CutsceneRenderFix = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix", Options.CutsceneRenderFix);
-  Options.CutsceneRenderFix_EnableScreenPercentage = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix_EnableScreenPercentage", Options.CutsceneRenderFix_EnableScreenPercentage);
+  Options.CutsceneScreenPercentage = INI_GetFloat(IniPath, L"Graphics", L"CutsceneScreenPercentage", Options.CutsceneScreenPercentage);
   Options.OverrideTemporalAAJitterScale = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAAJitterScale", Options.OverrideTemporalAAJitterScale);
   Options.OverrideTemporalAASharpness = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAASharpness", Options.OverrideTemporalAASharpness);
   Options.UseUE4TAA = INI_GetBool(IniPath, L"Graphics", L"UseUE4TAA", Options.UseUE4TAA);
-
   Options.CharaLODMultiplier = INI_GetFloat(IniPath, L"Graphics", L"CharaLODMultiplier", Options.CharaLODMultiplier);
 
   if (Options.MinNPCDistance >= 0 && FadeInDelta >= Options.MinNPCDistance)
@@ -231,13 +230,12 @@ void CVarSystemResolution_ctor_Hook()
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.DisableCutsceneCA", Options.DisableCutsceneCA, L"Whether to prevent chromatic aberration from being applied (this setting affects the whole game, not just cutscenes)", 0));
 
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFix", Options.CutsceneRenderFix, L"Enable/disable skit cutscene resolution scaling", 0));
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFixScreenPercentage", Options.CutsceneRenderFix_EnableScreenPercentage, L"Whether or not r.ScreenPercentage should affect skit cutscene resolution", 0));
-
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneScreenPercentage", Options.CutsceneScreenPercentage, L"ScreenPercentage to apply to skit cutscenes", 0));
+  
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAAJitterScale", Options.OverrideTemporalAAJitterScale, L"Adjust jittering applied to the games TAA (game default has this set to 0, doesn't really seem to work that well, was probably disabled for a reason...)", 0));
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAASharpness", Options.OverrideTemporalAASharpness, L"Adjust sharpening effect applied to TAA", 0));
 
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.UseUE4TAA", Options.UseUE4TAA, L"Use UE4's TAA method instead of TO14 custom one", 0));
-
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CharaLODMultiplier", Options.CharaLODMultiplier, L"Multiplier of Chara LODs", 0));
 
   // usually created by UE4 inside EXPOSE_FORCE_LOD builds, which shipping builds sadly aren't
@@ -311,11 +309,10 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
     double ScreenSizeX = double(*(uint32_t*)(mBaseAddress + 0x455A4F0));
     double ScreenSizeY = double(*(uint32_t*)(mBaseAddress + 0x455A4F4));
 
-    if (Options.CutsceneRenderFix_EnableScreenPercentage)
+    // Apply Options.CutsceneScreenPercentage to the screen size
     {
       // Apply screen-percentage to the RT, because UE4 disables percentage being applied to them...
-      IConsoleVariable* CVarScreenPercentage = *(IConsoleVariable**)(mBaseAddress + 0x4C08900);
-      double ScreenPercentageMult = FConsoleVariable__GetFloat(CVarScreenPercentage);
+      double ScreenPercentageMult = Options.CutsceneScreenPercentage;
       ScreenPercentageMult = max(ScreenPercentageMult, 1) / double(100.f);
       ScreenPercentageMult = min(ScreenPercentageMult, 4); // 400% seems to be max allowed by UE4, so we'll limit to that too
 
@@ -374,7 +371,7 @@ void FAchCharacterLODData_Reader_Hook(void* Dst, void* Src, size_t Size)
     // should make the LOD change work better this way, using multiplier on all the LOD levels could result in some crazy high distances that aren't good for perf
     float OrigLOD0 = DstFloats[0];
     float NewLOD0 = OrigLOD0 * Options.CharaLODMultiplier;
-    for (int i = 0; i < NumLods; i++)
+    for (uint32_t i = 0; i < NumLods; i++)
     {
       float cur = DstFloats[i];
       DstFloats[i] = (DstFloats[i] + NewLOD0) - OrigLOD0;
@@ -403,16 +400,16 @@ void FEngineLoop__Tick_Hook(void* thisptr)
   if (!performAction)
     return;
 
-  auto ttt = UObject::FindObjects<UAchCharacterLODDatabase>();
+  auto ttt = UObject::FindObjects<ALandscapeProxy>();
   auto ttt2 = UObject::FindObjects<UAchProjectSettings>();
 
   for (auto& bleh : ttt)
   {
-    for (int i = 0; i < bleh->Database.Record.Num(); i++)
-    {
-      auto* record = &bleh->Database.Record[i];
-      record = record;
-    }
+    bleh->MaxLODLevel = 0;
+    bleh->LODDistanceFactor = 10;
+    bleh->LODFalloff = ELandscapeLODFalloff::ELandscapeLODFalloff__SquareRoot;
+    bleh->LOD0DistributionSetting = bleh->LODDistributionSetting = 3;
+    bleh->StreamingDistanceMultiplier = 10;
   }
 
   for (auto& bleh : ttt2)

@@ -4241,7 +4241,7 @@ public:
 	class USubsurfaceProfile*                          SubsurfaceProfile;                                        // 0x0038(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x8];                                       // 0x0040(0x0008) MISSED OFFSET
 	struct FLightmassMaterialInterfaceSettings         LightmassSettings;                                        // 0x0048(0x0014) (Edit)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
+	//unsigned char                                      UnknownData02[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
 	TArray<struct FMaterialTextureInfo>                TextureStreamingData;                                     // 0x0060(0x0010) (ZeroConstructor)
 	TArray<class UAssetUserData*>                      AssetUserData;                                            // 0x0070(0x0010) (Edit, ExportObject, ZeroConstructor)
 	unsigned char                                      UnknownData03[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
@@ -4257,6 +4257,7 @@ public:
 	class UPhysicalMaterial* GetPhysicalMaterial();
 	class UMaterial* GetBaseMaterial();
 };
+static_assert(sizeof(UMaterialInterface) == 0x88, "UMaterialInterface");
 
 
 // Class Engine.MaterialInstance
@@ -4268,7 +4269,7 @@ public:
 	class UMaterialInterface*                          Parent;                                                   // 0x0090(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      bHasStaticPermutationResource : 1;                        // 0x0098(0x0001)
 	unsigned char                                      bOverrideSubsurfaceProfile : 1;                           // 0x0098(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0099(0x0007) MISSED OFFSET
+	bool                                               ReentrantFlag[2];
 	TArray<struct FScalarParameterValue>               ScalarParameterValues;                                    // 0x00A0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 	TArray<struct FVectorParameterValue>               VectorParameterValues;                                    // 0x00B0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 	TArray<struct FTextureParameterValue>              TextureParameterValues;                                   // 0x00C0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
@@ -4276,7 +4277,13 @@ public:
 	bool                                               bOverrideBaseProperties;                                  // 0x00E0(0x0001) (ZeroConstructor, Deprecated, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x00E1(0x0003) MISSED OFFSET
 	struct FMaterialInstanceBasePropertyOverrides      BasePropertyOverrides;                                    // 0x00E4(0x0014) (Edit)
-	unsigned char                                      UnknownData02[0x28];                                      // 0x00F8(0x0028) MISSED OFFSET
+	float                                              OpacityMaskClipValue;
+	TEnumAsByte<EBlendMode>                            BlendMode;
+	TEnumAsByte<EMaterialShadingModel>                 ShadingModel;
+	uint32_t                                           TwoSided : 1;
+	uint32_t                                           DitheredLODTransition : 1;
+	uint32_t                                           bCastDynamicShadowAsMasked : 1;
+	class FMaterialInstanceResource*                   Resources[3];
 	TArray<class UTexture*>                            PermutationTextureReferences;                             // 0x0120(0x0010) (ZeroConstructor, Transient)
 	struct FStaticParameterSet                         StaticParameters;                                         // 0x0130(0x0040)
 	unsigned char                                      UnknownData03[0x78];                                      // 0x0170(0x0078) MISSED OFFSET
@@ -4288,6 +4295,7 @@ public:
 	}
 
 };
+static_assert(sizeof(UMaterialInstance) == 0x1E8, "UMaterialInstance");
 
 
 // Class Engine.MaterialInstanceConstant

@@ -139,7 +139,6 @@ public:
 	int                                                ComponentSizeQuads;                                       // 0x0588(0x0004) (ZeroConstructor, IsPlainOldData)
 	int                                                SubsectionSizeQuads;                                      // 0x058C(0x0004) (ZeroConstructor, IsPlainOldData)
 	int                                                NumSubsections;                                           // 0x0590(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0594(0x0004) MISSED OFFSET
 	class UMaterialInterface*                          OverrideMaterial;                                         // 0x0598(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	class UMaterialInterface*                          OverrideHoleMaterial;                                     // 0x05A0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	TArray<class UMaterialInstanceConstant*>           MaterialInstances;                                        // 0x05A8(0x0010) (ZeroConstructor)
@@ -149,7 +148,6 @@ public:
 	class UTexture2D*                                  XYOffsetmapTexture;                                       // 0x05E8(0x0008) (ZeroConstructor, IsPlainOldData)
 	struct FVector4                                    WeightmapScaleBias;                                       // 0x05F0(0x0010) (IsPlainOldData)
 	float                                              WeightmapSubsectionOffset;                                // 0x0600(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0xC];                                       // 0x0604(0x000C) MISSED OFFSET
 	struct FVector4                                    HeightmapScaleBias;                                       // 0x0610(0x0010) (IsPlainOldData)
 	class UTexture2D*                                  HeightmapTexture;                                         // 0x0620(0x0008) (ZeroConstructor, IsPlainOldData)
 	struct FBox                                        CachedLocalBox;                                           // 0x0628(0x001C) (IsPlainOldData)
@@ -165,10 +163,8 @@ public:
 	int                                                LODBias;                                                  // 0x0698(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	struct FGuid                                       StateId;                                                  // 0x069C(0x0010) (IsPlainOldData)
 	struct FGuid                                       BakedTextureMaterialGuid;                                 // 0x06AC(0x0010) (IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x06BC(0x0004) MISSED OFFSET
 	class UTexture2D*                                  GIBakedBaseColorTexture;                                  // 0x06C0(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
 	unsigned char                                      MobileBlendableLayerMask;                                 // 0x06C8(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x7];                                       // 0x06C9(0x0007) MISSED OFFSET
 	class UMaterialInterface*                          MobileMaterialInterface;                                  // 0x06D0(0x0008) (ZeroConstructor, IsPlainOldData)
 	TArray<class UTexture2D*>                          MobileWeightmapTextures;                                  // 0x06D8(0x0010) (ZeroConstructor)
 	unsigned char                                      UnknownData04[0x38];                                      // 0x06E8(0x0038) MISSED OFFSET
@@ -182,6 +178,7 @@ public:
 
 	class UMaterialInstanceDynamic* GetMaterialInstanceDynamic(int InIndex);
 };
+static_assert(sizeof(ULandscapeComponent) == 0x720, "ULandscapeComponent");
 
 
 // Class Landscape.LandscapeGizmoActor
