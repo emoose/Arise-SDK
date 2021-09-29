@@ -45,6 +45,7 @@ struct
   float MinNPCDistance = 50000;
   bool SkipIntroLogos = true;
   bool DisableCutsceneCA = false;
+  bool EnableResolutionFix = true;
   float OverrideCharaSharpenFilterStrength = -1;
   float OverrideStageSharpenFilterStrength = -1;
   float MinStageEdgeBaseDistance = 0;
@@ -69,6 +70,7 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
 
   Options.SkipIntroLogos = INI_GetBool(IniPath, L"Patches", L"SkipIntroLogos", Options.SkipIntroLogos);
   Options.DisableCutsceneCA = INI_GetBool(IniPath, L"Patches", L"DisableCutsceneCA", Options.DisableCutsceneCA);
+  Options.EnableResolutionFix = INI_GetBool(IniPath, L"Patches", L"EnableResolutionFix", Options.EnableResolutionFix);
 
   Options.MinNPCDistance = INI_GetFloat(IniPath, L"Graphics", L"MinimumNPCDistance", Options.MinNPCDistance);
   Options.OverrideCharaSharpenFilterStrength = INI_GetFloat(IniPath, L"Graphics", L"OverrideCharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength);
@@ -576,6 +578,7 @@ void InitPlugin()
   // Prevent resolution change on game launch
   // (requires r.SetRes = 2560x1440f line inside Engine.ini to work properly, change with your desired resolution)
   // TODO: find a way so setres isn't required
+  if(Options.EnableResolutionFix)
   {
     // Disable UGameUserSettings::PreloadResolutionSettings
     // (seems to read from an unused settings file, making game switch to 1280x720 briefly)
