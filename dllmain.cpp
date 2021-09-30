@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.23"
+#define SDK_VERSION "0.1.23a"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -602,6 +602,10 @@ void InitPlugin()
   // Flip GRHISupportsDynamicResolution to true, so r.DynamicRes.* can work
   const uint32_t Addr_GRHISupportsDynamicResolution = 0x4BC9A0B;
   SafeWriteModule(Addr_GRHISupportsDynamicResolution, uint8_t(1));
+
+  // Set GSupportsTimestampRenderQueries to true
+  const uint32_t Addr_GSupportsTimestampRenderQueries = 0x4BC99C9;
+  SafeWriteModule(Addr_GSupportsTimestampRenderQueries, uint8_t(1));
 
   // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
   if (Options.SkipIntroLogos)
