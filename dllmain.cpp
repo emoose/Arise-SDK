@@ -599,6 +599,10 @@ void InitPlugin()
   const uint32_t PatchAddr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck = 0x124D6F9;
   SafeWriteModule(PatchAddr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck, uint16_t(0xC031)); // xor eax, eax
 
+  // Flip GRHISupportsDynamicResolution to true, so r.DynamicRes.* can work
+  const uint32_t Addr_GRHISupportsDynamicResolution = 0x4BC9A0B;
+  SafeWriteModule(Addr_GRHISupportsDynamicResolution, uint8_t(1));
+
   // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
   if (Options.SkipIntroLogos)
   {
