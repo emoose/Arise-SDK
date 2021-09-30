@@ -477,6 +477,15 @@ void RefreshEngineSettings_Hook()
     PrevUseUE4TAA = Options.UseUE4TAA;
     // Options.UseUE4TAA was changed, modify our patch...
     SafeWriteModule(0x2175D8A + 6, PrevUseUE4TAA ? uint32_t(EAntiAliasingMethod::AAM_TemporalAA) : uint32_t(EAntiAliasingMethod::AAM_HybirdAA));
+
+    // Fix EPrimaryScreenPercentageMethod::TemporalUpscale checks (when using r.TemporalAA.Upsampling = 1)
+    // code is making sure AntiAliasingMethod == AAM_TemporalAA
+    // but Arise added custom AAM_SMAA & AAM_HybridAA methods, and seems they forgot to fix the TemporalUpscale checks :/
+    // seems AAM_TemporalAA is never actually used (even when the non-hybrid AA option is selected), so we'll apply these automatically
+    const uint32_t PatchAddr_FSceneView__FSceneView_AAMethodCheck = 0x217581E + 6;
+    const uint32_t PatchAddr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck = 0x1A30111 + 6;
+    SafeWriteModule(PatchAddr_FSceneView__FSceneView_AAMethodCheck, PrevUseUE4TAA ? uint8_t(EAntiAliasingMethod::AAM_TemporalAA) : uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
+    SafeWriteModule(PatchAddr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck, PrevUseUE4TAA ? uint8_t(EAntiAliasingMethod::AAM_TemporalAA) : uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
   }
 
   if(inited)
@@ -565,15 +574,6 @@ void InitPlugin()
    // SafeWriteModule(0x1180595 + 3, Options.MinNPCDistance - FadeInDelta);
    // SafeWriteModule(0x118059C + 3, Options.MinNPCDistance);
   }
-
-  // Fix EPrimaryScreenPercentageMethod::TemporalUpscale checks (when using r.TemporalAA.Upsampling = 1)
-  // code is making sure AntiAliasingMethod == AAM_TemporalAA
-  // but Arise added custom AAM_SMAA & AAM_HybridAA methods, and seems they forgot to fix the TemporalUpscale checks :/
-  // seems AAM_TemporalAA is never actually used (even when the non-hybrid AA option is selected), so we'll apply these automatically
-  const uint32_t PatchAddr_FSceneView__FSceneView_AAMethodCheck = 0x217581E + 6;
-  const uint32_t PatchAddr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck = 0x1A30111 + 6;
-  SafeWriteModule(PatchAddr_FSceneView__FSceneView_AAMethodCheck, uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
-  SafeWriteModule(PatchAddr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck, uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
 
   // Prevent resolution change on game launch
   // (requires r.SetRes = 2560x1440f line inside Engine.ini to work properly, change with your desired resolution)
