@@ -236,6 +236,7 @@
     <ClInclude Include="MinHook\MinHook.h" />
     <ClInclude Include="MinHook\trampoline.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SDK.h" />
     <ClInclude Include="SDK\Arise_classes.h" />
     <ClInclude Include="SDK\Arise_parameters.h" />
@@ -247,6 +248,9 @@
     <ClInclude Include="SDK\Engine_classes.h" />
     <ClInclude Include="SDK\Engine_parameters.h" />
     <ClInclude Include="SDK\Engine_structs.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
