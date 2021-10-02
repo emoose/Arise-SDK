@@ -52,6 +52,7 @@ struct
   int32_t ForcedLODLevel = -1;
   bool CutsceneRenderFix = false;
   float CutsceneScreenPercentage = 100;
+  bool CutsceneSquareOffset = false;
   float OverrideTemporalAAJitterScale = -1;
   float OverrideTemporalAASharpness = -1;
   bool UseUE4TAA = false;
@@ -78,6 +79,7 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.MinStageEdgeBaseDistance = INI_GetFloat(IniPath, L"Graphics", L"MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance);
   Options.CutsceneRenderFix = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix", Options.CutsceneRenderFix);
   Options.CutsceneScreenPercentage = INI_GetFloat(IniPath, L"Graphics", L"CutsceneScreenPercentage", Options.CutsceneScreenPercentage);
+  Options.CutsceneSquareOffset = INI_GetBool(IniPath, L"Graphics", L"CutsceneSquareOffset", Options.CutsceneSquareOffset);
   Options.OverrideTemporalAAJitterScale = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAAJitterScale", Options.OverrideTemporalAAJitterScale);
   Options.OverrideTemporalAASharpness = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAASharpness", Options.OverrideTemporalAASharpness);
   Options.UseUE4TAA = INI_GetBool(IniPath, L"Graphics", L"UseUE4TAA", Options.UseUE4TAA);
@@ -233,6 +235,7 @@ void CVarSystemResolution_ctor_Hook()
 
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFix", Options.CutsceneRenderFix, L"Enable/disable skit cutscene resolution scaling", 0));
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneScreenPercentage", Options.CutsceneScreenPercentage, L"ScreenPercentage to apply to skit cutscenes", 0));
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneSquareOffset", Options.CutsceneSquareOffset, L"CutsceneSquareOffset", 0));
   
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAAJitterScale", Options.OverrideTemporalAAJitterScale, L"Adjust jittering applied to the games TAA (game default has this set to 0, doesn't really seem to work that well, was probably disabled for a reason...)", 0));
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAASharpness", Options.OverrideTemporalAASharpness, L"Adjust sharpening effect applied to TAA", 0));
@@ -342,6 +345,11 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 
       thisptr->SizeX = int(ceil(NewWidth));
       thisptr->SizeY = int(ceil(NewHeight));
+      if (thisptr->SizeX == thisptr->SizeY && Options.CutsceneSquareOffset)
+      {
+        // Hack to force square-resolution boxes to have Upscale pass applied
+        thisptr->SizeX++;
+      }
     }
   }
 
