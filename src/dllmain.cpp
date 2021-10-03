@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.24"
+#define SDK_VERSION "0.1.24a"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -52,7 +52,7 @@ struct
   int32_t ForcedLODLevel = -1;
   bool CutsceneRenderFix = false;
   float CutsceneScreenPercentage = 100;
-  bool CutsceneSquareOffset = false;
+  bool CutsceneForceUpscaleFiltering = false;
   float OverrideTemporalAAJitterScale = -1;
   float OverrideTemporalAASharpness = -1;
   bool UseUE4TAA = false;
@@ -79,7 +79,7 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.MinStageEdgeBaseDistance = INI_GetFloat(IniPath, L"Graphics", L"MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance);
   Options.CutsceneRenderFix = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix", Options.CutsceneRenderFix);
   Options.CutsceneScreenPercentage = INI_GetFloat(IniPath, L"Graphics", L"CutsceneScreenPercentage", Options.CutsceneScreenPercentage);
-  Options.CutsceneSquareOffset = INI_GetBool(IniPath, L"Graphics", L"CutsceneSquareOffset", Options.CutsceneSquareOffset);
+  Options.CutsceneForceUpscaleFiltering = INI_GetBool(IniPath, L"Graphics", L"CutsceneForceUpscaleFiltering", Options.CutsceneForceUpscaleFiltering);
   Options.OverrideTemporalAAJitterScale = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAAJitterScale", Options.OverrideTemporalAAJitterScale);
   Options.OverrideTemporalAASharpness = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAASharpness", Options.OverrideTemporalAASharpness);
   Options.UseUE4TAA = INI_GetBool(IniPath, L"Graphics", L"UseUE4TAA", Options.UseUE4TAA);
@@ -235,7 +235,7 @@ void CVarSystemResolution_ctor_Hook()
 
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFix", Options.CutsceneRenderFix, L"Enable/disable skit cutscene resolution scaling", 0));
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneScreenPercentage", Options.CutsceneScreenPercentage, L"ScreenPercentage to apply to skit cutscenes", 0));
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneSquareOffset", Options.CutsceneSquareOffset, L"CutsceneSquareOffset", 0));
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneForceUpscaleFiltering", Options.CutsceneForceUpscaleFiltering, L"CutsceneForceUpscaleFiltering", 0));
   
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAAJitterScale", Options.OverrideTemporalAAJitterScale, L"Adjust jittering applied to the games TAA (game default has this set to 0, doesn't really seem to work that well, was probably disabled for a reason...)", 0));
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAASharpness", Options.OverrideTemporalAASharpness, L"Adjust sharpening effect applied to TAA", 0));
@@ -306,6 +306,17 @@ void FRelevancePacket__FRelevancePacket_Hook(
     InMarkMasks, InPrimitiveCustomDataMemStack, InOutHasViewCustomDataMasks);
 }
 
+void QuantizeScreenSize(int& X, int& Y)
+{
+  // Mostly the same as QuantizeSceneBufferSize, as used by FSceneRenderer::PrepareViewRectsForRendering()
+  // Ensures that X/Y are dividable by 4
+
+  uint32_t DividableBy = 4;
+  const uint32_t Mask = ~(DividableBy - 1);
+  X = (X + DividableBy - 1) & Mask;
+  Y = (Y + DividableBy - 1) & Mask;
+}
+
 // Called during UKismetRenderingLibrary::execCreateRenderTarget2D, so we can overwrite the target size etc.
 void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 {
@@ -345,9 +356,14 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 
       thisptr->SizeX = int(ceil(NewWidth));
       thisptr->SizeY = int(ceil(NewHeight));
-      if (thisptr->SizeX == thisptr->SizeY && Options.CutsceneSquareOffset)
+
+      // Ensure that the size is divisable by 4, else UE4 will create an FViewInfo with a slightly different size
+      // Causing the Upscale filter to be applied to the RT
+      QuantizeScreenSize(thisptr->SizeX, thisptr->SizeY);
+
+      if (Options.CutsceneForceUpscaleFiltering)
       {
-        // Hack to force square-resolution boxes to have Upscale pass applied
+        // Hack to force the view to have Upscale pass applied
         thisptr->SizeX++;
       }
     }
