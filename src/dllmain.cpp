@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.24a"
+#define SDK_VERSION "0.1.24b"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -57,6 +57,7 @@ struct
   float OverrideTemporalAASharpness = -1;
   bool UseUE4TAA = false;
   float CharaLODMultiplier = 1;
+  bool DisableUpdateRateOptimization = false;
 } Options;
 
 bool TryLoadINIOptions(const WCHAR* IniFilePath)
@@ -84,6 +85,7 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.OverrideTemporalAASharpness = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAASharpness", Options.OverrideTemporalAASharpness);
   Options.UseUE4TAA = INI_GetBool(IniPath, L"Graphics", L"UseUE4TAA", Options.UseUE4TAA);
   Options.CharaLODMultiplier = INI_GetFloat(IniPath, L"Graphics", L"CharaLODMultiplier", Options.CharaLODMultiplier);
+  Options.DisableUpdateRateOptimization = INI_GetBool(IniPath, L"Graphics", L"DisableUpdateRateOptimization", Options.DisableUpdateRateOptimization);
 
   if (Options.MinNPCDistance >= 0 && FadeInDelta >= Options.MinNPCDistance)
     Options.MinNPCDistance = (FadeInDelta + 1);
@@ -306,17 +308,6 @@ void FRelevancePacket__FRelevancePacket_Hook(
     InMarkMasks, InPrimitiveCustomDataMemStack, InOutHasViewCustomDataMasks);
 }
 
-void QuantizeScreenSize(int& X, int& Y)
-{
-  // Mostly the same as QuantizeSceneBufferSize, as used by FSceneRenderer::PrepareViewRectsForRendering()
-  // Ensures that X/Y are dividable by 4
-
-  uint32_t DividableBy = 4;
-  const uint32_t Mask = ~(DividableBy - 1);
-  X = (X + DividableBy - 1) & Mask;
-  Y = (Y + DividableBy - 1) & Mask;
-}
-
 // Called during UKismetRenderingLibrary::execCreateRenderTarget2D, so we can overwrite the target size etc.
 void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 {
@@ -359,7 +350,14 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 
       // Ensure that the size is divisable by 4, else UE4 will create an FViewInfo with a slightly different size
       // Causing the Upscale filter to be applied to the RT
-      QuantizeScreenSize(thisptr->SizeX, thisptr->SizeY);
+      {
+        // Mostly the same as QuantizeSceneBufferSize, as used by FSceneRenderer::PrepareViewRectsForRendering()
+
+        const uint32_t DividableBy = 4;
+        const uint32_t Mask = ~(DividableBy - 1);
+        thisptr->SizeX = (thisptr->SizeX + DividableBy - 1) & Mask;
+        thisptr->SizeY = (thisptr->SizeY + DividableBy - 1) & Mask;
+      }
 
       if (Options.CutsceneForceUpscaleFiltering)
       {
@@ -612,6 +610,18 @@ void InitPlugin()
     // Disable r.setres being changed by game code to 1280x720
     const uint32_t PatchAddr_SetRes_720p = 0x1200730;
     SafeWriteModule(PatchAddr_SetRes_720p, uint8_t(0x90), 4);
+  }
+
+  if (Options.DisableUpdateRateOptimization)
+  {
+    // Change a.URO.Enable default to 0
+    const uint32_t PatchAddr_UROEnable_Default = 0x4FA446 + 2;
+    SafeWriteModule(PatchAddr_UROEnable_Default, uint32_t(0));
+
+    // Update a.URO.Enable value if CVar has already been created
+    uint32_t* CVarUROEnable = *(uint32_t**)(mBaseAddress + 0x4C434E0);
+    if (CVarUROEnable)
+      CVarUROEnable[0] = CVarUROEnable[1] = 0;
   }
 
   // Remove ECVF_Cheat flag check from FConsoleManager::ProcessUserConsoleInput
