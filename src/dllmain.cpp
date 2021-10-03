@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.24b"
+#define SDK_VERSION "0.1.25"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -43,6 +43,7 @@ WCHAR IniPath[4096];
 struct
 {
   float MinNPCDistance = 50000;
+  float MonsterDistanceMultiplier = 1;
   bool SkipIntroLogos = true;
   bool DisableCutsceneCA = false;
   bool EnableResolutionFix = true;
@@ -75,6 +76,7 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.EnableResolutionFix = INI_GetBool(IniPath, L"Patches", L"EnableResolutionFix", Options.EnableResolutionFix);
 
   Options.MinNPCDistance = INI_GetFloat(IniPath, L"Graphics", L"MinimumNPCDistance", Options.MinNPCDistance);
+  Options.MonsterDistanceMultiplier = INI_GetFloat(IniPath, L"Graphics", L"MonsterDistanceMultiplier", Options.MonsterDistanceMultiplier);
   Options.OverrideCharaSharpenFilterStrength = INI_GetFloat(IniPath, L"Graphics", L"OverrideCharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength);
   Options.OverrideStageSharpenFilterStrength = INI_GetFloat(IniPath, L"Graphics", L"OverrideStageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength);
   Options.MinStageEdgeBaseDistance = INI_GetFloat(IniPath, L"Graphics", L"MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance);
@@ -130,6 +132,21 @@ void BP_PF_NPC_Walk_AIController__InitNPCDistance_Hook(void* a1, void* a2, float
   BP_PF_NPC_Walk_AIController__InitNPCDistance_Orig(a1, a2, a3);
   // ^ updates a1 + 0x388 with the distance
   // which is then checked at 0x140E2AC96 to see if NPC should be deleted or not
+}
+
+const uint32_t Addr_AEncountGroup__IsWithinRange = 0xDE6AE0;
+typedef bool(*AEncountGroup__IsWithinRange_Fn)(AEncountGroup* thisptr, struct FEncountAreaInfo* AreaInfo);
+AEncountGroup__IsWithinRange_Fn AEncountGroup__IsWithinRange_Orig;
+bool AEncountGroup__IsWithinRange_Hook(AEncountGroup* thisptr, struct FEncountAreaInfo* AreaInfo)
+{
+  // Only mess with SpawnAreaInfo - seems BattleAreaInfo also goes through this func
+  if (AreaInfo != &thisptr->SpawnAreaInfo)
+    return AEncountGroup__IsWithinRange_Orig(thisptr, AreaInfo);
+
+  FEncountAreaInfo NewAreaInfo(*AreaInfo);
+  NewAreaInfo.Range *= Options.MonsterDistanceMultiplier;
+  // todo: should we update NewAreaInfo.HalfHeight?
+  return AEncountGroup__IsWithinRange_Orig(thisptr, &NewAreaInfo);
 }
 
 bool InitGame()
@@ -229,6 +246,8 @@ void CVarSystemResolution_ctor_Hook()
 {
   CVarSystemResolution_ctor_Orig();
   auto consoleManager = *(IConsoleManager**)(mBaseAddress + Addr_IConsoleManager__Singleton);
+
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.MonsterDistanceMultiplier", Options.MonsterDistanceMultiplier, L"MonsterDistanceMultiplier", 0));
 
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength, L"Adjust sharpen filter applied to characters", 0));
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.StageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength, L"Adjust sharpen filter applied to the game world", 0));
@@ -586,16 +605,20 @@ void InitPlugin()
   {
     MH_GameHook(APFNpcManager__InitsDistances);
     MH_GameHook(BP_PF_NPC_Walk_AIController__InitNPCDistance);
-    // Patch fade distances used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController
+
+    // UPFNpcCameraFadeComponent fade distances
+    // (used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController)
     SafeWriteModule(0x116BD47 + 6, Options.MinNPCDistance - FadeInDelta);
     SafeWriteModule(0x116BD51 + 6, Options.MinNPCDistance);
     SafeWriteModule(0x116BD83 + 6, Options.MinNPCDistance - FadeInDelta);
     SafeWriteModule(0x116BD8D + 6, Options.MinNPCDistance);
 
-    // These have same value as the ones patched above, but don't seem to be used by walking NPCs, unsure what uses them
-   // SafeWriteModule(0x1180595 + 3, Options.MinNPCDistance - FadeInDelta);
-   // SafeWriteModule(0x118059C + 3, Options.MinNPCDistance);
+    // FPFNpcCameraSettingsData ICppStructOps::Construct
+    SafeWriteModule(0x1180595 + 3, Options.MinNPCDistance - FadeInDelta);
+    SafeWriteModule(0x118059C + 3, Options.MinNPCDistance);
   }
+
+  MH_GameHook(AEncountGroup__IsWithinRange);
 
   // Prevent resolution change on game launch
   // (requires r.SetRes = 2560x1440f line inside Engine.ini to work properly, change with your desired resolution)
