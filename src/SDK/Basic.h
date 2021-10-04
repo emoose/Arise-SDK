@@ -138,6 +138,8 @@ public:
 
 	inline int Num() const
 	{
+		if (!Data)
+			return 0;
 		return Count;
 	};
 
