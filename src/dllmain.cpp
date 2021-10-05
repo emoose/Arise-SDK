@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.25a"
+#define SDK_VERSION "0.1.26"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
@@ -58,6 +58,7 @@ struct
   float OverrideTemporalAASharpness = -1;
   bool UseUE4TAA = false;
   float CharaLODMultiplier = 1;
+  bool CharaDisableCull = false;
   bool DisableUpdateRateOptimization = false;
 } Options;
 
@@ -87,6 +88,7 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.OverrideTemporalAASharpness = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAASharpness", Options.OverrideTemporalAASharpness);
   Options.UseUE4TAA = INI_GetBool(IniPath, L"Graphics", L"UseUE4TAA", Options.UseUE4TAA);
   Options.CharaLODMultiplier = INI_GetFloat(IniPath, L"Graphics", L"CharaLODMultiplier", Options.CharaLODMultiplier);
+  Options.CharaDisableCull = INI_GetBool(IniPath, L"Graphics", L"CharaDisableCull", Options.CharaDisableCull);
   Options.DisableUpdateRateOptimization = INI_GetBool(IniPath, L"Graphics", L"DisableUpdateRateOptimization", Options.DisableUpdateRateOptimization);
 
   if (Options.MinNPCDistance >= 0 && FadeInDelta >= Options.MinNPCDistance)
@@ -148,6 +150,18 @@ bool AEncountGroup__IsWithinRange_Hook(AEncountGroup* thisptr, struct FEncountAr
   NewAreaInfo.HalfHeight = AreaInfo->HalfHeight * Options.MonsterDistanceMultiplier;
 
   return AEncountGroup__IsWithinRange_Orig(thisptr, &NewAreaInfo);
+}
+
+const uint32_t Addr_UAchCharacterBuildComponent__SetCulling = 0x6B11B0;
+typedef void(*UAchCharacterBuildComponent__SetCulling_Fn)(UAchCharacterBuildComponent* thisptr, bool bCulling);
+UAchCharacterBuildComponent__SetCulling_Fn UAchCharacterBuildComponent__SetCulling_Orig;
+void UAchCharacterBuildComponent__SetCulling_Hook(UAchCharacterBuildComponent* thisptr, bool bCulling)
+{
+  // TODO: find the code that's actually reading from whatever this is setting & hook that instead, so this could be toggled at runtime
+  // seems to call 2 funcs inside thisptr->PFPlayerCharacter->CapsuleComponent's vftable, one for frustum culling & one for occlusion (if PFPlayerCharacter is the correct class that is...)
+  // most likely the bApplyFrustumCull / bApplyOcclusionCull fields, but didn't have any luck setting those directly, seems SetCulling might be creating a CapsuleComponent if it doesn't exist
+
+  UAchCharacterBuildComponent__SetCulling_Orig(thisptr, Options.CharaDisableCull ? false : bCulling);
 }
 
 bool InitGame()
@@ -263,7 +277,9 @@ void CVarSystemResolution_ctor_Hook()
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAASharpness", Options.OverrideTemporalAASharpness, L"Adjust sharpening effect applied to TAA", 0));
 
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.UseUE4TAA", Options.UseUE4TAA, L"Use UE4's TAA method instead of TO14 custom one", 0));
+
   CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CharaLODMultiplier", Options.CharaLODMultiplier, L"Multiplier of Chara LODs", 0));
+  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CharaDisableCull", Options.CharaDisableCull, L"CharaDisableCull", 0));
 
   // usually created by UE4 inside EXPOSE_FORCE_LOD builds, which shipping builds sadly aren't
   // not too hard to reimpl though
@@ -619,6 +635,7 @@ void InitPlugin()
     SafeWriteModule(0x118059C + 3, Options.MinNPCDistance);
   }
 
+  MH_GameHook(UAchCharacterBuildComponent__SetCulling);
   MH_GameHook(AEncountGroup__IsWithinRange);
 
   // Prevent resolution change on game launch

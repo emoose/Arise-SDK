@@ -260,7 +260,8 @@ public:
 	TArray<struct FSimpleMemberReference>              UCSModifiedProperties;                                    // 0x00B0(0x0010) (ZeroConstructor)
 	struct FScriptMulticastDelegate                    OnComponentActivated;                                     // 0x00C0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	struct FScriptMulticastDelegate                    OnComponentDeactivated;                                   // 0x00D0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	unsigned char                                      UnknownData08[0x10];                                      // 0x00E0(0x0010) MISSED OFFSET
+	class APFPlayerCharacter* PFPlayerCharacter;
+	//unsigned char                                      UnknownData08[0x10];                                      // 0x00E8(0x0008) MISSED OFFSET
 	bool                                               bEditableWhenNative;                                      // 0x00F0(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData09[0x7];                                       // 0x00F1(0x0007) MISSED OFFSET
 
