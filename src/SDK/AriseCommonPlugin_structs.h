@@ -15,61 +15,61 @@ namespace SDK
 // Enum AriseCommonPlugin.EAreaPriority
 enum class EAreaPriority : uint8_t
 {
-	EAreaPriority__None            = 0,
-	EAreaPriority__Encount         = 1,
-	EAreaPriority__Npc             = 2,
-	EAreaPriority__Gimmick         = 3,
-	EAreaPriority__Ladder          = 4,
-	EAreaPriority__TreasureBox     = 5,
-	EAreaPriority__MapLink         = 6,
-	EAreaPriority__Event           = 7,
-	EAreaPriority__MaxPriority     = 8,
-	EAreaPriority__EAreaPriority_MAX = 9
+	None                           = 0,
+	Encount                        = 1,
+	Npc                            = 2,
+	Gimmick                        = 3,
+	Ladder                         = 4,
+	TreasureBox                    = 5,
+	MapLink                        = 6,
+	Event                          = 7,
+	MaxPriority                    = 8,
+	EAreaPriority_MAX              = 9
 };
 
 
 // Enum AriseCommonPlugin.EArisePartyID
 enum class EArisePartyID : uint8_t
 {
-	EArisePartyID__ARI             = 0,
-	EArisePartyID__SIO             = 1,
-	EArisePartyID__NNA             = 2,
-	EArisePartyID__ZGU             = 3,
-	EArisePartyID__MNK             = 4,
-	EArisePartyID__YRA             = 5,
-	EArisePartyID__DLC             = 6,
-	EArisePartyID__DLC01           = 7,
-	EArisePartyID__MAX             = 8,
-	EArisePartyID__INVALID         = 9,
-	EArisePartyID__DUMMY_ANONYMOUS_ = 10
+	ARI                            = 0,
+	SIO                            = 1,
+	NNA                            = 2,
+	ZGU                            = 3,
+	MNK                            = 4,
+	YRA                            = 5,
+	DLC                            = 6,
+	DLC01                          = 7,
+	MAX                            = 8,
+	INVALID                        = 9,
+	DUMMY_ANONYMOUS_               = 10
 };
 
 
 // Enum AriseCommonPlugin.EDLCPresentCategory
 enum class EDLCPresentCategory : uint8_t
 {
-	EDLCPresentCategory__None      = 0,
-	EDLCPresentCategory__Visual    = 1,
-	EDLCPresentCategory__Item      = 2,
-	EDLCPresentCategory__Material  = 3,
-	EDLCPresentCategory__Artifact  = 4,
-	EDLCPresentCategory__Music     = 5,
-	EDLCPresentCategory__Battle    = 6,
-	EDLCPresentCategory__Weapon    = 7,
-	EDLCPresentCategory__EDLCPresentCategory_MAX = 8
+	None                           = 0,
+	Visual                         = 1,
+	Item                           = 2,
+	Material                       = 3,
+	Artifact                       = 4,
+	Music                          = 5,
+	Battle                         = 6,
+	Weapon                         = 7,
+	EDLCPresentCategory_MAX        = 8
 };
 
 
 // Enum AriseCommonPlugin.EDLCExecutionTiming
 enum class EDLCExecutionTiming : uint8_t
 {
-	EDLCExecutionTiming__Opened    = 0,
-	EDLCExecutionTiming__Loaded    = 1,
-	EDLCExecutionTiming__Activated = 2,
-	EDLCExecutionTiming__Mounted   = 3,
-	EDLCExecutionTiming__Reopen    = 4,
-	EDLCExecutionTiming__OpenAndLoaded = 5,
-	EDLCExecutionTiming__EDLCExecutionTiming_MAX = 6
+	Opened                         = 0,
+	Loaded                         = 1,
+	Activated                      = 2,
+	Mounted                        = 3,
+	Reopen                         = 4,
+	OpenAndLoaded                  = 5,
+	EDLCExecutionTiming_MAX        = 6
 };
 
 

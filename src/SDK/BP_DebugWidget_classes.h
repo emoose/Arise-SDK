@@ -42,7 +42,7 @@ public:
 	void OnMouseMove(float X, float Y);
 	void OnMouseUp(float X, float Y);
 	void OnMouseDown(float X, float Y);
-	void InWindown(float Cx, float cy, bool* bin);
+	void InWindown(float Cx, float cy, bool* bIn);
 	void Render(class AHUD* MasterHUD);
 };
 

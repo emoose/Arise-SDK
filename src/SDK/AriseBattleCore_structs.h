@@ -15,115 +15,115 @@ namespace SDK
 // Enum AriseBattleCore.EBtlAssetCategory
 enum class EBtlAssetCategory : uint8_t
 {
-	EBtlAssetCategory__Unknown     = 0,
-	EBtlAssetCategory__Unit        = 1,
-	EBtlAssetCategory__Arts        = 2,
-	EBtlAssetCategory__Magic       = 3,
-	EBtlAssetCategory__MetaScript  = 4,
-	EBtlAssetCategory__StrikeFirstCut = 5,
-	EBtlAssetCategory__StrikeMainCut = 6,
-	EBtlAssetCategory__EncountEffect = 7,
-	EBtlAssetCategory__Hud         = 8,
-	EBtlAssetCategory__Mystic      = 9,
-	EBtlAssetCategory__SystemEffect = 10,
-	EBtlAssetCategory__BuffScript  = 11,
-	EBtlAssetCategory__SystemManager = 12,
-	EBtlAssetCategory__EBtlAssetCategory_MAX = 13
+	Unknown                        = 0,
+	Unit                           = 1,
+	Arts                           = 2,
+	Magic                          = 3,
+	MetaScript                     = 4,
+	StrikeFirstCut                 = 5,
+	StrikeMainCut                  = 6,
+	EncountEffect                  = 7,
+	Hud                            = 8,
+	Mystic                         = 9,
+	SystemEffect                   = 10,
+	BuffScript                     = 11,
+	SystemManager                  = 12,
+	EBtlAssetCategory_MAX          = 13
 };
 
 
 // Enum AriseBattleCore.EBtlAssetBundleCategory
 enum class EBtlAssetBundleCategory : uint8_t
 {
-	EBtlAssetBundleCategory__Unknown = 0,
-	EBtlAssetBundleCategory__Unit  = 1,
-	EBtlAssetBundleCategory__Encount = 2,
-	EBtlAssetBundleCategory__Required = 3,
-	EBtlAssetBundleCategory__HUD   = 4,
-	EBtlAssetBundleCategory__SystemManager = 5,
-	EBtlAssetBundleCategory__EBtlAssetBundleCategory_MAX = 6
+	Unknown                        = 0,
+	Unit                           = 1,
+	Encount                        = 2,
+	Required                       = 3,
+	HUD                            = 4,
+	SystemManager                  = 5,
+	EBtlAssetBundleCategory_MAX    = 6
 };
 
 
 // Enum AriseBattleCore.EBtlVisualTaskRunDuplicatePolicy
 enum class EBtlVisualTaskRunDuplicatePolicy : uint8_t
 {
-	EBtlVisualTaskRunDuplicatePolicy__NotRunNewTask = 0,
-	EBtlVisualTaskRunDuplicatePolicy__Overwrite = 1,
-	EBtlVisualTaskRunDuplicatePolicy__CanBeDuplicated = 2,
-	EBtlVisualTaskRunDuplicatePolicy__EBtlVisualTaskRunDuplicatePolicy_MAX = 3
+	NotRunNewTask                  = 0,
+	Overwrite                      = 1,
+	CanBeDuplicated                = 2,
+	EBtlVisualTaskRunDuplicatePolicy_MAX = 3
 };
 
 
 // Enum AriseBattleCore.EBtlVisualableCategory
 enum class EBtlVisualableCategory : uint8_t
 {
-	EBtlVisualableCategory__CutScene = 0,
-	EBtlVisualableCategory__FormationChangeing = 1,
-	EBtlVisualableCategory__Development = 2,
-	EBtlVisualableCategory__DefaultFlags = 3,
-	EBtlVisualableCategory__EBtlVisualableCategory_MAX = 4
+	CutScene                       = 0,
+	FormationChangeing             = 1,
+	Development                    = 2,
+	DefaultFlags                   = 3,
+	EBtlVisualableCategory_MAX     = 4
 };
 
 
 // Enum AriseBattleCore.EBtlBitFlagCategory
 enum class EBtlBitFlagCategory : uint8_t
 {
-	EBtlBitFlagCategory__Default   = 0,
-	EBtlBitFlagCategory__Scenario  = 1,
-	EBtlBitFlagCategory__CutScene  = 2,
-	EBtlBitFlagCategory__Mystic    = 3,
-	EBtlBitFlagCategory__StrikeAttack = 4,
-	EBtlBitFlagCategory__StrikeSmash = 5,
-	EBtlBitFlagCategory__BtlCamera = 6,
-	EBtlBitFlagCategory__VanguardMember = 7,
-	EBtlBitFlagCategory__Dead      = 8,
-	EBtlBitFlagCategory__Arts      = 9,
-	EBtlBitFlagCategory__Semiauto  = 10,
-	EBtlBitFlagCategory__FlashRaid = 11,
-	EBtlBitFlagCategory__Runaway   = 12,
-	EBtlBitFlagCategory__Animation = 13,
-	EBtlBitFlagCategory__DeathStroke = 14,
-	EBtlBitFlagCategory__Script    = 15,
-	EBtlBitFlagCategory__UserInput = 16,
-	EBtlBitFlagCategory__UniqueSkill = 17,
-	EBtlBitFlagCategory__Win       = 18,
-	EBtlBitFlagCategory__Lose      = 19,
-	EBtlBitFlagCategory__Down      = 20,
-	EBtlBitFlagCategory__Freeze    = 21,
-	EBtlBitFlagCategory__Inspiration = 22,
-	EBtlBitFlagCategory__AI        = 23,
-	EBtlBitFlagCategory__AssignControl = 24,
-	EBtlBitFlagCategory__RaiseDead = 25,
-	EBtlBitFlagCategory__Hidden    = 26,
-	EBtlBitFlagCategory__Item      = 27,
-	EBtlBitFlagCategory__MysticFade = 28,
-	EBtlBitFlagCategory__ScreenCaptcha = 29,
-	EBtlBitFlagCategory__DevelopmentSimulator = 30,
-	EBtlBitFlagCategory__Development = 31,
-	EBtlBitFlagCategory__EBtlBitFlagCategory_MAX = 32
+	Default                        = 0,
+	Scenario                       = 1,
+	CutScene                       = 2,
+	Mystic                         = 3,
+	StrikeAttack                   = 4,
+	StrikeSmash                    = 5,
+	BtlCamera                      = 6,
+	VanguardMember                 = 7,
+	Dead                           = 8,
+	Arts                           = 9,
+	Semiauto                       = 10,
+	FlashRaid                      = 11,
+	Runaway                        = 12,
+	Animation                      = 13,
+	DeathStroke                    = 14,
+	Script                         = 15,
+	UserInput                      = 16,
+	UniqueSkill                    = 17,
+	Win                            = 18,
+	Lose                           = 19,
+	Down                           = 20,
+	Freeze                         = 21,
+	Inspiration                    = 22,
+	AI                             = 23,
+	AssignControl                  = 24,
+	RaiseDead                      = 25,
+	Hidden                         = 26,
+	Item                           = 27,
+	MysticFade                     = 28,
+	ScreenCaptcha                  = 29,
+	DevelopmentSimulator           = 30,
+	Development                    = 31,
+	EBtlBitFlagCategory_MAX        = 32
 };
 
 
 // Enum AriseBattleCore.EBtlAssetLoadState
 enum class EBtlAssetLoadState : uint8_t
 {
-	EBtlAssetLoadState__NonRequest = 0,
-	EBtlAssetLoadState__Loading    = 1,
-	EBtlAssetLoadState__LoadComplate = 2,
-	EBtlAssetLoadState__EBtlAssetLoadState_MAX = 3
+	NonRequest                     = 0,
+	Loading                        = 1,
+	LoadComplate                   = 2,
+	EBtlAssetLoadState_MAX         = 3
 };
 
 
 // Enum AriseBattleCore.EBtlVisualTaskState
 enum class EBtlVisualTaskState : uint8_t
 {
-	EBtlVisualTaskState__None      = 0,
-	EBtlVisualTaskState__Start     = 1,
-	EBtlVisualTaskState__Execute   = 2,
-	EBtlVisualTaskState__End       = 3,
-	EBtlVisualTaskState__Exit      = 4,
-	EBtlVisualTaskState__EBtlVisualTaskState_MAX = 5
+	None                           = 0,
+	Start                          = 1,
+	Execute                        = 2,
+	End                            = 3,
+	Exit                           = 4,
+	EBtlVisualTaskState_MAX        = 5
 };
 
 

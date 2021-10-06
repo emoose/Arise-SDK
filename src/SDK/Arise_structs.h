@@ -15,1103 +15,1103 @@ namespace SDK
 // Enum Arise.EBtlAnimationBlendType
 enum class EBtlAnimationBlendType : uint8_t
 {
-	EBtlAnimationBlendType__BLEND_NORMAL = 0,
-	EBtlAnimationBlendType__BLEND_NONE = 1,
-	EBtlAnimationBlendType__BLEND_LONG = 2,
-	EBtlAnimationBlendType__BLEND_INVALID = 3,
-	EBtlAnimationBlendType__BLEND_MAX = 4
+	BLEND_NORMAL                   = 0,
+	BLEND_NONE                     = 1,
+	BLEND_LONG                     = 2,
+	BLEND_INVALID                  = 3,
+	BLEND_MAX                      = 4
 };
 
 
 // Enum Arise.EBtlVoiceHandleState
 enum class EBtlVoiceHandleState : uint8_t
 {
-	EBtlVoiceHandleState__Waiting  = 0,
-	EBtlVoiceHandleState__Reserving = 1,
-	EBtlVoiceHandleState__Playing  = 2,
-	EBtlVoiceHandleState__EBtlVoiceHandleState_MAX = 3
+	Waiting                        = 0,
+	Reserving                      = 1,
+	Playing                        = 2,
+	EBtlVoiceHandleState_MAX       = 3
 };
 
 
 // Enum Arise.EBtlVoiceState
 enum class EBtlVoiceState : uint8_t
 {
-	EBtlVoiceState__NON            = 0,
-	EBtlVoiceState__BAD            = 1,
-	EBtlVoiceState__SPE            = 2,
-	EBtlVoiceState__REC            = 3,
-	EBtlVoiceState__GOD            = 4,
-	EBtlVoiceState__DAM            = 5,
-	EBtlVoiceState__ATK            = 6,
-	EBtlVoiceState__ETC            = 7,
-	EBtlVoiceState__RES            = 8,
-	EBtlVoiceState__EBtlVoiceState_MAX = 9
-};
-
-
-// Enum Arise.EAriseRelationship
-enum class EAriseRelationship : uint8_t
-{
-	EAriseRelationship__NON        = 0,
-	EAriseRelationship__SYS        = 1,
-	EAriseRelationship__SB1        = 2,
-	EAriseRelationship__SB2        = 3,
-	EAriseRelationship__UQ1        = 4,
-	EAriseRelationship__UQ2        = 5,
-	EAriseRelationship__SPC        = 6,
-	EAriseRelationship__SB3        = 7,
-	EAriseRelationship__EAriseRelationship_MAX = 8
+	NON                            = 0,
+	BAD                            = 1,
+	SPE                            = 2,
+	REC                            = 3,
+	GOD                            = 4,
+	DAM                            = 5,
+	ATK                            = 6,
+	ETC                            = 7,
+	RES                            = 8,
+	EBtlVoiceState_MAX             = 9
 };
 
 
 // Enum Arise.EBtlVoiceType
 enum class EBtlVoiceType : uint8_t
 {
-	EBtlVoiceType__VBS             = 0,
-	EBtlVoiceType__VBM             = 1,
-	EBtlVoiceType__EBtlVoiceType_MAX = 2
+	VBS                            = 0,
+	VBM                            = 1,
+	EBtlVoiceType_MAX              = 2
+};
+
+
+// Enum Arise.EAriseRelationship
+enum class EAriseRelationship : uint8_t
+{
+	NON                            = 0,
+	SYS                            = 1,
+	SB1                            = 2,
+	SB2                            = 3,
+	UQ1                            = 4,
+	UQ2                            = 5,
+	SPC                            = 6,
+	SB3                            = 7,
+	EAriseRelationship_MAX         = 8
 };
 
 
 // Enum Arise.EBtlVoiceCharaID
 enum class EBtlVoiceCharaID : uint8_t
 {
-	EBtlVoiceCharaID__INVALID      = 0,
-	EBtlVoiceCharaID__ARI          = 1,
-	EBtlVoiceCharaID__SIO          = 2,
-	EBtlVoiceCharaID__NNA          = 3,
-	EBtlVoiceCharaID__ZGU          = 4,
-	EBtlVoiceCharaID__MNK          = 5,
-	EBtlVoiceCharaID__YRA          = 6,
-	EBtlVoiceCharaID__ZFA          = 7,
-	EBtlVoiceCharaID__BEZ          = 8,
-	EBtlVoiceCharaID__KIL          = 9,
-	EBtlVoiceCharaID__YRB          = 10,
-	EBtlVoiceCharaID__AGM          = 11,
-	EBtlVoiceCharaID__DFN          = 12,
-	EBtlVoiceCharaID__DFO          = 13,
-	EBtlVoiceCharaID__LSW          = 14,
-	EBtlVoiceCharaID__LHI          = 15,
-	EBtlVoiceCharaID__LGU          = 16,
-	EBtlVoiceCharaID__LLA          = 17,
-	EBtlVoiceCharaID__ELS          = 18,
-	EBtlVoiceCharaID__KRO          = 19,
-	EBtlVoiceCharaID__EDN          = 20,
-	EBtlVoiceCharaID__EIZ          = 21,
-	EBtlVoiceCharaID__KLZ          = 22,
-	EBtlVoiceCharaID__DAR          = 23,
-	EBtlVoiceCharaID__FRU          = 24,
-	EBtlVoiceCharaID__GRA          = 25,
-	EBtlVoiceCharaID__ELM          = 26,
-	EBtlVoiceCharaID__CBK          = 27,
-	EBtlVoiceCharaID__CBA          = 28,
-	EBtlVoiceCharaID__SGU          = 29,
-	EBtlVoiceCharaID__EMOTION      = 30,
-	EBtlVoiceCharaID__SELF         = 31,
-	EBtlVoiceCharaID__ALLPEOPLE    = 32,
-	EBtlVoiceCharaID__PARTY        = 33,
-	EBtlVoiceCharaID__ALLY         = 34,
-	EBtlVoiceCharaID__ENEMY        = 35,
-	EBtlVoiceCharaID__PUBLIC       = 36,
-	EBtlVoiceCharaID__OBJECT       = 37,
-	EBtlVoiceCharaID__EBtlVoiceCharaID_MAX = 38
+	INVALID                        = 0,
+	ARI                            = 1,
+	SIO                            = 2,
+	NNA                            = 3,
+	ZGU                            = 4,
+	MNK                            = 5,
+	YRA                            = 6,
+	ZFA                            = 7,
+	BEZ                            = 8,
+	KIL                            = 9,
+	YRB                            = 10,
+	AGM                            = 11,
+	DFN                            = 12,
+	DFO                            = 13,
+	LSW                            = 14,
+	LHI                            = 15,
+	LGU                            = 16,
+	LLA                            = 17,
+	ELS                            = 18,
+	KRO                            = 19,
+	EDN                            = 20,
+	EIZ                            = 21,
+	KLZ                            = 22,
+	DAR                            = 23,
+	FRU                            = 24,
+	GRA                            = 25,
+	ELM                            = 26,
+	CBK                            = 27,
+	CBA                            = 28,
+	SGU                            = 29,
+	EMOTION                        = 30,
+	SELF                           = 31,
+	ALLPEOPLE                      = 32,
+	PARTY                          = 33,
+	ALLY                           = 34,
+	ENEMY                          = 35,
+	PUBLIC                         = 36,
+	OBJECT                         = 37,
+	EBtlVoiceCharaID_MAX           = 38
 };
 
 
 // Enum Arise.EBtlVoiceUsage
 enum class EBtlVoiceUsage : uint8_t
 {
-	EBtlVoiceUsage__NONE           = 0,
-	EBtlVoiceUsage__ONLY_ONCE_IN_BATTLE = 1,
-	EBtlVoiceUsage__ONLY_ONCE_IN_LEVEL = 2,
-	EBtlVoiceUsage__ONLY_ONCE_IN_PLAY = 3,
-	EBtlVoiceUsage__ONLY_ONCE      = 4,
-	EBtlVoiceUsage__INTERVAL_SLOT00 = 5,
-	EBtlVoiceUsage__INTERVAL_SLOT01 = 6,
-	EBtlVoiceUsage__INTERVAL_SLOT02 = 7,
-	EBtlVoiceUsage__INTERVAL_SLOT03 = 8,
-	EBtlVoiceUsage__INTERVAL_SLOT04 = 9,
-	EBtlVoiceUsage__INTERVAL_SLOT05 = 10,
-	EBtlVoiceUsage__INTERVAL_SLOT06 = 11,
-	EBtlVoiceUsage__INTERVAL_SLOT07 = 12,
-	EBtlVoiceUsage__EBtlVoiceUsage_MAX = 13
+	NONE                           = 0,
+	ONLY_ONCE_IN_BATTLE            = 1,
+	ONLY_ONCE_IN_LEVEL             = 2,
+	ONLY_ONCE_IN_PLAY              = 3,
+	ONLY_ONCE                      = 4,
+	INTERVAL_SLOT00                = 5,
+	INTERVAL_SLOT01                = 6,
+	INTERVAL_SLOT02                = 7,
+	INTERVAL_SLOT03                = 8,
+	INTERVAL_SLOT04                = 9,
+	INTERVAL_SLOT05                = 10,
+	INTERVAL_SLOT06                = 11,
+	INTERVAL_SLOT07                = 12,
+	EBtlVoiceUsage_MAX             = 13
 };
 
 
 // Enum Arise.EBtlVoiceCondition
 enum class EBtlVoiceCondition : uint8_t
 {
-	EBtlVoiceCondition__NON        = 0,
-	EBtlVoiceCondition__NORMAL     = 1,
-	EBtlVoiceCondition__FIRE       = 2,
-	EBtlVoiceCondition__WATER      = 3,
-	EBtlVoiceCondition__WIND       = 4,
-	EBtlVoiceCondition__EARTH      = 5,
-	EBtlVoiceCondition__LIGHT      = 6,
-	EBtlVoiceCondition__DARK       = 7,
-	EBtlVoiceCondition__DAMAGE_PERCENT = 8,
-	EBtlVoiceCondition__DEAD       = 9,
-	EBtlVoiceCondition__ABNORMAL   = 10,
-	EBtlVoiceCondition__TARGET     = 11,
-	EBtlVoiceCondition__SPELL_DAMAGE = 12,
-	EBtlVoiceCondition__OVERLIMIT  = 13,
-	EBtlVoiceCondition__STRIKEABLE = 14,
-	EBtlVoiceCondition__USE_ITEM   = 15,
-	EBtlVoiceCondition__COMBO_COUNT = 16,
-	EBtlVoiceCondition__ESCAPE     = 17,
-	EBtlVoiceCondition__SUPPORT_RECOVERY = 18,
-	EBtlVoiceCondition__RECOVERY   = 19,
-	EBtlVoiceCondition__DAMAGE     = 20,
-	EBtlVoiceCondition__ENCOUNT    = 21,
-	EBtlVoiceCondition__GUARDBREAK = 22,
-	EBtlVoiceCondition__GUARDBREAK_DOWN = 23,
-	EBtlVoiceCondition__FLASHRAID  = 24,
-	EBtlVoiceCondition__SPECIAL_DOWN = 25,
-	EBtlVoiceCondition__BLOW       = 26,
-	EBtlVoiceCondition__TEAM_MANY  = 27,
-	EBtlVoiceCondition__VOICE_END  = 28,
-	EBtlVoiceCondition__TP_PERCENT = 29,
-	EBtlVoiceCondition__CORE_BREAK = 30,
-	EBtlVoiceCondition__CORE_BREAK_OR_DOWN = 31,
-	EBtlVoiceCondition__UNIQUE_DAMAGE = 32,
-	EBtlVoiceCondition__JUST_AVOIDANCE = 33,
-	EBtlVoiceCondition__SINGLE_ENCOUNT_PLAYED = 34,
-	EBtlVoiceCondition__UNIT_COUNT_BELOW = 35,
-	EBtlVoiceCondition__PLAY_SEQUENTIAL = 36,
-	EBtlVoiceCondition__UNIT_INCREASE = 37,
-	EBtlVoiceCondition__ATTACK_RECEIVE = 38,
-	EBtlVoiceCondition__PHASE_CHANGED = 39,
-	EBtlVoiceCondition__STRIKE_SMASH_POSSIBLE = 40,
-	EBtlVoiceCondition__STRIKE_SMASH_PLAYED = 41,
-	EBtlVoiceCondition__STRIKE_SMASH_KILL = 42,
-	EBtlVoiceCondition__ARTS_INSPIRATION = 43,
-	EBtlVoiceCondition__STRATEGY_CHANGED = 44,
-	EBtlVoiceCondition__REVIVAL    = 45,
-	EBtlVoiceCondition__CORE_BREAKE_GUIDANCE = 46,
-	EBtlVoiceCondition__CONDITION_VOICE_END = 47,
-	EBtlVoiceCondition__AVOIDANCE_RETURN = 48,
-	EBtlVoiceCondition__UNIQUE_SKILL = 49,
-	EBtlVoiceCondition__OVERLIMITE_REACTION = 50,
-	EBtlVoiceCondition__WIN        = 51,
-	EBtlVoiceCondition__LEVEL_UP   = 52,
-	EBtlVoiceCondition__ITEM_DROP  = 53,
-	EBtlVoiceCondition__WEAPON_GUIDE = 54,
-	EBtlVoiceCondition__BATTLE_BONUS_MAX = 55,
-	EBtlVoiceCondition__BOOST_ATTACK_GUIDE_SIO = 56,
-	EBtlVoiceCondition__BOOST_ATTACK_GUIDE_NNA = 57,
-	EBtlVoiceCondition__BOOST_ATTACK_GUIDE_ZGU = 58,
-	EBtlVoiceCondition__BOOST_ATTACK_GUIDE_MNK = 59,
-	EBtlVoiceCondition__BOOST_ATTACK_GUIDE_YRA = 60,
-	EBtlVoiceCondition__EBtlVoiceCondition_MAX = 61
+	NON                            = 0,
+	NORMAL                         = 1,
+	FIRE                           = 2,
+	WATER                          = 3,
+	WIND                           = 4,
+	EARTH                          = 5,
+	LIGHT                          = 6,
+	DARK                           = 7,
+	DAMAGE_PERCENT                 = 8,
+	DEAD                           = 9,
+	ABNORMAL                       = 10,
+	TARGET                         = 11,
+	SPELL_DAMAGE                   = 12,
+	OVERLIMIT                      = 13,
+	STRIKEABLE                     = 14,
+	USE_ITEM                       = 15,
+	COMBO_COUNT                    = 16,
+	ESCAPE                         = 17,
+	SUPPORT_RECOVERY               = 18,
+	RECOVERY                       = 19,
+	DAMAGE                         = 20,
+	ENCOUNT                        = 21,
+	GUARDBREAK                     = 22,
+	GUARDBREAK_DOWN                = 23,
+	FLASHRAID                      = 24,
+	SPECIAL_DOWN                   = 25,
+	BLOW                           = 26,
+	TEAM_MANY                      = 27,
+	VOICE_END                      = 28,
+	TP_PERCENT                     = 29,
+	CORE_BREAK                     = 30,
+	CORE_BREAK_OR_DOWN             = 31,
+	UNIQUE_DAMAGE                  = 32,
+	JUST_AVOIDANCE                 = 33,
+	SINGLE_ENCOUNT_PLAYED          = 34,
+	UNIT_COUNT_BELOW               = 35,
+	PLAY_SEQUENTIAL                = 36,
+	UNIT_INCREASE                  = 37,
+	ATTACK_RECEIVE                 = 38,
+	PHASE_CHANGED                  = 39,
+	STRIKE_SMASH_POSSIBLE          = 40,
+	STRIKE_SMASH_PLAYED            = 41,
+	STRIKE_SMASH_KILL              = 42,
+	ARTS_INSPIRATION               = 43,
+	STRATEGY_CHANGED               = 44,
+	REVIVAL                        = 45,
+	CORE_BREAKE_GUIDANCE           = 46,
+	CONDITION_VOICE_END            = 47,
+	AVOIDANCE_RETURN               = 48,
+	UNIQUE_SKILL                   = 49,
+	OVERLIMITE_REACTION            = 50,
+	WIN                            = 51,
+	LEVEL_UP                       = 52,
+	ITEM_DROP                      = 53,
+	WEAPON_GUIDE                   = 54,
+	BATTLE_BONUS_MAX               = 55,
+	BOOST_ATTACK_GUIDE_SIO         = 56,
+	BOOST_ATTACK_GUIDE_NNA         = 57,
+	BOOST_ATTACK_GUIDE_ZGU         = 58,
+	BOOST_ATTACK_GUIDE_MNK         = 59,
+	BOOST_ATTACK_GUIDE_YRA         = 60,
+	EBtlVoiceCondition_MAX         = 61
 };
 
 
 // Enum Arise.EBtlVoiceTarget
 enum class EBtlVoiceTarget : uint8_t
 {
-	EBtlVoiceTarget__NON           = 0,
-	EBtlVoiceTarget__FRONT_ALL     = 1,
-	EBtlVoiceTarget__PARTY_ANY     = 2,
-	EBtlVoiceTarget__FRONT_ANY     = 3,
-	EBtlVoiceTarget__BACK_CHARA    = 4,
-	EBtlVoiceTarget__ANY_NOT_PLAYER = 5,
-	EBtlVoiceTarget__FRONT_NOT_PLAYER = 6,
-	EBtlVoiceTarget__BACK_NOT_PLAYER = 7,
-	EBtlVoiceTarget__ANY_NOT_SELF  = 8,
-	EBtlVoiceTarget__FRONT_NOT_SELF = 9,
-	EBtlVoiceTarget__BACK_NOT_SELF = 10,
-	EBtlVoiceTarget__PLAYER        = 11,
-	EBtlVoiceTarget__THIS_CHARA    = 12,
-	EBtlVoiceTarget__MAGIC_CHARA   = 13,
-	EBtlVoiceTarget__ENEMY         = 14,
-	EBtlVoiceTarget__ZAKO_ENEMY    = 15,
-	EBtlVoiceTarget__POWER_ENEMY   = 16,
-	EBtlVoiceTarget__ARI           = 17,
-	EBtlVoiceTarget__SIO           = 18,
-	EBtlVoiceTarget__NNA           = 19,
-	EBtlVoiceTarget__ZGU           = 20,
-	EBtlVoiceTarget__MNK           = 21,
-	EBtlVoiceTarget__YRA           = 22,
-	EBtlVoiceTarget__OTHER         = 23,
-	EBtlVoiceTarget__EBtlVoiceTarget_MAX = 24
+	NON                            = 0,
+	FRONT_ALL                      = 1,
+	PARTY_ANY                      = 2,
+	FRONT_ANY                      = 3,
+	BACK_CHARA                     = 4,
+	ANY_NOT_PLAYER                 = 5,
+	FRONT_NOT_PLAYER               = 6,
+	BACK_NOT_PLAYER                = 7,
+	ANY_NOT_SELF                   = 8,
+	FRONT_NOT_SELF                 = 9,
+	BACK_NOT_SELF                  = 10,
+	PLAYER                         = 11,
+	THIS_CHARA                     = 12,
+	MAGIC_CHARA                    = 13,
+	ENEMY                          = 14,
+	ZAKO_ENEMY                     = 15,
+	POWER_ENEMY                    = 16,
+	ARI                            = 17,
+	SIO                            = 18,
+	NNA                            = 19,
+	ZGU                            = 20,
+	MNK                            = 21,
+	YRA                            = 22,
+	OTHER                          = 23,
+	EBtlVoiceTarget_MAX            = 24
 };
 
 
 // Enum Arise.EBtlVoiceEnableFalgBit
 enum class EBtlVoiceEnableFalgBit : uint8_t
 {
-	EBtlVoiceEnableFalgBit__ScenarioVoice = 0,
-	EBtlVoiceEnableFalgBit__CutScene = 1,
-	EBtlVoiceEnableFalgBit__TalkVoice = 2,
-	EBtlVoiceEnableFalgBit__Script = 3,
-	EBtlVoiceEnableFalgBit__DebugEnable = 4,
-	EBtlVoiceEnableFalgBit__EBtlVoiceEnableFalgBit_MAX = 5
+	ScenarioVoice                  = 0,
+	CutScene                       = 1,
+	TalkVoice                      = 2,
+	Script                         = 3,
+	DebugEnable                    = 4,
+	EBtlVoiceEnableFalgBit_MAX     = 5
 };
 
 
 // Enum Arise.EBtlArtsFinishedPosition
 enum class EBtlArtsFinishedPosition : uint8_t
 {
-	EBtlArtsFinishedPosition__GROUND = 0,
-	EBtlArtsFinishedPosition__AIR  = 1,
-	EBtlArtsFinishedPosition__EBtlArtsFinishedPosition_MAX = 2
+	GROUND                         = 0,
+	AIR                            = 1,
+	EBtlArtsFinishedPosition_MAX   = 2
 };
 
 
 // Enum Arise.EBtlMagicRank
 enum class EBtlMagicRank : uint8_t
 {
-	EBtlMagicRank__NONE            = 0,
-	EBtlMagicRank__LOW             = 1,
-	EBtlMagicRank__MIDDLE          = 2,
-	EBtlMagicRank__HIGH            = 3,
-	EBtlMagicRank__EBtlMagicRank_MAX = 4
+	NONE                           = 0,
+	LOW                            = 1,
+	MIDDLE                         = 2,
+	HIGH                           = 3,
+	EBtlMagicRank_MAX              = 4
 };
 
 
 // Enum Arise.EBtlArtsUniqueParam
 enum class EBtlArtsUniqueParam : uint8_t
 {
-	EBtlArtsUniqueParam__NONE      = 0,
-	EBtlArtsUniqueParam__POISON    = 1,
-	EBtlArtsUniqueParam__FROZEN    = 2,
-	EBtlArtsUniqueParam__PARALYSIS = 3,
-	EBtlArtsUniqueParam__CURSE     = 4,
-	EBtlArtsUniqueParam__BUFF_TIME = 5,
-	EBtlArtsUniqueParam__ATK       = 6,
-	EBtlArtsUniqueParam__EATK      = 7,
-	EBtlArtsUniqueParam__DEF       = 8,
-	EBtlArtsUniqueParam__EDEF      = 9,
-	EBtlArtsUniqueParam__PENETRATE = 10,
-	EBtlArtsUniqueParam__ENDURANCE = 11,
-	EBtlArtsUniqueParam__AG_RECOVERY_SPEED = 12,
-	EBtlArtsUniqueParam__EBtlArtsUniqueParam_MAX = 13
+	NONE                           = 0,
+	POISON                         = 1,
+	FROZEN                         = 2,
+	PARALYSIS                      = 3,
+	CURSE                          = 4,
+	BUFF_TIME                      = 5,
+	ATK                            = 6,
+	EATK                           = 7,
+	DEF                            = 8,
+	EDEF                           = 9,
+	PENETRATE                      = 10,
+	ENDURANCE                      = 11,
+	AG_RECOVERY_SPEED              = 12,
+	EBtlArtsUniqueParam_MAX        = 13
 };
 
 
 // Enum Arise.EBtlElementType
 enum class EBtlElementType : uint8_t
 {
-	EBtlElementType__NORMAL        = 0,
-	EBtlElementType__FIRE          = 1,
-	EBtlElementType__WATER         = 2,
-	EBtlElementType__WIND          = 3,
-	EBtlElementType__EARTH         = 4,
-	EBtlElementType__LIGHT         = 5,
-	EBtlElementType__DARK          = 6,
-	EBtlElementType__ELEMENT_MAX   = 7,
-	EBtlElementType__EBtlElementType_MAX = 8
+	NORMAL                         = 0,
+	FIRE                           = 1,
+	WATER                          = 2,
+	WIND                           = 3,
+	EARTH                          = 4,
+	LIGHT                          = 5,
+	DARK                           = 6,
+	ELEMENT_MAX                    = 7,
+	EBtlElementType_MAX            = 8
 };
 
 
 // Enum Arise.EBtlArtsAction
 enum class EBtlArtsAction : uint8_t
 {
-	EBtlArtsAction__ATTACK         = 0,
-	EBtlArtsAction__HEAL           = 1,
-	EBtlArtsAction__CURE           = 2,
-	EBtlArtsAction__REBIRTH        = 3,
-	EBtlArtsAction__BUFF           = 4,
-	EBtlArtsAction__OTHER          = 5,
-	EBtlArtsAction__HEAL_CP        = 6,
-	EBtlArtsAction__EBtlArtsAction_MAX = 7
+	ATTACK                         = 0,
+	HEAL                           = 1,
+	CURE                           = 2,
+	REBIRTH                        = 3,
+	BUFF                           = 4,
+	OTHER                          = 5,
+	HEAL_CP                        = 6,
+	EBtlArtsAction_MAX             = 7
 };
 
 
 // Enum Arise.EBtlArtsType
 enum class EBtlArtsType : uint8_t
 {
-	EBtlArtsType__ATK0             = 0,
-	EBtlArtsType__ATK1             = 1,
-	EBtlArtsType__ATK2             = 2,
-	EBtlArtsType__ATK3             = 3,
-	EBtlArtsType__ATK4             = 4,
-	EBtlArtsType__ATK_AIR0         = 5,
-	EBtlArtsType__ATK_AIR1         = 6,
-	EBtlArtsType__ATK_AIR2         = 7,
-	EBtlArtsType__ATK_AIR3         = 8,
-	EBtlArtsType__ATK_AIR4         = 9,
-	EBtlArtsType__ARTS             = 10,
-	EBtlArtsType__ARTS_AIR         = 11,
-	EBtlArtsType__MAGIC            = 12,
-	EBtlArtsType__STR_ATK          = 13,
-	EBtlArtsType__STR_ATK_AIR      = 14,
-	EBtlArtsType__STR_ATK_SUB      = 15,
-	EBtlArtsType__STR_SMASH        = 16,
-	EBtlArtsType__MYSTIC           = 17,
-	EBtlArtsType__FLASH_RAID       = 18,
-	EBtlArtsType__FLASH_RAID_AIR   = 19,
-	EBtlArtsType__OVER_LIMIT       = 20,
-	EBtlArtsType__STR_ATK_AIR_SUB  = 21,
-	EBtlArtsType__BRAKE            = 22,
-	EBtlArtsType__RETURN           = 23,
-	EBtlArtsType__SUPER_AVOID      = 24,
-	EBtlArtsType__DOWN             = 25,
-	EBtlArtsType__PRE_SMASH        = 26,
-	EBtlArtsType__PRE_SMASH_AIR    = 27,
-	EBtlArtsType__MYSTIC_SECOND    = 28,
-	EBtlArtsType__MYSTIC_THIRD     = 29,
-	EBtlArtsType__MYSTIC_FOURTH    = 30,
-	EBtlArtsType__MYSTIC_SPECIAL   = 31,
-	EBtlArtsType__EBtlArtsType_MAX = 32
+	ATK0                           = 0,
+	ATK1                           = 1,
+	ATK2                           = 2,
+	ATK3                           = 3,
+	ATK4                           = 4,
+	ATK_AIR0                       = 5,
+	ATK_AIR1                       = 6,
+	ATK_AIR2                       = 7,
+	ATK_AIR3                       = 8,
+	ATK_AIR4                       = 9,
+	ARTS                           = 10,
+	ARTS_AIR                       = 11,
+	MAGIC                          = 12,
+	STR_ATK                        = 13,
+	STR_ATK_AIR                    = 14,
+	STR_ATK_SUB                    = 15,
+	STR_SMASH                      = 16,
+	MYSTIC                         = 17,
+	FLASH_RAID                     = 18,
+	FLASH_RAID_AIR                 = 19,
+	OVER_LIMIT                     = 20,
+	STR_ATK_AIR_SUB                = 21,
+	BRAKE                          = 22,
+	RETURN                         = 23,
+	SUPER_AVOID                    = 24,
+	DOWN                           = 25,
+	PRE_SMASH                      = 26,
+	PRE_SMASH_AIR                  = 27,
+	MYSTIC_SECOND                  = 28,
+	MYSTIC_THIRD                   = 29,
+	MYSTIC_FOURTH                  = 30,
+	MYSTIC_SPECIAL                 = 31,
+	EBtlArtsType_MAX               = 32
 };
 
 
 // Enum Arise.EBtlBaseRefType
 enum class EBtlBaseRefType : uint8_t
 {
-	EBtlBaseRefType__FriendUnit    = 0,
-	EBtlBaseRefType__RivalUnit     = 1,
-	EBtlBaseRefType__WorldOrigin   = 2,
-	EBtlBaseRefType__EBtlBaseRefType_MAX = 3
+	FriendUnit                     = 0,
+	RivalUnit                      = 1,
+	WorldOrigin                    = 2,
+	EBtlBaseRefType_MAX            = 3
 };
 
 
 // Enum Arise.EBtlRank
 enum class EBtlRank : uint8_t
 {
-	EBtlRank__BTL_RANK_STORY       = 0,
-	EBtlRank__BTL_RANK_NORMAL      = 1,
-	EBtlRank__BTL_RANK_SECOND      = 2,
-	EBtlRank__BTL_RANK_HARD        = 3,
-	EBtlRank__BTL_RANK_CHAOS       = 4,
-	EBtlRank__BTL_RANK_EASIEST     = 5,
-	EBtlRank__BTL_RANK_UNKNOWN     = 6,
-	EBtlRank__BTL_RANK_MAX         = 7
+	BTL_RANK_STORY                 = 0,
+	BTL_RANK_NORMAL                = 1,
+	BTL_RANK_SECOND                = 2,
+	BTL_RANK_HARD                  = 3,
+	BTL_RANK_CHAOS                 = 4,
+	BTL_RANK_EASIEST               = 5,
+	BTL_RANK_UNKNOWN               = 6,
+	BTL_RANK_MAX                   = 7
 };
 
 
 // Enum Arise.EBtlTacticsHow
 enum class EBtlTacticsHow : uint8_t
 {
-	EBtlTacticsHow__None           = 0,
-	EBtlTacticsHow__TpUpperPercent = 1,
-	EBtlTacticsHow__TpLowerPercent = 2,
-	EBtlTacticsHow__Always         = 3,
-	EBtlTacticsHow__ItemUpper      = 4,
-	EBtlTacticsHow__ItemLower      = 5,
-	EBtlTacticsHow__PeopleUpper    = 6,
-	EBtlTacticsHow__PeopleLower    = 7,
-	EBtlTacticsHow__Once           = 8,
-	EBtlTacticsHow__OnceParty      = 9,
-	EBtlTacticsHow__EnemyUpper     = 10,
-	EBtlTacticsHow__TYPE_MAX       = 11,
-	EBtlTacticsHow__EBtlTacticsHow_MAX = 12
+	None                           = 0,
+	TpUpperPercent                 = 1,
+	TpLowerPercent                 = 2,
+	Always                         = 3,
+	ItemUpper                      = 4,
+	ItemLower                      = 5,
+	PeopleUpper                    = 6,
+	PeopleLower                    = 7,
+	Once                           = 8,
+	OnceParty                      = 9,
+	EnemyUpper                     = 10,
+	TYPE_MAX                       = 11,
+	EBtlTacticsHow_MAX             = 12
 };
 
 
 // Enum Arise.EBtlTacticsAction
 enum class EBtlTacticsAction : uint8_t
 {
-	EBtlTacticsAction__None        = 0,
-	EBtlTacticsAction__Attack      = 1,
-	EBtlTacticsAction__Idle        = 2,
-	EBtlTacticsAction__Heal        = 3,
-	EBtlTacticsAction__UseItem     = 4,
-	EBtlTacticsAction__Rebirth     = 5,
-	EBtlTacticsAction__HealBadStatus = 6,
-	EBtlTacticsAction__Buff        = 7,
-	EBtlTacticsAction__TYPE_MAX    = 8,
-	EBtlTacticsAction__EBtlTacticsAction_MAX = 9
+	None                           = 0,
+	Attack                         = 1,
+	Idle                           = 2,
+	Heal                           = 3,
+	UseItem                        = 4,
+	Rebirth                        = 5,
+	HealBadStatus                  = 6,
+	Buff                           = 7,
+	TYPE_MAX                       = 8,
+	EBtlTacticsAction_MAX          = 9
 };
 
 
 // Enum Arise.EBtlTacticsCondition
 enum class EBtlTacticsCondition : uint8_t
 {
-	EBtlTacticsCondition__None     = 0,
-	EBtlTacticsCondition__PartyHpLowerEqual = 1,
-	EBtlTacticsCondition__PartyHpLowerEqualPercent = 2,
-	EBtlTacticsCondition__PartyHpUpperEqual = 3,
-	EBtlTacticsCondition__PartyHpUpperEqualPercent = 4,
-	EBtlTacticsCondition__TpLowerEqualPercent = 5,
-	EBtlTacticsCondition__TpUpperEqualPercent = 6,
-	EBtlTacticsCondition__Always   = 7,
-	EBtlTacticsCondition__OwnerHpLowerEqual = 8,
-	EBtlTacticsCondition__OwnerHpLowerEqualPercent = 9,
-	EBtlTacticsCondition__OwnerHpUpperEqual = 10,
-	EBtlTacticsCondition__OwnerHpUpperEqualPercent = 11,
-	EBtlTacticsCondition__EnemyNumUpperEqual = 12,
-	EBtlTacticsCondition__EnemyNumLowerEqual = 13,
-	EBtlTacticsCondition__PartyDead = 14,
-	EBtlTacticsCondition__PartyCondition = 15,
-	EBtlTacticsCondition__EnemyLevel = 16,
-	EBtlTacticsCondition__TYPE_MAX = 17,
-	EBtlTacticsCondition__EBtlTacticsCondition_MAX = 18
+	None                           = 0,
+	PartyHpLowerEqual              = 1,
+	PartyHpLowerEqualPercent       = 2,
+	PartyHpUpperEqual              = 3,
+	PartyHpUpperEqualPercent       = 4,
+	TpLowerEqualPercent            = 5,
+	TpUpperEqualPercent            = 6,
+	Always                         = 7,
+	OwnerHpLowerEqual              = 8,
+	OwnerHpLowerEqualPercent       = 9,
+	OwnerHpUpperEqual              = 10,
+	OwnerHpUpperEqualPercent       = 11,
+	EnemyNumUpperEqual             = 12,
+	EnemyNumLowerEqual             = 13,
+	PartyDead                      = 14,
+	PartyCondition                 = 15,
+	EnemyLevel                     = 16,
+	TYPE_MAX                       = 17,
+	EBtlTacticsCondition_MAX       = 18
 };
 
 
 // Enum Arise.EBtlTacticsCategory
 enum class EBtlTacticsCategory : uint8_t
 {
-	EBtlTacticsCategory__NONE      = 0,
-	EBtlTacticsCategory__CONDITION = 1,
-	EBtlTacticsCategory__ACTION    = 2,
-	EBtlTacticsCategory__HOW       = 3,
-	EBtlTacticsCategory__TYPE_MAX  = 4,
-	EBtlTacticsCategory__EBtlTacticsCategory_MAX = 5
+	NONE                           = 0,
+	CONDITION                      = 1,
+	ACTION                         = 2,
+	HOW                            = 3,
+	TYPE_MAX                       = 4,
+	EBtlTacticsCategory_MAX        = 5
 };
 
 
 // Enum Arise.EBtlStrikeType
 enum class EBtlStrikeType : uint8_t
 {
-	EBtlStrikeType__FIRE_SWORD     = 0,
-	EBtlStrikeType__FLY_BREAK      = 1,
-	EBtlStrikeType__CHANT_BREAK    = 2,
-	EBtlStrikeType__ARMOR_BREAK    = 3,
-	EBtlStrikeType__RUSH_BREAK     = 4,
-	EBtlStrikeType__AVOID_BREAK    = 5,
-	EBtlStrikeType__EBtlStrikeType_MAX = 6
+	FIRE_SWORD                     = 0,
+	FLY_BREAK                      = 1,
+	CHANT_BREAK                    = 2,
+	ARMOR_BREAK                    = 3,
+	RUSH_BREAK                     = 4,
+	AVOID_BREAK                    = 5,
+	EBtlStrikeType_MAX             = 6
 };
 
 
 // Enum Arise.EBtlEffectSizeType
 enum class EBtlEffectSizeType : uint8_t
 {
-	EBtlEffectSizeType__PC         = 0,
-	EBtlEffectSizeType__SS         = 1,
-	EBtlEffectSizeType__S          = 2,
-	EBtlEffectSizeType__M          = 3,
-	EBtlEffectSizeType__L          = 4,
-	EBtlEffectSizeType__XL         = 5,
-	EBtlEffectSizeType__PCM        = 6,
-	EBtlEffectSizeType__PCL        = 7,
-	EBtlEffectSizeType__XL2        = 8,
-	EBtlEffectSizeType__XL3        = 9,
-	EBtlEffectSizeType__XL4        = 10,
-	EBtlEffectSizeType__EBtlEffectSizeType_MAX = 11
+	PC                             = 0,
+	SS                             = 1,
+	S                              = 2,
+	M                              = 3,
+	L                              = 4,
+	XL                             = 5,
+	PCM                            = 6,
+	PCL                            = 7,
+	XL2                            = 8,
+	XL3                            = 9,
+	XL4                            = 10,
+	EBtlEffectSizeType_MAX         = 11
 };
 
 
 // Enum Arise.EBtlStateMachine
 enum class EBtlStateMachine : uint8_t
 {
-	EBtlStateMachine__PlayerCharacter = 0,
-	EBtlStateMachine__Human        = 1,
-	EBtlStateMachine__Moster       = 2,
-	EBtlStateMachine__BigMonster   = 3,
-	EBtlStateMachine__GigantMonster = 4,
-	EBtlStateMachine__MapObject    = 5,
-	EBtlStateMachine__Max          = 6
+	PlayerCharacter                = 0,
+	Human                          = 1,
+	Moster                         = 2,
+	BigMonster                     = 3,
+	GigantMonster                  = 4,
+	MapObject                      = 5,
+	Max                            = 6
 };
 
 
 // Enum Arise.EBtlPositionType
 enum class EBtlPositionType : uint8_t
 {
-	EBtlPositionType__FRONT        = 0,
-	EBtlPositionType__MIDDLE       = 1,
-	EBtlPositionType__BACK         = 2,
-	EBtlPositionType__EBtlPositionType_MAX = 3
+	FRONT                          = 0,
+	MIDDLE                         = 1,
+	BACK                           = 2,
+	EBtlPositionType_MAX           = 3
 };
 
 
 // Enum Arise.EBtlLaunchCharacterType
 enum class EBtlLaunchCharacterType : uint8_t
 {
-	EBtlLaunchCharacterType__NORMAL = 0,
-	EBtlLaunchCharacterType__Z_IGNORE_EXCLUDE_CUTSCENE = 1,
-	EBtlLaunchCharacterType__Z_IGNORE_ALWAYS = 2,
-	EBtlLaunchCharacterType__EBtlLaunchCharacterType_MAX = 3
+	NORMAL                         = 0,
+	Z_IGNORE_EXCLUDE_CUTSCENE      = 1,
+	Z_IGNORE_ALWAYS                = 2,
+	EBtlLaunchCharacterType_MAX    = 3
 };
 
 
 // Enum Arise.EBtlUnitFlag
 enum class EBtlUnitFlag : uint8_t
 {
-	EBtlUnitFlag__Boss             = 0,
-	EBtlUnitFlag__Dragon           = 1,
-	EBtlUnitFlag__CorpseLeft       = 2,
-	EBtlUnitFlag__UseMagic         = 3,
-	EBtlUnitFlag__UseGuard         = 4,
-	EBtlUnitFlag__UseStep          = 5,
-	EBtlUnitFlag__FixPosition      = 6,
-	EBtlUnitFlag__Fly              = 7,
-	EBtlUnitFlag__UnTargetable     = 8,
-	EBtlUnitFlag__Armor            = 9,
-	EBtlUnitFlag__SuperAvoid       = 10,
-	EBtlUnitFlag__SuperiorRank     = 11,
-	EBtlUnitFlag__LibraryInfo      = 12,
-	EBtlUnitFlag__Overlimit        = 13,
-	EBtlUnitFlag__ExtinctionCheck  = 14,
-	EBtlUnitFlag__Gigant           = 15,
-	EBtlUnitFlag__UnknownHp        = 16,
-	EBtlUnitFlag__ShowBossHp       = 17,
-	EBtlUnitFlag__UseFacial        = 18,
-	EBtlUnitFlag__OverlimitCamera  = 19,
-	EBtlUnitFlag__EncountInfoShow  = 20,
-	EBtlUnitFlag__Flag21           = 21,
-	EBtlUnitFlag__Flag22           = 22,
-	EBtlUnitFlag__Flag23           = 23,
-	EBtlUnitFlag__Flag24           = 24,
-	EBtlUnitFlag__Flag25           = 25,
-	EBtlUnitFlag__Flag26           = 26,
-	EBtlUnitFlag__Flag27           = 27,
-	EBtlUnitFlag__Flag28           = 28,
-	EBtlUnitFlag__Flag29           = 29,
-	EBtlUnitFlag__Flag30           = 30,
-	EBtlUnitFlag__Flag31           = 31,
-	EBtlUnitFlag__EBtlUnitFlag_MAX = 32
+	Boss                           = 0,
+	Dragon                         = 1,
+	CorpseLeft                     = 2,
+	UseMagic                       = 3,
+	UseGuard                       = 4,
+	UseStep                        = 5,
+	FixPosition                    = 6,
+	Fly                            = 7,
+	UnTargetable                   = 8,
+	Armor                          = 9,
+	SuperAvoid                     = 10,
+	SuperiorRank                   = 11,
+	LibraryInfo                    = 12,
+	Overlimit                      = 13,
+	ExtinctionCheck                = 14,
+	Gigant                         = 15,
+	UnknownHp                      = 16,
+	ShowBossHp                     = 17,
+	UseFacial                      = 18,
+	OverlimitCamera                = 19,
+	EncountInfoShow                = 20,
+	Flag21                         = 21,
+	Flag22                         = 22,
+	Flag23                         = 23,
+	Flag24                         = 24,
+	Flag25                         = 25,
+	Flag26                         = 26,
+	Flag27                         = 27,
+	Flag28                         = 28,
+	Flag29                         = 29,
+	Flag30                         = 30,
+	Flag31                         = 31,
+	EBtlUnitFlag_MAX               = 32
 };
 
 
 // Enum Arise.EBattleState
 enum class EBattleState : uint8_t
 {
-	EBattleState__StateNone        = 0,
-	EBattleState__StateInitialize  = 1,
-	EBattleState__StatePrev        = 2,
-	EBattleState__StateMain        = 3,
-	EBattleState__StatePostMain    = 4,
-	EBattleState__StateMenu        = 5,
-	EBattleState__StateEvent       = 6,
-	EBattleState__StateGameover    = 7,
-	EBattleState__StateRetry       = 8,
-	EBattleState__StateResult      = 9,
-	EBattleState__StateRunaway     = 10,
-	EBattleState__StateTutorial    = 11,
-	EBattleState__StatePause       = 12,
-	EBattleState__StateFinalize    = 13,
-	EBattleState__EBattleState_MAX = 14
+	StateNone                      = 0,
+	StateInitialize                = 1,
+	StatePrev                      = 2,
+	StateMain                      = 3,
+	StatePostMain                  = 4,
+	StateMenu                      = 5,
+	StateEvent                     = 6,
+	StateGameover                  = 7,
+	StateRetry                     = 8,
+	StateResult                    = 9,
+	StateRunaway                   = 10,
+	StateTutorial                  = 11,
+	StatePause                     = 12,
+	StateFinalize                  = 13,
+	EBattleState_MAX               = 14
 };
 
 
 // Enum Arise.EAlphaMask
 enum class EAlphaMask : uint8_t
 {
-	EAlphaMask__Visible            = 0,
-	EAlphaMask__Invisible          = 1,
-	EAlphaMask__FadeIn             = 2,
-	EAlphaMask__FadeOut            = 3,
-	EAlphaMask__EAlphaMask_MAX     = 4
+	Visible                        = 0,
+	Invisible                      = 1,
+	FadeIn                         = 2,
+	FadeOut                        = 3,
+	EAlphaMask_MAX                 = 4
 };
 
 
 // Enum Arise.EBattleActionState
 enum class EBattleActionState : uint8_t
 {
-	EBattleActionState__STATE_INVALID = 0,
-	EBattleActionState__STATE_MOVE = 1,
-	EBattleActionState__STATE_JUMP = 2,
-	EBattleActionState__STATE_FALL = 3,
-	EBattleActionState__STATE_LAND = 4,
-	EBattleActionState__STATE_STEP = 5,
-	EBattleActionState__STATE_TURN = 6,
-	EBattleActionState__STATE_GUARD = 7,
-	EBattleActionState__STATE_DAMAGE = 8,
-	EBattleActionState__STATE_BLOW = 9,
-	EBattleActionState__STATE_DOWN = 10,
-	EBattleActionState__STATE_ARISE = 11,
-	EBattleActionState__STATE_REACT = 12,
-	EBattleActionState__STATE_DEAD = 13,
-	EBattleActionState__STATE_MAGIC = 14,
-	EBattleActionState__STATE_ITEM = 15,
-	EBattleActionState__STATE_ADVENT = 16,
-	EBattleActionState__STATE_ATTACK = 17,
-	EBattleActionState__STATE_MAX  = 18
+	STATE_INVALID                  = 0,
+	STATE_MOVE                     = 1,
+	STATE_JUMP                     = 2,
+	STATE_FALL                     = 3,
+	STATE_LAND                     = 4,
+	STATE_STEP                     = 5,
+	STATE_TURN                     = 6,
+	STATE_GUARD                    = 7,
+	STATE_DAMAGE                   = 8,
+	STATE_BLOW                     = 9,
+	STATE_DOWN                     = 10,
+	STATE_ARISE                    = 11,
+	STATE_REACT                    = 12,
+	STATE_DEAD                     = 13,
+	STATE_MAGIC                    = 14,
+	STATE_ITEM                     = 15,
+	STATE_ADVENT                   = 16,
+	STATE_ATTACK                   = 17,
+	STATE_MAX                      = 18
 };
 
 
 // Enum Arise.EBtlAvoidAction
 enum class EBtlAvoidAction : uint8_t
 {
-	EBtlAvoidAction__NONE          = 0,
-	EBtlAvoidAction__STEP          = 1,
-	EBtlAvoidAction__GUARD         = 2,
-	EBtlAvoidAction__EBtlAvoidAction_MAX = 3
+	NONE                           = 0,
+	STEP                           = 1,
+	GUARD                          = 2,
+	EBtlAvoidAction_MAX            = 3
 };
 
 
 // Enum Arise.EBtlInOutState
 enum class EBtlInOutState : uint8_t
 {
-	EBtlInOutState__NONE           = 0,
-	EBtlInOutState__BTL_IN_PROGRESS = 1,
-	EBtlInOutState__BTL_OUT_PROGRESS = 2,
-	EBtlInOutState__EBtlInOutState_MAX = 3
+	NONE                           = 0,
+	BTL_IN_PROGRESS                = 1,
+	BTL_OUT_PROGRESS               = 2,
+	EBtlInOutState_MAX             = 3
 };
 
 
 // Enum Arise.EBtlFlashRaidState
 enum class EBtlFlashRaidState : uint8_t
 {
-	EBtlFlashRaidState__NONE       = 0,
-	EBtlFlashRaidState__FLASH_RAID_IN = 1,
-	EBtlFlashRaidState__WAIT_FLASH_RAID_IN = 2,
-	EBtlFlashRaidState__WAIT_MOVING = 3,
-	EBtlFlashRaidState__REQUEST_FLASH_RAID = 4,
-	EBtlFlashRaidState__FLASH_RAID = 5,
-	EBtlFlashRaidState__EBtlFlashRaidState_MAX = 6
+	NONE                           = 0,
+	FLASH_RAID_IN                  = 1,
+	WAIT_FLASH_RAID_IN             = 2,
+	WAIT_MOVING                    = 3,
+	REQUEST_FLASH_RAID             = 4,
+	FLASH_RAID                     = 5,
+	EBtlFlashRaidState_MAX         = 6
 };
 
 
 // Enum Arise.EBtlHitFilter
 enum class EBtlHitFilter : uint8_t
 {
-	EBtlHitFilter__GROUP_UNKNOWN   = 0,
-	EBtlHitFilter__GROUP_PARTY     = 1,
-	EBtlHitFilter__GROUP_ENEMY     = 2,
-	EBtlHitFilter__GROUP_ANY       = 3,
-	EBtlHitFilter__GROUP_MAX       = 4
+	GROUP_UNKNOWN                  = 0,
+	GROUP_PARTY                    = 1,
+	GROUP_ENEMY                    = 2,
+	GROUP_ANY                      = 3,
+	GROUP_MAX                      = 4
 };
 
 
 // Enum Arise.EBtlStrikeAttackState
 enum class EBtlStrikeAttackState : uint8_t
 {
-	EBtlStrikeAttackState__NONE    = 0,
-	EBtlStrikeAttackState__STRIKE_ATTACK_IN = 1,
-	EBtlStrikeAttackState__STRIKE_ATTACK_WAIT_FADEOUT = 2,
-	EBtlStrikeAttackState__STRIKE_ATTACK_WARP = 3,
-	EBtlStrikeAttackState__STRIKE_ATTACK = 4,
-	EBtlStrikeAttackState__STRIKE_ATTACK_BEGIN_ARTS = 5,
-	EBtlStrikeAttackState__STRIKE_ATTACK_ARTS = 6,
-	EBtlStrikeAttackState__EBtlStrikeAttackState_MAX = 7
+	NONE                           = 0,
+	STRIKE_ATTACK_IN               = 1,
+	STRIKE_ATTACK_WAIT_FADEOUT     = 2,
+	STRIKE_ATTACK_WARP             = 3,
+	STRIKE_ATTACK                  = 4,
+	STRIKE_ATTACK_BEGIN_ARTS       = 5,
+	STRIKE_ATTACK_ARTS             = 6,
+	EBtlStrikeAttackState_MAX      = 7
 };
 
 
 // Enum Arise.EBtlUnitGroup
 enum class EBtlUnitGroup : uint8_t
 {
-	EBtlUnitGroup__GROUP_UNKNOWN   = 0,
-	EBtlUnitGroup__GROUP_PARTY     = 1,
-	EBtlUnitGroup__GROUP_ENEMY     = 2,
-	EBtlUnitGroup__GROUP_GUEST     = 3,
-	EBtlUnitGroup__GROUP_MAX       = 4
+	GROUP_UNKNOWN                  = 0,
+	GROUP_PARTY                    = 1,
+	GROUP_ENEMY                    = 2,
+	GROUP_GUEST                    = 3,
+	GROUP_MAX                      = 4
 };
 
 
 // Enum Arise.EBtlWaitDeathStrokeState
 enum class EBtlWaitDeathStrokeState : uint8_t
 {
-	EBtlWaitDeathStrokeState__NONE = 0,
-	EBtlWaitDeathStrokeState__WAIT_DEATH_STROKE_BEGIN = 1,
-	EBtlWaitDeathStrokeState__WAIT_DEATH_STROKE = 2,
-	EBtlWaitDeathStrokeState__WAIT_DEATH_STROKE_END = 3,
-	EBtlWaitDeathStrokeState__EBtlWaitDeathStrokeState_MAX = 4
+	NONE                           = 0,
+	WAIT_DEATH_STROKE_BEGIN        = 1,
+	WAIT_DEATH_STROKE              = 2,
+	WAIT_DEATH_STROKE_END          = 3,
+	EBtlWaitDeathStrokeState_MAX   = 4
 };
 
 
 // Enum Arise.EAbnormalType
 enum class EAbnormalType : uint8_t
 {
-	EAbnormalType__POISON          = 0,
-	EAbnormalType__FROZEN          = 1,
-	EAbnormalType__PARALYSIS       = 2,
-	EAbnormalType__CURSE           = 3,
-	EAbnormalType__SEAL            = 4,
-	EAbnormalType__NONE            = 5,
-	EAbnormalType__EAbnormalType_MAX = 6
+	POISON                         = 0,
+	FROZEN                         = 1,
+	PARALYSIS                      = 2,
+	CURSE                          = 3,
+	SEAL                           = 4,
+	NONE                           = 5,
+	EAbnormalType_MAX              = 6
 };
 
 
 // Enum Arise.EBtlSimpleBuffType
 enum class EBtlSimpleBuffType : uint8_t
 {
-	EBtlSimpleBuffType__Atk        = 0,
-	EBtlSimpleBuffType__ElementAtk = 1,
-	EBtlSimpleBuffType__Def        = 2,
-	EBtlSimpleBuffType__ElementDef = 3,
-	EBtlSimpleBuffType__PenetratePow = 4,
-	EBtlSimpleBuffType__EndurancePow = 5,
-	EBtlSimpleBuffType__ArtsPower  = 6,
-	EBtlSimpleBuffType__ArtsHealPower = 7,
-	EBtlSimpleBuffType__EBtlSimpleBuffType_MAX = 8
+	Atk                            = 0,
+	ElementAtk                     = 1,
+	Def                            = 2,
+	ElementDef                     = 3,
+	PenetratePow                   = 4,
+	EndurancePow                   = 5,
+	ArtsPower                      = 6,
+	ArtsHealPower                  = 7,
+	EBtlSimpleBuffType_MAX         = 8
 };
 
 
 // Enum Arise.EBtlStatusBuffParameterType
 enum class EBtlStatusBuffParameterType : uint8_t
 {
-	EBtlStatusBuffParameterType__Atk = 0,
-	EBtlStatusBuffParameterType__ElementAtk = 1,
-	EBtlStatusBuffParameterType__Def = 2,
-	EBtlStatusBuffParameterType__ElementDef = 3,
-	EBtlStatusBuffParameterType__PenetratePow = 4,
-	EBtlStatusBuffParameterType__EndurancePow = 5,
-	EBtlStatusBuffParameterType__AGRegeneration = 6,
-	EBtlStatusBuffParameterType__EBtlStatusBuffParameterType_MAX = 7
+	Atk                            = 0,
+	ElementAtk                     = 1,
+	Def                            = 2,
+	ElementDef                     = 3,
+	PenetratePow                   = 4,
+	EndurancePow                   = 5,
+	AGRegeneration                 = 6,
+	EBtlStatusBuffParameterType_MAX = 7
 };
 
 
 // Enum Arise.EBtlResultType
 enum class EBtlResultType : uint8_t
 {
-	EBtlResultType__PENDING        = 0,
-	EBtlResultType__WIN            = 1,
-	EBtlResultType__LOSS           = 2,
-	EBtlResultType__RUNWARY        = 3,
-	EBtlResultType__EBtlResultType_MAX = 4
+	PENDING                        = 0,
+	WIN                            = 1,
+	LOSS                           = 2,
+	RUNWARY                        = 3,
+	EBtlResultType_MAX             = 4
 };
 
 
 // Enum Arise.EBtlInputEventType
 enum class EBtlInputEventType : uint8_t
 {
-	EBtlInputEventType__ButtonPressed = 0,
-	EBtlInputEventType__ButtonJustPressed = 1,
-	EBtlInputEventType__ButtonJustReleased = 2,
-	EBtlInputEventType__ButtonRepeated = 3,
-	EBtlInputEventType__EBtlInputEventType_MAX = 4
+	ButtonPressed                  = 0,
+	ButtonJustPressed              = 1,
+	ButtonJustReleased             = 2,
+	ButtonRepeated                 = 3,
+	EBtlInputEventType_MAX         = 4
 };
 
 
 // Enum Arise.EBattleHudAbnormalType
 enum class EBattleHudAbnormalType : uint8_t
 {
-	EBattleHudAbnormalType__NONE   = 0,
-	EBattleHudAbnormalType__POISON = 1,
-	EBattleHudAbnormalType__FROZEN = 2,
-	EBattleHudAbnormalType__PARALYSIS = 3,
-	EBattleHudAbnormalType__CURSE  = 4,
-	EBattleHudAbnormalType__SEAL   = 5,
-	EBattleHudAbnormalType__ARMOR_BREAK = 6,
-	EBattleHudAbnormalType__RUSH_BREAK = 7,
-	EBattleHudAbnormalType__FLYING_BREAK = 8,
-	EBattleHudAbnormalType__SUPER_AVOID_Break = 9,
-	EBattleHudAbnormalType__ARMOR_BUFF = 10,
-	EBattleHudAbnormalType__RUSH_BUFF = 11,
-	EBattleHudAbnormalType__FLYING_BUFF = 12,
-	EBattleHudAbnormalType__SUPER_AVOID_BUFF = 13,
-	EBattleHudAbnormalType__ATK_BUFF = 14,
-	EBattleHudAbnormalType__ELEMENT_ATK_BUFF = 15,
-	EBattleHudAbnormalType__DEF_BUFF = 16,
-	EBattleHudAbnormalType__ELEMENT_DEF_BUFF = 17,
-	EBattleHudAbnormalType__PENETRATE_POW_BUFF = 18,
-	EBattleHudAbnormalType__ENDURANCE_POW_BUFF = 19,
-	EBattleHudAbnormalType__AG_REGENERATION_BUFF = 20,
-	EBattleHudAbnormalType__SURROUNDED_ATK_BUFF = 21,
-	EBattleHudAbnormalType__EBattleHudAbnormalType_MAX = 22
+	NONE                           = 0,
+	POISON                         = 1,
+	FROZEN                         = 2,
+	PARALYSIS                      = 3,
+	CURSE                          = 4,
+	SEAL                           = 5,
+	ARMOR_BREAK                    = 6,
+	RUSH_BREAK                     = 7,
+	FLYING_BREAK                   = 8,
+	SUPER_AVOID_Break              = 9,
+	ARMOR_BUFF                     = 10,
+	RUSH_BUFF                      = 11,
+	FLYING_BUFF                    = 12,
+	SUPER_AVOID_BUFF               = 13,
+	ATK_BUFF                       = 14,
+	ELEMENT_ATK_BUFF               = 15,
+	DEF_BUFF                       = 16,
+	ELEMENT_DEF_BUFF               = 17,
+	PENETRATE_POW_BUFF             = 18,
+	ENDURANCE_POW_BUFF             = 19,
+	AG_REGENERATION_BUFF           = 20,
+	SURROUNDED_ATK_BUFF            = 21,
+	EBattleHudAbnormalType_MAX     = 22
 };
 
 
 // Enum Arise.EBattleHudNotifyTextPriority
 enum class EBattleHudNotifyTextPriority : uint8_t
 {
-	EBattleHudNotifyTextPriority__DEFAULT = 0,
-	EBattleHudNotifyTextPriority__ITEM = 1,
-	EBattleHudNotifyTextPriority__CUTSCENE = 2,
-	EBattleHudNotifyTextPriority__SYSTEM = 3,
-	EBattleHudNotifyTextPriority__EBattleHudNotifyTextPriority_MAX = 4
+	DEFAULT                        = 0,
+	ITEM                           = 1,
+	CUTSCENE                       = 2,
+	SYSTEM                         = 3,
+	EBattleHudNotifyTextPriority_MAX = 4
 };
 
 
 // Enum Arise.EBtlMagicRelativeType
 enum class EBtlMagicRelativeType : uint8_t
 {
-	EBtlMagicRelativeType__OWNER   = 0,
-	EBtlMagicRelativeType__TARGET  = 1,
-	EBtlMagicRelativeType__PARENT_MAGIC = 2,
-	EBtlMagicRelativeType__BATTLE_WORLD = 3,
-	EBtlMagicRelativeType__OWNER_TO_TARGET = 4,
-	EBtlMagicRelativeType__OWNER_TO_TARGET_Z_AXIS = 5,
-	EBtlMagicRelativeType__TARGET_TO_OWNER = 6,
-	EBtlMagicRelativeType__TARGET_TO_OWNER_Z_AXIS = 7,
-	EBtlMagicRelativeType__PARENT  = 8,
-	EBtlMagicRelativeType__PARENT_TO_TARGET = 9,
-	EBtlMagicRelativeType__PARENT_TO_TARGET_Z_AXIS = 10,
-	EBtlMagicRelativeType__TARGET_TO_PARENT = 11,
-	EBtlMagicRelativeType__TARGET_TO_PARENT_Z_AXIS = 12,
-	EBtlMagicRelativeType__SELF_TO_TARGET = 13,
-	EBtlMagicRelativeType__BATTLE_WORLD_OFFSET_PARENT = 14,
-	EBtlMagicRelativeType__EBtlMagicRelativeType_MAX = 15
+	OWNER                          = 0,
+	TARGET                         = 1,
+	PARENT_MAGIC                   = 2,
+	BATTLE_WORLD                   = 3,
+	OWNER_TO_TARGET                = 4,
+	OWNER_TO_TARGET_Z_AXIS         = 5,
+	TARGET_TO_OWNER                = 6,
+	TARGET_TO_OWNER_Z_AXIS         = 7,
+	PARENT                         = 8,
+	PARENT_TO_TARGET               = 9,
+	PARENT_TO_TARGET_Z_AXIS        = 10,
+	TARGET_TO_PARENT               = 11,
+	TARGET_TO_PARENT_Z_AXIS        = 12,
+	SELF_TO_TARGET                 = 13,
+	BATTLE_WORLD_OFFSET_PARENT     = 14,
+	EBtlMagicRelativeType_MAX      = 15
 };
 
 
 // Enum Arise.EBtlMagicNodeState
 enum class EBtlMagicNodeState : uint8_t
 {
-	EBtlMagicNodeState__None       = 0,
-	EBtlMagicNodeState__Begin      = 1,
-	EBtlMagicNodeState__Execute    = 2,
-	EBtlMagicNodeState__End        = 3,
-	EBtlMagicNodeState__MAX        = 4
+	None                           = 0,
+	Begin                          = 1,
+	Execute                        = 2,
+	End                            = 3,
+	MAX                            = 4
 };
 
 
 // Enum Arise.EBtlMagicConditionType
 enum class EBtlMagicConditionType : uint8_t
 {
-	EBtlMagicConditionType__And    = 0,
-	EBtlMagicConditionType__Or     = 1,
-	EBtlMagicConditionType__EBtlMagicConditionType_MAX = 2
+	And                            = 0,
+	Or                             = 1,
+	EBtlMagicConditionType_MAX     = 2
 };
 
 
 // Enum Arise.EAriseGuestID
 enum class EAriseGuestID : uint8_t
 {
-	EAriseGuestID__SIO             = 0,
-	EAriseGuestID__NNA             = 1,
-	EAriseGuestID__ZGU             = 2,
-	EAriseGuestID__MNK             = 3,
-	EAriseGuestID__YRA             = 4,
-	EAriseGuestID__ZFA             = 5,
-	EAriseGuestID__INVALID         = 6,
-	EAriseGuestID__EAriseGuestID_MAX = 7
+	SIO                            = 0,
+	NNA                            = 1,
+	ZGU                            = 2,
+	MNK                            = 3,
+	YRA                            = 4,
+	ZFA                            = 5,
+	INVALID                        = 6,
+	EAriseGuestID_MAX              = 7
 };
 
 
 // Enum Arise.EBtlCutSceneReserveAction
 enum class EBtlCutSceneReserveAction : uint8_t
 {
-	EBtlCutSceneReserveAction__NONE = 0,
-	EBtlCutSceneReserveAction__SPECIAL_STRIKE = 1,
-	EBtlCutSceneReserveAction__SMASH = 2,
-	EBtlCutSceneReserveAction__MYSTIC = 3,
-	EBtlCutSceneReserveAction__EVENT_CAPTCHA_WAIT = 4,
-	EBtlCutSceneReserveAction__EVENT = 5,
-	EBtlCutSceneReserveAction__SEQUENCER_PLAY = 6,
-	EBtlCutSceneReserveAction__SEQUENCER_PLAY_WAIT = 7,
-	EBtlCutSceneReserveAction__EBtlCutSceneReserveAction_MAX = 8
+	NONE                           = 0,
+	SPECIAL_STRIKE                 = 1,
+	SMASH                          = 2,
+	MYSTIC                         = 3,
+	EVENT_CAPTCHA_WAIT             = 4,
+	EVENT                          = 5,
+	SEQUENCER_PLAY                 = 6,
+	SEQUENCER_PLAY_WAIT            = 7,
+	EBtlCutSceneReserveAction_MAX  = 8
 };
 
 
 // Enum Arise.EBtlStrikeSmashState
 enum class EBtlStrikeSmashState : uint8_t
 {
-	EBtlStrikeSmashState__NONE     = 0,
-	EBtlStrikeSmashState__STRIKE_SMASH_IN = 1,
-	EBtlStrikeSmashState__STRIKE_SMASH_WAIT_FADEOUT = 2,
-	EBtlStrikeSmashState__STRIKE_SMASH_PRE_ACTION_PLAYER = 3,
-	EBtlStrikeSmashState__STRIKE_SMASH_PRE_ACTION_PAIR = 4,
-	EBtlStrikeSmashState__STRIKE_SMASH_WAIT_LOADING = 5,
-	EBtlStrikeSmashState__STRIKE_SMASH = 6,
-	EBtlStrikeSmashState__STRIKE_SMASH_PLAYING = 7,
-	EBtlStrikeSmashState__STRIKE_SMASH_PLAY_END = 8,
-	EBtlStrikeSmashState__EBtlStrikeSmashState_MAX = 9
+	NONE                           = 0,
+	STRIKE_SMASH_IN                = 1,
+	STRIKE_SMASH_WAIT_FADEOUT      = 2,
+	STRIKE_SMASH_PRE_ACTION_PLAYER = 3,
+	STRIKE_SMASH_PRE_ACTION_PAIR   = 4,
+	STRIKE_SMASH_WAIT_LOADING      = 5,
+	STRIKE_SMASH                   = 6,
+	STRIKE_SMASH_PLAYING           = 7,
+	STRIKE_SMASH_PLAY_END          = 8,
+	EBtlStrikeSmashState_MAX       = 9
 };
 
 
 // Enum Arise.ETacticsIndex
 enum class ETacticsIndex : uint8_t
 {
-	ETacticsIndex__TACTICS         = 0,
-	ETacticsIndex__TACTICS01       = 1,
-	ETacticsIndex__TACTICS02       = 2,
-	ETacticsIndex__TACTICS03       = 3,
-	ETacticsIndex__TACTICS_MAX     = 4
+	TACTICS                        = 0,
+	TACTICS01                      = 1,
+	TACTICS02                      = 2,
+	TACTICS03                      = 3,
+	TACTICS_MAX                    = 4
 };
 
 
 // Enum Arise.EOperationMode
 enum class EOperationMode : uint8_t
 {
-	EOperationMode__OPERATION_MODE_AUTO = 0,
-	EOperationMode__OPERATION_MODE_SEMI_AUTO = 1,
-	EOperationMode__OPERATION_MODE_MANUAL = 2,
-	EOperationMode__OPERATION_MODE_MAX = 3
+	OPERATION_MODE_AUTO            = 0,
+	OPERATION_MODE_SEMI_AUTO       = 1,
+	OPERATION_MODE_MANUAL          = 2,
+	OPERATION_MODE_MAX             = 3
 };
 
 
 // Enum Arise.EBtlSemiautoPhase
 enum class EBtlSemiautoPhase : uint8_t
 {
-	EBtlSemiautoPhase__SEMIAUTO_NONE = 0,
-	EBtlSemiautoPhase__SEMIAUTO_IDLE = 1,
-	EBtlSemiautoPhase__SEMIAUTO_MOVE = 2,
-	EBtlSemiautoPhase__SEMIAUTO_STEP = 3,
-	EBtlSemiautoPhase__SEMIAUTO_ARTS_MAGIC = 4,
-	EBtlSemiautoPhase__SEMIAUTO_AUTOGUARD = 5,
-	EBtlSemiautoPhase__SEMIAUTO_AUTOSTEP = 6,
-	EBtlSemiautoPhase__SEMIAUTO_START_COMBO = 7,
-	EBtlSemiautoPhase__SEMIAUTO_WAIT_NEXT_COMBO = 8,
-	EBtlSemiautoPhase__SEMIAUTO_JUMP = 9,
-	EBtlSemiautoPhase__SEMIAUTO_JUMP_TO_POINT = 10,
-	EBtlSemiautoPhase__SEMIAUTO_MOVE_AWAY_FROM_TARGET = 11,
-	EBtlSemiautoPhase__SEMIAUTO_MOVE_TO_SAFE_PLACE = 12,
-	EBtlSemiautoPhase__SEMIAUTO_COMBO_END = 13,
-	EBtlSemiautoPhase__SEMIAUTO_MAX = 14
+	SEMIAUTO_NONE                  = 0,
+	SEMIAUTO_IDLE                  = 1,
+	SEMIAUTO_MOVE                  = 2,
+	SEMIAUTO_STEP                  = 3,
+	SEMIAUTO_ARTS_MAGIC            = 4,
+	SEMIAUTO_AUTOGUARD             = 5,
+	SEMIAUTO_AUTOSTEP              = 6,
+	SEMIAUTO_START_COMBO           = 7,
+	SEMIAUTO_WAIT_NEXT_COMBO       = 8,
+	SEMIAUTO_JUMP                  = 9,
+	SEMIAUTO_JUMP_TO_POINT         = 10,
+	SEMIAUTO_MOVE_AWAY_FROM_TARGET = 11,
+	SEMIAUTO_MOVE_TO_SAFE_PLACE    = 12,
+	SEMIAUTO_COMBO_END             = 13,
+	SEMIAUTO_MAX                   = 14
 };
 
 
 // Enum Arise.FBtlChangeOrderType
 enum class EFBtlChangeOrderType : uint8_t
 {
-	FBtlChangeOrderType__INVALID   = 0,
-	FBtlChangeOrderType__ORDER1    = 1,
-	FBtlChangeOrderType__ORDER2    = 2,
-	FBtlChangeOrderType__ORDER3    = 3,
-	FBtlChangeOrderType__MAX       = 4
+	INVALID                        = 0,
+	ORDER1                         = 1,
+	ORDER2                         = 2,
+	ORDER3                         = 3,
+	MAX                            = 4
 };
 
 
 // Enum Arise.EPCOrder
 enum class EPCOrder : uint8_t
 {
-	EPCOrder__ORDER_1ST            = 0,
-	EPCOrder__ORDER_2ND            = 1,
-	EPCOrder__ORDER_3RD            = 2,
-	EPCOrder__ORDER_4TH            = 3,
-	EPCOrder__ORDER_5TH            = 4,
-	EPCOrder__ORDER_6TH            = 5,
-	EPCOrder__ORDER_7TH            = 6,
-	EPCOrder__ORDER_8TH            = 7,
-	EPCOrder__ORDER_MAX            = 8
+	ORDER_1ST                      = 0,
+	ORDER_2ND                      = 1,
+	ORDER_3RD                      = 2,
+	ORDER_4TH                      = 3,
+	ORDER_5TH                      = 4,
+	ORDER_6TH                      = 5,
+	ORDER_7TH                      = 6,
+	ORDER_8TH                      = 7,
+	ORDER_MAX                      = 8
 };
 
 
 // Enum Arise.EBtlCameraMode
 enum class EBtlCameraMode : uint8_t
 {
-	EBtlCameraMode__NORMAL         = 0,
-	EBtlCameraMode__LOCKON         = 1,
-	EBtlCameraMode__STRIKE_ATTACK  = 2,
-	EBtlCameraMode__FLASH_RAID     = 3,
-	EBtlCameraMode__STRIKE_SMASH   = 4,
-	EBtlCameraMode__FOCUS_UNIT     = 5,
-	EBtlCameraMode__SPECIAL_STRIKE_ATTACK = 6,
-	EBtlCameraMode__EVENT          = 7,
-	EBtlCameraMode__CUTSCENE_TO    = 8,
-	EBtlCameraMode__FOCUS_LOCATION = 9,
-	EBtlCameraMode__NORMAL_BATTLE_WIN = 10,
-	EBtlCameraMode__OVERLIMIT      = 11,
-	EBtlCameraMode__INSPIRATION    = 12,
-	EBtlCameraMode__MODE_END       = 13,
-	EBtlCameraMode__EBtlCameraMode_MAX = 14
+	NORMAL                         = 0,
+	LOCKON                         = 1,
+	STRIKE_ATTACK                  = 2,
+	FLASH_RAID                     = 3,
+	STRIKE_SMASH                   = 4,
+	FOCUS_UNIT                     = 5,
+	SPECIAL_STRIKE_ATTACK          = 6,
+	EVENT                          = 7,
+	CUTSCENE_TO                    = 8,
+	FOCUS_LOCATION                 = 9,
+	NORMAL_BATTLE_WIN              = 10,
+	OVERLIMIT                      = 11,
+	INSPIRATION                    = 12,
+	MODE_END                       = 13,
+	EBtlCameraMode_MAX             = 14
 };
 
 
 // Enum Arise.EAriseGameState
 enum class EAriseGameState : uint8_t
 {
-	EAriseGameState__GameState_Pause = 0,
-	EAriseGameState__GameState_ScreenMask = 1,
-	EAriseGameState__GameState_Nowloading = 2,
-	EAriseGameState__GameState_StreamingLevelLoading = 3,
-	EAriseGameState__GameState_PlayerFreeLock = 4,
-	EAriseGameState__GameState_PlayCutSceneEvent = 5,
-	EAriseGameState__GameState_MapChanging = 6,
-	EAriseGameState__GameState_Battle = 7,
-	EAriseGameState__GameState_BattleTraining = 8,
-	EAriseGameState__GameState_PlayEvent = 9,
-	EAriseGameState__GameState_PlayQuest = 10,
-	EAriseGameState__GameState_PlayLongChat = 11,
-	EAriseGameState__GameState_EventFade = 12,
-	EAriseGameState__GameState_ActionLadder = 13,
-	EAriseGameState__GameState_ActionSwim = 14,
-	EAriseGameState__GameState_ActionGrab = 15,
-	EAriseGameState__GameState_Fishing = 16,
-	EAriseGameState__GameState_AutoSaving = 17,
-	EAriseGameState__GameState_EventContinue = 18,
-	EAriseGameState__GameState_EncountLock = 19,
-	EAriseGameState__GameState_ActionDash = 20,
-	EAriseGameState__GameState_ActionFloating = 21,
-	EAriseGameState__GameState_PlayScript = 22,
-	EAriseGameState__GameState_Camp = 23,
-	EAriseGameState__GameState_QuestContinue = 24,
-	EAriseGameState__GameState_PlayLookAtCamera = 25,
-	EAriseGameState__GameState_BattleResultShowHud = 26,
-	EAriseGameState__GameState_PlayInteract = 27,
-	EAriseGameState__GameState_ExecuteEnableControlDelegate = 28,
-	EAriseGameState__GameState_RequestEnableControlDelegate = 29,
-	EAriseGameState__GameState_Menu = 30,
-	EAriseGameState__GameState_MenuClosing = 31,
-	EAriseGameState__GameState_NearMapLink = 32,
-	EAriseGameState__GameState_DoFastTravel = 33,
-	EAriseGameState__GameState_GoBackToTitle = 34,
-	EAriseGameState__GameState_UIControl = 35,
-	EAriseGameState__GameState_Encounting = 36,
-	EAriseGameState__GameState_PostGameDataLoaded = 37,
-	EAriseGameState__GameState_PassBlocked = 38,
-	EAriseGameState__GameState_PlayerFreeLockUntilMapJump = 39,
-	EAriseGameState__GameState_SaveLoading = 40,
-	EAriseGameState__GameState_TextureStreaming = 41,
-	EAriseGameState__GameState_QuestAutoSaveProcess = 42,
-	EAriseGameState__GameState_DebugMenuOpen = 43,
-	EAriseGameState__GameState_Sandbox = 44,
-	EAriseGameState__GameState_FlyMode = 45,
-	EAriseGameState__GameState_MAX = 46
+	GameState_Pause                = 0,
+	GameState_ScreenMask           = 1,
+	GameState_Nowloading           = 2,
+	GameState_StreamingLevelLoading = 3,
+	GameState_PlayerFreeLock       = 4,
+	GameState_PlayCutSceneEvent    = 5,
+	GameState_MapChanging          = 6,
+	GameState_Battle               = 7,
+	GameState_BattleTraining       = 8,
+	GameState_PlayEvent            = 9,
+	GameState_PlayQuest            = 10,
+	GameState_PlayLongChat         = 11,
+	GameState_EventFade            = 12,
+	GameState_ActionLadder         = 13,
+	GameState_ActionSwim           = 14,
+	GameState_ActionGrab           = 15,
+	GameState_Fishing              = 16,
+	GameState_AutoSaving           = 17,
+	GameState_EventContinue        = 18,
+	GameState_EncountLock          = 19,
+	GameState_ActionDash           = 20,
+	GameState_ActionFloating       = 21,
+	GameState_PlayScript           = 22,
+	GameState_Camp                 = 23,
+	GameState_QuestContinue        = 24,
+	GameState_PlayLookAtCamera     = 25,
+	GameState_BattleResultShowHud  = 26,
+	GameState_PlayInteract         = 27,
+	GameState_ExecuteEnableControlDelegate = 28,
+	GameState_RequestEnableControlDelegate = 29,
+	GameState_Menu                 = 30,
+	GameState_MenuClosing          = 31,
+	GameState_NearMapLink          = 32,
+	GameState_DoFastTravel         = 33,
+	GameState_GoBackToTitle        = 34,
+	GameState_UIControl            = 35,
+	GameState_Encounting           = 36,
+	GameState_PostGameDataLoaded   = 37,
+	GameState_PassBlocked          = 38,
+	GameState_PlayerFreeLockUntilMapJump = 39,
+	GameState_SaveLoading          = 40,
+	GameState_TextureStreaming     = 41,
+	GameState_QuestAutoSaveProcess = 42,
+	GameState_DebugMenuOpen        = 43,
+	GameState_Sandbox              = 44,
+	GameState_FlyMode              = 45,
+	GameState_MAX                  = 46
 };
 
 
 // Enum Arise.EArtsKey
 enum class EArtsKey : uint8_t
 {
-	EArtsKey__INDEX                = 0,
-	EArtsKey__INDEX01              = 1,
-	EArtsKey__INDEX02              = 2,
-	EArtsKey__INDEX_0_SUB          = 3,
-	EArtsKey__INDEX_1_SUB          = 4,
-	EArtsKey__INDEX_2_SUB          = 5,
-	EArtsKey__MAX                  = 6
+	INDEX                          = 0,
+	INDEX01                        = 1,
+	INDEX02                        = 2,
+	INDEX_0_SUB                    = 3,
+	INDEX_1_SUB                    = 4,
+	INDEX_2_SUB                    = 5,
+	MAX                            = 6
 };
 
 
 // Enum Arise.EAriseUIOrder
 enum class EAriseUIOrder : uint8_t
 {
-	EAriseUIOrder__Bottom          = 0,
-	EAriseUIOrder__Default         = 1,
-	EAriseUIOrder__HUD             = 2,
-	EAriseUIOrder__Menu            = 3,
-	EAriseUIOrder__LongChat        = 4,
-	EAriseUIOrder__Middle          = 5,
-	EAriseUIOrder__System          = 6,
-	EAriseUIOrder__Top             = 7,
-	EAriseUIOrder__TopMost         = 8,
-	EAriseUIOrder__EAriseUIOrder_MAX = 9
+	Bottom                         = 0,
+	Default                        = 1,
+	HUD                            = 2,
+	Menu                           = 3,
+	LongChat                       = 4,
+	Middle                         = 5,
+	System                         = 6,
+	Top                            = 7,
+	TopMost                        = 8,
+	EAriseUIOrder_MAX              = 9
 };
 
 
 // Enum Arise.EBtlUnitFilterType
 enum class EBtlUnitFilterType : uint8_t
 {
-	EBtlUnitFilterType__NONE       = 0,
-	EBtlUnitFilterType__HP_LOWER_EQUAL = 1,
-	EBtlUnitFilterType__HP_LOWER_EQUAL_PERCENT = 2,
-	EBtlUnitFilterType__HP_UPPER_EQUAL = 3,
-	EBtlUnitFilterType__HP_UPPER_EQUAL_PERCENT = 4,
-	EBtlUnitFilterType__EBtlUnitFilterType_MAX = 5
+	NONE                           = 0,
+	HP_LOWER_EQUAL                 = 1,
+	HP_LOWER_EQUAL_PERCENT         = 2,
+	HP_UPPER_EQUAL                 = 3,
+	HP_UPPER_EQUAL_PERCENT         = 4,
+	EBtlUnitFilterType_MAX         = 5
 };
 
 
 // Enum Arise.EAriseDebugSaveRoot
 enum class EAriseDebugSaveRoot : uint8_t
 {
-	EAriseDebugSaveRoot__DEBUG_SAVE_ROOT_PC = 0,
-	EAriseDebugSaveRoot__DEBUG_SAVE_ROOT_USB = 1,
-	EAriseDebugSaveRoot__DEBUG_SAVE_ROOT_HDD = 2,
-	EAriseDebugSaveRoot__DEBUG_SAVE_ROOT_MAX = 3
+	DEBUG_SAVE_ROOT_PC             = 0,
+	DEBUG_SAVE_ROOT_USB            = 1,
+	DEBUG_SAVE_ROOT_HDD            = 2,
+	DEBUG_SAVE_ROOT_MAX            = 3
 };
 
 
 // Enum Arise.EAriseSaveResult
 enum class EAriseSaveResult : uint8_t
 {
-	EAriseSaveResult__SAVE_RESULT_SUCCESS = 0,
-	EAriseSaveResult__SAVE_RESULT_CANCEL = 1,
-	EAriseSaveResult__SAVE_RESULT_FAILED = 2,
-	EAriseSaveResult__SAVE_RESULT_NOT_EXIST = 3,
-	EAriseSaveResult__SAVE_RESULT_MAX = 4
+	SAVE_RESULT_SUCCESS            = 0,
+	SAVE_RESULT_CANCEL             = 1,
+	SAVE_RESULT_FAILED             = 2,
+	SAVE_RESULT_NOT_EXIST          = 3,
+	SAVE_RESULT_MAX                = 4
 };
 
 
 // Enum Arise.EAriseSaveVerify
 enum class EAriseSaveVerify : uint8_t
 {
-	EAriseSaveVerify__VERIFY_SUCCESS = 0,
-	EAriseSaveVerify__VERIFY_UNKNOWN_FAILED = 1,
-	EAriseSaveVerify__VERIFY_UNKNOWN_ENTITLEMENTS = 2,
-	EAriseSaveVerify__VERIFY_INVAILD_ENTITLEMENTS = 3,
-	EAriseSaveVerify__VERIFY_ROLLBACK_ITEMS = 4,
-	EAriseSaveVerify__VERIFY_MAX   = 5
+	VERIFY_SUCCESS                 = 0,
+	VERIFY_UNKNOWN_FAILED          = 1,
+	VERIFY_UNKNOWN_ENTITLEMENTS    = 2,
+	VERIFY_INVAILD_ENTITLEMENTS    = 3,
+	VERIFY_ROLLBACK_ITEMS          = 4,
+	VERIFY_MAX                     = 5
 };
 
 
 // Enum Arise.EAriseSaveToDoMessage
 enum class EAriseSaveToDoMessage : uint8_t
 {
-	EAriseSaveToDoMessage__SAVE_TODO_MESSAGE_NOT_SHOW = 0,
-	EAriseSaveToDoMessage__SAVE_TODO_MESSAGE_SUCCESS = 1,
-	EAriseSaveToDoMessage__SAVE_TODO_MESSAGE_VERSION = 2,
-	EAriseSaveToDoMessage__SAVE_TODO_MESSAGE_BROKEN = 3,
-	EAriseSaveToDoMessage__SAVE_TODO_MESSAGE_NOT_EXIST = 4,
-	EAriseSaveToDoMessage__SAVE_TODO_MESSAGE_VERIFY = 5,
-	EAriseSaveToDoMessage__SAVE_TODO_MESSAGE_CONDITIONALY_SUCCESS_VERIFY = 6,
-	EAriseSaveToDoMessage__SAVE_TODO_MESSAGE_FAILED = 7,
-	EAriseSaveToDoMessage__SAVE_TODO_MESSAGE_MAX = 8
+	SAVE_TODO_MESSAGE_NOT_SHOW     = 0,
+	SAVE_TODO_MESSAGE_SUCCESS      = 1,
+	SAVE_TODO_MESSAGE_VERSION      = 2,
+	SAVE_TODO_MESSAGE_BROKEN       = 3,
+	SAVE_TODO_MESSAGE_NOT_EXIST    = 4,
+	SAVE_TODO_MESSAGE_VERIFY       = 5,
+	SAVE_TODO_MESSAGE_CONDITIONALY_SUCCESS_VERIFY = 6,
+	SAVE_TODO_MESSAGE_FAILED       = 7,
+	SAVE_TODO_MESSAGE_MAX          = 8
 };
 
 
@@ -1128,1067 +1128,1058 @@ enum class EAriseSaveType : uint8_t
 // Enum Arise.EAriseSaveThumbneilType
 enum class EAriseSaveThumbneilType : uint8_t
 {
-	EAriseSaveThumbneilType__SAVE_THUMBNEIL_CAPTURE = 0,
-	EAriseSaveThumbneilType__SAVE_THUMBNEIL_NONE = 1,
-	EAriseSaveThumbneilType__SAVE_THUMBNEIL_AUTO_SAVE = 2,
-	EAriseSaveThumbneilType__SAVE_THUMBNEIL_CLEARED = 3,
-	EAriseSaveThumbneilType__SAVE_THUMBNEIL_MAX = 4
+	SAVE_THUMBNEIL_CAPTURE         = 0,
+	SAVE_THUMBNEIL_NONE            = 1,
+	SAVE_THUMBNEIL_AUTO_SAVE       = 2,
+	SAVE_THUMBNEIL_CLEARED         = 3,
+	SAVE_THUMBNEIL_MAX             = 4
 };
 
 
 // Enum Arise.ENewsInfoPurpose
 enum class ENewsInfoPurpose : uint8_t
 {
-	ENewsInfoPurpose__DLC_Top      = 0,
-	ENewsInfoPurpose__News         = 1,
-	ENewsInfoPurpose__MAX          = 2
+	DLC_Top                        = 0,
+	News                           = 1,
+	MAX                            = 2
 };
 
 
 // Enum Arise.EMenuTopCharaType
 enum class EMenuTopCharaType : uint8_t
 {
-	EMenuTopCharaType__TOP_CHARA_NONE = 0,
-	EMenuTopCharaType__TOP_CHARA_DEFAULT = 1,
-	EMenuTopCharaType__TOP_CHARA_FRONT = 2,
-	EMenuTopCharaType__TOP_CHARA_BACK = 3,
-	EMenuTopCharaType__TOP_CHARA_MAX = 4
+	TOP_CHARA_NONE                 = 0,
+	TOP_CHARA_DEFAULT              = 1,
+	TOP_CHARA_FRONT                = 2,
+	TOP_CHARA_BACK                 = 3,
+	TOP_CHARA_MAX                  = 4
 };
 
 
 // Enum Arise.EQuestGuideLocationRole
 enum class EQuestGuideLocationRole : uint8_t
 {
-	EQuestGuideLocationRole__None  = 0,
-	EQuestGuideLocationRole__MainQuest_TargetActor = 1,
-	EQuestGuideLocationRole__SubQuest_OwnerActor_CanOrder = 2,
-	EQuestGuideLocationRole__SubQuest_OwnerActor_InOrder = 3,
-	EQuestGuideLocationRole__SubQuest_OwnerActor_Report = 4,
-	EQuestGuideLocationRole__SubQuest_TargetActor = 5,
-	EQuestGuideLocationRole__EQuestGuideLocationRole_MAX = 6
+	None                           = 0,
+	MainQuest_TargetActor          = 1,
+	SubQuest_OwnerActor_CanOrder   = 2,
+	SubQuest_OwnerActor_InOrder    = 3,
+	SubQuest_OwnerActor_Report     = 4,
+	SubQuest_TargetActor           = 5,
+	EQuestGuideLocationRole_MAX    = 6
 };
 
 
 // Enum Arise.EPFNpcFacilityType
 enum class EPFNpcFacilityType : uint8_t
 {
-	EPFNpcFacilityType__NPC_FACILITY_NONE = 0,
-	EPFNpcFacilityType__NPC_FACILITY_ITEM_SHOP = 1,
-	EPFNpcFacilityType__NPC_FACILITY_INN = 2,
-	EPFNpcFacilityType__NPC_FACILITY_INFORMATION_SHOP = 3,
-	EPFNpcFacilityType__NPC_FACILITY_WEAPON_SHOP = 4,
-	EPFNpcFacilityType__NPC_FACILITY_ACCESSORY_SHOP = 5,
-	EPFNpcFacilityType__NPC_FACILITY_SHIP_SHOP = 6,
-	EPFNpcFacilityType__NPC_FACILITY_OWL_SHOP = 7,
-	EPFNpcFacilityType__NPC_FACILITY_UTILITY_SHOP = 8,
-	EPFNpcFacilityType__NPC_FACILITY_RECOVERY_SHOP = 9,
-	EPFNpcFacilityType__NPC_FACILITY_FARM = 10,
-	EPFNpcFacilityType__NPC_FACILITY_COLOSSEUM = 11,
-	EPFNpcFacilityType__NPC_FACILITY_GENERAL_STORE = 12,
-	EPFNpcFacilityType__NPC_FACILITY_INJURED_PERSON = 13,
-	EPFNpcFacilityType__NPC_FACILITY_FISHING_TACKLE_SHOP = 14,
-	EPFNpcFacilityType__NPC_FACILITY_PERCH = 15,
-	EPFNpcFacilityType__NPC_FACILITY_MAX = 16
+	NPC_FACILITY_NONE              = 0,
+	NPC_FACILITY_ITEM_SHOP         = 1,
+	NPC_FACILITY_INN               = 2,
+	NPC_FACILITY_INFORMATION_SHOP  = 3,
+	NPC_FACILITY_WEAPON_SHOP       = 4,
+	NPC_FACILITY_ACCESSORY_SHOP    = 5,
+	NPC_FACILITY_SHIP_SHOP         = 6,
+	NPC_FACILITY_OWL_SHOP          = 7,
+	NPC_FACILITY_UTILITY_SHOP      = 8,
+	NPC_FACILITY_RECOVERY_SHOP     = 9,
+	NPC_FACILITY_FARM              = 10,
+	NPC_FACILITY_COLOSSEUM         = 11,
+	NPC_FACILITY_GENERAL_STORE     = 12,
+	NPC_FACILITY_INJURED_PERSON    = 13,
+	NPC_FACILITY_FISHING_TACKLE_SHOP = 14,
+	NPC_FACILITY_PERCH             = 15,
+	NPC_FACILITY_MAX               = 16
 };
 
 
 // Enum Arise.EPlacementNpcPointRole
 enum class EPlacementNpcPointRole : uint8_t
 {
-	EPlacementNpcPointRole__Unknown = 0,
-	EPlacementNpcPointRole__HasMainEvent = 1,
-	EPlacementNpcPointRole__HasQuest = 2,
-	EPlacementNpcPointRole__HasShortChat = 3,
-	EPlacementNpcPointRole__HasTalk = 4,
-	EPlacementNpcPointRole__HasImportantTalk = 5,
-	EPlacementNpcPointRole__HasFacility = 6,
-	EPlacementNpcPointRole__EPlacementNpcPointRole_MAX = 7
+	Unknown                        = 0,
+	HasMainEvent                   = 1,
+	HasQuest                       = 2,
+	HasShortChat                   = 3,
+	HasTalk                        = 4,
+	HasImportantTalk               = 5,
+	HasFacility                    = 6,
+	EPlacementNpcPointRole_MAX     = 7
 };
 
 
 // Enum Arise.EInteractionModelDraw
 enum class EInteractionModelDraw : uint8_t
 {
-	EInteractionModelDraw__Base    = 0,
-	EInteractionModelDraw__Gathered = 1,
-	EInteractionModelDraw__Hide    = 2,
-	EInteractionModelDraw__EInteractionModelDraw_MAX = 3
+	Base                           = 0,
+	Gathered                       = 1,
+	Hide                           = 2,
+	EInteractionModelDraw_MAX      = 3
 };
 
 
 // Enum Arise.EInteractionModelBounds
 enum class EInteractionModelBounds : uint8_t
 {
-	EInteractionModelBounds__Component = 0,
-	EInteractionModelBounds__Vertices = 1,
-	EInteractionModelBounds__EInteractionModelBounds_MAX = 2
+	Component                      = 0,
+	Vertices                       = 1,
+	EInteractionModelBounds_MAX    = 2
 };
 
 
 // Enum Arise.EAlphaMaskBranch
 enum class EAlphaMaskBranch : uint8_t
 {
-	EAlphaMaskBranch__Visible      = 0,
-	EAlphaMaskBranch__Fadeing      = 1,
-	EAlphaMaskBranch__Invisible    = 2,
-	EAlphaMaskBranch__EAlphaMaskBranch_MAX = 3
+	Visible                        = 0,
+	Fadeing                        = 1,
+	Invisible                      = 2,
+	EAlphaMaskBranch_MAX           = 3
 };
 
 
 // Enum Arise.EAlphaMaskFlagCategory
 enum class EAlphaMaskFlagCategory : uint8_t
 {
-	EAlphaMaskFlagCategory__Default = 0,
-	EAlphaMaskFlagCategory__Event  = 1,
-	EAlphaMaskFlagCategory__Battle = 2,
-	EAlphaMaskFlagCategory__BattleEvent = 3,
-	EAlphaMaskFlagCategory__Development = 4,
-	EAlphaMaskFlagCategory__EAlphaMaskFlagCategory_MAX = 5
+	Default                        = 0,
+	Event                          = 1,
+	Battle                         = 2,
+	BattleEvent                    = 3,
+	Development                    = 4,
+	EAlphaMaskFlagCategory_MAX     = 5
 };
 
 
 // Enum Arise.EAlphaMaskDirection
 enum class EAlphaMaskDirection : uint8_t
 {
-	EAlphaMaskDirection__OneToZero = 0,
-	EAlphaMaskDirection__ZeroToOne = 1,
-	EAlphaMaskDirection__EAlphaMaskDirection_MAX = 2
+	OneToZero                      = 0,
+	ZeroToOne                      = 1,
+	EAlphaMaskDirection_MAX        = 2
 };
 
 
 // Enum Arise.EPFNpcCharacterBuildType
 enum class EPFNpcCharacterBuildType : uint8_t
 {
-	EPFNpcCharacterBuildType__Async = 0,
-	EPFNpcCharacterBuildType__Sync = 1,
-	EPFNpcCharacterBuildType__Queue = 2,
-	EPFNpcCharacterBuildType__EPFNpcCharacterBuildType_MAX = 3
+	Async                          = 0,
+	Sync                           = 1,
+	Queue                          = 2,
+	EPFNpcCharacterBuildType_MAX   = 3
 };
 
 
 // Enum Arise.EMapChangeReason
 enum class EMapChangeReason : uint8_t
 {
-	EMapChangeReason__MapChangeByUnknown = 0,
-	EMapChangeReason__MapChangeByMapLink = 1,
-	EMapChangeReason__MapChangeByFastTravel = 2,
-	EMapChangeReason__MapChangeByQuestScript = 3,
-	EMapChangeReason__MapChangeByAnyScript = 4,
-	EMapChangeReason__MapChangeByPostTitle = 5,
-	EMapChangeReason__MapChangeByPostEvent = 6,
-	EMapChangeReason__MapChangeByPostDataLoad = 7,
-	EMapChangeReason__MapChangeByReloadFunc = 8,
-	EMapChangeReason__MapChangeByDebugFunc = 9,
-	EMapChangeReason__MapChangeByAnyFunc = 10,
-	EMapChangeReason__EMapChangeReason_MAX = 11
+	MapChangeByUnknown             = 0,
+	MapChangeByMapLink             = 1,
+	MapChangeByFastTravel          = 2,
+	MapChangeByQuestScript         = 3,
+	MapChangeByAnyScript           = 4,
+	MapChangeByPostTitle           = 5,
+	MapChangeByPostEvent           = 6,
+	MapChangeByPostDataLoad        = 7,
+	MapChangeByReloadFunc          = 8,
+	MapChangeByDebugFunc           = 9,
+	MapChangeByAnyFunc             = 10,
+	EMapChangeReason_MAX           = 11
 };
 
 
 // Enum Arise.ESceneRunType
 enum class ESceneRunType : uint8_t
 {
-	ESceneRunType__RunTypeStandardScene = 0,
-	ESceneRunType__RunTypeTemporaryScene = 1,
-	ESceneRunType__RunTypeCleanUpScene = 2,
-	ESceneRunType__RunTypePrevScene = 3,
-	ESceneRunType__ESceneRunType_MAX = 4
+	RunTypeStandardScene           = 0,
+	RunTypeTemporaryScene          = 1,
+	RunTypeCleanUpScene            = 2,
+	RunTypePrevScene               = 3,
+	ESceneRunType_MAX              = 4
 };
 
 
 // Enum Arise.EARISE_MEM_PEAKVALUE
 enum class EARISE_MEM_PEAKVALUE : uint8_t
 {
-	EARISE_MEM_PEAKVALUE__PV_FREE_MAINMEMORY = 0,
-	EARISE_MEM_PEAKVALUE__PV_TEXTURE_TOTAL_USE = 1,
-	EARISE_MEM_PEAKVALUE__PV_TEXTURE_TOTAL_DISC = 2,
-	EARISE_MEM_PEAKVALUE__PV_WORLD_TEXTURE_TOTAL_USE = 3,
-	EARISE_MEM_PEAKVALUE__PV_CHARACTER_TEXTURE_TOTAL_USE = 4,
-	EARISE_MEM_PEAKVALUE__PV_PS4_CPU = 5,
-	EARISE_MEM_PEAKVALUE__PV_PS4_Garlic = 6,
-	EARISE_MEM_PEAKVALUE__PV_MAX   = 7
+	PV_FREE_MAINMEMORY             = 0,
+	PV_TEXTURE_TOTAL_USE           = 1,
+	PV_TEXTURE_TOTAL_DISC          = 2,
+	PV_WORLD_TEXTURE_TOTAL_USE     = 3,
+	PV_CHARACTER_TEXTURE_TOTAL_USE = 4,
+	PV_PS4_CPU                     = 5,
+	PV_PS4_Garlic                  = 6,
+	PV_MAX                         = 7
 };
 
 
 // Enum Arise.EAriseGameScene
 enum class EAriseGameScene : uint8_t
 {
-	EAriseGameScene__Title         = 0,
-	EAriseGameScene__DebugMap      = 1,
-	EAriseGameScene__Field         = 2,
-	EAriseGameScene__Battle        = 3,
-	EAriseGameScene__Menu          = 4,
-	EAriseGameScene__BattleMenu    = 5,
-	EAriseGameScene__Camp          = 6,
-	EAriseGameScene__LongChat      = 7,
-	EAriseGameScene__Movie         = 8,
-	EAriseGameScene__Fishing       = 9,
-	EAriseGameScene__PlayerFree    = 10,
-	EAriseGameScene__Event         = 11,
-	EAriseGameScene__Quest         = 12,
-	EAriseGameScene__Ending        = 13,
-	EAriseGameScene__Boot          = 14,
-	EAriseGameScene__Login         = 15,
-	EAriseGameScene__ToLogin       = 16,
-	EAriseGameScene__TitleBack     = 17,
-	EAriseGameScene__MaxScene      = 18,
-	EAriseGameScene__None          = 19,
-	EAriseGameScene__EAriseGameScene_MAX = 20
+	Title                          = 0,
+	DebugMap                       = 1,
+	Field                          = 2,
+	Battle                         = 3,
+	Menu                           = 4,
+	BattleMenu                     = 5,
+	Camp                           = 6,
+	LongChat                       = 7,
+	Movie                          = 8,
+	Fishing                        = 9,
+	PlayerFree                     = 10,
+	Event                          = 11,
+	Quest                          = 12,
+	Ending                         = 13,
+	Boot                           = 14,
+	Login                          = 15,
+	ToLogin                        = 16,
+	TitleBack                      = 17,
+	MaxScene                       = 18,
+	None                           = 19,
+	EAriseGameScene_MAX            = 20
 };
 
 
 // Enum Arise.EARISE_DROPMIPS_TYPE
 enum class EARISE_DROPMIPS_TYPE : uint8_t
 {
-	EARISE_DROPMIPS_TYPE__DROPMIPS_FULL = 0,
-	EARISE_DROPMIPS_TYPE__DROPMIPS_UNUSED = 1,
-	EARISE_DROPMIPS_TYPE__DROPMIPS_WORLDANDCHAR = 2,
-	EARISE_DROPMIPS_TYPE__DROPMIPS_WORLDONLY = 3,
-	EARISE_DROPMIPS_TYPE__DROPMIPS_CHARONLY = 4,
-	EARISE_DROPMIPS_TYPE__DROPMIPS_DEFAULT = 5,
-	EARISE_DROPMIPS_TYPE__DROPMIPS_MAX = 6
+	DROPMIPS_FULL                  = 0,
+	DROPMIPS_UNUSED                = 1,
+	DROPMIPS_WORLDANDCHAR          = 2,
+	DROPMIPS_WORLDONLY             = 3,
+	DROPMIPS_CHARONLY              = 4,
+	DROPMIPS_DEFAULT               = 5,
+	DROPMIPS_MAX                   = 6
 };
 
 
 // Enum Arise.EGameSection
 enum class EGameSection : uint8_t
 {
-	EGameSection__None             = 0,
-	EGameSection__InitSystem       = 1,
-	EGameSection__Boot             = 2,
-	EGameSection__Title            = 3,
-	EGameSection__MainGame         = 4,
-	EGameSection__MAX              = 5
-};
-
-
-// Enum Arise.ESceneFinalizeReason
-enum class ESceneFinalizeReason : uint8_t
-{
-	ESceneFinalizeReason__FinalizeAtChangeScene = 0,
-	ESceneFinalizeReason__FinalizeAtRemove = 1,
-	ESceneFinalizeReason__FinalizeAtCleanup = 2,
-	ESceneFinalizeReason__ESceneFinalizeReason_MAX = 3
+	None                           = 0,
+	InitSystem                     = 1,
+	Boot                           = 2,
+	Title                          = 3,
+	MainGame                       = 4,
+	MAX                            = 5
 };
 
 
 // Enum Arise.ESceneInitializeMode
 enum class ESceneInitializeMode : uint8_t
 {
-	ESceneInitializeMode__OnRunScene = 0,
-	ESceneInitializeMode__OnReservedScene = 1,
-	ESceneInitializeMode__ESceneInitializeMode_MAX = 2
+	OnRunScene                     = 0,
+	OnReservedScene                = 1,
+	ESceneInitializeMode_MAX       = 2
+};
+
+
+// Enum Arise.ESceneFinalizeReason
+enum class ESceneFinalizeReason : uint8_t
+{
+	FinalizeAtChangeScene          = 0,
+	FinalizeAtRemove               = 1,
+	FinalizeAtCleanup              = 2,
+	ESceneFinalizeReason_MAX       = 3
 };
 
 
 // Enum Arise.ESceneControllerWorkState
 enum class ESceneControllerWorkState : uint8_t
 {
-	ESceneControllerWorkState__Nothing = 0,
-	ESceneControllerWorkState__WaitSceneInitialize = 1,
-	ESceneControllerWorkState__WaitSceneFinalize = 2,
-	ESceneControllerWorkState__WaitAssetLoad = 3,
-	ESceneControllerWorkState__WaitAssetUnload = 4,
-	ESceneControllerWorkState__WaitScreenMaskOn = 5,
-	ESceneControllerWorkState__WaitScreenMaskOff = 6,
-	ESceneControllerWorkState__ESceneControllerWorkState_MAX = 7
+	Nothing                        = 0,
+	WaitSceneInitialize            = 1,
+	WaitSceneFinalize              = 2,
+	WaitAssetLoad                  = 3,
+	WaitAssetUnload                = 4,
+	WaitScreenMaskOn               = 5,
+	WaitScreenMaskOff              = 6,
+	ESceneControllerWorkState_MAX  = 7
 };
 
 
 // Enum Arise.ESceneControllerState
 enum class ESceneControllerState : uint8_t
 {
-	ESceneControllerState__SceneNone = 0,
-	ESceneControllerState__SceneInitilize = 1,
-	ESceneControllerState__SceneSleep = 2,
-	ESceneControllerState__SceneWakeup = 3,
-	ESceneControllerState__SceneRun = 4,
-	ESceneControllerState__SceneFinalize = 5,
-	ESceneControllerState__SceneDestroy = 6,
-	ESceneControllerState__ESceneControllerState_MAX = 7
+	SceneNone                      = 0,
+	SceneInitilize                 = 1,
+	SceneSleep                     = 2,
+	SceneWakeup                    = 3,
+	SceneRun                       = 4,
+	SceneFinalize                  = 5,
+	SceneDestroy                   = 6,
+	ESceneControllerState_MAX      = 7
 };
 
 
 // Enum Arise.ECameraFadeType
 enum class ECameraFadeType : uint8_t
 {
-	ECameraFadeType__FADE_IN       = 0,
-	ECameraFadeType__FADE_OUT      = 1,
-	ECameraFadeType__FADE_MAX      = 2
+	FADE_IN                        = 0,
+	FADE_OUT                       = 1,
+	FADE_MAX                       = 2
 };
 
 
 // Enum Arise.EAINavLinkType
 enum class EAINavLinkType : uint8_t
 {
-	EAINavLinkType__None           = 0,
-	EAINavLinkType__Jump           = 1,
-	EAINavLinkType__EAINavLinkType_MAX = 2
+	None                           = 0,
+	Jump                           = 1,
+	EAINavLinkType_MAX             = 2
 };
 
 
 // Enum Arise.EAlphaMaskCameraFadeTaskMethod
 enum class EAlphaMaskCameraFadeTaskMethod : uint8_t
 {
-	EAlphaMaskCameraFadeTaskMethod__None = 0,
-	EAlphaMaskCameraFadeTaskMethod__DistanceBoundingSphere = 1,
-	EAlphaMaskCameraFadeTaskMethod__DistanceBoundingBox = 2,
-	EAlphaMaskCameraFadeTaskMethod__CameraFade = 3,
-	EAlphaMaskCameraFadeTaskMethod__EAlphaMaskCameraFadeTaskMethod_MAX = 4
+	None                           = 0,
+	DistanceBoundingSphere         = 1,
+	DistanceBoundingBox            = 2,
+	CameraFade                     = 3,
+	EAlphaMaskCameraFadeTaskMethod_MAX = 4
 };
 
 
 // Enum Arise.EAriseBlueprintAssetCreateMethod
 enum class EAriseBlueprintAssetCreateMethod : uint8_t
 {
-	EAriseBlueprintAssetCreateMethod__NewObject = 0,
-	EAriseBlueprintAssetCreateMethod__SpawnActor = 1,
-	EAriseBlueprintAssetCreateMethod__EAriseBlueprintAssetCreateMethod_MAX = 2
+	NewObject                      = 0,
+	SpawnActor                     = 1,
+	EAriseBlueprintAssetCreateMethod_MAX = 2
 };
 
 
 // Enum Arise.EAriseBlueprintAssetCategory
 enum class EAriseBlueprintAssetCategory : uint8_t
 {
-	EAriseBlueprintAssetCategory__System = 0,
-	EAriseBlueprintAssetCategory__Boot = 1,
-	EAriseBlueprintAssetCategory__Title = 2,
-	EAriseBlueprintAssetCategory__Menu = 3,
-	EAriseBlueprintAssetCategory__Field = 4,
-	EAriseBlueprintAssetCategory__Fishing = 5,
-	EAriseBlueprintAssetCategory__Longchat = 6,
-	EAriseBlueprintAssetCategory__Battle = 7,
-	EAriseBlueprintAssetCategory__Manual = 8,
-	EAriseBlueprintAssetCategory__Debug = 9,
-	EAriseBlueprintAssetCategory__Finalize = 10,
-	EAriseBlueprintAssetCategory__EAriseBlueprintAssetCategory_MAX = 11
+	System                         = 0,
+	Boot                           = 1,
+	Title                          = 2,
+	Menu                           = 3,
+	Field                          = 4,
+	Fishing                        = 5,
+	Longchat                       = 6,
+	Battle                         = 7,
+	Manual                         = 8,
+	Debug                          = 9,
+	Finalize                       = 10,
+	EAriseBlueprintAssetCategory_MAX = 11
 };
 
 
 // Enum Arise.EAriseBlueprintAssetLoadPolicy
 enum class EAriseBlueprintAssetLoadPolicy : uint8_t
 {
-	EAriseBlueprintAssetLoadPolicy__Async = 0,
-	EAriseBlueprintAssetLoadPolicy__Sync = 1,
-	EAriseBlueprintAssetLoadPolicy__EAriseBlueprintAssetLoadPolicy_MAX = 2
+	Async                          = 0,
+	Sync                           = 1,
+	EAriseBlueprintAssetLoadPolicy_MAX = 2
 };
 
 
 // Enum Arise.EAriseChunkInstallPriority
 enum class EAriseChunkInstallPriority : uint8_t
 {
-	EAriseChunkInstallPriority__CHUNK_INSTALL_PRIORITY_IMMEDIATE = 0,
-	EAriseChunkInstallPriority__CHUNK_INSTALL_PRIORITY_HIGH = 1,
-	EAriseChunkInstallPriority__CHUNK_INSTALL_PRIORITY_SLOW = 2,
-	EAriseChunkInstallPriority__CHUNK_INSTALL_PRIORITY_MAX = 3
+	CHUNK_INSTALL_PRIORITY_IMMEDIATE = 0,
+	CHUNK_INSTALL_PRIORITY_HIGH    = 1,
+	CHUNK_INSTALL_PRIORITY_SLOW    = 2,
+	CHUNK_INSTALL_PRIORITY_MAX     = 3
 };
 
 
 // Enum Arise.EAriseChunkInstallSpeed
 enum class EAriseChunkInstallSpeed : uint8_t
 {
-	EAriseChunkInstallSpeed__CHUNK_INSTALL_SPEED_PAUSE = 0,
-	EAriseChunkInstallSpeed__CHUNK_INSTALL_SPEED_SLOW = 1,
-	EAriseChunkInstallSpeed__CHUNK_INSTALL_SPEED_HIGH = 2,
-	EAriseChunkInstallSpeed__CHUNK_INSTALL_SPEED_MAX = 3
+	CHUNK_INSTALL_SPEED_PAUSE      = 0,
+	CHUNK_INSTALL_SPEED_SLOW       = 1,
+	CHUNK_INSTALL_SPEED_HIGH       = 2,
+	CHUNK_INSTALL_SPEED_MAX        = 3
 };
 
 
 // Enum Arise.EAriseChunkLocation
 enum class EAriseChunkLocation : uint8_t
 {
-	EAriseChunkLocation__CHUNK_LOCATION_NOT_EXIST = 0,
-	EAriseChunkLocation__CHUNK_LOCATION_NOT_INSTALLED = 1,
-	EAriseChunkLocation__CHUNK_LOCATION_LOCAL_SLOW = 2,
-	EAriseChunkLocation__CHUNK_LOCATION_LOCAL_FAST = 3,
-	EAriseChunkLocation__CHUNK_LOCATION_MAX = 4
+	CHUNK_LOCATION_NOT_EXIST       = 0,
+	CHUNK_LOCATION_NOT_INSTALLED   = 1,
+	CHUNK_LOCATION_LOCAL_SLOW      = 2,
+	CHUNK_LOCATION_LOCAL_FAST      = 3,
+	CHUNK_LOCATION_MAX             = 4
 };
 
 
 // Enum Arise.EAriseChunkNo
 enum class EAriseChunkNo : uint8_t
 {
-	EAriseChunkNo__CHUNK_NO_00     = 0,
-	EAriseChunkNo__CHUNK_NO_01     = 1,
-	EAriseChunkNo__CHUNK_NO_02     = 2,
-	EAriseChunkNo__CHUNK_NUM       = 3,
-	EAriseChunkNo__CHUNK_MAX       = 4
+	CHUNK_NO_00                    = 0,
+	CHUNK_NO_01                    = 1,
+	CHUNK_NO_02                    = 2,
+	CHUNK_NUM                      = 3,
+	CHUNK_MAX                      = 4
 };
 
 
 // Enum Arise.EAriseCommerceResult
 enum class EAriseCommerceResult : uint8_t
 {
-	EAriseCommerceResult__COMMERCE_RESULT_SUCCESS = 0,
-	EAriseCommerceResult__COMMERCE_RESULT_CANCEL = 1,
-	EAriseCommerceResult__COMMERCE_RESULT_FAILED = 2,
-	EAriseCommerceResult__COMMERCE_RESULT_MAX = 3
+	COMMERCE_RESULT_SUCCESS        = 0,
+	COMMERCE_RESULT_CANCEL         = 1,
+	COMMERCE_RESULT_FAILED         = 2,
+	COMMERCE_RESULT_MAX            = 3
 };
 
 
 // Enum Arise.EAriseSoundOutputType
 enum class EAriseSoundOutputType : uint8_t
 {
-	EAriseSoundOutputType__STEREO  = 0,
-	EAriseSoundOutputType__SURROUND = 1,
-	EAriseSoundOutputType__EAriseSoundOutputType_MAX = 2
+	STEREO                         = 0,
+	SURROUND                       = 1,
+	EAriseSoundOutputType_MAX      = 2
 };
 
 
 // Enum Arise.EAriseAdvanceInputType
 enum class EAriseAdvanceInputType : uint8_t
 {
-	EAriseAdvanceInputType__ADVANCE_INPUT_SHORT = 0,
-	EAriseAdvanceInputType__ADVANCE_INPUT_LONG = 1,
-	EAriseAdvanceInputType__ADVANCE_INPUT_MAX = 2
+	ADVANCE_INPUT_SHORT            = 0,
+	ADVANCE_INPUT_LONG             = 1,
+	ADVANCE_INPUT_MAX              = 2
 };
 
 
 // Enum Arise.EAriseCameraControlType
 enum class EAriseCameraControlType : uint8_t
 {
-	EAriseCameraControlType__CAMERA_CONTROL_NORMAL = 0,
-	EAriseCameraControlType__CAMERA_CONTROL_REVERSE = 1,
-	EAriseCameraControlType__CAMERA_CONTROL_MAX = 2
+	CAMERA_CONTROL_NORMAL          = 0,
+	CAMERA_CONTROL_REVERSE         = 1,
+	CAMERA_CONTROL_MAX             = 2
 };
 
 
 // Enum Arise.EDLCAcquireItemType
 enum class EDLCAcquireItemType : uint8_t
 {
-	EDLCAcquireItemType__Unknown   = 0,
-	EDLCAcquireItemType__Item      = 1,
-	EDLCAcquireItemType__EDLCAcquireItemType_MAX = 2
+	Unknown                        = 0,
+	Item                           = 1,
+	EDLCAcquireItemType_MAX        = 2
 };
 
 
 // Enum Arise.EAriseGameProcessState
 enum class EAriseGameProcessState : uint8_t
 {
-	EAriseGameProcessState__Begin  = 0,
-	EAriseGameProcessState__Main   = 1,
-	EAriseGameProcessState__End    = 2,
-	EAriseGameProcessState__EAriseGameProcessState_MAX = 3
-};
-
-
-// Enum Arise.EAriseCharaIconID
-enum class EAriseCharaIconID : uint8_t
-{
-	EAriseCharaIconID__INVALID     = 0,
-	EAriseCharaIconID__ARI         = 1,
-	EAriseCharaIconID__SIO         = 2,
-	EAriseCharaIconID__NNA         = 3,
-	EAriseCharaIconID__ZGU         = 4,
-	EAriseCharaIconID__MNK         = 5,
-	EAriseCharaIconID__YRA         = 6,
-	EAriseCharaIconID__ZFA         = 7,
-	EAriseCharaIconID__BEZ         = 8,
-	EAriseCharaIconID__KIL         = 9,
-	EAriseCharaIconID__AGM         = 10,
-	EAriseCharaIconID__DFN         = 11,
-	EAriseCharaIconID__SOL         = 12,
-	EAriseCharaIconID__LHI         = 13,
-	EAriseCharaIconID__NPC         = 14,
-	EAriseCharaIconID__NPC01       = 15,
-	EAriseCharaIconID__NPC02       = 16,
-	EAriseCharaIconID__NPC03       = 17,
-	EAriseCharaIconID__NPC04       = 18,
-	EAriseCharaIconID__NPC05       = 19,
-	EAriseCharaIconID__NPC06       = 20,
-	EAriseCharaIconID__NPC07       = 21,
-	EAriseCharaIconID__NPC08       = 22,
-	EAriseCharaIconID__FRU         = 23,
-	EAriseCharaIconID__MRS         = 24,
-	EAriseCharaIconID__DNS         = 25,
-	EAriseCharaIconID__ODT         = 26,
-	EAriseCharaIconID__CCL         = 27,
-	EAriseCharaIconID__KRN         = 28,
-	EAriseCharaIconID__EDN         = 29,
-	EAriseCharaIconID__EIZ         = 30,
-	EAriseCharaIconID__KLZ         = 31,
-	EAriseCharaIconID__DAR         = 32,
-	EAriseCharaIconID__LSW         = 33,
-	EAriseCharaIconID__LGU         = 34,
-	EAriseCharaIconID__LLA         = 35,
-	EAriseCharaIconID__DOC         = 36,
-	EAriseCharaIconID__ELS         = 37,
-	EAriseCharaIconID__ELM         = 38,
-	EAriseCharaIconID__SGU         = 39,
-	EAriseCharaIconID__CBK         = 40,
-	EAriseCharaIconID__CBA         = 41,
-	EAriseCharaIconID__EAriseCharaIconID_MAX = 42
+	Begin                          = 0,
+	Main                           = 1,
+	End                            = 2,
+	EAriseGameProcessState_MAX     = 3
 };
 
 
 // Enum Arise.EAriseKpiVoiceLanguage
 enum class EAriseKpiVoiceLanguage : uint8_t
 {
-	EAriseKpiVoiceLanguage__JA     = 0,
-	EAriseKpiVoiceLanguage__EN     = 1,
-	EAriseKpiVoiceLanguage__EAriseKpiVoiceLanguage_MAX = 2
+	JA                             = 0,
+	EN                             = 1,
+	EAriseKpiVoiceLanguage_MAX     = 2
 };
 
 
 // Enum Arise.EAriseKpiDlcShopResult
 enum class EAriseKpiDlcShopResult : uint8_t
 {
-	EAriseKpiDlcShopResult__Nothing = 0,
-	EAriseKpiDlcShopResult__Transition = 1,
-	EAriseKpiDlcShopResult__EAriseKpiDlcShopResult_MAX = 2
+	Nothing                        = 0,
+	Transition                     = 1,
+	EAriseKpiDlcShopResult_MAX     = 2
 };
 
 
 // Enum Arise.EAriseKpiExDungeonType
 enum class EAriseKpiExDungeonType : uint8_t
 {
-	EAriseKpiExDungeonType__EXD_ALIEN_VISITOR = 0,
-	EAriseKpiExDungeonType__EXD_RECOLLECTION = 1,
-	EAriseKpiExDungeonType__EXD_MAX = 2
+	EXD_ALIEN_VISITOR              = 0,
+	EXD_RECOLLECTION               = 1,
+	EXD_MAX                        = 2
 };
 
 
 // Enum Arise.EAriseKpiExDungeonData
 enum class EAriseKpiExDungeonData : uint8_t
 {
-	EAriseKpiExDungeonData__Clear  = 0,
-	EAriseKpiExDungeonData__Visit  = 1,
-	EAriseKpiExDungeonData__EAriseKpiExDungeonData_MAX = 2
+	Clear                          = 0,
+	Visit                          = 1,
+	EAriseKpiExDungeonData_MAX     = 2
 };
 
 
 // Enum Arise.EAriseKpiAccessoryShop
 enum class EAriseKpiAccessoryShop : uint8_t
 {
-	EAriseKpiAccessoryShop__Create = 0,
-	EAriseKpiAccessoryShop__Strengthen = 1,
-	EAriseKpiAccessoryShop__Synthesis = 2,
-	EAriseKpiAccessoryShop__EAriseKpiAccessoryShop_MAX = 3
+	Create                         = 0,
+	Strengthen                     = 1,
+	Synthesis                      = 2,
+	EAriseKpiAccessoryShop_MAX     = 3
 };
 
 
 // Enum Arise.EAriseLogCategory
 enum class EAriseLogCategory : uint8_t
 {
-	EAriseLogCategory__EEvent      = 0,
-	EAriseLogCategory__ELongChat   = 1,
-	EAriseLogCategory__BattleRegulation = 2,
-	EAriseLogCategory__Num         = 3,
-	EAriseLogCategory__EAriseLogCategory_MAX = 4
+	EEvent                         = 0,
+	ELongChat                      = 1,
+	BattleRegulation               = 2,
+	Num                            = 3,
+	EAriseLogCategory_MAX          = 4
 };
 
 
 // Enum Arise.EAriseMiningItemType
 enum class EAriseMiningItemType : uint8_t
 {
-	EAriseMiningItemType__Basic    = 0,
-	EAriseMiningItemType__Artifact = 1,
-	EAriseMiningItemType__EAriseMiningItemType_MAX = 2
+	Basic                          = 0,
+	Artifact                       = 1,
+	EAriseMiningItemType_MAX       = 2
 };
 
 
 // Enum Arise.EGuestOrder
 enum class EGuestOrder : uint8_t
 {
-	EGuestOrder__GUEST_1ST         = 0,
-	EGuestOrder__GUEST_2ND         = 1,
-	EGuestOrder__GUEST_3RD         = 2,
-	EGuestOrder__GUEST_4TH         = 3,
-	EGuestOrder__GUEST_MAX         = 4
+	GUEST_1ST                      = 0,
+	GUEST_2ND                      = 1,
+	GUEST_3RD                      = 2,
+	GUEST_4TH                      = 3,
+	GUEST_MAX                      = 4
 };
 
 
 // Enum Arise.EBackupOrder
 enum class EBackupOrder : uint8_t
 {
-	EBackupOrder__BACKUP_1ST       = 0,
-	EBackupOrder__BACKUP_2ND       = 1,
-	EBackupOrder__BACKUP_3RD       = 2,
-	EBackupOrder__BACKUP_4TH       = 3,
-	EBackupOrder__BACKUP_MAX       = 4
+	BACKUP_1ST                     = 0,
+	BACKUP_2ND                     = 1,
+	BACKUP_3RD                     = 2,
+	BACKUP_4TH                     = 3,
+	BACKUP_MAX                     = 4
 };
 
 
 // Enum Arise.EControlPlayer
 enum class EControlPlayer : uint8_t
 {
-	EControlPlayer__PLAYER_1P      = 0,
-	EControlPlayer__PLAYER_2P      = 1,
-	EControlPlayer__PLAYER_3P      = 2,
-	EControlPlayer__PLAYER_4P      = 3,
-	EControlPlayer__PLAYER_MAX     = 4
+	PLAYER_1P                      = 0,
+	PLAYER_2P                      = 1,
+	PLAYER_3P                      = 2,
+	PLAYER_4P                      = 3,
+	PLAYER_MAX                     = 4
 };
 
 
 // Enum Arise.EBottleEffect
 enum class EBottleEffect : uint8_t
 {
-	EBottleEffect__BOTTLE_EFFECT_NONE = 0,
-	EBottleEffect__BOTTLE_EFFECT_HOLY = 1,
-	EBottleEffect__BOTTLE_EFFECT_DARK = 2,
-	EBottleEffect__BOTTLE_EFFECT_MAX = 3
+	BOTTLE_EFFECT_NONE             = 0,
+	BOTTLE_EFFECT_HOLY             = 1,
+	BOTTLE_EFFECT_DARK             = 2,
+	BOTTLE_EFFECT_MAX              = 3
 };
 
 
 // Enum Arise.EEquipCategory
 enum class EEquipCategory : uint8_t
 {
-	EEquipCategory__WEAPON         = 0,
-	EEquipCategory__ARMOR          = 1,
-	EEquipCategory__ACCESSORY      = 2,
-	EEquipCategory__MAX            = 3
+	WEAPON                         = 0,
+	ARMOR                          = 1,
+	ACCESSORY                      = 2,
+	MAX                            = 3
 };
 
 
 // Enum Arise.EAriseRelationshipSeriousCheck
 enum class EAriseRelationshipSeriousCheck : uint8_t
 {
-	EAriseRelationshipSeriousCheck__NON = 0,
-	EAriseRelationshipSeriousCheck__SERIOUS_ENABLE = 1,
-	EAriseRelationshipSeriousCheck__SERIOUS_DISABLE = 2,
-	EAriseRelationshipSeriousCheck__EAriseRelationshipSeriousCheck_MAX = 3
+	NON                            = 0,
+	SERIOUS_ENABLE                 = 1,
+	SERIOUS_DISABLE                = 2,
+	EAriseRelationshipSeriousCheck_MAX = 3
 };
 
 
 // Enum Arise.EAriseResidentAssetCategory
 enum class EAriseResidentAssetCategory : uint8_t
 {
-	EAriseResidentAssetCategory__System = 0,
-	EAriseResidentAssetCategory__Boot = 1,
-	EAriseResidentAssetCategory__Title = 2,
-	EAriseResidentAssetCategory__Menu = 3,
-	EAriseResidentAssetCategory__Field = 4,
-	EAriseResidentAssetCategory__Fishing = 5,
-	EAriseResidentAssetCategory__Longchat = 6,
-	EAriseResidentAssetCategory__Battle = 7,
-	EAriseResidentAssetCategory__Manual = 8,
-	EAriseResidentAssetCategory__Debug = 9,
-	EAriseResidentAssetCategory__EAriseResidentAssetCategory_MAX = 10
+	System                         = 0,
+	Boot                           = 1,
+	Title                          = 2,
+	Menu                           = 3,
+	Field                          = 4,
+	Fishing                        = 5,
+	Longchat                       = 6,
+	Battle                         = 7,
+	Manual                         = 8,
+	Debug                          = 9,
+	EAriseResidentAssetCategory_MAX = 10
 };
 
 
 // Enum Arise.EAriseResidentAssetLoadPolicy
 enum class EAriseResidentAssetLoadPolicy : uint8_t
 {
-	EAriseResidentAssetLoadPolicy__Async = 0,
-	EAriseResidentAssetLoadPolicy__Sync = 1,
-	EAriseResidentAssetLoadPolicy__EAriseResidentAssetLoadPolicy_MAX = 2
+	Async                          = 0,
+	Sync                           = 1,
+	EAriseResidentAssetLoadPolicy_MAX = 2
 };
 
 
 // Enum Arise.EAriseSaveFlag
 enum class EAriseSaveFlag : uint8_t
 {
-	EAriseSaveFlag__SAVE_FLAG_LOCK = 0,
-	EAriseSaveFlag__SAVE_FLAG_MAX  = 1
+	SAVE_FLAG_LOCK                 = 0,
+	SAVE_FLAG_MAX                  = 1
 };
 
 
 // Enum Arise.EAriseSaveParameterIndex
 enum class EAriseSaveParameterIndex : uint8_t
 {
-	EAriseSaveParameterIndex__SAVE_PARAMETER_INDEX_FLAG = 0,
-	EAriseSaveParameterIndex__SAVE_PARAMETER_INDEX_MAX = 1
+	SAVE_PARAMETER_INDEX_FLAG      = 0,
+	SAVE_PARAMETER_INDEX_MAX       = 1
 };
 
 
 // Enum Arise.EAriseScenarioVariableSerialize
 enum class EAriseScenarioVariableSerialize : uint8_t
 {
-	EAriseScenarioVariableSerialize__None = 0,
-	EAriseScenarioVariableSerialize__Save = 1,
-	EAriseScenarioVariableSerialize__Load = 2,
-	EAriseScenarioVariableSerialize__EAriseScenarioVariableSerialize_MAX = 3
+	None                           = 0,
+	Save                           = 1,
+	Load                           = 2,
+	EAriseScenarioVariableSerialize_MAX = 3
 };
 
 
 // Enum Arise.EAriseScriptSaveDataType
 enum class EAriseScriptSaveDataType : uint8_t
 {
-	EAriseScriptSaveDataType__SCRIPT_SAVEDATA_TYPE_BOOL = 0,
-	EAriseScriptSaveDataType__SCRIPT_SAVEDATA_TYPE_FLOAT = 1,
-	EAriseScriptSaveDataType__SCRIPT_SAVEDATA_TYPE_INT32 = 2,
-	EAriseScriptSaveDataType__SCRIPT_SAVEDATA_TYPE_INT64 = 3,
-	EAriseScriptSaveDataType__SCRIPT_SAVEDATA_TYPE_MAX = 4
+	SCRIPT_SAVEDATA_TYPE_BOOL      = 0,
+	SCRIPT_SAVEDATA_TYPE_FLOAT     = 1,
+	SCRIPT_SAVEDATA_TYPE_INT32     = 2,
+	SCRIPT_SAVEDATA_TYPE_INT64     = 3,
+	SCRIPT_SAVEDATA_TYPE_MAX       = 4
 };
 
 
 // Enum Arise.EStatusConstraint
 enum class EStatusConstraint : uint8_t
 {
-	EStatusConstraint__Nothing     = 0,
-	EStatusConstraint__Advantaged  = 1,
-	EStatusConstraint__Disadvantaged = 2,
-	EStatusConstraint__Locked      = 3,
-	EStatusConstraint__EStatusConstraint_MAX = 4
+	Nothing                        = 0,
+	Advantaged                     = 1,
+	Disadvantaged                  = 2,
+	Locked                         = 3,
+	EStatusConstraint_MAX          = 4
 };
 
 
 // Enum Arise.ESavedDlcCheckIcon
 enum class ESavedDlcCheckIcon : uint8_t
 {
-	ESavedDlcCheckIcon__SAVE_DLC_NEW_ICON_CHECK_NOSTORE = 0,
-	ESavedDlcCheckIcon__SAVE_DLC_NEW_ICON_CHECK_YET = 1,
-	ESavedDlcCheckIcon__SAVE_DLC_NEW_ICON_CHECK_CONFIRMED = 2,
-	ESavedDlcCheckIcon__SAVE_DLC_NEW_ICON_CHECK_MAX = 3
+	SAVE_DLC_NEW_ICON_CHECK_NOSTORE = 0,
+	SAVE_DLC_NEW_ICON_CHECK_YET    = 1,
+	SAVE_DLC_NEW_ICON_CHECK_CONFIRMED = 2,
+	SAVE_DLC_NEW_ICON_CHECK_MAX    = 3
 };
 
 
 // Enum Arise.ESavedVoiceLanguage
 enum class ESavedVoiceLanguage : uint8_t
 {
-	ESavedVoiceLanguage__SAVE_VOICE_NOT_SET = 0,
-	ESavedVoiceLanguage__SAVE_VOICE_JAPANESE = 1,
-	ESavedVoiceLanguage__SAVE_VOICE_ENGLISH = 2,
-	ESavedVoiceLanguage__SAVE_VOICE_MAX = 3
+	SAVE_VOICE_NOT_SET             = 0,
+	SAVE_VOICE_JAPANESE            = 1,
+	SAVE_VOICE_ENGLISH             = 2,
+	SAVE_VOICE_MAX                 = 3
 };
 
 
 // Enum Arise.ESavedCEBankAgreement
 enum class ESavedCEBankAgreement : uint8_t
 {
-	ESavedCEBankAgreement__SAVE_CE_BANK_NOT_YET = 0,
-	ESavedCEBankAgreement__SAVE_CE_BANK_AGREE = 1,
-	ESavedCEBankAgreement__SAVE_CE_BANK_DISAGREE = 2,
-	ESavedCEBankAgreement__SAVE_CE_BANK_MAX = 3
+	SAVE_CE_BANK_NOT_YET           = 0,
+	SAVE_CE_BANK_AGREE             = 1,
+	SAVE_CE_BANK_DISAGREE          = 2,
+	SAVE_CE_BANK_MAX               = 3
 };
 
 
 // Enum Arise.ESavedPPAgreement
 enum class ESavedPPAgreement : uint8_t
 {
-	ESavedPPAgreement__SAVE_PP_NOT_YET = 0,
-	ESavedPPAgreement__SAVE_PP_AGREE = 1,
-	ESavedPPAgreement__SAVE_PP_DISAGREE = 2,
-	ESavedPPAgreement__SAVE_PP_MAX = 3
+	SAVE_PP_NOT_YET                = 0,
+	SAVE_PP_AGREE                  = 1,
+	SAVE_PP_DISAGREE               = 2,
+	SAVE_PP_MAX                    = 3
 };
 
 
 // Enum Arise.ESavedEulaAgreement
 enum class ESavedEulaAgreement : uint8_t
 {
-	ESavedEulaAgreement__SAVE_EULA_NOT_YET = 0,
-	ESavedEulaAgreement__SAVE_EULA_AGREE = 1,
-	ESavedEulaAgreement__SAVE_EULA_DISAGREE = 2,
-	ESavedEulaAgreement__SAVE_EULA_MAX = 3
+	SAVE_EULA_NOT_YET              = 0,
+	SAVE_EULA_AGREE                = 1,
+	SAVE_EULA_DISAGREE             = 2,
+	SAVE_EULA_MAX                  = 3
 };
 
 
 // Enum Arise.BtlHudFaceIcon
 enum class EBtlHudFaceIcon : uint8_t
 {
-	BtlHudFaceIcon__BTLHUD_FACEICON_ARI = 0,
-	BtlHudFaceIcon__BTLHUD_FACEICON_SIO = 1,
-	BtlHudFaceIcon__BTLHUD_FACEICON_NNA = 2,
-	BtlHudFaceIcon__BTLHUD_FACEICON_ZGU = 3,
-	BtlHudFaceIcon__BTLHUD_FACEICON_MNK = 4,
-	BtlHudFaceIcon__BTLHUD_FACEICON_YRA = 5,
-	BtlHudFaceIcon__BTLHUD_FACEICON_ARI01 = 6,
-	BtlHudFaceIcon__BTLHUD_FACEICON_ARI02 = 7,
-	BtlHudFaceIcon__BTLHUD_FACEICON_ARI03 = 8,
-	BtlHudFaceIcon__BTLHUD_FACEICON_ARI04 = 9,
-	BtlHudFaceIcon__BTLHUD_FACEICON_ARI05 = 10,
-	BtlHudFaceIcon__BTLHUD_FACEICON_ARI06 = 11,
-	BtlHudFaceIcon__BTLHUD_FACEICON_SIO01 = 12,
-	BtlHudFaceIcon__BTLHUD_FACEICON_DLC = 13,
-	BtlHudFaceIcon__BTLHUD_FACEICON_DLC01 = 14,
-	BtlHudFaceIcon__BTLHUD_FACEICON_MAX = 15
+	BTLHUD_FACEICON_ARI            = 0,
+	BTLHUD_FACEICON_SIO            = 1,
+	BTLHUD_FACEICON_NNA            = 2,
+	BTLHUD_FACEICON_ZGU            = 3,
+	BTLHUD_FACEICON_MNK            = 4,
+	BTLHUD_FACEICON_YRA            = 5,
+	BTLHUD_FACEICON_ARI01          = 6,
+	BTLHUD_FACEICON_ARI02          = 7,
+	BTLHUD_FACEICON_ARI03          = 8,
+	BTLHUD_FACEICON_ARI04          = 9,
+	BTLHUD_FACEICON_ARI05          = 10,
+	BTLHUD_FACEICON_ARI06          = 11,
+	BTLHUD_FACEICON_SIO01          = 12,
+	BTLHUD_FACEICON_DLC            = 13,
+	BTLHUD_FACEICON_DLC01          = 14,
+	BTLHUD_FACEICON_MAX            = 15
 };
 
 
 // Enum Arise.EBtlAliasCountDefine
 enum class EBtlAliasCountDefine : uint8_t
 {
-	EBtlAliasCountDefine__STRIKE_COUNT = 0,
-	EBtlAliasCountDefine__STRIKE_SUCCESS_COUNT = 1,
-	EBtlAliasCountDefine__COOK_COUNT = 2,
-	EBtlAliasCountDefine__EAT_FOOD_COUNT = 3,
-	EBtlAliasCountDefine__EAT_FAVORITE_FOOD_COUNT = 4,
-	EBtlAliasCountDefine__MAX      = 5
+	STRIKE_COUNT                   = 0,
+	STRIKE_SUCCESS_COUNT           = 1,
+	COOK_COUNT                     = 2,
+	EAT_FOOD_COUNT                 = 3,
+	EAT_FAVORITE_FOOD_COUNT        = 4,
+	MAX                            = 5
 };
 
 
 // Enum Arise.EBtlAliasDefine
 enum class EBtlAliasDefine : uint8_t
 {
-	EBtlAliasDefine__NONE          = 0,
-	EBtlAliasDefine__STRIKE_COUNT  = 1,
-	EBtlAliasDefine__STRIKE_SUCCESS_COUNT = 2,
-	EBtlAliasDefine__COOK_COUNT    = 3,
-	EBtlAliasDefine__EAT_FOOD_COUNT = 4,
-	EBtlAliasDefine__EAT_FAVORITE_FOOD_COUNT = 5,
-	EBtlAliasDefine__SPECIAL_SIO_COUNT = 6,
-	EBtlAliasDefine__BIG_FISHING_COUNT = 7,
-	EBtlAliasDefine__ANY_LIKABLE_COUNT = 8,
-	EBtlAliasDefine__WEAPON_KIND_MAKE_COUNT = 9,
-	EBtlAliasDefine__SPECIAL_WEAPON_MAKE = 10,
-	EBtlAliasDefine__SPECIAL_ACCESSORY_MAKE = 11,
-	EBtlAliasDefine__SPECIAL_FISHING = 12,
-	EBtlAliasDefine__ACCESSORY_MAKE_COUNT = 13,
-	EBtlAliasDefine__ITEM_COLLECTION = 14,
-	EBtlAliasDefine__OWL_COLLECTION = 15,
-	EBtlAliasDefine__ARTIFACT_COUNT = 16,
-	EBtlAliasDefine__LEG_SKILL_COUNT = 17,
-	EBtlAliasDefine__HEAVY_SKILL_COUNT = 18,
-	EBtlAliasDefine__MAGIC_SKILL_COUNT = 19,
-	EBtlAliasDefine__PASTURE_COLLECTION = 20,
-	EBtlAliasDefine__HEALING_SKILL_COUNT = 21,
-	EBtlAliasDefine__SPECIAL_COOK  = 22,
-	EBtlAliasDefine__QUEST_CLEAR   = 23,
-	EBtlAliasDefine__EBtlAliasDefine_MAX = 24
+	NONE                           = 0,
+	STRIKE_COUNT                   = 1,
+	STRIKE_SUCCESS_COUNT           = 2,
+	COOK_COUNT                     = 3,
+	EAT_FOOD_COUNT                 = 4,
+	EAT_FAVORITE_FOOD_COUNT        = 5,
+	SPECIAL_SIO_COUNT              = 6,
+	BIG_FISHING_COUNT              = 7,
+	ANY_LIKABLE_COUNT              = 8,
+	WEAPON_KIND_MAKE_COUNT         = 9,
+	SPECIAL_WEAPON_MAKE            = 10,
+	SPECIAL_ACCESSORY_MAKE         = 11,
+	SPECIAL_FISHING                = 12,
+	ACCESSORY_MAKE_COUNT           = 13,
+	ITEM_COLLECTION                = 14,
+	OWL_COLLECTION                 = 15,
+	ARTIFACT_COUNT                 = 16,
+	LEG_SKILL_COUNT                = 17,
+	HEAVY_SKILL_COUNT              = 18,
+	MAGIC_SKILL_COUNT              = 19,
+	PASTURE_COLLECTION             = 20,
+	HEALING_SKILL_COUNT            = 21,
+	SPECIAL_COOK                   = 22,
+	QUEST_CLEAR                    = 23,
+	EBtlAliasDefine_MAX            = 24
 };
 
 
 // Enum Arise.EBtlArenaClass
 enum class EBtlArenaClass : uint8_t
 {
-	EBtlArenaClass__Low            = 0,
-	EBtlArenaClass__Middle         = 1,
-	EBtlArenaClass__High           = 2,
-	EBtlArenaClass__Expert         = 3,
-	EBtlArenaClass__EBtlArenaClass_MAX = 4
+	Low                            = 0,
+	Middle                         = 1,
+	High                           = 2,
+	Expert                         = 3,
+	EBtlArenaClass_MAX             = 4
+};
+
+
+// Enum Arise.EAriseCharaIconID
+enum class EAriseCharaIconID : uint8_t
+{
+	INVALID                        = 0,
+	ARI                            = 1,
+	SIO                            = 2,
+	NNA                            = 3,
+	ZGU                            = 4,
+	MNK                            = 5,
+	YRA                            = 6,
+	ZFA                            = 7,
+	BEZ                            = 8,
+	KIL                            = 9,
+	AGM                            = 10,
+	DFN                            = 11,
+	SOL                            = 12,
+	LHI                            = 13,
+	NPC                            = 14,
+	NPC01                          = 15,
+	NPC02                          = 16,
+	NPC03                          = 17,
+	NPC04                          = 18,
+	NPC05                          = 19,
+	NPC06                          = 20,
+	NPC07                          = 21,
+	NPC08                          = 22,
+	FRU                            = 23,
+	MRS                            = 24,
+	DNS                            = 25,
+	ODT                            = 26,
+	CCL                            = 27,
+	KRN                            = 28,
+	EDN                            = 29,
+	EIZ                            = 30,
+	KLZ                            = 31,
+	DAR                            = 32,
+	LSW                            = 33,
+	LGU                            = 34,
+	LLA                            = 35,
+	DOC                            = 36,
+	ELS                            = 37,
+	ELM                            = 38,
+	SGU                            = 39,
+	CBK                            = 40,
+	CBA                            = 41,
+	EAriseCharaIconID_MAX          = 42
 };
 
 
 // Enum Arise.EBtlArenaType
 enum class EBtlArenaType : uint8_t
 {
-	EBtlArenaType__Single          = 0,
-	EBtlArenaType__Party           = 1,
-	EBtlArenaType__Special         = 2,
-	EBtlArenaType__EBtlArenaType_MAX = 3
+	Single                         = 0,
+	Party                          = 1,
+	Special                        = 2,
+	EBtlArenaType_MAX              = 3
 };
 
 
 // Enum Arise.EBtlSkillUnit
 enum class EBtlSkillUnit : uint8_t
 {
-	EBtlSkillUnit__VALUE           = 0,
-	EBtlSkillUnit__PERCENT         = 1,
-	EBtlSkillUnit__EBtlSkillUnit_MAX = 2
+	VALUE                          = 0,
+	PERCENT                        = 1,
+	EBtlSkillUnit_MAX              = 2
 };
 
 
 // Enum Arise.EBtlSkillDefine
 enum class EBtlSkillDefine : uint8_t
 {
-	EBtlSkillDefine__NONE          = 0,
-	EBtlSkillDefine__ICON          = 1,
-	EBtlSkillDefine__SE_VOICE      = 2,
-	EBtlSkillDefine__EBtlSkillDefine_MAX = 3
+	NONE                           = 0,
+	ICON                           = 1,
+	SE_VOICE                       = 2,
+	EBtlSkillDefine_MAX            = 3
 };
 
 
 // Enum Arise.EBtlSkillCategory
 enum class EBtlSkillCategory : uint8_t
 {
-	EBtlSkillCategory__ATTACK      = 0,
-	EBtlSkillCategory__DEFENSE     = 1,
-	EBtlSkillCategory__SUPPORT     = 2,
-	EBtlSkillCategory__UNIQUE      = 3,
-	EBtlSkillCategory__ACTION      = 4,
-	EBtlSkillCategory__ARTS        = 5,
-	EBtlSkillCategory__EBtlSkillCategory_MAX = 6
+	ATTACK                         = 0,
+	DEFENSE                        = 1,
+	SUPPORT                        = 2,
+	UNIQUE                         = 3,
+	ACTION                         = 4,
+	ARTS                           = 5,
+	EBtlSkillCategory_MAX          = 6
 };
 
 
 // Enum Arise.EBtlSkillType
 enum class EBtlSkillType : uint8_t
 {
-	EBtlSkillType__PASSIVE         = 0,
-	EBtlSkillType__ACTIVE          = 1,
-	EBtlSkillType__SKILL           = 2,
-	EBtlSkillType__RANDOM          = 3,
-	EBtlSkillType__COOK            = 4,
-	EBtlSkillType__ARTIFACT        = 5,
-	EBtlSkillType__WEAPON          = 6,
-	EBtlSkillType__ACCESSORY       = 7,
-	EBtlSkillType__BASIC           = 8,
-	EBtlSkillType__EBtlSkillType_MAX = 9
+	PASSIVE                        = 0,
+	ACTIVE                         = 1,
+	SKILL                          = 2,
+	RANDOM                         = 3,
+	COOK                           = 4,
+	ARTIFACT                       = 5,
+	WEAPON                         = 6,
+	ACCESSORY                      = 7,
+	BASIC                          = 8,
+	EBtlSkillType_MAX              = 9
 };
 
 
 // Enum Arise.EActionCriticalStatus
 enum class EActionCriticalStatus : uint8_t
 {
-	EActionCriticalStatus__UNCALCULATED = 0,
-	EActionCriticalStatus__SUCCESS = 1,
-	EActionCriticalStatus__FAIL    = 2,
-	EActionCriticalStatus__EActionCriticalStatus_MAX = 3
+	UNCALCULATED                   = 0,
+	SUCCESS                        = 1,
+	FAIL                           = 2,
+	EActionCriticalStatus_MAX      = 3
 };
 
 
 // Enum Arise.EBtlCameraAnimStartType
 enum class EBtlCameraAnimStartType : uint8_t
 {
-	EBtlCameraAnimStartType__BATTLE_WORLD = 0,
-	EBtlCameraAnimStartType__OWNER_CHARACTER = 1,
-	EBtlCameraAnimStartType__EBtlCameraAnimStartType_MAX = 2
-};
-
-
-// Enum Arise.EBtlArtsCategory
-enum class EBtlArtsCategory : uint8_t
-{
-	EBtlArtsCategory__NORMAL_ATTACK = 0,
-	EBtlArtsCategory__SKILL        = 1,
-	EBtlArtsCategory__SECRET_SKILL = 2,
-	EBtlArtsCategory__CHANT_MAGIC  = 3,
-	EBtlArtsCategory__HEAL_MAGIC   = 4,
-	EBtlArtsCategory__SPIRIT_MAGIC = 5,
-	EBtlArtsCategory__EBtlArtsCategory_MAX = 6
+	BATTLE_WORLD                   = 0,
+	OWNER_CHARACTER                = 1,
+	EBtlCameraAnimStartType_MAX    = 2
 };
 
 
 // Enum Arise.EBtlArtsRangeType
 enum class EBtlArtsRangeType : uint8_t
 {
-	EBtlArtsRangeType__FORWARD_SINGLE_SHORT = 0,
-	EBtlArtsRangeType__FORWARD_SINGLE_LONG = 1,
-	EBtlArtsRangeType__FORWARD_WIDE_SHORT = 2,
-	EBtlArtsRangeType__FORWARD_WIDE_LONG = 3,
-	EBtlArtsRangeType__CIRCLE_SHORT = 4,
-	EBtlArtsRangeType__CIRCLE_LONG = 5,
-	EBtlArtsRangeType__FULL_AREA   = 6,
-	EBtlArtsRangeType__EBtlArtsRangeType_MAX = 7
+	FORWARD_SINGLE_SHORT           = 0,
+	FORWARD_SINGLE_LONG            = 1,
+	FORWARD_WIDE_SHORT             = 2,
+	FORWARD_WIDE_LONG              = 3,
+	CIRCLE_SHORT                   = 4,
+	CIRCLE_LONG                    = 5,
+	FULL_AREA                      = 6,
+	EBtlArtsRangeType_MAX          = 7
 };
 
 
 // Enum Arise.EBtlSmashType
 enum class EBtlSmashType : uint8_t
 {
-	EBtlSmashType__BLOW            = 0,
-	EBtlSmashType__DOWN            = 1,
-	EBtlSmashType__BREAK           = 2,
-	EBtlSmashType__EBtlSmashType_MAX = 3
+	BLOW                           = 0,
+	DOWN                           = 1,
+	BREAK                          = 2,
+	EBtlSmashType_MAX              = 3
 };
 
 
 // Enum Arise.EBtlBuffOverlap
 enum class EBtlBuffOverlap : uint8_t
 {
-	EBtlBuffOverlap__Overlap       = 0,
-	EBtlBuffOverlap__NewBuffOverride = 1,
-	EBtlBuffOverlap__EBtlBuffOverlap_MAX = 2
+	Overlap                        = 0,
+	NewBuffOverride                = 1,
+	EBtlBuffOverlap_MAX            = 2
 };
 
 
 // Enum Arise.EBtlBuffType
 enum class EBtlBuffType : uint8_t
 {
-	EBtlBuffType__None             = 0,
-	EBtlBuffType__Buff             = 1,
-	EBtlBuffType__ActiveSkill      = 2,
-	EBtlBuffType__PassiveSkill     = 3,
-	EBtlBuffType__Weapon           = 4,
-	EBtlBuffType__Accessory        = 5,
-	EBtlBuffType__Cooking          = 6,
-	EBtlBuffType__Basic            = 7,
-	EBtlBuffType__EBtlBuffType_MAX = 8
+	None                           = 0,
+	Buff                           = 1,
+	ActiveSkill                    = 2,
+	PassiveSkill                   = 3,
+	Weapon                         = 4,
+	Accessory                      = 5,
+	Cooking                        = 6,
+	Basic                          = 7,
+	EBtlBuffType_MAX               = 8
 };
 
 
 // Enum Arise.EBtlStatusBuffType
 enum class EBtlStatusBuffType : uint8_t
 {
-	EBtlStatusBuffType__Event      = 0,
-	EBtlStatusBuffType__Tickable   = 1,
-	EBtlStatusBuffType__Intervention = 2,
-	EBtlStatusBuffType__EBtlStatusBuffType_MAX = 3
+	Event                          = 0,
+	Tickable                       = 1,
+	Intervention                   = 2,
+	EBtlStatusBuffType_MAX         = 3
 };
 
 
 // Enum Arise.EBtlCameraEasingState
 enum class EBtlCameraEasingState : uint8_t
 {
-	EBtlCameraEasingState__Easing_IN = 0,
-	EBtlCameraEasingState__Easing_KEEP = 1,
-	EBtlCameraEasingState__Easing_OUT = 2,
-	EBtlCameraEasingState__Easing_END = 3,
-	EBtlCameraEasingState__Easing_MAX = 4
+	Easing_IN                      = 0,
+	Easing_KEEP                    = 1,
+	Easing_OUT                     = 2,
+	Easing_END                     = 3,
+	Easing_MAX                     = 4
 };
 
 
 // Enum Arise.EBtlCameraFocusLocationState
 enum class EBtlCameraFocusLocationState : uint8_t
 {
-	EBtlCameraFocusLocationState__NONE = 0,
-	EBtlCameraFocusLocationState__FOCUS_LOCATION_IN = 1,
-	EBtlCameraFocusLocationState__FOCUS_LOCATION_KEEP = 2,
-	EBtlCameraFocusLocationState__FOCUS_LOCATION_OUT = 3,
-	EBtlCameraFocusLocationState__EBtlCameraFocusLocationState_MAX = 4
+	NONE                           = 0,
+	FOCUS_LOCATION_IN              = 1,
+	FOCUS_LOCATION_KEEP            = 2,
+	FOCUS_LOCATION_OUT             = 3,
+	EBtlCameraFocusLocationState_MAX = 4
 };
 
 
-// Enum Arise.EBtlDefaultAttackCollisionType
-enum class EBtlDefaultAttackCollisionType : uint8_t
+// Enum Arise.EBtlArtsCategory
+enum class EBtlArtsCategory : uint8_t
 {
-	EBtlDefaultAttackCollisionType__Sphere = 0,
-	EBtlDefaultAttackCollisionType__Capsule = 1,
-	EBtlDefaultAttackCollisionType__EBtlDefaultAttackCollisionType_MAX = 2
+	NORMAL_ATTACK                  = 0,
+	SKILL                          = 1,
+	SECRET_SKILL                   = 2,
+	CHANT_MAGIC                    = 3,
+	HEAL_MAGIC                     = 4,
+	SPIRIT_MAGIC                   = 5,
+	EBtlArtsCategory_MAX           = 6
 };
 
 
 // Enum Arise.EBtlAttackCollisionPlotType
 enum class EBtlAttackCollisionPlotType : uint8_t
 {
-	EBtlAttackCollisionPlotType__OWNER = 0,
-	EBtlAttackCollisionPlotType__TARGET = 1,
-	EBtlAttackCollisionPlotType__OTHER = 2,
-	EBtlAttackCollisionPlotType__EBtlAttackCollisionPlotType_MAX = 3
+	OWNER                          = 0,
+	TARGET                         = 1,
+	OTHER                          = 2,
+	EBtlAttackCollisionPlotType_MAX = 3
 };
 
 
 // Enum Arise.EAriseSkillState
 enum class EAriseSkillState : uint8_t
 {
-	EAriseSkillState__Disable      = 0,
-	EAriseSkillState__Enable       = 1,
-	EAriseSkillState__Effective    = 2,
-	EAriseSkillState__EAriseSkillState_MAX = 3
+	Disable                        = 0,
+	Enable                         = 1,
+	Effective                      = 2,
+	EAriseSkillState_MAX           = 3
 };
 
 
 // Enum Arise.EBtl_DecalMaterilParameterType
 enum class EBtl_DecalMaterilParameterType : uint8_t
 {
-	EBtl_DecalMaterilParameterType__Unknown = 0,
-	EBtl_DecalMaterilParameterType__Scolar = 1,
-	EBtl_DecalMaterilParameterType__ScolarCurve = 2,
-	EBtl_DecalMaterilParameterType__ScolarSimple = 3,
-	EBtl_DecalMaterilParameterType__Vector = 4,
-	EBtl_DecalMaterilParameterType__VectorCurve = 5,
-	EBtl_DecalMaterilParameterType__VectorSimple = 6,
-	EBtl_DecalMaterilParameterType__Texture = 7,
-	EBtl_DecalMaterilParameterType__EBtl_MAX = 8
+	Unknown                        = 0,
+	Scolar                         = 1,
+	ScolarCurve                    = 2,
+	ScolarSimple                   = 3,
+	Vector                         = 4,
+	VectorCurve                    = 5,
+	VectorSimple                   = 6,
+	Texture                        = 7,
+	EBtl_MAX                       = 8
 };
 
 
 // Enum Arise.EBtlInputConfigType
 enum class EBtlInputConfigType : uint8_t
 {
-	EBtlInputConfigType__InputEnable = 0,
-	EBtlInputConfigType__BattleFinish = 1,
-	EBtlInputConfigType__MainStateOnly = 2,
-	EBtlInputConfigType__CutScene  = 3,
-	EBtlInputConfigType__Pause     = 4,
-	EBtlInputConfigType__DebugWindow = 5,
-	EBtlInputConfigType__Tutorial  = 6,
-	EBtlInputConfigType__SystemPause = 7,
-	EBtlInputConfigType__MetaScript = 8,
-	EBtlInputConfigType__PlayerChangeFormation = 9,
-	EBtlInputConfigType__MapChange = 10,
-	EBtlInputConfigType__BoostStrike = 11,
-	EBtlInputConfigType__EBtlInputConfigType_MAX = 12
+	InputEnable                    = 0,
+	BattleFinish                   = 1,
+	MainStateOnly                  = 2,
+	CutScene                       = 3,
+	Pause                          = 4,
+	DebugWindow                    = 5,
+	Tutorial                       = 6,
+	SystemPause                    = 7,
+	MetaScript                     = 8,
+	PlayerChangeFormation          = 9,
+	MapChange                      = 10,
+	BoostStrike                    = 11,
+	EBtlInputConfigType_MAX        = 12
 };
 
 
 // Enum Arise.EBtlRequestDarknessPhase
 enum class EBtlRequestDarknessPhase : uint8_t
 {
-	EBtlRequestDarknessPhase__NONE = 0,
-	EBtlRequestDarknessPhase__IN_DARKNESS = 1,
-	EBtlRequestDarknessPhase__OUT_DARKNESS = 2,
-	EBtlRequestDarknessPhase__EBtlRequestDarknessPhase_MAX = 3
+	NONE                           = 0,
+	IN_DARKNESS                    = 1,
+	OUT_DARKNESS                   = 2,
+	EBtlRequestDarknessPhase_MAX   = 3
 };
 
 
@@ -2205,623 +2196,622 @@ enum class EBtlDebugPresetGetRP : uint8_t
 // Enum Arise.EBtlSoundPostEvent
 enum class EBtlSoundPostEvent : uint8_t
 {
-	EBtlSoundPostEvent__NONE       = 0,
-	EBtlSoundPostEvent__SND_BTL_BREAK = 1,
-	EBtlSoundPostEvent__SND_BTL_MYSTIC_SAFE = 2,
-	EBtlSoundPostEvent__SND_BTL_FINISH_SAFE = 3,
-	EBtlSoundPostEvent__SND_BOOST1_START = 4,
-	EBtlSoundPostEvent__SND_BOOST1_END = 5,
-	EBtlSoundPostEvent__SND_BOOST2_START = 6,
-	EBtlSoundPostEvent__SND_BOOST2_END = 7,
-	EBtlSoundPostEvent__SND_BTL_ARTS_LOOP_STOP = 8,
-	EBtlSoundPostEvent__EBtlSoundPostEvent_MAX = 9
+	NONE                           = 0,
+	SND_BTL_BREAK                  = 1,
+	SND_BTL_MYSTIC_SAFE            = 2,
+	SND_BTL_FINISH_SAFE            = 3,
+	SND_BOOST1_START               = 4,
+	SND_BOOST1_END                 = 5,
+	SND_BOOST2_START               = 6,
+	SND_BOOST2_END                 = 7,
+	SND_BTL_ARTS_LOOP_STOP         = 8,
+	EBtlSoundPostEvent_MAX         = 9
 };
 
 
 // Enum Arise.EBtlHitEffectOffsetRotationType
 enum class EBtlHitEffectOffsetRotationType : uint8_t
 {
-	EBtlHitEffectOffsetRotationType__Addition = 0,
-	EBtlHitEffectOffsetRotationType__Combine = 1,
-	EBtlHitEffectOffsetRotationType__EBtlHitEffectOffsetRotationType_MAX = 2
+	Addition                       = 0,
+	Combine                        = 1,
+	EBtlHitEffectOffsetRotationType_MAX = 2
 };
 
 
 // Enum Arise.EBtlHitEffectCalculateRotationType
 enum class EBtlHitEffectCalculateRotationType : uint8_t
 {
-	EBtlHitEffectCalculateRotationType__DamageToAttackerUnitDirection = 0,
-	EBtlHitEffectCalculateRotationType__AttackerCollisionRotation = 1,
-	EBtlHitEffectCalculateRotationType__EBtlHitEffectCalculateRotationType_MAX = 2
+	DamageToAttackerUnitDirection  = 0,
+	AttackerCollisionRotation      = 1,
+	EBtlHitEffectCalculateRotationType_MAX = 2
 };
 
 
 // Enum Arise.EBtlUnitDirectionType
 enum class EBtlUnitDirectionType : uint8_t
 {
-	EBtlUnitDirectionType__NONE    = 0,
-	EBtlUnitDirectionType__FORWARD = 1,
-	EBtlUnitDirectionType__RIGHT   = 2,
-	EBtlUnitDirectionType__LEFT    = 3,
-	EBtlUnitDirectionType__BACKWARD = 4,
-	EBtlUnitDirectionType__EBtlUnitDirectionType_MAX = 5
+	NONE                           = 0,
+	FORWARD                        = 1,
+	RIGHT                          = 2,
+	LEFT                           = 3,
+	BACKWARD                       = 4,
+	EBtlUnitDirectionType_MAX      = 5
 };
 
 
 // Enum Arise.EBtlFadeFilter
 enum class EBtlFadeFilter : uint8_t
 {
-	EBtlFadeFilter__OWNER          = 0,
-	EBtlFadeFilter__PARTY          = 1,
-	EBtlFadeFilter__ENEMY          = 2,
-	EBtlFadeFilter__ANY            = 3,
-	EBtlFadeFilter__EBtlFadeFilter_MAX = 4
+	OWNER                          = 0,
+	PARTY                          = 1,
+	ENEMY                          = 2,
+	ANY                            = 3,
+	EBtlFadeFilter_MAX             = 4
 };
 
 
 // Enum Arise.EBtlMoveType
 enum class EBtlMoveType : uint8_t
 {
-	EBtlMoveType__MOVE_RUN         = 0,
-	EBtlMoveType__MOVE_RUN_TARGET_LOCK = 1,
-	EBtlMoveType__MOVE_WALK        = 2,
-	EBtlMoveType__MOVE_WALK_TARGET_LOCK = 3,
-	EBtlMoveType__MOVE_FLY         = 4,
-	EBtlMoveType__MOVE_FLY_DIRECTION_LOCK = 5,
-	EBtlMoveType__MOVE_FLY_TARGET_LOCK = 6,
-	EBtlMoveType__MOVE_MAX         = 7
+	MOVE_RUN                       = 0,
+	MOVE_RUN_TARGET_LOCK           = 1,
+	MOVE_WALK                      = 2,
+	MOVE_WALK_TARGET_LOCK          = 3,
+	MOVE_FLY                       = 4,
+	MOVE_FLY_DIRECTION_LOCK        = 5,
+	MOVE_FLY_TARGET_LOCK           = 6,
+	MOVE_MAX                       = 7
 };
 
 
 // Enum Arise.EBtlChangeGameScene
 enum class EBtlChangeGameScene : uint8_t
 {
-	EBtlChangeGameScene__CHANGE_PREV_GAMESCENE = 0,
-	EBtlChangeGameScene__CHANGE_TO_TITLE = 1,
-	EBtlChangeGameScene__CHANGE_TO_PF = 2,
-	EBtlChangeGameScene__CHANGE_TO_ENDING = 3,
-	EBtlChangeGameScene__CHANGE_MAX = 4
+	CHANGE_PREV_GAMESCENE          = 0,
+	CHANGE_TO_TITLE                = 1,
+	CHANGE_TO_PF                   = 2,
+	CHANGE_TO_ENDING               = 3,
+	CHANGE_MAX                     = 4
 };
 
 
 // Enum Arise.EBtlArenaState
 enum class EBtlArenaState : uint8_t
 {
-	EBtlArenaState__NONE           = 0,
-	EBtlArenaState__ARENA_BTL      = 1,
-	EBtlArenaState__ARENA_BTL01    = 2,
-	EBtlArenaState__ARENA_BTL02    = 3,
-	EBtlArenaState__ARENA_FINALIZE = 4,
-	EBtlArenaState__EBtlArenaState_MAX = 5
+	NONE                           = 0,
+	ARENA_BTL                      = 1,
+	ARENA_BTL01                    = 2,
+	ARENA_BTL02                    = 3,
+	ARENA_FINALIZE                 = 4,
+	EBtlArenaState_MAX             = 5
 };
 
 
 // Enum Arise.EBtlTimeOperationPreProcessType
 enum class EBtlTimeOperationPreProcessType : uint8_t
 {
-	EBtlTimeOperationPreProcessType__None = 0,
-	EBtlTimeOperationPreProcessType__LastOperationAllClear = 1,
-	EBtlTimeOperationPreProcessType__EBtlTimeOperationPreProcessType_MAX = 2
+	None                           = 0,
+	LastOperationAllClear          = 1,
+	EBtlTimeOperationPreProcessType_MAX = 2
 };
 
 
 // Enum Arise.EBtlFacialType
 enum class EBtlFacialType : uint8_t
 {
-	EBtlFacialType__DEFAULT        = 0,
-	EBtlFacialType__DEAD           = 1,
-	EBtlFacialType__DAMAGE         = 2,
-	EBtlFacialType__ATTACK         = 3,
-	EBtlFacialType__ATTACK_NO_VOICE = 4,
-	EBtlFacialType__EBtlFacialType_MAX = 5
+	DEFAULT                        = 0,
+	DEAD                           = 1,
+	DAMAGE                         = 2,
+	ATTACK                         = 3,
+	ATTACK_NO_VOICE                = 4,
+	EBtlFacialType_MAX             = 5
 };
 
 
-// Enum Arise.EBtlSurfaceParticleSize
-enum class EBtlSurfaceParticleSize : uint8_t
+// Enum Arise.EBtlDefaultAttackCollisionType
+enum class EBtlDefaultAttackCollisionType : uint8_t
 {
-	EBtlSurfaceParticleSize__SMALL = 0,
-	EBtlSurfaceParticleSize__MIDDLE = 1,
-	EBtlSurfaceParticleSize__BIG   = 2,
-	EBtlSurfaceParticleSize__EBtlSurfaceParticleSize_MAX = 3
+	Sphere                         = 0,
+	Capsule                        = 1,
+	EBtlDefaultAttackCollisionType_MAX = 2
 };
 
 
 // Enum Arise.EBtlDestructibleParticleAction
 enum class EBtlDestructibleParticleAction : uint8_t
 {
-	EBtlDestructibleParticleAction__None = 0,
-	EBtlDestructibleParticleAction__Destory = 1,
-	EBtlDestructibleParticleAction__EBtlDestructibleParticleAction_MAX = 2
+	None                           = 0,
+	Destory                        = 1,
+	EBtlDestructibleParticleAction_MAX = 2
 };
 
 
 // Enum Arise.EBtlDestructMeshFilter
 enum class EBtlDestructMeshFilter : uint8_t
 {
-	EBtlDestructMeshFilter__NonDestruct = 0,
-	EBtlDestructMeshFilter__PlayerParty_Level0 = 1,
-	EBtlDestructMeshFilter__PlayerParty_Level1 = 2,
-	EBtlDestructMeshFilter__PlayerParty_Level2 = 3,
-	EBtlDestructMeshFilter__PlayerParty_Level3 = 4,
-	EBtlDestructMeshFilter__PlayerParty_Level4 = 5,
-	EBtlDestructMeshFilter__PlayerParty_Level5 = 6,
-	EBtlDestructMeshFilter__PlayerParty_Level6 = 7,
-	EBtlDestructMeshFilter__PlayerParty_Level7 = 8,
-	EBtlDestructMeshFilter__PlayerParty_Level8 = 9,
-	EBtlDestructMeshFilter__PlayerParty_Level9 = 10,
-	EBtlDestructMeshFilter__EnemyParty_Level0 = 11,
-	EBtlDestructMeshFilter__EnemyParty_Level1 = 12,
-	EBtlDestructMeshFilter__EnemyParty_Level2 = 13,
-	EBtlDestructMeshFilter__EnemyParty_Level3 = 14,
-	EBtlDestructMeshFilter__EnemyParty_Level4 = 15,
-	EBtlDestructMeshFilter__EnemyParty_Level5 = 16,
-	EBtlDestructMeshFilter__EnemyParty_Level6 = 17,
-	EBtlDestructMeshFilter__EnemyParty_Level7 = 18,
-	EBtlDestructMeshFilter__EnemyParty_Level8 = 19,
-	EBtlDestructMeshFilter__EnemyParty_Level9 = 20,
-	EBtlDestructMeshFilter__AnyParty_Level0 = 21,
-	EBtlDestructMeshFilter__AnyParty_Level1 = 22,
-	EBtlDestructMeshFilter__AnyParty_Level2 = 23,
-	EBtlDestructMeshFilter__AnyParty_Level3 = 24,
-	EBtlDestructMeshFilter__AnyParty_Level4 = 25,
-	EBtlDestructMeshFilter__AnyParty_Level5 = 26,
-	EBtlDestructMeshFilter__AnyParty_Level6 = 27,
-	EBtlDestructMeshFilter__AnyParty_Level7 = 28,
-	EBtlDestructMeshFilter__AnyParty_Level8 = 29,
-	EBtlDestructMeshFilter__AnyParty_Level9 = 30,
-	EBtlDestructMeshFilter__EBtlDestructMeshFilter_MAX = 31
+	NonDestruct                    = 0,
+	PlayerParty_Level0             = 1,
+	PlayerParty_Level1             = 2,
+	PlayerParty_Level2             = 3,
+	PlayerParty_Level3             = 4,
+	PlayerParty_Level4             = 5,
+	PlayerParty_Level5             = 6,
+	PlayerParty_Level6             = 7,
+	PlayerParty_Level7             = 8,
+	PlayerParty_Level8             = 9,
+	PlayerParty_Level9             = 10,
+	EnemyParty_Level0              = 11,
+	EnemyParty_Level1              = 12,
+	EnemyParty_Level2              = 13,
+	EnemyParty_Level3              = 14,
+	EnemyParty_Level4              = 15,
+	EnemyParty_Level5              = 16,
+	EnemyParty_Level6              = 17,
+	EnemyParty_Level7              = 18,
+	EnemyParty_Level8              = 19,
+	EnemyParty_Level9              = 20,
+	AnyParty_Level0                = 21,
+	AnyParty_Level1                = 22,
+	AnyParty_Level2                = 23,
+	AnyParty_Level3                = 24,
+	AnyParty_Level4                = 25,
+	AnyParty_Level5                = 26,
+	AnyParty_Level6                = 27,
+	AnyParty_Level7                = 28,
+	AnyParty_Level8                = 29,
+	AnyParty_Level9                = 30,
+	EBtlDestructMeshFilter_MAX     = 31
 };
 
 
 // Enum Arise.EBtlDestructFilterLevel
 enum class EBtlDestructFilterLevel : uint8_t
 {
-	EBtlDestructFilterLevel__NonDestruct = 0,
-	EBtlDestructFilterLevel__Level0 = 1,
-	EBtlDestructFilterLevel__Level1 = 2,
-	EBtlDestructFilterLevel__Level2 = 3,
-	EBtlDestructFilterLevel__Level3 = 4,
-	EBtlDestructFilterLevel__Level4 = 5,
-	EBtlDestructFilterLevel__Level5 = 6,
-	EBtlDestructFilterLevel__Level6 = 7,
-	EBtlDestructFilterLevel__Level7 = 8,
-	EBtlDestructFilterLevel__Level8 = 9,
-	EBtlDestructFilterLevel__Level9 = 10,
-	EBtlDestructFilterLevel__EBtlDestructFilterLevel_MAX = 11
+	NonDestruct                    = 0,
+	Level0                         = 1,
+	Level1                         = 2,
+	Level2                         = 3,
+	Level3                         = 4,
+	Level4                         = 5,
+	Level5                         = 6,
+	Level6                         = 7,
+	Level7                         = 8,
+	Level8                         = 9,
+	Level9                         = 10,
+	EBtlDestructFilterLevel_MAX    = 11
 };
 
 
 // Enum Arise.EDestructibleType
 enum class EDestructibleType : uint8_t
 {
-	EDestructibleType__NONE        = 0,
-	EDestructibleType__SOFT_POWER  = 1,
-	EDestructibleType__MIDDLE_POWER = 2,
-	EDestructibleType__STRONG_POWER = 3,
-	EDestructibleType__EDestructibleType_MAX = 4
+	NONE                           = 0,
+	SOFT_POWER                     = 1,
+	MIDDLE_POWER                   = 2,
+	STRONG_POWER                   = 3,
+	EDestructibleType_MAX          = 4
 };
 
 
 // Enum Arise.EBtlSystemEffectRank
 enum class EBtlSystemEffectRank : uint8_t
 {
-	EBtlSystemEffectRank__Default  = 0,
-	EBtlSystemEffectRank__Upper    = 1,
-	EBtlSystemEffectRank__Lower    = 2,
-	EBtlSystemEffectRank__EBtlSystemEffectRank_MAX = 3
+	Default                        = 0,
+	Upper                          = 1,
+	Lower                          = 2,
+	EBtlSystemEffectRank_MAX       = 3
 };
 
 
 // Enum Arise.EBtlEffectType
 enum class EBtlEffectType : uint8_t
 {
-	EBtlEffectType__Default        = 0,
-	EBtlEffectType__HitEffect      = 1,
-	EBtlEffectType__EBtlEffectType_MAX = 2
+	Default                        = 0,
+	HitEffect                      = 1,
+	EBtlEffectType_MAX             = 2
 };
 
 
 // Enum Arise.UBtlEncountEffectWidgetState
 enum class EUBtlEncountEffectWidgetState : uint8_t
 {
-	UBtlEncountEffectWidgetState__None = 0,
-	UBtlEncountEffectWidgetState__Start = 1,
-	UBtlEncountEffectWidgetState__Loop = 2,
-	UBtlEncountEffectWidgetState__End = 3,
-	UBtlEncountEffectWidgetState__UBtlEncountEffectWidgetState_MAX = 4
+	None                           = 0,
+	Start                          = 1,
+	Loop                           = 2,
+	End                            = 3,
+	UBtlEncountEffectWidgetState_MAX = 4
 };
 
 
 // Enum Arise.EBtlFieldAreaDecalActor
 enum class EBtlFieldAreaDecalActor : uint8_t
 {
-	EBtlFieldAreaDecalActor__Visible = 0,
-	EBtlFieldAreaDecalActor__Invisible = 1,
-	EBtlFieldAreaDecalActor__FadeIn = 2,
-	EBtlFieldAreaDecalActor__FadeOut = 3,
-	EBtlFieldAreaDecalActor__EBtlFieldAreaDecalActor_MAX = 4
+	Visible                        = 0,
+	Invisible                      = 1,
+	FadeIn                         = 2,
+	FadeOut                        = 3,
+	EBtlFieldAreaDecalActor_MAX    = 4
 };
 
 
 // Enum Arise.EBtlFieldAreaDecal
 enum class EBtlFieldAreaDecal : uint8_t
 {
-	EBtlFieldAreaDecal__Visible    = 0,
-	EBtlFieldAreaDecal__Invisible  = 1,
-	EBtlFieldAreaDecal__FadeIn     = 2,
-	EBtlFieldAreaDecal__FadeOut    = 3,
-	EBtlFieldAreaDecal__EBtlFieldAreaDecal_MAX = 4
+	Visible                        = 0,
+	Invisible                      = 1,
+	FadeIn                         = 2,
+	FadeOut                        = 3,
+	EBtlFieldAreaDecal_MAX         = 4
 };
 
 
 // Enum Arise.EBtlKnockBackDirectionType
 enum class EBtlKnockBackDirectionType : uint8_t
 {
-	EBtlKnockBackDirectionType__AttackUnitToTarget = 0,
-	EBtlKnockBackDirectionType__AttackCollisionToTarget = 1,
-	EBtlKnockBackDirectionType__TargetToAttackCollision = 2,
-	EBtlKnockBackDirectionType__AttackUnitForward = 3,
-	EBtlKnockBackDirectionType__EBtlKnockBackDirectionType_MAX = 4
+	AttackUnitToTarget             = 0,
+	AttackCollisionToTarget        = 1,
+	TargetToAttackCollision        = 2,
+	AttackUnitForward              = 3,
+	EBtlKnockBackDirectionType_MAX = 4
 };
 
 
 // Enum Arise.EBtlLearnType_YRA
 enum class EBtlLearnType_YRA : uint8_t
 {
-	EBtlLearnType_YRA__STICK       = 0,
-	EBtlLearnType_YRA__MAGIC       = 1,
-	EBtlLearnType_YRA__HEAL        = 2,
-	EBtlLearnType_YRA__NONE        = 3,
-	EBtlLearnType_YRA__EBtlLearnType_MAX = 4
+	STICK                          = 0,
+	MAGIC                          = 1,
+	HEAL                           = 2,
+	NONE                           = 3,
+	EBtlLearnType_MAX              = 4
 };
 
 
 // Enum Arise.EBtlLearnType_MNK
 enum class EBtlLearnType_MNK : uint8_t
 {
-	EBtlLearnType_MNK__SHIELD      = 0,
-	EBtlLearnType_MNK__HEAVY_ATTACK = 1,
-	EBtlLearnType_MNK__COUNTER_ATTACK = 2,
-	EBtlLearnType_MNK__NONE        = 3,
-	EBtlLearnType_MNK__EBtlLearnType_MAX = 4
+	SHIELD                         = 0,
+	HEAVY_ATTACK                   = 1,
+	COUNTER_ATTACK                 = 2,
+	NONE                           = 3,
+	EBtlLearnType_MAX              = 4
 };
 
 
 // Enum Arise.EBtlLearnType_ZGU
 enum class EBtlLearnType_ZGU : uint8_t
 {
-	EBtlLearnType_ZGU__HAND        = 0,
-	EBtlLearnType_ZGU__FOOT        = 1,
-	EBtlLearnType_ZGU__KI          = 2,
-	EBtlLearnType_ZGU__NONE        = 3,
-	EBtlLearnType_ZGU__EBtlLearnType_MAX = 4
+	HAND                           = 0,
+	FOOT                           = 1,
+	KI                             = 2,
+	NONE                           = 3,
+	EBtlLearnType_MAX              = 4
 };
 
 
 // Enum Arise.EBtlLearnType_NNA
 enum class EBtlLearnType_NNA : uint8_t
 {
-	EBtlLearnType_NNA__LIGHT       = 0,
-	EBtlLearnType_NNA__WIND        = 1,
-	EBtlLearnType_NNA__WATER       = 2,
-	EBtlLearnType_NNA__NONE        = 3,
-	EBtlLearnType_NNA__EBtlLearnType_MAX = 4
+	LIGHT                          = 0,
+	WIND                           = 1,
+	WATER                          = 2,
+	NONE                           = 3,
+	EBtlLearnType_MAX              = 4
 };
 
 
 // Enum Arise.EBtlLearnType_SIO
 enum class EBtlLearnType_SIO : uint8_t
 {
-	EBtlLearnType_SIO__GUN         = 0,
-	EBtlLearnType_SIO__BOMB        = 1,
-	EBtlLearnType_SIO__HEAL        = 2,
-	EBtlLearnType_SIO__NONE        = 3,
-	EBtlLearnType_SIO__EBtlLearnType_MAX = 4
+	GUN                            = 0,
+	BOMB                           = 1,
+	HEAL                           = 2,
+	NONE                           = 3,
+	EBtlLearnType_MAX              = 4
 };
 
 
 // Enum Arise.EBtlLearnType_ARI
 enum class EBtlLearnType_ARI : uint8_t
 {
-	EBtlLearnType_ARI__SWORD       = 0,
-	EBtlLearnType_ARI__AIR         = 1,
-	EBtlLearnType_ARI__FIRE_SWORD  = 2,
-	EBtlLearnType_ARI__NONE        = 3,
-	EBtlLearnType_ARI__EBtlLearnType_MAX = 4
+	SWORD                          = 0,
+	AIR                            = 1,
+	FIRE_SWORD                     = 2,
+	NONE                           = 3,
+	EBtlLearnType_MAX              = 4
 };
 
 
 // Enum Arise.EBtlLearnType
 enum class EBtlLearnType : uint8_t
 {
-	EBtlLearnType__NONE            = 0,
-	EBtlLearnType__SWORD           = 1,
-	EBtlLearnType__AIR             = 2,
-	EBtlLearnType__FIRE_SWORD      = 3,
-	EBtlLearnType__GUN             = 4,
-	EBtlLearnType__BOMB            = 5,
-	EBtlLearnType__HEAL            = 6,
-	EBtlLearnType__LIGHT           = 7,
-	EBtlLearnType__WIND            = 8,
-	EBtlLearnType__WATER           = 9,
-	EBtlLearnType__HAND            = 10,
-	EBtlLearnType__FOOT            = 11,
-	EBtlLearnType__KI              = 12,
-	EBtlLearnType__SHIELD          = 13,
-	EBtlLearnType__HEAVY_ATTACK    = 14,
-	EBtlLearnType__COUNTER_ATTACK  = 15,
-	EBtlLearnType__STICK           = 16,
-	EBtlLearnType__MAGIC           = 17,
-	EBtlLearnType__EBtlLearnType_MAX = 18
+	NONE                           = 0,
+	SWORD                          = 1,
+	AIR                            = 2,
+	FIRE_SWORD                     = 3,
+	GUN                            = 4,
+	BOMB                           = 5,
+	HEAL                           = 6,
+	LIGHT                          = 7,
+	WIND                           = 8,
+	WATER                          = 9,
+	HAND                           = 10,
+	FOOT                           = 11,
+	KI                             = 12,
+	SHIELD                         = 13,
+	HEAVY_ATTACK                   = 14,
+	COUNTER_ATTACK                 = 15,
+	STICK                          = 16,
+	MAGIC                          = 17,
+	EBtlLearnType_MAX              = 18
 };
 
 
 // Enum Arise.EBtlSmashRotateOption
 enum class EBtlSmashRotateOption : uint8_t
 {
-	EBtlSmashRotateOption__ROTATE_PLAYER = 0,
-	EBtlSmashRotateOption__ROTATE_FIX = 1,
-	EBtlSmashRotateOption__ROTATE_MAX = 2
+	ROTATE_PLAYER                  = 0,
+	ROTATE_FIX                     = 1,
+	ROTATE_MAX                     = 2
 };
 
 
 // Enum Arise.EBtlMagicCondition_TurnTargetType
 enum class EBtlMagicCondition_TurnTargetType : uint8_t
 {
-	EBtlMagicCondition_TurnTargetType__EnableCorrectionCheck = 0,
-	EBtlMagicCondition_TurnTargetType__DisableCorrectionCheck = 1,
-	EBtlMagicCondition_TurnTargetType__ManualInputDisableCorrectionCheck = 2,
-	EBtlMagicCondition_TurnTargetType__EBtlMagicCondition_MAX = 3
+	EnableCorrectionCheck          = 0,
+	DisableCorrectionCheck         = 1,
+	ManualInputDisableCorrectionCheck = 2,
+	EBtlMagicCondition_MAX         = 3
 };
 
 
 // Enum Arise.EBtlMagicConditionCategory
 enum class EBtlMagicConditionCategory : uint8_t
 {
-	EBtlMagicConditionCategory__Collision = 0,
-	EBtlMagicConditionCategory__Extra = 1,
-	EBtlMagicConditionCategory__EBtlMagicConditionCategory_MAX = 2
+	Collision                      = 0,
+	Extra                          = 1,
+	EBtlMagicConditionCategory_MAX = 2
 };
 
 
 // Enum Arise.EBtlMagicTaskCategory
 enum class EBtlMagicTaskCategory : uint8_t
 {
-	EBtlMagicTaskCategory__Movement = 0,
-	EBtlMagicTaskCategory__MovementFilter = 1,
-	EBtlMagicTaskCategory__Position = 2,
-	EBtlMagicTaskCategory__Rotation = 3,
-	EBtlMagicTaskCategory__Collision = 4,
-	EBtlMagicTaskCategory__Particle = 5,
-	EBtlMagicTaskCategory__SpawnMagic = 6,
-	EBtlMagicTaskCategory__Sound   = 7,
-	EBtlMagicTaskCategory__Mesh    = 8,
-	EBtlMagicTaskCategory__Development = 9,
-	EBtlMagicTaskCategory__Extra   = 10,
-	EBtlMagicTaskCategory__EBtlMagicTaskCategory_MAX = 11
+	Movement                       = 0,
+	MovementFilter                 = 1,
+	Position                       = 2,
+	Rotation                       = 3,
+	Collision                      = 4,
+	Particle                       = 5,
+	SpawnMagic                     = 6,
+	Sound                          = 7,
+	Mesh                           = 8,
+	Development                    = 9,
+	Extra                          = 10,
+	EBtlMagicTaskCategory_MAX      = 11
 };
 
 
 // Enum Arise.EBtlMagicDestoryFlags
 enum class EBtlMagicDestoryFlags : uint8_t
 {
-	EBtlMagicDestoryFlags__NoFlags = 0,
-	EBtlMagicDestoryFlags__Down    = 1,
-	EBtlMagicDestoryFlags__CutScene = 2,
-	EBtlMagicDestoryFlags__UseAllFlags = 3,
-	EBtlMagicDestoryFlags__DefaultFlags = 4,
-	EBtlMagicDestoryFlags__EBtlMagicDestoryFlags_MAX = 5
+	NoFlags                        = 0,
+	Down                           = 1,
+	CutScene                       = 2,
+	UseAllFlags                    = 3,
+	DefaultFlags                   = 4,
+	EBtlMagicDestoryFlags_MAX      = 5
 };
 
 
 // Enum Arise.EBtlMagicTickingGroup
 enum class EBtlMagicTickingGroup : uint8_t
 {
-	EBtlMagicTickingGroup__Notify  = 0,
-	EBtlMagicTickingGroup__NonDependence = 1,
-	EBtlMagicTickingGroup__Movement = 2,
-	EBtlMagicTickingGroup__MovementFilter = 3,
-	EBtlMagicTickingGroup__PostMovement = 4,
-	EBtlMagicTickingGroup__Rotation = 5,
-	EBtlMagicTickingGroup__PostRotation = 6,
-	EBtlMagicTickingGroup__Finalize = 7,
-	EBtlMagicTickingGroup__EBtlMagicTickingGroup_MAX = 8
+	Notify                         = 0,
+	NonDependence                  = 1,
+	Movement                       = 2,
+	MovementFilter                 = 3,
+	PostMovement                   = 4,
+	Rotation                       = 5,
+	PostRotation                   = 6,
+	Finalize                       = 7,
+	EBtlMagicTickingGroup_MAX      = 8
 };
 
 
 // Enum Arise.EBtlMagicVisiableAdjust
 enum class EBtlMagicVisiableAdjust : uint8_t
 {
-	EBtlMagicVisiableAdjust__None  = 0,
-	EBtlMagicVisiableAdjust__OwnerUnit = 1,
-	EBtlMagicVisiableAdjust__TargetUnit = 2,
-	EBtlMagicVisiableAdjust__EBtlMagicVisiableAdjust_MAX = 3
+	None                           = 0,
+	OwnerUnit                      = 1,
+	TargetUnit                     = 2,
+	EBtlMagicVisiableAdjust_MAX    = 3
 };
 
 
 // Enum Arise.EBtlMagicRotationOrigin
 enum class EBtlMagicRotationOrigin : uint8_t
 {
-	EBtlMagicRotationOrigin__World = 0,
-	EBtlMagicRotationOrigin__SELF  = 1,
-	EBtlMagicRotationOrigin__PARENT = 2,
-	EBtlMagicRotationOrigin__OWNER = 3,
-	EBtlMagicRotationOrigin__TARGET = 4,
-	EBtlMagicRotationOrigin__SELF_TO_TARGET = 5,
-	EBtlMagicRotationOrigin__TARGET_TO_SELF = 6,
-	EBtlMagicRotationOrigin__EBtlMagicRotationOrigin_MAX = 7
+	World                          = 0,
+	SELF                           = 1,
+	PARENT                         = 2,
+	OWNER                          = 3,
+	TARGET                         = 4,
+	SELF_TO_TARGET                 = 5,
+	TARGET_TO_SELF                 = 6,
+	EBtlMagicRotationOrigin_MAX    = 7
 };
 
 
 // Enum Arise.EBtlMagicRotationType
 enum class EBtlMagicRotationType : uint8_t
 {
-	EBtlMagicRotationType__ROTATION_OWNER = 0,
-	EBtlMagicRotationType__ROTATION_TARGET = 1,
-	EBtlMagicRotationType__ROTATION_OWNER_SOCKET = 2,
-	EBtlMagicRotationType__ROTATION_TARGET_SOCKET = 3,
-	EBtlMagicRotationType__ROTATION_MAGIC = 4,
-	EBtlMagicRotationType__ROTATION_WORLD = 5,
-	EBtlMagicRotationType__ROTATION_MAX = 6
+	ROTATION_OWNER                 = 0,
+	ROTATION_TARGET                = 1,
+	ROTATION_OWNER_SOCKET          = 2,
+	ROTATION_TARGET_SOCKET         = 3,
+	ROTATION_MAGIC                 = 4,
+	ROTATION_WORLD                 = 5,
+	ROTATION_MAX                   = 6
 };
 
 
 // Enum Arise.EBtlMagicLocationType
 enum class EBtlMagicLocationType : uint8_t
 {
-	EBtlMagicLocationType__LOCATION_OWNER = 0,
-	EBtlMagicLocationType__LOCATION_TARGET = 1,
-	EBtlMagicLocationType__LOCATION_OWNER_SOCKET = 2,
-	EBtlMagicLocationType__LOCATION_TARGET_SOCKET = 3,
-	EBtlMagicLocationType__LOCATION_MAGIC = 4,
-	EBtlMagicLocationType__LOCATION_WORLD = 5,
-	EBtlMagicLocationType__LOCATION_MAX = 6
+	LOCATION_OWNER                 = 0,
+	LOCATION_TARGET                = 1,
+	LOCATION_OWNER_SOCKET          = 2,
+	LOCATION_TARGET_SOCKET         = 3,
+	LOCATION_MAGIC                 = 4,
+	LOCATION_WORLD                 = 5,
+	LOCATION_MAX                   = 6
 };
 
 
 // Enum Arise.EBtlMagicSpawnCandidateTarget
 enum class EBtlMagicSpawnCandidateTarget : uint8_t
 {
-	EBtlMagicSpawnCandidateTarget__PARENT_MAGIC = 0,
-	EBtlMagicSpawnCandidateTarget__OWNER_UNIT_TARGET = 1,
-	EBtlMagicSpawnCandidateTarget__EBtlMagicSpawnCandidateTarget_MAX = 2
+	PARENT_MAGIC                   = 0,
+	OWNER_UNIT_TARGET              = 1,
+	EBtlMagicSpawnCandidateTarget_MAX = 2
 };
 
 
 // Enum Arise.EBtlMagicTaskAbortType
 enum class EBtlMagicTaskAbortType : uint8_t
 {
-	EBtlMagicTaskAbortType__SelfOnly = 0,
-	EBtlMagicTaskAbortType__ChildAll = 1,
-	EBtlMagicTaskAbortType__All    = 2,
-	EBtlMagicTaskAbortType__EBtlMagicTaskAbortType_MAX = 3
+	SelfOnly                       = 0,
+	ChildAll                       = 1,
+	All                            = 2,
+	EBtlMagicTaskAbortType_MAX     = 3
 };
 
 
 // Enum Arise.EBtlParameterType
 enum class EBtlParameterType : uint8_t
 {
-	EBtlParameterType__Basic       = 0,
-	EBtlParameterType__Skill       = 1,
-	EBtlParameterType__EBtlParameterType_MAX = 2
+	Basic                          = 0,
+	Skill                          = 1,
+	EBtlParameterType_MAX          = 2
 };
 
 
 // Enum Arise.EBtl_NPC_VISMode
 enum class EBtl_NPC_VISMode : uint8_t
 {
-	EBtl_NPC_VISMode__Default      = 0,
-	EBtl_NPC_VISMode__ForceTrue    = 1,
-	EBtl_NPC_VISMode__ForceFalse   = 2,
-	EBtl_NPC_VISMode__MAX          = 3
+	Default                        = 0,
+	ForceTrue                      = 1,
+	ForceFalse                     = 2,
+	MAX                            = 3
 };
 
 
 // Enum Arise.EBtlDeveloperSettingsLoadType
 enum class EBtlDeveloperSettingsLoadType : uint8_t
 {
-	EBtlDeveloperSettingsLoadType__Default = 0,
-	EBtlDeveloperSettingsLoadType__Minimal = 1,
-	EBtlDeveloperSettingsLoadType__PartyLearn_EnemyAll = 2,
-	EBtlDeveloperSettingsLoadType__PartyOnly = 3,
-	EBtlDeveloperSettingsLoadType__PartyLearnOnly = 4,
-	EBtlDeveloperSettingsLoadType__EBtlDeveloperSettingsLoadType_MAX = 5
+	Default                        = 0,
+	Minimal                        = 1,
+	PartyLearn_EnemyAll            = 2,
+	PartyOnly                      = 3,
+	PartyLearnOnly                 = 4,
+	EBtlDeveloperSettingsLoadType_MAX = 5
 };
 
 
 // Enum Arise.ERunawayPhase
 enum class ERunawayPhase : uint8_t
 {
-	ERunawayPhase__None            = 0,
-	ERunawayPhase__Runaway         = 1,
-	ERunawayPhase__Successful      = 2,
-	ERunawayPhase__ERunawayPhase_MAX = 3
+	None                           = 0,
+	Runaway                        = 1,
+	Successful                     = 2,
+	ERunawayPhase_MAX              = 3
 };
 
 
 // Enum Arise.EBattleStateAction
 enum class EBattleStateAction : uint8_t
 {
-	EBattleStateAction__None       = 0,
-	EBattleStateAction__Initialize = 1,
-	EBattleStateAction__WaitComplete = 2,
-	EBattleStateAction__Activate   = 3,
-	EBattleStateAction__Execute    = 4,
-	EBattleStateAction__Finalize   = 5,
-	EBattleStateAction__WaitFinalize = 6,
-	EBattleStateAction__EBattleStateAction_MAX = 7
+	None                           = 0,
+	Initialize                     = 1,
+	WaitComplete                   = 2,
+	Activate                       = 3,
+	Execute                        = 4,
+	Finalize                       = 5,
+	WaitFinalize                   = 6,
+	EBattleStateAction_MAX         = 7
 };
 
 
 // Enum Arise.EBtlTimeDilationCategory
 enum class EBtlTimeDilationCategory : uint8_t
 {
-	EBtlTimeDilationCategory__Default = 0,
-	EBtlTimeDilationCategory__FlashRaid = 1,
-	EBtlTimeDilationCategory__HitStop = 2,
-	EBtlTimeDilationCategory__EBtlTimeDilationCategory_MAX = 3
+	Default                        = 0,
+	FlashRaid                      = 1,
+	HitStop                        = 2,
+	EBtlTimeDilationCategory_MAX   = 3
 };
 
 
 // Enum Arise.EBtlUnitEventType
 enum class EBtlUnitEventType : uint8_t
 {
-	EBtlUnitEventType__ARI_FIRE_STATE_CHANGED = 0,
-	EBtlUnitEventType__SIO_BULLET_COUNT_CHANGED = 1,
-	EBtlUnitEventType__NNA_STOCK_CHANGED = 2,
-	EBtlUnitEventType__NNA_MAGIC_CANCELE_RESERVED = 3,
-	EBtlUnitEventType__ZGU_AWAKE_RANK_CHANGED = 4,
-	EBtlUnitEventType__MNK_GUARD_IGNITION_RANK_CHANGED = 5,
-	EBtlUnitEventType__MNK_GUARD_IGNITION_STATUS_CHANGED = 6,
-	EBtlUnitEventType__YRA_EXTENSION_RANK_CHANGED = 7,
-	EBtlUnitEventType__SPELL_SKIPPED = 8,
-	EBtlUnitEventType__Num         = 9,
-	EBtlUnitEventType__EBtlUnitEventType_MAX = 10
+	ARI_FIRE_STATE_CHANGED         = 0,
+	SIO_BULLET_COUNT_CHANGED       = 1,
+	NNA_STOCK_CHANGED              = 2,
+	NNA_MAGIC_CANCELE_RESERVED     = 3,
+	ZGU_AWAKE_RANK_CHANGED         = 4,
+	MNK_GUARD_IGNITION_RANK_CHANGED = 5,
+	MNK_GUARD_IGNITION_STATUS_CHANGED = 6,
+	YRA_EXTENSION_RANK_CHANGED     = 7,
+	SPELL_SKIPPED                  = 8,
+	Num                            = 9,
+	EBtlUnitEventType_MAX          = 10
 };
 
 
 // Enum Arise.EAriseSkillEffectScope
 enum class EAriseSkillEffectScope : uint8_t
 {
-	EAriseSkillEffectScope__Staying = 0,
-	EAriseSkillEffectScope__BattleOnly = 1,
-	EAriseSkillEffectScope__EAriseSkillEffectScope_MAX = 2
+	Staying                        = 0,
+	BattleOnly                     = 1,
+	EAriseSkillEffectScope_MAX     = 2
 };
 
 
 // Enum Arise.EAriseSkillSupportUnit
 enum class EAriseSkillSupportUnit : uint8_t
 {
-	EAriseSkillSupportUnit__Invalid = 0,
-	EAriseSkillSupportUnit__SHARED = 1,
-	EAriseSkillSupportUnit__ARI    = 2,
-	EAriseSkillSupportUnit__SIO    = 3,
-	EAriseSkillSupportUnit__NNA    = 4,
-	EAriseSkillSupportUnit__ZGU    = 5,
-	EAriseSkillSupportUnit__MNK    = 6,
-	EAriseSkillSupportUnit__YRA    = 7,
-	EAriseSkillSupportUnit__ARI_MNK = 8,
-	EAriseSkillSupportUnit__PARTY  = 9,
-	EAriseSkillSupportUnit__RESIDENT = 10,
-	EAriseSkillSupportUnit__ENEMY  = 11,
-	EAriseSkillSupportUnit__ALL    = 12,
-	EAriseSkillSupportUnit__EAriseSkillSupportUnit_MAX = 13
+	Invalid                        = 0,
+	SHARED                         = 1,
+	ARI                            = 2,
+	SIO                            = 3,
+	NNA                            = 4,
+	ZGU                            = 5,
+	MNK                            = 6,
+	YRA                            = 7,
+	ARI_MNK                        = 8,
+	PARTY                          = 9,
+	RESIDENT                       = 10,
+	ENEMY                          = 11,
+	ALL                            = 12,
+	EAriseSkillSupportUnit_MAX     = 13
 };
 
 
 // Enum Arise.EBtlVoiceRelationship
 enum class EBtlVoiceRelationship : uint8_t
 {
-	EBtlVoiceRelationship__NON     = 0,
-	EBtlVoiceRelationship__SYS     = 1,
-	EBtlVoiceRelationship__SB1     = 2,
-	EBtlVoiceRelationship__SB2     = 3,
-	EBtlVoiceRelationship__UQ1     = 4,
-	EBtlVoiceRelationship__UQ2     = 5,
-	EBtlVoiceRelationship__SPC     = 6,
-	EBtlVoiceRelationship__SB3     = 7,
-	EBtlVoiceRelationship__EBtlVoiceRelationship_MAX = 8
+	NON                            = 0,
+	SYS                            = 1,
+	SB1                            = 2,
+	SB2                            = 3,
+	UQ1                            = 4,
+	UQ2                            = 5,
+	SPC                            = 6,
+	SB3                            = 7,
+	EBtlVoiceRelationship_MAX      = 8
 };
 
 
@@ -2833,1315 +2823,1305 @@ enum class ECharacterCapturePose : uint8_t
 };
 
 
-// Enum Arise.EHelpCategory
-enum class EHelpCategory : uint8_t
+// Enum Arise.EBtlSurfaceParticleSize
+enum class EBtlSurfaceParticleSize : uint8_t
 {
-	EHelpCategory__System          = 0,
-	EHelpCategory__Battle          = 1,
-	EHelpCategory__EHelpCategory_MAX = 2
+	SMALL                          = 0,
+	MIDDLE                         = 1,
+	BIG                            = 2,
+	EBtlSurfaceParticleSize_MAX    = 3
 };
 
 
 // Enum Arise.EColKEYCategoryType
 enum class EColKEYCategoryType : uint8_t
 {
-	EColKEYCategoryType__CATEGORY000 = 0,
-	EColKEYCategoryType__CATEGORY001 = 1,
-	EColKEYCategoryType__CATEGORY002 = 2,
-	EColKEYCategoryType__EColKEYCategoryType_MAX = 3
+	CATEGORY000                    = 0,
+	CATEGORY001                    = 1,
+	CATEGORY002                    = 2,
+	EColKEYCategoryType_MAX        = 3
 };
 
 
 // Enum Arise.EConfigKey
 enum class EConfigKey : uint8_t
 {
-	EConfigKey__CONFIG_SCREEN_MODE = 0,
-	EConfigKey__CONFIG_RESOLUTION  = 1,
-	EConfigKey__CONFIG_VERTIAL_SYNC = 2,
-	EConfigKey__CONFIG_FRAMERATE_LIMIT = 3,
-	EConfigKey__CONFIG_BLOOM       = 4,
-	EConfigKey__CONFIG_MOTION_BLUR = 5,
-	EConfigKey__CONFIG_DRAW_SCALE  = 6,
-	EConfigKey__CONFIG_DRAW_DISTANCE_NPC = 7,
-	EConfigKey__CONFIG_DRAW_DISTANCE_OBJECT = 8,
-	EConfigKey__CONFIG_DRAW_DISTANCE_GRASS = 9,
-	EConfigKey__CONFIG_ANTIALIASING = 10,
-	EConfigKey__CONFIG_SHADOW_QUALITY = 11,
-	EConfigKey__CONFIG_TEXTURE_QUALITY = 12,
-	EConfigKey__CONFIG_EFFECT_QUALITY = 13,
-	EConfigKey__CONFIG_POSTPROCESS_QUALITY = 14,
-	EConfigKey__CONFIG_SCREEN_SPACE_REFLECTION = 15,
-	EConfigKey__CONFIG_OCCLUSION_CULLING = 16,
-	EConfigKey__CONFIG_ANISOTROPY_FILTERING = 17,
-	EConfigKey__CONFIG_FONT_SIZE   = 18,
-	EConfigKey__CONFIG_DIFFICULTY_LEVEL = 19,
-	EConfigKey__CONFIG_PRECEDING_INPUT_TIME = 20,
-	EConfigKey__CONFIG_CONTROLLER_VIBRATION = 21,
-	EConfigKey__CONFIG_NAVIMAP_ROTATION = 22,
-	EConfigKey__CONFIG_QUEST_MARKER_MAIN = 23,
-	EConfigKey__CONFIG_QUEST_MARKER_SUB = 24,
-	EConfigKey__CONFIG_SUBTITLE_DISPLAY = 25,
-	EConfigKey__CONFIG_BTL_CAMERA_SPEED = 26,
-	EConfigKey__CONFIG_PF_CAMERA_SPEED = 27,
-	EConfigKey__CONFIG_PF_CAMERA_YAW = 28,
-	EConfigKey__CONFIG_PF_CAMERA_PITCH = 29,
-	EConfigKey__CONFIG_KEY_CONFIGURATION = 30,
-	EConfigKey__CONFIG_LIGHT_ADJUST = 31,
-	EConfigKey__CONFIG_ANALYSIS_CONFIGURATION = 32,
-	EConfigKey__CONFIG_SOUND_OUTPUT = 33,
-	EConfigKey__CONFIG_BGM_VOLUME  = 34,
-	EConfigKey__CONFIG_SE_VOLUME   = 35,
-	EConfigKey__CONFIG_VOICE_VOLUME = 36,
-	EConfigKey__CONFIG_BTL_BGM     = 37,
-	EConfigKey__CONFIG_BTL_BGM_DETAILED = 38,
-	EConfigKey__CONFIG_INITIAL_SETTING = 39,
-	EConfigKey__CONFIG_AMBIENT_OCCLUSION = 40,
-	EConfigKey__CONFIG_VOLUMETRIC_LIGHTING = 41,
-	EConfigKey__CONFIG_SCREEN_SPACE_SHADOW = 42,
-	EConfigKey__CONFIG_GLOBAL_ILLUMINATION = 43,
-	EConfigKey__CONFIG_DEPTH_OF_FIELD = 44,
-	EConfigKey__CONFIG_LIGHT_SETTING = 45,
-	EConfigKey__CONFIG_BTL_BGM_SETTING = 46,
-	EConfigKey__CONFIG_GRAPHIC     = 47,
-	EConfigKey__CONFIG_GRAPHIC_INITIAL_SETTING = 48,
-	EConfigKey__CONFIG_CONTROLLER_CONFIGURATOR = 49,
-	EConfigKey__CONFIG_BTL_CAMERA_CORRECTION_ATTACK = 50,
-	EConfigKey__CONFIG_BTL_CAMERA_CORRECTION_MOVE = 51,
-	EConfigKey__CONFIG_BTL_CAMERA_AUTO_UNLOCK = 52,
-	EConfigKey__CONFIG_MENU_TEXTURE_QUALITY = 53,
-	EConfigKey__TYPE_MAX           = 54,
-	EConfigKey__EConfigKey_MAX     = 55
+	CONFIG_SCREEN_MODE             = 0,
+	CONFIG_RESOLUTION              = 1,
+	CONFIG_VERTIAL_SYNC            = 2,
+	CONFIG_FRAMERATE_LIMIT         = 3,
+	CONFIG_BLOOM                   = 4,
+	CONFIG_MOTION_BLUR             = 5,
+	CONFIG_DRAW_SCALE              = 6,
+	CONFIG_DRAW_DISTANCE_NPC       = 7,
+	CONFIG_DRAW_DISTANCE_OBJECT    = 8,
+	CONFIG_DRAW_DISTANCE_GRASS     = 9,
+	CONFIG_ANTIALIASING            = 10,
+	CONFIG_SHADOW_QUALITY          = 11,
+	CONFIG_TEXTURE_QUALITY         = 12,
+	CONFIG_EFFECT_QUALITY          = 13,
+	CONFIG_POSTPROCESS_QUALITY     = 14,
+	CONFIG_SCREEN_SPACE_REFLECTION = 15,
+	CONFIG_OCCLUSION_CULLING       = 16,
+	CONFIG_ANISOTROPY_FILTERING    = 17,
+	CONFIG_FONT_SIZE               = 18,
+	CONFIG_DIFFICULTY_LEVEL        = 19,
+	CONFIG_PRECEDING_INPUT_TIME    = 20,
+	CONFIG_CONTROLLER_VIBRATION    = 21,
+	CONFIG_NAVIMAP_ROTATION        = 22,
+	CONFIG_QUEST_MARKER_MAIN       = 23,
+	CONFIG_QUEST_MARKER_SUB        = 24,
+	CONFIG_SUBTITLE_DISPLAY        = 25,
+	CONFIG_BTL_CAMERA_SPEED        = 26,
+	CONFIG_PF_CAMERA_SPEED         = 27,
+	CONFIG_PF_CAMERA_YAW           = 28,
+	CONFIG_PF_CAMERA_PITCH         = 29,
+	CONFIG_KEY_CONFIGURATION       = 30,
+	CONFIG_LIGHT_ADJUST            = 31,
+	CONFIG_ANALYSIS_CONFIGURATION  = 32,
+	CONFIG_SOUND_OUTPUT            = 33,
+	CONFIG_BGM_VOLUME              = 34,
+	CONFIG_SE_VOLUME               = 35,
+	CONFIG_VOICE_VOLUME            = 36,
+	CONFIG_BTL_BGM                 = 37,
+	CONFIG_BTL_BGM_DETAILED        = 38,
+	CONFIG_INITIAL_SETTING         = 39,
+	CONFIG_AMBIENT_OCCLUSION       = 40,
+	CONFIG_VOLUMETRIC_LIGHTING     = 41,
+	CONFIG_SCREEN_SPACE_SHADOW     = 42,
+	CONFIG_GLOBAL_ILLUMINATION     = 43,
+	CONFIG_DEPTH_OF_FIELD          = 44,
+	CONFIG_LIGHT_SETTING           = 45,
+	CONFIG_BTL_BGM_SETTING         = 46,
+	CONFIG_GRAPHIC                 = 47,
+	CONFIG_GRAPHIC_INITIAL_SETTING = 48,
+	CONFIG_CONTROLLER_CONFIGURATOR = 49,
+	CONFIG_BTL_CAMERA_CORRECTION_ATTACK = 50,
+	CONFIG_BTL_CAMERA_CORRECTION_MOVE = 51,
+	CONFIG_BTL_CAMERA_AUTO_UNLOCK  = 52,
+	CONFIG_MENU_TEXTURE_QUALITY    = 53,
+	TYPE_MAX                       = 54,
+	EConfigKey_MAX                 = 55
 };
 
 
 // Enum Arise.ESetting
 enum class ESetting : uint8_t
 {
-	ESetting__CHOICE               = 0,
-	ESetting__INT                  = 1,
-	ESetting__CHECKBOX             = 2,
-	ESetting__GAUGE                = 3,
-	ESetting__SCENE_CHANGE         = 4,
-	ESetting__INITIAL              = 5,
-	ESetting__ANALYSIS             = 6,
-	ESetting__TYPE_MAX             = 7,
-	ESetting__ESetting_MAX         = 8
+	CHOICE                         = 0,
+	INT                            = 1,
+	CHECKBOX                       = 2,
+	GAUGE                          = 3,
+	SCENE_CHANGE                   = 4,
+	INITIAL                        = 5,
+	ANALYSIS                       = 6,
+	TYPE_MAX                       = 7,
+	ESetting_MAX                   = 8
 };
 
 
 // Enum Arise.EConfigCategory
 enum class EConfigCategory : uint8_t
 {
-	EConfigCategory__GRAPHICS      = 0,
-	EConfigCategory__GAME          = 1,
-	EConfigCategory__LIGHT_SETTING = 2,
-	EConfigCategory__BTL_BGM_SETTING = 3,
-	EConfigCategory__TYPE_MAX      = 4,
-	EConfigCategory__EConfigCategory_MAX = 5
+	GRAPHICS                       = 0,
+	GAME                           = 1,
+	LIGHT_SETTING                  = 2,
+	BTL_BGM_SETTING                = 3,
+	TYPE_MAX                       = 4,
+	EConfigCategory_MAX            = 5
 };
 
 
 // Enum Arise.EEncountSymbolState
 enum class EEncountSymbolState : uint8_t
 {
-	EEncountSymbolState__ENCSYM_NONE = 0,
-	EEncountSymbolState__ENCSYM_SLEEP = 1,
-	EEncountSymbolState__ENCSYM_ACTIVE = 2,
-	EEncountSymbolState__ENCSYM_ENCOUNT = 3,
-	EEncountSymbolState__ENCSYM_MAX = 4
+	ENCSYM_NONE                    = 0,
+	ENCSYM_SLEEP                   = 1,
+	ENCSYM_ACTIVE                  = 2,
+	ENCSYM_ENCOUNT                 = 3,
+	ENCSYM_MAX                     = 4
 };
 
 
 // Enum Arise.EEnSymGroupActiveCondision
 enum class EEnSymGroupActiveCondision : uint8_t
 {
-	EEnSymGroupActiveCondision__Always = 0,
-	EEnSymGroupActiveCondision__Noon = 1,
-	EEnSymGroupActiveCondision__Night = 2,
-	EEnSymGroupActiveCondision__EEnSymGroupActiveCondision_MAX = 3
+	Always                         = 0,
+	Noon                           = 1,
+	Night                          = 2,
+	EEnSymGroupActiveCondision_MAX = 3
 };
 
 
 // Enum Arise.EULA_Language
 enum class EULA_Language : uint8_t
 {
-	EULA_Language__JPN             = 0,
-	EULA_Language__ENG             = 1,
-	EULA_Language__BRP             = 2,
-	EULA_Language__NSP             = 3,
-	EULA_Language__FRA             = 4,
-	EULA_Language__ITA             = 5,
-	EULA_Language__GER             = 6,
-	EULA_Language__ESP             = 7,
-	EULA_Language__RUS             = 8,
-	EULA_Language__TC              = 9,
-	EULA_Language__KOR             = 10,
-	EULA_Language__EULA_MAX        = 11
+	JPN                            = 0,
+	ENG                            = 1,
+	BRP                            = 2,
+	NSP                            = 3,
+	FRA                            = 4,
+	ITA                            = 5,
+	GER                            = 6,
+	ESP                            = 7,
+	RUS                            = 8,
+	TC                             = 9,
+	KOR                            = 10,
+	EULA_MAX                       = 11
 };
 
 
 // Enum Arise.EEventAssetType
 enum class EEventAssetType : uint8_t
 {
-	EEventAssetType__Asset_LevelSequencerLoaded = 0,
-	EEventAssetType__Asset_LevelSequencerManualLoad = 1,
-	EEventAssetType__Asset_StreamLevelManualLoad = 2,
-	EEventAssetType__Asset_PlayLongChat = 3,
-	EEventAssetType__Asset_PlayMovie = 4,
-	EEventAssetType__Asset_EmptyEvent = 5,
-	EEventAssetType__Asset_MAX     = 6
+	Asset_LevelSequencerLoaded     = 0,
+	Asset_LevelSequencerManualLoad = 1,
+	Asset_StreamLevelManualLoad    = 2,
+	Asset_PlayLongChat             = 3,
+	Asset_PlayMovie                = 4,
+	Asset_EmptyEvent               = 5,
+	Asset_MAX                      = 6
 };
 
 
 // Enum Arise.EEventCategory
 enum class EEventCategory : uint8_t
 {
-	EEventCategory__MEP            = 0,
-	EEventCategory__SUB            = 1,
-	EEventCategory__LCH            = 2,
-	EEventCategory__SBQ            = 3,
-	EEventCategory__SYS            = 4,
-	EEventCategory__DBG            = 5,
-	EEventCategory__EEventCategory_MAX = 6
+	MEP                            = 0,
+	SUB                            = 1,
+	LCH                            = 2,
+	SBQ                            = 3,
+	SYS                            = 4,
+	DBG                            = 5,
+	EEventCategory_MAX             = 6
 };
 
 
 // Enum Arise.EEventStreamLoadingState
 enum class EEventStreamLoadingState : uint8_t
 {
-	EEventStreamLoadingState__ESLS_None = 0,
-	EEventStreamLoadingState__ESLS_Loading = 1,
-	EEventStreamLoadingState__ESLS_Loaded = 2,
-	EEventStreamLoadingState__ESLS_Unloading = 3,
-	EEventStreamLoadingState__ESLS_Unloaded = 4,
-	EEventStreamLoadingState__ESLS_MAX = 5
+	ESLS_None                      = 0,
+	ESLS_Loading                   = 1,
+	ESLS_Loaded                    = 2,
+	ESLS_Unloading                 = 3,
+	ESLS_Unloaded                  = 4,
+	ESLS_MAX                       = 5
 };
 
 
 // Enum Arise.EEventPlayState
 enum class EEventPlayState : uint8_t
 {
-	EEventPlayState__EVST_Standby  = 0,
-	EEventPlayState__EVST_WaitLoading = 1,
-	EEventPlayState__EVST_Loaded   = 2,
-	EEventPlayState__EVST_PreFade  = 3,
-	EEventPlayState__EVST_PlayingSequencer = 4,
-	EEventPlayState__EVST_PlayingLongchat = 5,
-	EEventPlayState__EVST_PlayingMovie = 6,
-	EEventPlayState__EVST_PlayEnd  = 7,
-	EEventPlayState__EVST_PostFade = 8,
-	EEventPlayState__EVST_LoadingScript = 9,
-	EEventPlayState__EVST_RunScript = 10,
-	EEventPlayState__EVST_ErrorEnd = 11,
-	EEventPlayState__EVST_MAX      = 12
+	EVST_Standby                   = 0,
+	EVST_WaitLoading               = 1,
+	EVST_Loaded                    = 2,
+	EVST_PreFade                   = 3,
+	EVST_PlayingSequencer          = 4,
+	EVST_PlayingLongchat           = 5,
+	EVST_PlayingMovie              = 6,
+	EVST_PlayEnd                   = 7,
+	EVST_PostFade                  = 8,
+	EVST_LoadingScript             = 9,
+	EVST_RunScript                 = 10,
+	EVST_ErrorEnd                  = 11,
+	EVST_MAX                       = 12
 };
 
 
 // Enum Arise.EEventType
 enum class EEventType : uint8_t
 {
-	EEventType__BC                 = 0,
-	EEventType__PF                 = 1,
-	EEventType__MV                 = 2,
-	EEventType__AN                 = 3,
-	EEventType__S                  = 4,
-	EEventType__A                  = 5,
-	EEventType__B1                 = 6,
-	EEventType__B2                 = 7,
-	EEventType__NLC                = 8,
-	EEventType__LC                 = 9,
-	EEventType__SC                 = 10,
-	EEventType__BT                 = 11,
-	EEventType__EEventType_MAX     = 12
+	BC                             = 0,
+	PF                             = 1,
+	MV                             = 2,
+	AN                             = 3,
+	S                              = 4,
+	A                              = 5,
+	B1                             = 6,
+	B2                             = 7,
+	NLC                            = 8,
+	LC                             = 9,
+	SC                             = 10,
+	BT                             = 11,
+	EEventType_MAX                 = 12
 };
 
 
 // Enum Arise.EFadeMusic
 enum class EFadeMusic : uint8_t
 {
-	EFadeMusic__None               = 0,
-	EFadeMusic__FadeIn             = 1,
-	EFadeMusic__FadeOut            = 2,
-	EFadeMusic__DuckIn             = 3,
-	EFadeMusic__DuckOut            = 4,
-	EFadeMusic__EFadeMusic_MAX     = 5
+	None                           = 0,
+	FadeIn                         = 1,
+	FadeOut                        = 2,
+	DuckIn                         = 3,
+	DuckOut                        = 4,
+	EFadeMusic_MAX                 = 5
+};
+
+
+// Enum Arise.EHelpCategory
+enum class EHelpCategory : uint8_t
+{
+	System                         = 0,
+	Battle                         = 1,
+	EHelpCategory_MAX              = 2
 };
 
 
 // Enum Arise.EFishingSE
 enum class EFishingSE : uint8_t
 {
-	EFishingSE__SE_SYS_FISHING_PUSH = 0,
-	EFishingSE__SE_SYS_FISHING_GOOD = 1,
-	EFishingSE__SE_SYS_FISHING_EXCELLENT = 2,
-	EFishingSE__SE_SYS_FISHING_BAD = 3,
-	EFishingSE__SE_SYS_FISHING_QTE_ON = 4,
-	EFishingSE__SE_SYS_FISHING_QTE_SUCCESS = 5,
-	EFishingSE__SE_SYS_FISHING_DAMAGE_01 = 6,
-	EFishingSE__SE_SYS_FISHING_DAMAGE_02 = 7,
-	EFishingSE__SE_SYS_FISHING_DANGER = 8,
-	EFishingSE__SE_SYS_FISHING_GET_UNCOMMON = 9,
-	EFishingSE__SE_SYS_FISHING_GET = 10,
-	EFishingSE__SE_SYS_FISHING_STAR = 11,
-	EFishingSE__SE_FOL_FISHING_SWING = 12,
-	EFishingSE__SE_FOL_FISHING_LINE = 13,
-	EFishingSE__SE_FOL_FISHING_REEL_LOOP = 14,
-	EFishingSE__SE_FOL_FISHING_REEL_01 = 15,
-	EFishingSE__SE_FOL_FISHING_SPLASH_OUT_S_01 = 16,
-	EFishingSE__SE_FOL_FISHING_SPLASH_OUT_S_02 = 17,
-	EFishingSE__SE_FOL_FISHING_SPLASH_OUT_S_03 = 18,
-	EFishingSE__SE_FOL_FISHING_SPLASH_OUT_L_01 = 19,
-	EFishingSE__SE_FOL_FISHING_SPLASH_OUT_L_02 = 20,
-	EFishingSE__SE_FOL_FISHING_SPLASH_OUT_L_03 = 21,
-	EFishingSE__SE_FOL_FISHING_SPLASH_IN_S_01 = 22,
-	EFishingSE__SE_FOL_FISHING_SPLASH_IN_S_02 = 23,
-	EFishingSE__SE_FOL_FISHING_SPLASH_IN_S_03 = 24,
-	EFishingSE__SE_FOL_FISHING_SPLASH_IN_L_01 = 25,
-	EFishingSE__SE_FOL_FISHING_SPLASH_IN_L_02 = 26,
-	EFishingSE__SE_FOL_FISHING_SPLASH_IN_L_03 = 27,
-	EFishingSE__SE_FOL_FISHING_FISH_SWIM_01 = 28,
-	EFishingSE__SE_FOL_FISING_FISH_MOVE_01 = 29,
-	EFishingSE__FISHING_SE_MAX     = 30,
-	EFishingSE__EFishingSE_MAX     = 31
+	SE_SYS_FISHING_PUSH            = 0,
+	SE_SYS_FISHING_GOOD            = 1,
+	SE_SYS_FISHING_EXCELLENT       = 2,
+	SE_SYS_FISHING_BAD             = 3,
+	SE_SYS_FISHING_QTE_ON          = 4,
+	SE_SYS_FISHING_QTE_SUCCESS     = 5,
+	SE_SYS_FISHING_DAMAGE_01       = 6,
+	SE_SYS_FISHING_DAMAGE_02       = 7,
+	SE_SYS_FISHING_DANGER          = 8,
+	SE_SYS_FISHING_GET_UNCOMMON    = 9,
+	SE_SYS_FISHING_GET             = 10,
+	SE_SYS_FISHING_STAR            = 11,
+	SE_FOL_FISHING_SWING           = 12,
+	SE_FOL_FISHING_LINE            = 13,
+	SE_FOL_FISHING_REEL_LOOP       = 14,
+	SE_FOL_FISHING_REEL_01         = 15,
+	SE_FOL_FISHING_SPLASH_OUT_S_01 = 16,
+	SE_FOL_FISHING_SPLASH_OUT_S_02 = 17,
+	SE_FOL_FISHING_SPLASH_OUT_S_03 = 18,
+	SE_FOL_FISHING_SPLASH_OUT_L_01 = 19,
+	SE_FOL_FISHING_SPLASH_OUT_L_02 = 20,
+	SE_FOL_FISHING_SPLASH_OUT_L_03 = 21,
+	SE_FOL_FISHING_SPLASH_IN_S_01  = 22,
+	SE_FOL_FISHING_SPLASH_IN_S_02  = 23,
+	SE_FOL_FISHING_SPLASH_IN_S_03  = 24,
+	SE_FOL_FISHING_SPLASH_IN_L_01  = 25,
+	SE_FOL_FISHING_SPLASH_IN_L_02  = 26,
+	SE_FOL_FISHING_SPLASH_IN_L_03  = 27,
+	SE_FOL_FISHING_FISH_SWIM_01    = 28,
+	SE_FOL_FISING_FISH_MOVE_01     = 29,
+	FISHING_SE_MAX                 = 30,
+	EFishingSE_MAX                 = 31
 };
 
 
 // Enum Arise.EFishScScene
 enum class EFishScScene : uint8_t
 {
-	EFishScScene__FisSCScenePreCast = 0,
-	EFishScScene__FisSCScenePreCastRe = 1,
-	EFishScScene__FisSCSceneCasting = 2,
-	EFishScScene__FisSCScenePickup = 3,
-	EFishScScene__FisSCSceneHooking = 4,
-	EFishScScene__FisSCSceneFighting = 5,
-	EFishScScene__FisSCSceneHookout = 6,
-	EFishScScene__FisSCSceneResult = 7,
-	EFishScScene__FisSCSceneResultRe = 8,
-	EFishScScene__FisSCSceneSizeEval = 9,
-	EFishScScene__FisSCSceneSizeEvalRe = 10,
-	EFishScScene__EFishScScene_MAX = 11
+	FisSCScenePreCast              = 0,
+	FisSCScenePreCastRe            = 1,
+	FisSCSceneCasting              = 2,
+	FisSCScenePickup               = 3,
+	FisSCSceneHooking              = 4,
+	FisSCSceneFighting             = 5,
+	FisSCSceneHookout              = 6,
+	FisSCSceneResult               = 7,
+	FisSCSceneResultRe             = 8,
+	FisSCSceneSizeEval             = 9,
+	FisSCSceneSizeEvalRe           = 10,
+	EFishScScene_MAX               = 11
 };
 
 
 // Enum Arise.ELureAction
 enum class ELureAction : uint8_t
 {
-	ELureAction__LureActPause      = 0,
-	ELureAction__LureActReel       = 1,
-	ELureAction__LureActTwich      = 2,
-	ELureAction__LureActJark       = 3,
-	ELureAction__ELureAction_MAX   = 4
+	LureActPause                   = 0,
+	LureActReel                    = 1,
+	LureActTwich                   = 2,
+	LureActJark                    = 3,
+	ELureAction_MAX                = 4
 };
 
 
 // Enum Arise.ELureType
 enum class ELureType : uint8_t
 {
-	ELureType__LurePopper          = 0,
-	ELureType__LurePencil          = 1,
-	ELureType__LureMinnow          = 2,
-	ELureType__LureCrank           = 3,
-	ELureType__LureVibration       = 4,
-	ELureType__LureMetal           = 5,
-	ELureType__ELureType_MAX       = 6
+	LurePopper                     = 0,
+	LurePencil                     = 1,
+	LureMinnow                     = 2,
+	LureCrank                      = 3,
+	LureVibration                  = 4,
+	LureMetal                      = 5,
+	ELureType_MAX                  = 6
 };
 
 
 // Enum Arise.EFishType
 enum class EFishType : uint8_t
 {
-	EFishType__FISH_NONE           = 0,
-	EFishType__FISH_001            = 1,
-	EFishType__FISH_002            = 2,
-	EFishType__FISH_003            = 3,
-	EFishType__FISH_004            = 4,
-	EFishType__FISH_005            = 5,
-	EFishType__FISH_006            = 6,
-	EFishType__FISH_007            = 7,
-	EFishType__FISH_008            = 8,
-	EFishType__FISH_009            = 9,
-	EFishType__FISH_010            = 10,
-	EFishType__FISH_011            = 11,
-	EFishType__FISH_012            = 12,
-	EFishType__FISH_013            = 13,
-	EFishType__FISH_014            = 14,
-	EFishType__FISH_015            = 15,
-	EFishType__FISH_016            = 16,
-	EFishType__FISH_017            = 17,
-	EFishType__FISH_018            = 18,
-	EFishType__FISH_019            = 19,
-	EFishType__FISH_020            = 20,
-	EFishType__FISH_021            = 21,
-	EFishType__FISH_022            = 22,
-	EFishType__FISH_023            = 23,
-	EFishType__FISH_024            = 24,
-	EFishType__FISH_025            = 25,
-	EFishType__FISH_026            = 26,
-	EFishType__FISH_027            = 27,
-	EFishType__FISH_028            = 28,
-	EFishType__FISH_029            = 29,
-	EFishType__FISH_030            = 30,
-	EFishType__FISH_031            = 31,
-	EFishType__FISH_032            = 32,
-	EFishType__FISH_033            = 33,
-	EFishType__FISH_034            = 34,
-	EFishType__FISH_035            = 35,
-	EFishType__FISH_036            = 36,
-	EFishType__FISH_037            = 37,
-	EFishType__FISH_038            = 38,
-	EFishType__FISH_039            = 39,
-	EFishType__FISH_040            = 40,
-	EFishType__FISH_041            = 41,
-	EFishType__FISH_042            = 42,
-	EFishType__FISH_043            = 43,
-	EFishType__FISH_044            = 44,
-	EFishType__FISH_045            = 45,
-	EFishType__FISH_046            = 46,
-	EFishType__FISH_047            = 47,
-	EFishType__FISH_048            = 48,
-	EFishType__FISH_049            = 49,
-	EFishType__FISH_050            = 50,
-	EFishType__FISH_MAX            = 51
+	FISH_NONE                      = 0,
+	FISH_001                       = 1,
+	FISH_002                       = 2,
+	FISH_003                       = 3,
+	FISH_004                       = 4,
+	FISH_005                       = 5,
+	FISH_006                       = 6,
+	FISH_007                       = 7,
+	FISH_008                       = 8,
+	FISH_009                       = 9,
+	FISH_010                       = 10,
+	FISH_011                       = 11,
+	FISH_012                       = 12,
+	FISH_013                       = 13,
+	FISH_014                       = 14,
+	FISH_015                       = 15,
+	FISH_016                       = 16,
+	FISH_017                       = 17,
+	FISH_018                       = 18,
+	FISH_019                       = 19,
+	FISH_020                       = 20,
+	FISH_021                       = 21,
+	FISH_022                       = 22,
+	FISH_023                       = 23,
+	FISH_024                       = 24,
+	FISH_025                       = 25,
+	FISH_026                       = 26,
+	FISH_027                       = 27,
+	FISH_028                       = 28,
+	FISH_029                       = 29,
+	FISH_030                       = 30,
+	FISH_031                       = 31,
+	FISH_032                       = 32,
+	FISH_033                       = 33,
+	FISH_034                       = 34,
+	FISH_035                       = 35,
+	FISH_036                       = 36,
+	FISH_037                       = 37,
+	FISH_038                       = 38,
+	FISH_039                       = 39,
+	FISH_040                       = 40,
+	FISH_041                       = 41,
+	FISH_042                       = 42,
+	FISH_043                       = 43,
+	FISH_044                       = 44,
+	FISH_045                       = 45,
+	FISH_046                       = 46,
+	FISH_047                       = 47,
+	FISH_048                       = 48,
+	FISH_049                       = 49,
+	FISH_050                       = 50,
+	FISH_MAX                       = 51
 };
 
 
 // Enum Arise.EFishingHotSpotType
 enum class EFishingHotSpotType : uint8_t
 {
-	EFishingHotSpotType__StaticPoint = 0,
-	EFishingHotSpotType__DynamicPoint = 1,
-	EFishingHotSpotType__EFishingHotSpotType_MAX = 2
+	StaticPoint                    = 0,
+	DynamicPoint                   = 1,
+	EFishingHotSpotType_MAX        = 2
 };
 
 
 // Enum Arise.EFunctionMountState
 enum class EFunctionMountState : uint8_t
 {
-	EFunctionMountState__UnMount   = 0,
-	EFunctionMountState__UnMounting = 1,
-	EFunctionMountState__Mount     = 2,
-	EFunctionMountState__Mounting  = 3,
-	EFunctionMountState__EFunctionMountState_MAX = 4
+	UnMount                        = 0,
+	UnMounting                     = 1,
+	Mount                          = 2,
+	Mounting                       = 3,
+	EFunctionMountState_MAX        = 4
 };
 
 
 // Enum Arise.EGCManagerCondition
 enum class EGCManagerCondition : uint8_t
 {
-	EGCManagerCondition__UsedRelativeBaseline = 0,
-	EGCManagerCondition__FreeAbsolute = 1,
-	EGCManagerCondition__EGCManagerCondition_MAX = 2
+	UsedRelativeBaseline           = 0,
+	FreeAbsolute                   = 1,
+	EGCManagerCondition_MAX        = 2
 };
 
 
 // Enum Arise.EGCManagerUsage
 enum class EGCManagerUsage : uint8_t
 {
-	EGCManagerUsage__GUI           = 0,
-	EGCManagerUsage__PF            = 1,
-	EGCManagerUsage__USAGE_MAX     = 2,
-	EGCManagerUsage__EGCManagerUsage_MAX = 3
+	GUI                            = 0,
+	PF                             = 1,
+	USAGE_MAX                      = 2,
+	EGCManagerUsage_MAX            = 3
 };
 
 
 // Enum Arise.EItemIconTypeList
 enum class EItemIconTypeList : uint8_t
 {
-	EItemIconTypeList__NONE        = 0,
-	EItemIconTypeList__DLC         = 1,
-	EItemIconTypeList__GUMMI       = 2,
-	EItemIconTypeList__BOTTLE      = 3,
-	EItemIconTypeList__MATERIAL    = 4,
-	EItemIconTypeList__ACCESSORY   = 5,
-	EItemIconTypeList__SWORD       = 6,
-	EItemIconTypeList__RIFFLE      = 7,
-	EItemIconTypeList__BOOK        = 8,
-	EItemIconTypeList__GAUNTLET    = 9,
-	EItemIconTypeList__SHIELD      = 10,
-	EItemIconTypeList__ROD         = 11,
-	EItemIconTypeList__ARU         = 12,
-	EItemIconTypeList__SIO         = 13,
-	EItemIconTypeList__RIN         = 14,
-	EItemIconTypeList__ROU         = 15,
-	EItemIconTypeList__KIS         = 16,
-	EItemIconTypeList__TYU         = 17,
-	EItemIconTypeList__BANGLE      = 18,
-	EItemIconTypeList__CHECK       = 19,
-	EItemIconTypeList__TALISMAN    = 20,
-	EItemIconTypeList__EARRING     = 21,
-	EItemIconTypeList__NECKLACE    = 22,
-	EItemIconTypeList__RING        = 23,
-	EItemIconTypeList__MIRACLE     = 24,
-	EItemIconTypeList__COSTUME     = 25,
-	EItemIconTypeList__HAIR        = 26,
-	EItemIconTypeList__ATTACHMENT  = 27,
-	EItemIconTypeList__VALUE       = 28,
-	EItemIconTypeList__LEAF        = 29,
-	EItemIconTypeList__GRAIN       = 30,
-	EItemIconTypeList__VEGGIE      = 31,
-	EItemIconTypeList__FRUIT       = 32,
-	EItemIconTypeList__DAIRYPRODUCT = 33,
-	EItemIconTypeList__MEAT        = 34,
-	EItemIconTypeList__SEAFOOD     = 35,
-	EItemIconTypeList__MUSHROOM    = 36,
-	EItemIconTypeList__SEASONING   = 37,
-	EItemIconTypeList__OTHER       = 38,
-	EItemIconTypeList__TPJIZO      = 39,
-	EItemIconTypeList__POSTCARD    = 40,
-	EItemIconTypeList__PIECE       = 41,
-	EItemIconTypeList__STATUE      = 42,
-	EItemIconTypeList__ANIMAL      = 43,
-	EItemIconTypeList__SUBHUM      = 44,
-	EItemIconTypeList__INSECT      = 45,
-	EItemIconTypeList__NATURE      = 46,
-	EItemIconTypeList__WINGED      = 47,
-	EItemIconTypeList__DEABLO      = 48,
-	EItemIconTypeList__SOLDIER     = 49,
-	EItemIconTypeList__SUNDRIES    = 50,
-	EItemIconTypeList__RECIPE      = 51,
-	EItemIconTypeList__CASH        = 52,
-	EItemIconTypeList__FISHING_ROD = 53,
-	EItemIconTypeList__LURE        = 54,
-	EItemIconTypeList__ARTIFACT    = 55,
-	EItemIconTypeList__EItemIconTypeList_MAX = 56
+	NONE                           = 0,
+	DLC                            = 1,
+	GUMMI                          = 2,
+	BOTTLE                         = 3,
+	MATERIAL                       = 4,
+	ACCESSORY                      = 5,
+	SWORD                          = 6,
+	RIFFLE                         = 7,
+	BOOK                           = 8,
+	GAUNTLET                       = 9,
+	SHIELD                         = 10,
+	ROD                            = 11,
+	ARU                            = 12,
+	SIO                            = 13,
+	RIN                            = 14,
+	ROU                            = 15,
+	KIS                            = 16,
+	TYU                            = 17,
+	BANGLE                         = 18,
+	CHECK                          = 19,
+	TALISMAN                       = 20,
+	EARRING                        = 21,
+	NECKLACE                       = 22,
+	RING                           = 23,
+	MIRACLE                        = 24,
+	COSTUME                        = 25,
+	HAIR                           = 26,
+	ATTACHMENT                     = 27,
+	VALUE                          = 28,
+	LEAF                           = 29,
+	GRAIN                          = 30,
+	VEGGIE                         = 31,
+	FRUIT                          = 32,
+	DAIRYPRODUCT                   = 33,
+	MEAT                           = 34,
+	SEAFOOD                        = 35,
+	MUSHROOM                       = 36,
+	SEASONING                      = 37,
+	OTHER                          = 38,
+	TPJIZO                         = 39,
+	POSTCARD                       = 40,
+	PIECE                          = 41,
+	STATUE                         = 42,
+	ANIMAL                         = 43,
+	SUBHUM                         = 44,
+	INSECT                         = 45,
+	NATURE                         = 46,
+	WINGED                         = 47,
+	DEABLO                         = 48,
+	SOLDIER                        = 49,
+	SUNDRIES                       = 50,
+	RECIPE                         = 51,
+	CASH                           = 52,
+	FISHING_ROD                    = 53,
+	LURE                           = 54,
+	ARTIFACT                       = 55,
+	EItemIconTypeList_MAX          = 56
 };
 
 
 // Enum Arise.EItemMaxNum
 enum class EItemMaxNum : uint8_t
 {
-	EItemMaxNum__MAXNUM_NONE       = 0,
-	EItemMaxNum__MAXNUM            = 1,
-	EItemMaxNum__MAXNUM01          = 2,
-	EItemMaxNum__MAXNUM02          = 3,
-	EItemMaxNum__MAXNUM03          = 4,
-	EItemMaxNum__MAXNUM04          = 5,
-	EItemMaxNum__MAXNUM_MAX        = 6
+	MAXNUM_NONE                    = 0,
+	MAXNUM                         = 1,
+	MAXNUM01                       = 2,
+	MAXNUM02                       = 3,
+	MAXNUM03                       = 4,
+	MAXNUM04                       = 5,
+	MAXNUM_MAX                     = 6
 };
 
 
 // Enum Arise.EItemParameter
 enum class EItemParameter : uint8_t
 {
-	EItemParameter__NONE           = 0,
-	EItemParameter__HEAL_HP        = 1,
-	EItemParameter__HEAL_ALL_HP    = 2,
-	EItemParameter__UP_MAX_HP      = 3,
-	EItemParameter__RECOVERY       = 4,
-	EItemParameter__REVIVE         = 5,
-	EItemParameter__GROW_HP        = 6,
-	EItemParameter__GROW_PHYSICAL_OFFENSE = 7,
-	EItemParameter__GROW_PHYSICAL_DEFENSE = 8,
-	EItemParameter__GROW_ELEMENTAL_OFFENSE = 9,
-	EItemParameter__GROW_ELEMENTAL_DEFENSE = 10,
-	EItemParameter__GROW_PENETRATABILITY = 11,
-	EItemParameter__UP_PHYSICAL_OFFENSE = 12,
-	EItemParameter__UP_PHYSICAL_DEFENSE = 13,
-	EItemParameter__UP_ELEMENTAL_OFFENSE = 14,
-	EItemParameter__UP_ELEMENTAL_DEFENSE = 15,
-	EItemParameter__UP_PENETRATABILITY = 16,
-	EItemParameter__DEF_FILE       = 17,
-	EItemParameter__SE_FILE        = 18,
-	EItemParameter__BGM_FILE       = 19,
-	EItemParameter__HOLY_BOTTLE    = 20,
-	EItemParameter__DARK_BOTTLE    = 21,
-	EItemParameter__HEAL_TP        = 22,
-	EItemParameter__GROW_TP        = 23,
-	EItemParameter__GROW_SP        = 24,
-	EItemParameter__GROW_DURABILITY = 25,
-	EItemParameter__UP_DURABILITY  = 26,
-	EItemParameter__PRICE_BUY      = 27,
-	EItemParameter__PRICE_SELL     = 28,
-	EItemParameter__SPIRIT_BOTTLE  = 29,
-	EItemParameter__INGREDIENT_STATUS = 30,
-	EItemParameter__RAIRTY         = 31,
-	EItemParameter__DISH_COST      = 32,
-	EItemParameter__MATERIAL_TYPE  = 33,
-	EItemParameter__MATERIAL_ELEMENTAL = 34,
-	EItemParameter__ACCESSORY_TYPE = 35,
-	EItemParameter__ACCESSORY_SLOT = 36,
-	EItemParameter__DLC_ID         = 37,
-	EItemParameter__STATUE_NEEDAMOUNT = 38,
-	EItemParameter__ATTACHED_CHAR  = 39,
-	EItemParameter__ATTACHED_ID    = 40,
-	EItemParameter__HEAL_ALL_HP_PERCENTAGE = 41,
-	EItemParameter__RANDOM_SKILL_RAIRTY = 42,
-	EItemParameter__SKILL_ID       = 43,
-	EItemParameter__RANDOM_SKILL_RAIRTY_DIRECT = 44,
-	EItemParameter__ENABLE_SBF     = 45,
-	EItemParameter__JUDGE_CORRECTION = 46,
-	EItemParameter__DAMAGE_TO_FISH = 47,
-	EItemParameter__TENSION_CORRECTION = 48,
-	EItemParameter__RARITY_CORRECTION = 49,
-	EItemParameter__LURE_SCORE     = 50,
-	EItemParameter__LURE_TYPE      = 51,
-	EItemParameter__ACCESSORY_CATEGORY = 52,
-	EItemParameter__VISUALDB_LABEL = 53,
-	EItemParameter__RANDOM_SKILL_RAIRTY_FIX = 54,
-	EItemParameter__LURE_TARGET1   = 55,
-	EItemParameter__LURE_TARGET2   = 56,
-	EItemParameter__LURE_TARGET3   = 57,
-	EItemParameter__LURE_TARGET4   = 58,
-	EItemParameter__SHARE_PROTECTED = 59,
-	EItemParameter__ALL_PARTY_BASE_HP_UP = 60,
-	EItemParameter__ALL_PARTY_LEVEL_UP = 61,
-	EItemParameter__EItemParameter_MAX = 62
+	NONE                           = 0,
+	HEAL_HP                        = 1,
+	HEAL_ALL_HP                    = 2,
+	UP_MAX_HP                      = 3,
+	RECOVERY                       = 4,
+	REVIVE                         = 5,
+	GROW_HP                        = 6,
+	GROW_PHYSICAL_OFFENSE          = 7,
+	GROW_PHYSICAL_DEFENSE          = 8,
+	GROW_ELEMENTAL_OFFENSE         = 9,
+	GROW_ELEMENTAL_DEFENSE         = 10,
+	GROW_PENETRATABILITY           = 11,
+	UP_PHYSICAL_OFFENSE            = 12,
+	UP_PHYSICAL_DEFENSE            = 13,
+	UP_ELEMENTAL_OFFENSE           = 14,
+	UP_ELEMENTAL_DEFENSE           = 15,
+	UP_PENETRATABILITY             = 16,
+	DEF_FILE                       = 17,
+	SE_FILE                        = 18,
+	BGM_FILE                       = 19,
+	HOLY_BOTTLE                    = 20,
+	DARK_BOTTLE                    = 21,
+	HEAL_TP                        = 22,
+	GROW_TP                        = 23,
+	GROW_SP                        = 24,
+	GROW_DURABILITY                = 25,
+	UP_DURABILITY                  = 26,
+	PRICE_BUY                      = 27,
+	PRICE_SELL                     = 28,
+	SPIRIT_BOTTLE                  = 29,
+	INGREDIENT_STATUS              = 30,
+	RAIRTY                         = 31,
+	DISH_COST                      = 32,
+	MATERIAL_TYPE                  = 33,
+	MATERIAL_ELEMENTAL             = 34,
+	ACCESSORY_TYPE                 = 35,
+	ACCESSORY_SLOT                 = 36,
+	DLC_ID                         = 37,
+	STATUE_NEEDAMOUNT              = 38,
+	ATTACHED_CHAR                  = 39,
+	ATTACHED_ID                    = 40,
+	HEAL_ALL_HP_PERCENTAGE         = 41,
+	RANDOM_SKILL_RAIRTY            = 42,
+	SKILL_ID                       = 43,
+	RANDOM_SKILL_RAIRTY_DIRECT     = 44,
+	ENABLE_SBF                     = 45,
+	JUDGE_CORRECTION               = 46,
+	DAMAGE_TO_FISH                 = 47,
+	TENSION_CORRECTION             = 48,
+	RARITY_CORRECTION              = 49,
+	LURE_SCORE                     = 50,
+	LURE_TYPE                      = 51,
+	ACCESSORY_CATEGORY             = 52,
+	VISUALDB_LABEL                 = 53,
+	RANDOM_SKILL_RAIRTY_FIX        = 54,
+	LURE_TARGET1                   = 55,
+	LURE_TARGET2                   = 56,
+	LURE_TARGET3                   = 57,
+	LURE_TARGET4                   = 58,
+	SHARE_PROTECTED                = 59,
+	ALL_PARTY_BASE_HP_UP           = 60,
+	ALL_PARTY_LEVEL_UP             = 61,
+	EItemParameter_MAX             = 62
 };
 
 
 // Enum Arise.EItemCategory
 enum class EItemCategory : uint8_t
 {
-	EItemCategory__NONE            = 0,
-	EItemCategory__TOOL            = 1,
-	EItemCategory__MATERIAL        = 2,
-	EItemCategory__WEAPON          = 3,
-	EItemCategory__ARMOR           = 4,
-	EItemCategory__ACCESSORY       = 5,
-	EItemCategory__VALUE           = 6,
-	EItemCategory__COSTUME         = 7,
-	EItemCategory__DLC             = 8,
-	EItemCategory__COOK            = 9,
-	EItemCategory__OTHER           = 10,
-	EItemCategory__UNIQUE          = 11,
-	EItemCategory__EItemCategory_MAX = 12
+	NONE                           = 0,
+	TOOL                           = 1,
+	MATERIAL                       = 2,
+	WEAPON                         = 3,
+	ARMOR                          = 4,
+	ACCESSORY                      = 5,
+	VALUE                          = 6,
+	COSTUME                        = 7,
+	DLC                            = 8,
+	COOK                           = 9,
+	OTHER                          = 10,
+	UNIQUE                         = 11,
+	EItemCategory_MAX              = 12
 };
 
 
 // Enum Arise.EItemParamStrIndex
 enum class EItemParamStrIndex : uint8_t
 {
-	EItemParamStrIndex__ITEM_PARAM = 0,
-	EItemParamStrIndex__ITEM_PARAM01 = 1,
-	EItemParamStrIndex__ITEM_PARAM_MAX = 2
+	ITEM_PARAM                     = 0,
+	ITEM_PARAM01                   = 1,
+	ITEM_PARAM_MAX                 = 2
 };
 
 
 // Enum Arise.EItemParamValueIndex
 enum class EItemParamValueIndex : uint8_t
 {
-	EItemParamValueIndex__ITEM_PARAM = 0,
-	EItemParamValueIndex__ITEM_PARAM01 = 1,
-	EItemParamValueIndex__ITEM_PARAM02 = 2,
-	EItemParamValueIndex__ITEM_PARAM03 = 3,
-	EItemParamValueIndex__ITEM_PARAM_MAX = 4
+	ITEM_PARAM                     = 0,
+	ITEM_PARAM01                   = 1,
+	ITEM_PARAM02                   = 2,
+	ITEM_PARAM03                   = 3,
+	ITEM_PARAM_MAX                 = 4
 };
 
 
 // Enum Arise.EItemUnusedType
 enum class EItemUnusedType : uint8_t
 {
-	EItemUnusedType__ITEM_UNUSED_NONE = 0,
-	EItemUnusedType__ITEM_UNUSED_HP_MAX = 1,
-	EItemUnusedType__ITEM_UNUSED_SP_MAX = 2,
-	EItemUnusedType__ITEM_UNUSED_TP_MAX = 3,
-	EItemUnusedType__ITEM_UNUSED_DEAD = 4,
-	EItemUnusedType__ITEM_UNUSED_NO_DEAD = 5,
-	EItemUnusedType__ITEM_UNUSED_ABNORMAL = 6,
-	EItemUnusedType__ITEM_UNUSED_INVALID_ABNORMAL = 7,
-	EItemUnusedType__ITEM_UNUSED_GROW_LIMIT = 8,
-	EItemUnusedType__ITEM_UNUSED_MAX = 9
+	ITEM_UNUSED_NONE               = 0,
+	ITEM_UNUSED_HP_MAX             = 1,
+	ITEM_UNUSED_SP_MAX             = 2,
+	ITEM_UNUSED_TP_MAX             = 3,
+	ITEM_UNUSED_DEAD               = 4,
+	ITEM_UNUSED_NO_DEAD            = 5,
+	ITEM_UNUSED_ABNORMAL           = 6,
+	ITEM_UNUSED_INVALID_ABNORMAL   = 7,
+	ITEM_UNUSED_GROW_LIMIT         = 8,
+	ITEM_UNUSED_MAX                = 9
 };
 
 
 // Enum Arise.EItemCommonFlag
 enum class EItemCommonFlag : uint8_t
 {
-	EItemCommonFlag__ITEM_FLAG_MOVE_USE = 0,
-	EItemCommonFlag__ITEM_FLAG_BATTLE_USE = 1,
-	EItemCommonFlag__ITEM_FLAG_NO_DROP = 2,
-	EItemCommonFlag__ITEM_FLAG_NO_BOOK = 3,
-	EItemCommonFlag__ITEM_FLAG_LIMIT_RELEASE = 4,
-	EItemCommonFlag__ITEM_FLAG_DELETE_ITEM = 5,
-	EItemCommonFlag__ITEM_FLAG_SYSTEM = 6,
-	EItemCommonFlag__ITEM_FLAG_COPYRIGHT = 7,
-	EItemCommonFlag__ITEM_FLAG_DLC = 8,
-	EItemCommonFlag__ITEM_FLAG_MAX = 9
+	ITEM_FLAG_MOVE_USE             = 0,
+	ITEM_FLAG_BATTLE_USE           = 1,
+	ITEM_FLAG_NO_DROP              = 2,
+	ITEM_FLAG_NO_BOOK              = 3,
+	ITEM_FLAG_LIMIT_RELEASE        = 4,
+	ITEM_FLAG_DELETE_ITEM          = 5,
+	ITEM_FLAG_SYSTEM               = 6,
+	ITEM_FLAG_COPYRIGHT            = 7,
+	ITEM_FLAG_DLC                  = 8,
+	ITEM_FLAG_MAX                  = 9
 };
 
 
 // Enum Arise.EItemWorkCategory
 enum class EItemWorkCategory : uint8_t
 {
-	EItemWorkCategory__Accessory   = 0,
-	EItemWorkCategory__Ore         = 1,
-	EItemWorkCategory__EItemWorkCategory_MAX = 2
-};
-
-
-// Enum Arise.EAriseLLMTag
-enum class EAriseLLMTag : uint8_t
-{
-	EAriseLLMTag__Used             = 0,
-	EAriseLLMTag__Engine           = 1,
-	EAriseLLMTag__UObject          = 2,
-	EAriseLLMTag__Animation        = 3,
-	EAriseLLMTag__Meshes           = 4,
-	EAriseLLMTag__Textures         = 5,
-	EAriseLLMTag__RenderTargets    = 6,
-	EAriseLLMTag__Particles        = 7,
-	EAriseLLMTag__UI               = 8,
-	EAriseLLMTag__PhysX            = 9,
-	EAriseLLMTag__Audio            = 10,
-	EAriseLLMTag__FileSystem       = 11,
-	EAriseLLMTag__AsyncLoading     = 12,
-	EAriseLLMTag__DerivedDataCache = 13,
-	EAriseLLMTag__AssetRegistry    = 14,
-	EAriseLLMTag__AriseMisc        = 15,
-	EAriseLLMTag__Others           = 16,
-	EAriseLLMTag__Untagged         = 17,
-	EAriseLLMTag__Free             = 18,
-	EAriseLLMTag__EAriseLLMTag_MAX = 19
+	Accessory                      = 0,
+	Ore                            = 1,
+	EItemWorkCategory_MAX          = 2
 };
 
 
 // Enum Arise.EFastTravelState
 enum class EFastTravelState : uint8_t
 {
-	EFastTravelState__FT_NOT_FOUND = 0,
-	EFastTravelState__FT_ENABLED   = 1,
-	EFastTravelState__FT_DISABLED  = 2,
-	EFastTravelState__FT_MAX       = 3
+	FT_NOT_FOUND                   = 0,
+	FT_ENABLED                     = 1,
+	FT_DISABLED                    = 2,
+	FT_MAX                         = 3
 };
 
 
 // Enum Arise.EIconDataUsage
 enum class EIconDataUsage : uint8_t
 {
-	EIconDataUsage__USAGE_COMPASS  = 0,
-	EIconDataUsage__USAGE_NAVIGATION_MAP = 1,
-	EIconDataUsage__USAGE_LOCATION_MAP_ICON = 2,
-	EIconDataUsage__USAGE_LOCATION_MAP_FOCUSABLE = 3,
-	EIconDataUsage__USAGE_LOCATION_MAP_STATIC = 4,
-	EIconDataUsage__USAGE_LOCATION_MAP_DYNAMIC = 5,
-	EIconDataUsage__USAGE_MAX      = 6
+	USAGE_COMPASS                  = 0,
+	USAGE_NAVIGATION_MAP           = 1,
+	USAGE_LOCATION_MAP_ICON        = 2,
+	USAGE_LOCATION_MAP_FOCUSABLE   = 3,
+	USAGE_LOCATION_MAP_STATIC      = 4,
+	USAGE_LOCATION_MAP_DYNAMIC     = 5,
+	USAGE_MAX                      = 6
 };
 
 
 // Enum Arise.EMapGimmickType
 enum class EMapGimmickType : uint8_t
 {
-	EMapGimmickType__NONE          = 0,
-	EMapGimmickType__CHR_ARI_FIRESWORD = 1,
-	EMapGimmickType__CHR_SIO_HEAL  = 2,
-	EMapGimmickType__CHR_RIN_ELECSHOCK = 3,
-	EMapGimmickType__CHR_LAW_PUNCH = 4,
-	EMapGimmickType__CHR_KSR_SHIELD = 5,
-	EMapGimmickType__CHR_TEO_PLANTACTIVE = 6,
-	EMapGimmickType__GNR_ORB       = 7,
-	EMapGimmickType__GNR_ORBSTAND  = 8,
-	EMapGimmickType__MAX           = 9
+	NONE                           = 0,
+	CHR_ARI_FIRESWORD              = 1,
+	CHR_SIO_HEAL                   = 2,
+	CHR_RIN_ELECSHOCK              = 3,
+	CHR_LAW_PUNCH                  = 4,
+	CHR_KSR_SHIELD                 = 5,
+	CHR_TEO_PLANTACTIVE            = 6,
+	GNR_ORB                        = 7,
+	GNR_ORBSTAND                   = 8,
+	MAX                            = 9
 };
 
 
 // Enum Arise.EMapIconPictureEnum
 enum class EMapIconPictureEnum : uint8_t
 {
-	EMapIconPictureEnum__MapIcon_PlayerCharacter = 0,
-	EMapIconPictureEnum__MapIcon_MapIn = 1,
-	EMapIconPictureEnum__MapIcon_Footprint = 2,
-	EMapIconPictureEnum__MapIcon_KeepOut = 3,
-	EMapIconPictureEnum__MapIcon_MapLink = 4,
-	EMapIconPictureEnum__MapIcon_MainEvent = 5,
-	EMapIconPictureEnum__MapIcon_SubEvent = 6,
-	EMapIconPictureEnum__MapIcon_NPCChat = 7,
-	EMapIconPictureEnum__MapIcon_StrongEnemy = 8,
-	EMapIconPictureEnum__MapIcon_Camp = 9,
-	EMapIconPictureEnum__MapIcon_Treasure = 10,
-	EMapIconPictureEnum__MapIcon_TreasureOpened = 11,
-	EMapIconPictureEnum__MapIcon_SearchPoint = 12,
-	EMapIconPictureEnum__MapIcon_BreakPoint = 13,
-	EMapIconPictureEnum__MapIcon_SubBefore = 14,
-	EMapIconPictureEnum__MapIcon_SubProgress = 15,
-	EMapIconPictureEnum__MapIcon_SubComplete = 16,
-	EMapIconPictureEnum__MapIcon_OwlPoint = 17,
-	EMapIconPictureEnum__MapIcon_FastTravelPoint = 18,
-	EMapIconPictureEnum__MapIcon_FastTravelPointClear = 19,
-	EMapIconPictureEnum__MapIcon_Inn = 20,
-	EMapIconPictureEnum__MapIcon_Shop = 21,
-	EMapIconPictureEnum__MapIcon_WeaponShop = 22,
-	EMapIconPictureEnum__MapIcon_AccessoryShop = 23,
-	EMapIconPictureEnum__MapIcon_Kitchen = 24,
-	EMapIconPictureEnum__MapIcon_QuestDesk = 25,
-	EMapIconPictureEnum__MapIcon_NormalEnemy = 26,
-	EMapIconPictureEnum__MapIcon_FishingPoint = 27,
-	EMapIconPictureEnum__MapIcon_Base = 28,
-	EMapIconPictureEnum__MapIcon_Hawkers = 29,
-	EMapIconPictureEnum__MapIcon_Gimmick = 30,
-	EMapIconPictureEnum__MapIcon_ShipBefore = 31,
-	EMapIconPictureEnum__MapIcon_ShipAfter = 32,
-	EMapIconPictureEnum__MapIcon_Ladder = 33,
-	EMapIconPictureEnum__MapIcon_Fall = 34,
-	EMapIconPictureEnum__MapIcon_Harbor = 35,
-	EMapIconPictureEnum__MapIcon_Farm = 36,
-	EMapIconPictureEnum__MapIcon_Fishman = 37,
-	EMapIconPictureEnum__MapIcon_OwlKing = 38,
-	EMapIconPictureEnum__MapIcon_Training = 39,
-	EMapIconPictureEnum__MapIcon_NPCIChat = 40,
-	EMapIconPictureEnum__MapIcon_Elevator = 41,
-	EMapIconPictureEnum__MapIcon_SearchPointGet = 42,
-	EMapIconPictureEnum__MapIcon_BreakPointGet = 43,
-	EMapIconPictureEnum__MapIcon_Hierarchy = 44,
-	EMapIconPictureEnum__MapIcon_None = 45,
-	EMapIconPictureEnum__MapIcon_MAX = 46
+	MapIcon_PlayerCharacter        = 0,
+	MapIcon_MapIn                  = 1,
+	MapIcon_Footprint              = 2,
+	MapIcon_KeepOut                = 3,
+	MapIcon_MapLink                = 4,
+	MapIcon_MainEvent              = 5,
+	MapIcon_SubEvent               = 6,
+	MapIcon_NPCChat                = 7,
+	MapIcon_StrongEnemy            = 8,
+	MapIcon_Camp                   = 9,
+	MapIcon_Treasure               = 10,
+	MapIcon_TreasureOpened         = 11,
+	MapIcon_SearchPoint            = 12,
+	MapIcon_BreakPoint             = 13,
+	MapIcon_SubBefore              = 14,
+	MapIcon_SubProgress            = 15,
+	MapIcon_SubComplete            = 16,
+	MapIcon_OwlPoint               = 17,
+	MapIcon_FastTravelPoint        = 18,
+	MapIcon_FastTravelPointClear   = 19,
+	MapIcon_Inn                    = 20,
+	MapIcon_Shop                   = 21,
+	MapIcon_WeaponShop             = 22,
+	MapIcon_AccessoryShop          = 23,
+	MapIcon_Kitchen                = 24,
+	MapIcon_QuestDesk              = 25,
+	MapIcon_NormalEnemy            = 26,
+	MapIcon_FishingPoint           = 27,
+	MapIcon_Base                   = 28,
+	MapIcon_Hawkers                = 29,
+	MapIcon_Gimmick                = 30,
+	MapIcon_ShipBefore             = 31,
+	MapIcon_ShipAfter              = 32,
+	MapIcon_Ladder                 = 33,
+	MapIcon_Fall                   = 34,
+	MapIcon_Harbor                 = 35,
+	MapIcon_Farm                   = 36,
+	MapIcon_Fishman                = 37,
+	MapIcon_OwlKing                = 38,
+	MapIcon_Training               = 39,
+	MapIcon_NPCIChat               = 40,
+	MapIcon_Elevator               = 41,
+	MapIcon_SearchPointGet         = 42,
+	MapIcon_BreakPointGet          = 43,
+	MapIcon_Hierarchy              = 44,
+	MapIcon_None                   = 45,
+	MapIcon_MAX                    = 46
 };
 
 
 // Enum Arise.EMapIconType
 enum class EMapIconType : uint8_t
 {
-	EMapIconType__None             = 0,
-	EMapIconType__MapLink          = 1,
-	EMapIconType__KeepOut          = 2,
-	EMapIconType__Dungeon          = 3,
-	EMapIconType__MapName          = 4,
-	EMapIconType__MapIn            = 5,
-	EMapIconType__PlayerCharacter  = 6,
-	EMapIconType__Footprint        = 7,
-	EMapIconType__PlayerCamera     = 8,
-	EMapIconType__MainEvent        = 9,
-	EMapIconType__SubEvent         = 10,
-	EMapIconType__SubBefore        = 11,
-	EMapIconType__SubProgress      = 12,
-	EMapIconType__SubComplete      = 13,
-	EMapIconType__NPCChat          = 14,
-	EMapIconType__StrongEnemy      = 15,
-	EMapIconType__Camp             = 16,
-	EMapIconType__Treasure         = 17,
-	EMapIconType__TreasureOpened   = 18,
-	EMapIconType__SearchPoint      = 19,
-	EMapIconType__SearchPointGet   = 20,
-	EMapIconType__BreakPoint       = 21,
-	EMapIconType__BreakPointGet    = 22,
-	EMapIconType__OwlPoint         = 23,
-	EMapIconType__FastTravelPoint  = 24,
-	EMapIconType__FastTravelPointClear = 25,
-	EMapIconType__Inn              = 26,
-	EMapIconType__Shop             = 27,
-	EMapIconType__WeaponShop       = 28,
-	EMapIconType__AccessoryShop    = 29,
-	EMapIconType__Kitchen          = 30,
-	EMapIconType__Harbor           = 31,
-	EMapIconType__Farm             = 32,
-	EMapIconType__QuestDesk        = 33,
-	EMapIconType__NormalEnemy      = 34,
-	EMapIconType__FishingPoint     = 35,
-	EMapIconType__Base             = 36,
-	EMapIconType__Gimmick          = 37,
-	EMapIconType__Ladder           = 38,
-	EMapIconType__Elevator         = 39,
-	EMapIconType__Fall             = 40,
-	EMapIconType__Fishman          = 41,
-	EMapIconType__OwlKing          = 42,
-	EMapIconType__Training         = 43,
-	EMapIconType__Hawkers          = 44,
-	EMapIconType__NPCIChat         = 45,
-	EMapIconType__BothQuest        = 46,
-	EMapIconType__RangeArea        = 47,
-	EMapIconType__Hierarchy        = 48,
-	EMapIconType__ShipBefore       = 49,
-	EMapIconType__ShipAfter        = 50,
-	EMapIconType__EMapIconType_MAX = 51
+	None                           = 0,
+	MapLink                        = 1,
+	KeepOut                        = 2,
+	Dungeon                        = 3,
+	MapName                        = 4,
+	MapIn                          = 5,
+	PlayerCharacter                = 6,
+	Footprint                      = 7,
+	PlayerCamera                   = 8,
+	MainEvent                      = 9,
+	SubEvent                       = 10,
+	SubBefore                      = 11,
+	SubProgress                    = 12,
+	SubComplete                    = 13,
+	NPCChat                        = 14,
+	StrongEnemy                    = 15,
+	Camp                           = 16,
+	Treasure                       = 17,
+	TreasureOpened                 = 18,
+	SearchPoint                    = 19,
+	SearchPointGet                 = 20,
+	BreakPoint                     = 21,
+	BreakPointGet                  = 22,
+	OwlPoint                       = 23,
+	FastTravelPoint                = 24,
+	FastTravelPointClear           = 25,
+	Inn                            = 26,
+	Shop                           = 27,
+	WeaponShop                     = 28,
+	AccessoryShop                  = 29,
+	Kitchen                        = 30,
+	Harbor                         = 31,
+	Farm                           = 32,
+	QuestDesk                      = 33,
+	NormalEnemy                    = 34,
+	FishingPoint                   = 35,
+	Base                           = 36,
+	Gimmick                        = 37,
+	Ladder                         = 38,
+	Elevator                       = 39,
+	Fall                           = 40,
+	Fishman                        = 41,
+	OwlKing                        = 42,
+	Training                       = 43,
+	Hawkers                        = 44,
+	NPCIChat                       = 45,
+	BothQuest                      = 46,
+	RangeArea                      = 47,
+	Hierarchy                      = 48,
+	ShipBefore                     = 49,
+	ShipAfter                      = 50,
+	EMapIconType_MAX               = 51
 };
 
 
 // Enum Arise.EMapOrderFolderRegion
 enum class EMapOrderFolderRegion : uint8_t
 {
-	EMapOrderFolderRegion__FOLDER_DEBUG = 0,
-	EMapOrderFolderRegion__FOLDER_SHIPPING = 1,
-	EMapOrderFolderRegion__FOLDER_DLC1 = 2,
-	EMapOrderFolderRegion__FOLDER_MAX = 3
+	FOLDER_DEBUG                   = 0,
+	FOLDER_SHIPPING                = 1,
+	FOLDER_DLC1                    = 2,
+	FOLDER_MAX                     = 3
 };
 
 
-// Enum Arise.EMapOrderManager_MapVisibledResult
-enum class EMapOrderManager_MapVisibledResult : uint8_t
+// Enum Arise.EAriseLLMTag
+enum class EAriseLLMTag : uint8_t
 {
-	EMapOrderManager_MapVisibledResult__VisibledAllLevel = 0,
-	EMapOrderManager_MapVisibledResult__Error_UnknownMap = 1,
-	EMapOrderManager_MapVisibledResult__Error_LevelNotValid = 2,
-	EMapOrderManager_MapVisibledResult__Error_LevelNotVisibled = 3,
-	EMapOrderManager_MapVisibledResult__EMapOrderManager_MAX = 4
+	Used                           = 0,
+	Engine                         = 1,
+	UObject                        = 2,
+	Animation                      = 3,
+	Meshes                         = 4,
+	Textures                       = 5,
+	RenderTargets                  = 6,
+	Particles                      = 7,
+	UI                             = 8,
+	PhysX                          = 9,
+	Audio                          = 10,
+	FileSystem                     = 11,
+	AsyncLoading                   = 12,
+	DerivedDataCache               = 13,
+	AssetRegistry                  = 14,
+	AriseMisc                      = 15,
+	Others                         = 16,
+	Untagged                       = 17,
+	Free                           = 18,
+	EAriseLLMTag_MAX               = 19
 };
 
 
 // Enum Arise.MenuArenaBattleRule
 enum class EMenuArenaBattleRule : uint8_t
 {
-	MenuArenaBattleRule__BattleRule_Single = 0,
-	MenuArenaBattleRule__BattleRule_DownOnly = 1,
-	MenuArenaBattleRule__BattleRule_Fall = 2,
-	MenuArenaBattleRule__BattleRule_Rematch = 3,
-	MenuArenaBattleRule__BattleRule_MAX = 4
+	BattleRule_Single              = 0,
+	BattleRule_DownOnly            = 1,
+	BattleRule_Fall                = 2,
+	BattleRule_Rematch             = 3,
+	BattleRule_MAX                 = 4
 };
 
 
 // Enum Arise.MenuArenaStageRank
 enum class EMenuArenaStageRank : uint8_t
 {
-	MenuArenaStageRank__Rank_Low   = 0,
-	MenuArenaStageRank__Rank_Middle = 1,
-	MenuArenaStageRank__Rank_High  = 2,
-	MenuArenaStageRank__Rank_Expert = 3,
-	MenuArenaStageRank__Rank_MAX   = 4
+	Rank_Low                       = 0,
+	Rank_Middle                    = 1,
+	Rank_High                      = 2,
+	Rank_Expert                    = 3,
+	Rank_MAX                       = 4
 };
 
 
 // Enum Arise.MenuArenaListType
 enum class EMenuArenaListType : uint8_t
 {
-	MenuArenaListType__Type_Character = 0,
-	MenuArenaListType__Type_Difficulty = 1,
-	MenuArenaListType__Type_MAX    = 2
+	Type_Character                 = 0,
+	Type_Difficulty                = 1,
+	Type_MAX                       = 2
 };
 
 
 // Enum Arise.MenuArenaCategory
 enum class EMenuArenaCategory : uint8_t
 {
-	MenuArenaCategory__Category_Single = 0,
-	MenuArenaCategory__Category_Party = 1,
-	MenuArenaCategory__Category_Special = 2,
-	MenuArenaCategory__Category_MAX = 3
+	Category_Single                = 0,
+	Category_Party                 = 1,
+	Category_Special               = 2,
+	Category_MAX                   = 3
 };
 
 
 // Enum Arise.EMenuArtsParentType
 enum class EMenuArtsParentType : uint8_t
 {
-	EMenuArtsParentType__None      = 0,
-	EMenuArtsParentType__Base      = 1,
-	EMenuArtsParentType__Derived   = 2,
-	EMenuArtsParentType__Connect   = 3,
-	EMenuArtsParentType__EMenuArtsParentType_MAX = 4
+	None                           = 0,
+	Base                           = 1,
+	Derived                        = 2,
+	Connect                        = 3,
+	EMenuArtsParentType_MAX        = 4
 };
 
 
 // Enum Arise.EMenuArtsPositionType
 enum class EMenuArtsPositionType : uint8_t
 {
-	EMenuArtsPositionType__NoData  = 0,
-	EMenuArtsPositionType__Ground  = 1,
-	EMenuArtsPositionType__Air     = 2,
-	EMenuArtsPositionType__EMenuArtsPositionType_MAX = 3
+	NoData                         = 0,
+	Ground                         = 1,
+	Air                            = 2,
+	EMenuArtsPositionType_MAX      = 3
 };
 
 
 // Enum Arise.EMenuArtsType
 enum class EMenuArtsType : uint8_t
 {
-	EMenuArtsType__Ground          = 0,
-	EMenuArtsType__Air             = 1,
-	EMenuArtsType__Strike          = 2,
-	EMenuArtsType__Mystic          = 3,
-	EMenuArtsType__ArtsList        = 4,
-	EMenuArtsType__Magic           = 5,
-	EMenuArtsType__AntiAir         = 6,
-	EMenuArtsType__AntiGround      = 7,
-	EMenuArtsType__NoData          = 8,
-	EMenuArtsType__EMenuArtsType_MAX = 9
+	Ground                         = 0,
+	Air                            = 1,
+	Strike                         = 2,
+	Mystic                         = 3,
+	ArtsList                       = 4,
+	Magic                          = 5,
+	AntiAir                        = 6,
+	AntiGround                     = 7,
+	NoData                         = 8,
+	EMenuArtsType_MAX              = 9
 };
 
 
 // Enum Arise.EMenuBattleOperateType
 enum class EMenuBattleOperateType : uint8_t
 {
-	EMenuBattleOperateType__Operate_Auto = 0,
-	EMenuBattleOperateType__Operate_Semiauto = 1,
-	EMenuBattleOperateType__Operate_Manual = 2,
-	EMenuBattleOperateType__Operate_MAX = 3
+	Operate_Auto                   = 0,
+	Operate_Semiauto               = 1,
+	Operate_Manual                 = 2,
+	Operate_MAX                    = 3
 };
 
 
 // Enum Arise.MenuModelMotionType
 enum class EMenuModelMotionType : uint8_t
 {
-	MenuModelMotionType__Normal    = 0,
-	MenuModelMotionType__DLC1      = 1,
-	MenuModelMotionType__DLC2      = 2,
-	MenuModelMotionType__DLC3      = 3,
-	MenuModelMotionType__DLC4      = 4,
-	MenuModelMotionType__DLC5      = 5,
-	MenuModelMotionType__DLC6      = 6,
-	MenuModelMotionType__DLC7      = 7,
-	MenuModelMotionType__DLC8      = 8,
-	MenuModelMotionType__DLC9      = 9,
-	MenuModelMotionType__None      = 10,
-	MenuModelMotionType__MenuModelMotionType_MAX = 11
+	Normal                         = 0,
+	DLC1                           = 1,
+	DLC2                           = 2,
+	DLC3                           = 3,
+	DLC4                           = 4,
+	DLC5                           = 5,
+	DLC6                           = 6,
+	DLC7                           = 7,
+	DLC8                           = 8,
+	DLC9                           = 9,
+	None                           = 10,
+	MenuModelMotionType_MAX        = 11
 };
 
 
 // Enum Arise.EMenuTopModelSortType
 enum class EMenuTopModelSortType : uint8_t
 {
-	EMenuTopModelSortType__ID      = 0,
-	EMenuTopModelSortType__Order   = 1,
-	EMenuTopModelSortType__EMenuTopModelSortType_MAX = 2
+	ID                             = 0,
+	Order                          = 1,
+	EMenuTopModelSortType_MAX      = 2
 };
 
 
 // Enum Arise.EMenuVisualSlotType
 enum class EMenuVisualSlotType : uint8_t
 {
-	EMenuVisualSlotType__Hair      = 0,
-	EMenuVisualSlotType__Costume   = 1,
-	EMenuVisualSlotType__Attach1   = 2,
-	EMenuVisualSlotType__Attach2   = 3,
-	EMenuVisualSlotType__Weapon    = 4,
-	EMenuVisualSlotType__EMenuVisualSlotType_MAX = 5
+	Hair                           = 0,
+	Costume                        = 1,
+	Attach1                        = 2,
+	Attach2                        = 3,
+	Weapon                         = 4,
+	EMenuVisualSlotType_MAX        = 5
 };
 
 
 // Enum Arise.EMenuEquipItemSortType
 enum class EMenuEquipItemSortType : uint8_t
 {
-	EMenuEquipItemSortType__None   = 0,
-	EMenuEquipItemSortType__Default = 1,
-	EMenuEquipItemSortType__Attack = 2,
-	EMenuEquipItemSortType__ElementAttack = 3,
-	EMenuEquipItemSortType__Defence = 4,
-	EMenuEquipItemSortType__ElementDefence = 5,
-	EMenuEquipItemSortType__Penetrate = 6,
-	EMenuEquipItemSortType__Endurance = 7,
-	EMenuEquipItemSortType__New    = 8,
-	EMenuEquipItemSortType__EMenuEquipItemSortType_MAX = 9
+	None                           = 0,
+	Default                        = 1,
+	Attack                         = 2,
+	ElementAttack                  = 3,
+	Defence                        = 4,
+	ElementDefence                 = 5,
+	Penetrate                      = 6,
+	Endurance                      = 7,
+	New                            = 8,
+	EMenuEquipItemSortType_MAX     = 9
 };
 
 
 // Enum Arise.EFarmAnimalType
 enum class EFarmAnimalType : uint8_t
 {
-	EFarmAnimalType__AnimalType_Farm = 0,
-	EFarmAnimalType__AnimalType_Support = 1,
-	EFarmAnimalType__AnimalType_Other = 2,
-	EFarmAnimalType__AnimalType_MAX = 3
+	AnimalType_Farm                = 0,
+	AnimalType_Support             = 1,
+	AnimalType_Other               = 2,
+	AnimalType_MAX                 = 3
 };
 
 
 // Enum Arise.PFAnimalNo
 enum class EPFAnimalNo : uint8_t
 {
-	PFAnimalNo__None               = 0,
-	PFAnimalNo__Cow                = 1,
-	PFAnimalNo__Pig                = 2,
-	PFAnimalNo__Chicken            = 3,
-	PFAnimalNo__Horse              = 4,
-	PFAnimalNo__Sheep              = 5,
-	PFAnimalNo__Bousagi            = 6,
-	PFAnimalNo__Dog                = 7,
-	PFAnimalNo__Cat                = 8,
-	PFAnimalNo__Mouse              = 9,
-	PFAnimalNo__MAX                = 10
+	None                           = 0,
+	Cow                            = 1,
+	Pig                            = 2,
+	Chicken                        = 3,
+	Horse                          = 4,
+	Sheep                          = 5,
+	Bousagi                        = 6,
+	Dog                            = 7,
+	Cat                            = 8,
+	Mouse                          = 9,
+	MAX                            = 10
 };
 
 
 // Enum Arise.PFAnimalGender
 enum class EPFAnimalGender : uint8_t
 {
-	PFAnimalGender__Male           = 0,
-	PFAnimalGender__Female         = 1,
-	PFAnimalGender__Other          = 2,
-	PFAnimalGender__MAX            = 3
+	Male                           = 0,
+	Female                         = 1,
+	Other                          = 2,
+	MAX                            = 3
 };
 
 
 // Enum Arise.PFAnimalGrowState
 enum class EPFAnimalGrowState : uint8_t
 {
-	PFAnimalGrowState__Child       = 0,
-	PFAnimalGrowState__Adult       = 1,
-	PFAnimalGrowState__MAX         = 2
+	Child                          = 0,
+	Adult                          = 1,
+	MAX                            = 2
 };
 
 
 // Enum Arise.PFAnimalArea
 enum class EPFAnimalArea : uint8_t
 {
-	PFAnimalArea__Area_Outdoor     = 0,
-	PFAnimalArea__Area_Indoor      = 1,
-	PFAnimalArea__MAX              = 2
+	Area_Outdoor                   = 0,
+	Area_Indoor                    = 1,
+	MAX                            = 2
 };
 
 
 // Enum Arise.MenuFarmMessageType
 enum class EMenuFarmMessageType : uint8_t
 {
-	MenuFarmMessageType__None      = 0,
-	MenuFarmMessageType__Complete  = 1,
-	MenuFarmMessageType__Failure   = 2,
-	MenuFarmMessageType__Damage    = 3,
-	MenuFarmMessageType__SubErase_Dog = 4,
-	MenuFarmMessageType__SubErase_Cat = 5,
-	MenuFarmMessageType__SubErase_Multi = 6,
-	MenuFarmMessageType__AnimalPlus = 7,
-	MenuFarmMessageType__SpacePlus = 8,
-	MenuFarmMessageType__MenuFarmMessageType_MAX = 9
+	None                           = 0,
+	Complete                       = 1,
+	Failure                        = 2,
+	Damage                         = 3,
+	SubErase_Dog                   = 4,
+	SubErase_Cat                   = 5,
+	SubErase_Multi                 = 6,
+	AnimalPlus                     = 7,
+	SpacePlus                      = 8,
+	MenuFarmMessageType_MAX        = 9
 };
 
 
 // Enum Arise.MenuFarmPlantStatus
 enum class EMenuFarmPlantStatus : uint8_t
 {
-	MenuFarmPlantStatus__None      = 0,
-	MenuFarmPlantStatus__NoLeave   = 1,
-	MenuFarmPlantStatus__Leave     = 2,
-	MenuFarmPlantStatus__Complete  = 3,
-	MenuFarmPlantStatus__Failure   = 4,
-	MenuFarmPlantStatus__MenuFarmPlantStatus_MAX = 5
+	None                           = 0,
+	NoLeave                        = 1,
+	Leave                          = 2,
+	Complete                       = 3,
+	Failure                        = 4,
+	MenuFarmPlantStatus_MAX        = 5
 };
 
 
 // Enum Arise.EMenuItemUsableType
 enum class EMenuItemUsableType : uint8_t
 {
-	EMenuItemUsableType__Unuse     = 0,
-	EMenuItemUsableType__HP        = 1,
-	EMenuItemUsableType__Status    = 2,
-	EMenuItemUsableType__Other     = 3,
-	EMenuItemUsableType__AddItem   = 4,
-	EMenuItemUsableType__EMenuItemUsableType_MAX = 5
+	Unuse                          = 0,
+	HP                             = 1,
+	Status                         = 2,
+	Other                          = 3,
+	AddItem                        = 4,
+	EMenuItemUsableType_MAX        = 5
+};
+
+
+// Enum Arise.EMapOrderManager_MapVisibledResult
+enum class EMapOrderManager_MapVisibledResult : uint8_t
+{
+	VisibledAllLevel               = 0,
+	Error_UnknownMap               = 1,
+	Error_LevelNotValid            = 2,
+	Error_LevelNotVisibled         = 3,
+	EMapOrderManager_MAX           = 4
 };
 
 
 // Enum Arise.EMenuItemFilterType
 enum class EMenuItemFilterType : uint8_t
 {
-	EMenuItemFilterType__None      = 0,
-	EMenuItemFilterType__Recovery  = 1,
-	EMenuItemFilterType__Using     = 2,
-	EMenuItemFilterType__StatusUp  = 3,
-	EMenuItemFilterType__Eat       = 4,
-	EMenuItemFilterType__Food      = 5,
-	EMenuItemFilterType__Material  = 6,
-	EMenuItemFilterType__Weapon_ARI = 7,
-	EMenuItemFilterType__Weapon_SIO = 8,
-	EMenuItemFilterType__Weapon_NNA = 9,
-	EMenuItemFilterType__Weapon_ZGU = 10,
-	EMenuItemFilterType__Weapon_MNK = 11,
-	EMenuItemFilterType__Weapon_YRA = 12,
-	EMenuItemFilterType__Protecter_Man = 13,
-	EMenuItemFilterType__Protecter_Woman = 14,
-	EMenuItemFilterType__Protecter_Combinate = 15,
-	EMenuItemFilterType__Armor_ARI = 16,
-	EMenuItemFilterType__Armor_SIO = 17,
-	EMenuItemFilterType__Armor_NNA = 18,
-	EMenuItemFilterType__Armor_ZGU = 19,
-	EMenuItemFilterType__Armor_MNK = 20,
-	EMenuItemFilterType__Armor_YRA = 21,
-	EMenuItemFilterType__Skill_A   = 22,
-	EMenuItemFilterType__Skill_B   = 23,
-	EMenuItemFilterType__Skill_C   = 24,
-	EMenuItemFilterType__EMenuItemFilterType_MAX = 25
+	None                           = 0,
+	Recovery                       = 1,
+	Using                          = 2,
+	StatusUp                       = 3,
+	Eat                            = 4,
+	Food                           = 5,
+	Material                       = 6,
+	Weapon_ARI                     = 7,
+	Weapon_SIO                     = 8,
+	Weapon_NNA                     = 9,
+	Weapon_ZGU                     = 10,
+	Weapon_MNK                     = 11,
+	Weapon_YRA                     = 12,
+	Protecter_Man                  = 13,
+	Protecter_Woman                = 14,
+	Protecter_Combinate            = 15,
+	Armor_ARI                      = 16,
+	Armor_SIO                      = 17,
+	Armor_NNA                      = 18,
+	Armor_ZGU                      = 19,
+	Armor_MNK                      = 20,
+	Armor_YRA                      = 21,
+	Skill_A                        = 22,
+	Skill_B                        = 23,
+	Skill_C                        = 24,
+	EMenuItemFilterType_MAX        = 25
 };
 
 
 // Enum Arise.EMenuItemSortType
 enum class EMenuItemSortType : uint8_t
 {
-	EMenuItemSortType__ItemID      = 0,
-	EMenuItemSortType__NewGet      = 1,
-	EMenuItemSortType__Rarity      = 2,
-	EMenuItemSortType__Price       = 3,
-	EMenuItemSortType__Num         = 4,
-	EMenuItemSortType__Attack      = 5,
-	EMenuItemSortType__MAttack     = 6,
-	EMenuItemSortType__Penetrate   = 7,
-	EMenuItemSortType__Defence     = 8,
-	EMenuItemSortType__MDefence    = 9,
-	EMenuItemSortType__Endurance   = 10,
-	EMenuItemSortType__HP          = 11,
-	EMenuItemSortType__SP          = 12,
-	EMenuItemSortType__Rank        = 13,
-	EMenuItemSortType__Skill       = 14,
-	EMenuItemSortType__Cost        = 15,
-	EMenuItemSortType__Name        = 16,
-	EMenuItemSortType__Sall        = 17,
-	EMenuItemSortType__EMenuItemSortType_MAX = 18
+	ItemID                         = 0,
+	NewGet                         = 1,
+	Rarity                         = 2,
+	Price                          = 3,
+	Num                            = 4,
+	Attack                         = 5,
+	MAttack                        = 6,
+	Penetrate                      = 7,
+	Defence                        = 8,
+	MDefence                       = 9,
+	Endurance                      = 10,
+	HP                             = 11,
+	SP                             = 12,
+	Rank                           = 13,
+	Skill                          = 14,
+	Cost                           = 15,
+	Name                           = 16,
+	Sall                           = 17,
+	EMenuItemSortType_MAX          = 18
 };
 
 
 // Enum Arise.MenuCategoryUsingType
 enum class EMenuCategoryUsingType : uint8_t
 {
-	MenuCategoryUsingType__NONE    = 0,
-	MenuCategoryUsingType__HEAL_HP = 1,
-	MenuCategoryUsingType__HEAL_HP_ALL = 2,
-	MenuCategoryUsingType__BOOST_HP = 3,
-	MenuCategoryUsingType__HEAL_TP = 4,
-	MenuCategoryUsingType__HP_UP   = 5,
-	MenuCategoryUsingType__SP_UP   = 6,
-	MenuCategoryUsingType__ATK_UP  = 7,
-	MenuCategoryUsingType__DEF_UP  = 8,
-	MenuCategoryUsingType__EAT_UP  = 9,
-	MenuCategoryUsingType__EDF_UP  = 10,
-	MenuCategoryUsingType__PEN_UP  = 11,
-	MenuCategoryUsingType__END_UP  = 12,
-	MenuCategoryUsingType__HOLY_BOTTLE = 13,
-	MenuCategoryUsingType__DARK_BOTTLE = 14,
-	MenuCategoryUsingType__SPIRIT_BOTTLE = 15,
-	MenuCategoryUsingType__GROW_TP = 16,
-	MenuCategoryUsingType__HEAL_HP_ALL01 = 17,
-	MenuCategoryUsingType__REVIVE  = 18,
-	MenuCategoryUsingType__HEAL_HP_FULL = 19,
-	MenuCategoryUsingType__RECOVERY = 20,
-	MenuCategoryUsingType__LV_UP   = 21,
-	MenuCategoryUsingType__CP_UP   = 22,
-	MenuCategoryUsingType__HP_UP_ALL = 23,
-	MenuCategoryUsingType__MenuCategoryUsingType_MAX = 24
+	NONE                           = 0,
+	HEAL_HP                        = 1,
+	HEAL_HP_ALL                    = 2,
+	BOOST_HP                       = 3,
+	HEAL_TP                        = 4,
+	HP_UP                          = 5,
+	SP_UP                          = 6,
+	ATK_UP                         = 7,
+	DEF_UP                         = 8,
+	EAT_UP                         = 9,
+	EDF_UP                         = 10,
+	PEN_UP                         = 11,
+	END_UP                         = 12,
+	HOLY_BOTTLE                    = 13,
+	DARK_BOTTLE                    = 14,
+	SPIRIT_BOTTLE                  = 15,
+	GROW_TP                        = 16,
+	HEAL_HP_ALL01                  = 17,
+	REVIVE                         = 18,
+	HEAL_HP_FULL                   = 19,
+	RECOVERY                       = 20,
+	LV_UP                          = 21,
+	CP_UP                          = 22,
+	HP_UP_ALL                      = 23,
+	MenuCategoryUsingType_MAX      = 24
 };
 
 
 // Enum Arise.EMenuItemCategory
 enum class EMenuItemCategory : uint8_t
 {
-	EMenuItemCategory__None        = 0,
-	EMenuItemCategory__Use         = 1,
-	EMenuItemCategory__Material    = 2,
-	EMenuItemCategory__Weapon      = 3,
-	EMenuItemCategory__Protector   = 4,
-	EMenuItemCategory__Accessory   = 5,
-	EMenuItemCategory__Visual      = 6,
-	EMenuItemCategory__Valuable    = 7,
-	EMenuItemCategory__Download    = 8,
-	EMenuItemCategory__Other       = 9,
-	EMenuItemCategory__Battle      = 10,
-	EMenuItemCategory__Cook        = 11,
-	EMenuItemCategory__New         = 12,
-	EMenuItemCategory__Material_Acc = 13,
-	EMenuItemCategory__EMenuItemCategory_MAX = 14
+	None                           = 0,
+	Use                            = 1,
+	Material                       = 2,
+	Weapon                         = 3,
+	Protector                      = 4,
+	Accessory                      = 5,
+	Visual                         = 6,
+	Valuable                       = 7,
+	Download                       = 8,
+	Other                          = 9,
+	Battle                         = 10,
+	Cook                           = 11,
+	New                            = 12,
+	Material_Acc                   = 13,
+	EMenuItemCategory_MAX          = 14
 };
 
 
 // Enum Arise.EMenuDlcItemCategory
 enum class EMenuDlcItemCategory : uint8_t
 {
-	EMenuDlcItemCategory__None     = 0,
-	EMenuDlcItemCategory__Use      = 1,
-	EMenuDlcItemCategory__Material = 2,
-	EMenuDlcItemCategory__Weapon   = 3,
-	EMenuDlcItemCategory__Visual   = 4,
-	EMenuDlcItemCategory__Artifact = 5,
-	EMenuDlcItemCategory__Music    = 6,
-	EMenuDlcItemCategory__Other    = 7,
-	EMenuDlcItemCategory__New      = 8,
-	EMenuDlcItemCategory__EMenuDlcItemCategory_MAX = 9
-};
-
-
-// Enum Arise.EMenuBGType
-enum class EMenuBGType : uint8_t
-{
-	EMenuBGType__BG_NONE           = 0,
-	EMenuBGType__BG_THROUGH        = 1,
-	EMenuBGType__BG_CAPTURE        = 2,
-	EMenuBGType__BG_LEVEL          = 3,
-	EMenuBGType__BG_WORLDMAP       = 4,
-	EMenuBGType__BG_STARMAP        = 5,
-	EMenuBGType__BG_BTLTOP         = 6,
-	EMenuBGType__BG_TOP            = 7,
-	EMenuBGType__BG_TOP_TTL        = 8,
-	EMenuBGType__BG_TOP_DLC        = 9,
-	EMenuBGType__BG_TOP_CLR        = 10,
-	EMenuBGType__BG_TOP_MAP        = 11,
-	EMenuBGType__BG_TOP_TIT        = 12,
-	EMenuBGType__BG_MAX            = 13
+	None                           = 0,
+	Use                            = 1,
+	Material                       = 2,
+	Weapon                         = 3,
+	Visual                         = 4,
+	Artifact                       = 5,
+	Music                          = 6,
+	Other                          = 7,
+	New                            = 8,
+	EMenuDlcItemCategory_MAX       = 9
 };
 
 
 // Enum Arise.EWidgetUse
 enum class EWidgetUse : uint8_t
 {
-	EWidgetUse__LEVEL              = 0,
-	EWidgetUse__CAPTURE            = 1,
-	EWidgetUse__BTL_BG             = 2,
-	EWidgetUse__STARMAP            = 3,
-	EWidgetUse__WORLDMAP           = 4,
-	EWidgetUse__MAIN               = 5,
-	EWidgetUse__HELP               = 6,
-	EWidgetUse__FRAME              = 7,
-	EWidgetUse__MENU_SC            = 8,
-	EWidgetUse__HEADER             = 9,
-	EWidgetUse__HEADER3D           = 10,
-	EWidgetUse__TOP_BG             = 11,
-	EWidgetUse__TOP_PARTICLE       = 12,
-	EWidgetUse__POST_PROC          = 13,
-	EWidgetUse__LIGHT              = 14,
-	EWidgetUse__EWidgetUse_MAX     = 15
+	LEVEL                          = 0,
+	CAPTURE                        = 1,
+	BTL_BG                         = 2,
+	STARMAP                        = 3,
+	WORLDMAP                       = 4,
+	MAIN                           = 5,
+	HELP                           = 6,
+	FRAME                          = 7,
+	MENU_SC                        = 8,
+	HEADER                         = 9,
+	HEADER3D                       = 10,
+	TOP_BG                         = 11,
+	TOP_PARTICLE                   = 12,
+	POST_PROC                      = 13,
+	LIGHT                          = 14,
+	EWidgetUse_MAX                 = 15
 };
 
 
 // Enum Arise.MenuSEType
 enum class EMenuSEType : uint8_t
 {
-	MenuSEType__MENU_IN            = 0,
-	MenuSEType__MENU_OUT           = 1,
-	MenuSEType__CURSOR             = 2,
-	MenuSEType__CURSOR_TOP         = 3,
-	MenuSEType__CURSOR_SUB         = 4,
-	MenuSEType__DECISION           = 5,
-	MenuSEType__CANCEL             = 6,
-	MenuSEType__BEEP               = 7,
-	MenuSEType__HEAL_HP            = 8,
-	MenuSEType__TYPE_END           = 9,
-	MenuSEType__MenuSEType_MAX     = 10
+	MENU_IN                        = 0,
+	MENU_OUT                       = 1,
+	CURSOR                         = 2,
+	CURSOR_TOP                     = 3,
+	CURSOR_SUB                     = 4,
+	DECISION                       = 5,
+	CANCEL                         = 6,
+	BEEP                           = 7,
+	HEAL_HP                        = 8,
+	TYPE_END                       = 9,
+	MenuSEType_MAX                 = 10
 };
 
 
 // Enum Arise.MenuPad
 enum class EMenuPad : uint8_t
 {
-	MenuPad__LEFT_UP               = 0,
-	MenuPad__LEFT_DOWN             = 1,
-	MenuPad__LEFT_LEFT             = 2,
-	MenuPad__LEFT_RIGHT            = 3,
-	MenuPad__RIGHT_UP              = 4,
-	MenuPad__RIGHT_DOWN            = 5,
-	MenuPad__RIGHT_LEFT            = 6,
-	MenuPad__RIGHT_RIGHT           = 7,
-	MenuPad__L1                    = 8,
-	MenuPad__L2                    = 9,
-	MenuPad__L3                    = 10,
-	MenuPad__R1                    = 11,
-	MenuPad__R2                    = 12,
-	MenuPad__R3                    = 13,
-	MenuPad__START                 = 14,
-	MenuPad__SELECT                = 15,
-	MenuPad__DECIDE                = 16,
-	MenuPad__CANCEL                = 17,
-	MenuPad__LS_UP                 = 18,
-	MenuPad__LS_DOWN               = 19,
-	MenuPad__LS_LEFT               = 20,
-	MenuPad__LS_RIGHT              = 21,
-	MenuPad__RS_UP                 = 22,
-	MenuPad__RS_DOWN               = 23,
-	MenuPad__RS_LEFT               = 24,
-	MenuPad__RS_RIGHT              = 25,
-	MenuPad__NUM                   = 26,
-	MenuPad__MenuPad_MAX           = 27
+	LEFT_UP                        = 0,
+	LEFT_DOWN                      = 1,
+	LEFT_LEFT                      = 2,
+	LEFT_RIGHT                     = 3,
+	RIGHT_UP                       = 4,
+	RIGHT_DOWN                     = 5,
+	RIGHT_LEFT                     = 6,
+	RIGHT_RIGHT                    = 7,
+	L1                             = 8,
+	L2                             = 9,
+	L3                             = 10,
+	R1                             = 11,
+	R2                             = 12,
+	R3                             = 13,
+	START                          = 14,
+	SELECT                         = 15,
+	DECIDE                         = 16,
+	CANCEL                         = 17,
+	LS_UP                          = 18,
+	LS_DOWN                        = 19,
+	LS_LEFT                        = 20,
+	LS_RIGHT                       = 21,
+	RS_UP                          = 22,
+	RS_DOWN                        = 23,
+	RS_LEFT                        = 24,
+	RS_RIGHT                       = 25,
+	NUM                            = 26,
+	MenuPad_MAX                    = 27
 };
 
 
 // Enum Arise.EMenuModelPositionSaveType
 enum class EMenuModelPositionSaveType : uint8_t
 {
-	EMenuModelPositionSaveType__Equip = 0,
-	EMenuModelPositionSaveType__Visual = 1,
-	EMenuModelPositionSaveType__Weapon = 2,
-	EMenuModelPositionSaveType__Status = 3,
-	EMenuModelPositionSaveType__DLC = 4,
-	EMenuModelPositionSaveType__EMenuModelPositionSaveType_MAX = 5
+	Equip                          = 0,
+	Visual                         = 1,
+	Weapon                         = 2,
+	Status                         = 3,
+	DLC                            = 4,
+	EMenuModelPositionSaveType_MAX = 5
 };
 
 
 // Enum Arise.EMenuFarmAreaType
 enum class EMenuFarmAreaType : uint8_t
 {
-	EMenuFarmAreaType__Stock       = 0,
-	EMenuFarmAreaType__Farm        = 1,
-	EMenuFarmAreaType__All         = 2,
-	EMenuFarmAreaType__EMenuFarmAreaType_MAX = 3
+	Stock                          = 0,
+	Farm                           = 1,
+	All                            = 2,
+	EMenuFarmAreaType_MAX          = 3
 };
 
 
@@ -4164,231 +4144,231 @@ enum class ESaveDataHeaderParam : uint8_t
 // Enum Arise.ETitleDemoMovieType
 enum class ETitleDemoMovieType : uint8_t
 {
-	ETitleDemoMovieType__DEMO_MOVIE_NONE = 0,
-	ETitleDemoMovieType__DEMO_MOVIE_01 = 1,
-	ETitleDemoMovieType__DEMO_MOVIE_02 = 2,
-	ETitleDemoMovieType__DEMO_MOVIE_MAX = 3
+	DEMO_MOVIE_NONE                = 0,
+	DEMO_MOVIE_01                  = 1,
+	DEMO_MOVIE_02                  = 2,
+	DEMO_MOVIE_MAX                 = 3
 };
 
 
 // Enum Arise.MenuCategoryIconType
 enum class EMenuCategoryIconType : uint8_t
 {
-	MenuCategoryIconType__ICON_USE = 0,
-	MenuCategoryIconType__ICON_MATERIAL = 1,
-	MenuCategoryIconType__ICON_VALUE = 2,
-	MenuCategoryIconType__ICON_OTHER = 3,
-	MenuCategoryIconType__ICON_ALL = 4,
-	MenuCategoryIconType__ICON_WEAPON = 5,
-	MenuCategoryIconType__ICON_ARMOR = 6,
-	MenuCategoryIconType__ICON_ACCESSORY = 7,
-	MenuCategoryIconType__ICON_QUEST_MAIN = 8,
-	MenuCategoryIconType__ICON_QUEST_SUB = 9,
-	MenuCategoryIconType__ICON_QUEST_WANTED = 10,
-	MenuCategoryIconType__ICON_CHECK = 11,
-	MenuCategoryIconType__ICON_TALISMAN = 12,
-	MenuCategoryIconType__ICON_JEWEL = 13,
-	MenuCategoryIconType__ICON_BOOTS = 14,
-	MenuCategoryIconType__ICON_FEATHER = 15,
-	MenuCategoryIconType__ICON_CROSS = 16,
-	MenuCategoryIconType__ICON_SPECIAL = 17,
-	MenuCategoryIconType__ICON_CHAT = 18,
-	MenuCategoryIconType__ICON_MOVIE = 19,
-	MenuCategoryIconType__ICON_MEAT = 20,
-	MenuCategoryIconType__ICON_FISH = 21,
-	MenuCategoryIconType__ICON_VEGETABLE = 22,
-	MenuCategoryIconType__ICON_GRAIN = 23,
-	MenuCategoryIconType__ICON_DESSERT = 24,
-	MenuCategoryIconType__ICON_ENEMY = 25,
-	MenuCategoryIconType__ICON_BOSS = 26,
-	MenuCategoryIconType__ICON_SYSTEM = 27,
-	MenuCategoryIconType__ICON_BATTLE = 28,
-	MenuCategoryIconType__ICON_COLLECTION = 29,
-	MenuCategoryIconType__ICON_SELECT = 30,
-	MenuCategoryIconType__ICON_EFFECTGUARD = 31,
-	MenuCategoryIconType__ICON_STATE_UP = 32,
-	MenuCategoryIconType__ICON_ETC = 33,
-	MenuCategoryIconType__ICON_NEW = 34,
-	MenuCategoryIconType__ICON_BLANK = 35,
-	MenuCategoryIconType__ICON_MAX = 36
+	ICON_USE                       = 0,
+	ICON_MATERIAL                  = 1,
+	ICON_VALUE                     = 2,
+	ICON_OTHER                     = 3,
+	ICON_ALL                       = 4,
+	ICON_WEAPON                    = 5,
+	ICON_ARMOR                     = 6,
+	ICON_ACCESSORY                 = 7,
+	ICON_QUEST_MAIN                = 8,
+	ICON_QUEST_SUB                 = 9,
+	ICON_QUEST_WANTED              = 10,
+	ICON_CHECK                     = 11,
+	ICON_TALISMAN                  = 12,
+	ICON_JEWEL                     = 13,
+	ICON_BOOTS                     = 14,
+	ICON_FEATHER                   = 15,
+	ICON_CROSS                     = 16,
+	ICON_SPECIAL                   = 17,
+	ICON_CHAT                      = 18,
+	ICON_MOVIE                     = 19,
+	ICON_MEAT                      = 20,
+	ICON_FISH                      = 21,
+	ICON_VEGETABLE                 = 22,
+	ICON_GRAIN                     = 23,
+	ICON_DESSERT                   = 24,
+	ICON_ENEMY                     = 25,
+	ICON_BOSS                      = 26,
+	ICON_SYSTEM                    = 27,
+	ICON_BATTLE                    = 28,
+	ICON_COLLECTION                = 29,
+	ICON_SELECT                    = 30,
+	ICON_EFFECTGUARD               = 31,
+	ICON_STATE_UP                  = 32,
+	ICON_ETC                       = 33,
+	ICON_NEW                       = 34,
+	ICON_BLANK                     = 35,
+	ICON_MAX                       = 36
 };
 
 
 // Enum Arise.MenuIconType
 enum class EMenuIconType : uint8_t
 {
-	MenuIconType__ITEM             = 0,
-	MenuIconType__ORDER            = 1,
-	MenuIconType__TACTICS          = 2,
-	MenuIconType__EQUIP            = 3,
-	MenuIconType__ARTS             = 4,
-	MenuIconType__ALIAS            = 5,
-	MenuIconType__LIBRARY          = 6,
-	MenuIconType__BOOK             = 7,
-	MenuIconType__Space09          = 8,
-	MenuIconType__SAVE             = 9,
-	MenuIconType__LOAD             = 10,
-	MenuIconType__CONFIG           = 11,
-	MenuIconType__STATUS           = 12,
-	MenuIconType__VISUAL           = 13,
-	MenuIconType__COOKING          = 14,
-	MenuIconType__CAMP             = 15,
-	MenuIconType__INDEFINITE       = 16,
-	MenuIconType__PAUSE            = 17,
-	MenuIconType__INN              = 18,
-	MenuIconType__MENU             = 19,
-	MenuIconType__RECALL           = 20,
-	MenuIconType__DEPART           = 21,
-	MenuIconType__SHOP             = 22,
-	MenuIconType__ACCESSORY        = 23,
-	MenuIconType__WEAPON           = 24,
-	MenuIconType__LOCATIONMAP      = 25,
-	MenuIconType__FASTTRAVEL       = 26,
-	MenuIconType__ESCAPE           = 27,
-	MenuIconType__FARM             = 28,
-	MenuIconType__RELIC            = 29,
-	MenuIconType__TRAINING         = 30,
-	MenuIconType__DLCSHOP          = 31,
-	MenuIconType__EAT              = 32,
-	MenuIconType__MenuIconType_MAX = 33
+	ITEM                           = 0,
+	ORDER                          = 1,
+	TACTICS                        = 2,
+	EQUIP                          = 3,
+	ARTS                           = 4,
+	ALIAS                          = 5,
+	LIBRARY                        = 6,
+	BOOK                           = 7,
+	Space09                        = 8,
+	SAVE                           = 9,
+	LOAD                           = 10,
+	CONFIG                         = 11,
+	STATUS                         = 12,
+	VISUAL                         = 13,
+	COOKING                        = 14,
+	CAMP                           = 15,
+	INDEFINITE                     = 16,
+	PAUSE                          = 17,
+	INN                            = 18,
+	MENU                           = 19,
+	RECALL                         = 20,
+	DEPART                         = 21,
+	SHOP                           = 22,
+	ACCESSORY                      = 23,
+	WEAPON                         = 24,
+	LOCATIONMAP                    = 25,
+	FASTTRAVEL                     = 26,
+	ESCAPE                         = 27,
+	FARM                           = 28,
+	RELIC                          = 29,
+	TRAINING                       = 30,
+	DLCSHOP                        = 31,
+	EAT                            = 32,
+	MenuIconType_MAX               = 33
 };
 
 
 // Enum Arise.MenuShopItemSortType
 enum class EMenuShopItemSortType : uint8_t
 {
-	MenuShopItemSortType__ID       = 0,
-	MenuShopItemSortType__NAME     = 1,
-	MenuShopItemSortType__PRICE    = 2,
-	MenuShopItemSortType__GETTIME  = 3,
-	MenuShopItemSortType__SALE     = 4,
-	MenuShopItemSortType__ATTACK   = 5,
-	MenuShopItemSortType__EATTACK  = 6,
-	MenuShopItemSortType__PENETRATE = 7,
-	MenuShopItemSortType__DEFFENCE = 8,
-	MenuShopItemSortType__EDEFFENCE = 9,
-	MenuShopItemSortType__ENDURANCE = 10,
-	MenuShopItemSortType__MenuShopItemSortType_MAX = 11
+	ID                             = 0,
+	NAME                           = 1,
+	PRICE                          = 2,
+	GETTIME                        = 3,
+	SALE                           = 4,
+	ATTACK                         = 5,
+	EATTACK                        = 6,
+	PENETRATE                      = 7,
+	DEFFENCE                       = 8,
+	EDEFFENCE                      = 9,
+	ENDURANCE                      = 10,
+	MenuShopItemSortType_MAX       = 11
 };
 
 
 // Enum Arise.MenuShopItemCategory
 enum class EMenuShopItemCategory : uint8_t
 {
-	MenuShopItemCategory__ALL      = 0,
-	MenuShopItemCategory__USE      = 1,
-	MenuShopItemCategory__MATERIAL = 2,
-	MenuShopItemCategory__WEAPON   = 3,
-	MenuShopItemCategory__ARMOR    = 4,
-	MenuShopItemCategory__ACCESSORY = 5,
-	MenuShopItemCategory__MATERIAL_ACC = 6,
-	MenuShopItemCategory__ETC      = 7,
-	MenuShopItemCategory__CATEGORY_MAX = 8,
-	MenuShopItemCategory__MenuShopItemCategory_MAX = 9
+	ALL                            = 0,
+	USE                            = 1,
+	MATERIAL                       = 2,
+	WEAPON                         = 3,
+	ARMOR                          = 4,
+	ACCESSORY                      = 5,
+	MATERIAL_ACC                   = 6,
+	ETC                            = 7,
+	CATEGORY_MAX                   = 8,
+	MenuShopItemCategory_MAX       = 9
 };
 
 
 // Enum Arise.EMenuWeaponRecipeSortType
 enum class EMenuWeaponRecipeSortType : uint8_t
 {
-	EMenuWeaponRecipeSortType__Default = 0,
-	EMenuWeaponRecipeSortType__Name = 1,
-	EMenuWeaponRecipeSortType__GetTime = 2,
-	EMenuWeaponRecipeSortType__Attack = 3,
-	EMenuWeaponRecipeSortType__ElementAttack = 4,
-	EMenuWeaponRecipeSortType__Penetrate = 5,
-	EMenuWeaponRecipeSortType__EMenuWeaponRecipeSortType_MAX = 6
+	Default                        = 0,
+	Name                           = 1,
+	GetTime                        = 2,
+	Attack                         = 3,
+	ElementAttack                  = 4,
+	Penetrate                      = 5,
+	EMenuWeaponRecipeSortType_MAX  = 6
 };
 
 
 // Enum Arise.EMenuSkillPanelCategory
 enum class EMenuSkillPanelCategory : uint8_t
 {
-	EMenuSkillPanelCategory__CATE_SCENARIO = 0,
-	EMenuSkillPanelCategory__CATE_SUBQUE = 1,
-	EMenuSkillPanelCategory__CATE_YARIKOMI = 2,
-	EMenuSkillPanelCategory__CATE_DLC = 3,
-	EMenuSkillPanelCategory__CATE_MAX = 4
+	CATE_SCENARIO                  = 0,
+	CATE_SUBQUE                    = 1,
+	CATE_YARIKOMI                  = 2,
+	CATE_DLC                       = 3,
+	CATE_MAX                       = 4
 };
 
 
 // Enum Arise.EMenuTopID
 enum class EMenuTopID : uint8_t
 {
-	EMenuTopID__ID_CHAP00          = 0,
-	EMenuTopID__ID_CHAP01          = 1,
-	EMenuTopID__ID_CHAP02          = 2,
-	EMenuTopID__ID_CHAP03          = 3,
-	EMenuTopID__ID_CHAP04          = 4,
-	EMenuTopID__ID_CHAP05          = 5,
-	EMenuTopID__ID_CHAP06          = 6,
-	EMenuTopID__ID_CHAP07          = 7,
-	EMenuTopID__ID_CHAP08          = 8,
-	EMenuTopID__ID_CHAP09          = 9,
-	EMenuTopID__ID_CHAP10          = 10,
-	EMenuTopID__ID_CHAP11          = 11,
-	EMenuTopID__ID_CHAP12          = 12,
-	EMenuTopID__ID_CHAP13          = 13,
-	EMenuTopID__ID_CHAP14          = 14,
-	EMenuTopID__ID_CHAP15          = 15,
-	EMenuTopID__ID_TTL             = 16,
-	EMenuTopID__ID_DLC             = 17,
-	EMenuTopID__ID_CLR             = 18,
-	EMenuTopID__ID_MAP             = 19,
-	EMenuTopID__ID_TIT             = 20,
-	EMenuTopID__ID_MAX             = 21
+	ID_CHAP00                      = 0,
+	ID_CHAP01                      = 1,
+	ID_CHAP02                      = 2,
+	ID_CHAP03                      = 3,
+	ID_CHAP04                      = 4,
+	ID_CHAP05                      = 5,
+	ID_CHAP06                      = 6,
+	ID_CHAP07                      = 7,
+	ID_CHAP08                      = 8,
+	ID_CHAP09                      = 9,
+	ID_CHAP10                      = 10,
+	ID_CHAP11                      = 11,
+	ID_CHAP12                      = 12,
+	ID_CHAP13                      = 13,
+	ID_CHAP14                      = 14,
+	ID_CHAP15                      = 15,
+	ID_TTL                         = 16,
+	ID_DLC                         = 17,
+	ID_CLR                         = 18,
+	ID_MAP                         = 19,
+	ID_TIT                         = 20,
+	ID_MAX                         = 21
 };
 
 
 // Enum Arise.EMinimapIcon
 enum class EMinimapIcon : uint8_t
 {
-	EMinimapIcon__PlayerCharacter  = 0,
-	EMinimapIcon__InvasionLocation = 1,
-	EMinimapIcon__Footprint        = 2,
-	EMinimapIcon__Marker           = 3,
-	EMinimapIcon__MapLink          = 4,
-	EMinimapIcon__MainEvent        = 5,
-	EMinimapIcon__SubEvent         = 6,
-	EMinimapIcon__NPCChat          = 7,
-	EMinimapIcon__StrongEnemy      = 8,
-	EMinimapIcon__Camp             = 9,
-	EMinimapIcon__Town             = 10,
-	EMinimapIcon__Dungeon          = 11,
-	EMinimapIcon__Field            = 12,
-	EMinimapIcon__EMinimapIcon_MAX = 13
+	PlayerCharacter                = 0,
+	InvasionLocation               = 1,
+	Footprint                      = 2,
+	Marker                         = 3,
+	MapLink                        = 4,
+	MainEvent                      = 5,
+	SubEvent                       = 6,
+	NPCChat                        = 7,
+	StrongEnemy                    = 8,
+	Camp                           = 9,
+	Town                           = 10,
+	Dungeon                        = 11,
+	Field                          = 12,
+	EMinimapIcon_MAX               = 13
 };
 
 
 // Enum Arise.EOpenRecipe
 enum class EOpenRecipe : uint8_t
 {
-	EOpenRecipe__NONE              = 0,
-	EOpenRecipe__GET_WEAPON        = 1,
-	EOpenRecipe__CLEAR_QUEST       = 2,
-	EOpenRecipe__CLEAR_EVENT       = 3,
-	EOpenRecipe__HAS_MAIN_ALIAS    = 4,
-	EOpenRecipe__GET_SUB_ALIAS     = 5,
-	EOpenRecipe__IS_ITEM           = 6,
-	EOpenRecipe__GET_WEAPON_RECIPE = 7,
-	EOpenRecipe__CREATE_WEAPON_RECIPE = 8,
-	EOpenRecipe__USE_WEAPON        = 9,
-	EOpenRecipe__CREATE_COOK_RECIPIE = 10,
-	EOpenRecipe__GET_COOK_RECIPIE  = 11,
-	EOpenRecipe__AWAKE_QUEST       = 12,
-	EOpenRecipe__ACCEPT_QUEST      = 13,
-	EOpenRecipe__EOpenRecipe_MAX   = 14
+	NONE                           = 0,
+	GET_WEAPON                     = 1,
+	CLEAR_QUEST                    = 2,
+	CLEAR_EVENT                    = 3,
+	HAS_MAIN_ALIAS                 = 4,
+	GET_SUB_ALIAS                  = 5,
+	IS_ITEM                        = 6,
+	GET_WEAPON_RECIPE              = 7,
+	CREATE_WEAPON_RECIPE           = 8,
+	USE_WEAPON                     = 9,
+	CREATE_COOK_RECIPIE            = 10,
+	GET_COOK_RECIPIE               = 11,
+	AWAKE_QUEST                    = 12,
+	ACCEPT_QUEST                   = 13,
+	EOpenRecipe_MAX                = 14
 };
 
 
 // Enum Arise.EPFCommonDatabaseKey
 enum class EPFCommonDatabaseKey : uint8_t
 {
-	EPFCommonDatabaseKey__ScriptCameraPreset = 0,
-	EPFCommonDatabaseKey__CampDatabase = 1,
-	EPFCommonDatabaseKey__CampCameraPreset = 2,
-	EPFCommonDatabaseKey__FishingRewardItem = 3,
-	EPFCommonDatabaseKey__MAX      = 4
+	ScriptCameraPreset             = 0,
+	CampDatabase                   = 1,
+	CampCameraPreset               = 2,
+	FishingRewardItem              = 3,
+	MAX                            = 4
 };
 
 
@@ -4404,1256 +4384,1276 @@ enum class EPFDelegateType : uint8_t
 // Enum Arise.EEnSymBoolPin
 enum class EEnSymBoolPin : uint8_t
 {
-	EEnSymBoolPin__SUCCESS         = 0,
-	EEnSymBoolPin__FAILED          = 1,
-	EEnSymBoolPin__EEnSymBoolPin_MAX = 2
+	SUCCESS                        = 0,
+	FAILED                         = 1,
+	EEnSymBoolPin_MAX              = 2
+};
+
+
+// Enum Arise.EMenuBGType
+enum class EMenuBGType : uint8_t
+{
+	BG_NONE                        = 0,
+	BG_THROUGH                     = 1,
+	BG_CAPTURE                     = 2,
+	BG_LEVEL                       = 3,
+	BG_WORLDMAP                    = 4,
+	BG_STARMAP                     = 5,
+	BG_BTLTOP                      = 6,
+	BG_TOP                         = 7,
+	BG_TOP_TTL                     = 8,
+	BG_TOP_DLC                     = 9,
+	BG_TOP_CLR                     = 10,
+	BG_TOP_MAP                     = 11,
+	BG_TOP_TIT                     = 12,
+	BG_MAX                         = 13
 };
 
 
 // Enum Arise.EEnSymFloatType
 enum class EEnSymFloatType : uint8_t
 {
-	EEnSymFloatType__ExpriationAge = 0,
-	EEnSymFloatType__LostTime      = 1,
-	EEnSymFloatType__ChaseTime     = 2,
-	EEnSymFloatType__DeleteTime    = 3,
-	EEnSymFloatType__GiveupTime    = 4,
-	EEnSymFloatType__RushTime      = 5,
-	EEnSymFloatType__TurnBlendSpace = 6,
-	EEnSymFloatType__RandomMoveYaw = 7,
-	EEnSymFloatType__RandomMoveLength = 8,
-	EEnSymFloatType__EEnSymFloatType_MAX = 9
+	ExpriationAge                  = 0,
+	LostTime                       = 1,
+	ChaseTime                      = 2,
+	DeleteTime                     = 3,
+	GiveupTime                     = 4,
+	RushTime                       = 5,
+	TurnBlendSpace                 = 6,
+	RandomMoveYaw                  = 7,
+	RandomMoveLength               = 8,
+	EEnSymFloatType_MAX            = 9
 };
 
 
 // Enum Arise.EEnSymBoolType
 enum class EEnSymBoolType : uint8_t
 {
-	EEnSymBoolType__SearchArea     = 0,
-	EEnSymBoolType__MoveRoute      = 1,
-	EEnSymBoolType__Perception     = 2,
-	EEnSymBoolType__FindedTarget   = 3,
-	EEnSymBoolType__Moving         = 4,
-	EEnSymBoolType__BackMoveRoute  = 5,
-	EEnSymBoolType__EntrySearchArea = 6,
-	EEnSymBoolType__FollowStart    = 7,
-	EEnSymBoolType__DeleteSymbol   = 8,
-	EEnSymBoolType__Escape         = 9,
-	EEnSymBoolType__CanEscape      = 10,
-	EEnSymBoolType__CheckEscape    = 11,
-	EEnSymBoolType__RunStateWait   = 12,
-	EEnSymBoolType__LockFinded     = 13,
-	EEnSymBoolType__AIPaused       = 14,
-	EEnSymBoolType__Repop          = 15,
-	EEnSymBoolType__Sound          = 16,
-	EEnSymBoolType__BackHome       = 17,
-	EEnSymBoolType__RushBreak      = 18,
-	EEnSymBoolType__EEnSymBoolType_MAX = 19
+	SearchArea                     = 0,
+	MoveRoute                      = 1,
+	Perception                     = 2,
+	FindedTarget                   = 3,
+	Moving                         = 4,
+	BackMoveRoute                  = 5,
+	EntrySearchArea                = 6,
+	FollowStart                    = 7,
+	DeleteSymbol                   = 8,
+	Escape                         = 9,
+	CanEscape                      = 10,
+	CheckEscape                    = 11,
+	RunStateWait                   = 12,
+	LockFinded                     = 13,
+	AIPaused                       = 14,
+	Repop                          = 15,
+	Sound                          = 16,
+	BackHome                       = 17,
+	RushBreak                      = 18,
+	EEnSymBoolType_MAX             = 19
 };
 
 
 // Enum Arise.EEnSymRotatorType
 enum class EEnSymRotatorType : uint8_t
 {
-	EEnSymRotatorType__HomeRotator = 0,
-	EEnSymRotatorType__EEnSymRotatorType_MAX = 1
+	HomeRotator                    = 0,
+	EEnSymRotatorType_MAX          = 1
 };
 
 
 // Enum Arise.EEnSymVectorType
 enum class EEnSymVectorType : uint8_t
 {
-	EEnSymVectorType__HomeLocation = 0,
-	EEnSymVectorType__LastTargetLocation = 1,
-	EEnSymVectorType__LastSelfLocation = 2,
-	EEnSymVectorType__WanderingAreaSize = 3,
-	EEnSymVectorType__MovePoint    = 4,
-	EEnSymVectorType__EscapeDir    = 5,
-	EEnSymVectorType__GoalLocation = 6,
-	EEnSymVectorType__RandomMoveRangeMin = 7,
-	EEnSymVectorType__RandomMoveRangeMax = 8,
-	EEnSymVectorType__LastMovedLocation = 9,
-	EEnSymVectorType__EEnSymVectorType_MAX = 10
+	HomeLocation                   = 0,
+	LastTargetLocation             = 1,
+	LastSelfLocation               = 2,
+	WanderingAreaSize              = 3,
+	MovePoint                      = 4,
+	EscapeDir                      = 5,
+	GoalLocation                   = 6,
+	RandomMoveRangeMin             = 7,
+	RandomMoveRangeMax             = 8,
+	LastMovedLocation              = 9,
+	EEnSymVectorType_MAX           = 10
 };
 
 
 // Enum Arise.EEnSymSizeType
 enum class EEnSymSizeType : uint8_t
 {
-	EEnSymSizeType__SIZE_SMALL     = 0,
-	EEnSymSizeType__SIZE_DEFAULT   = 1,
-	EEnSymSizeType__SIZE_LARGE     = 2,
-	EEnSymSizeType__SIZE_MAX       = 3
+	SIZE_SMALL                     = 0,
+	SIZE_DEFAULT                   = 1,
+	SIZE_LARGE                     = 2,
+	_SIZE_MAX                       = 3
 };
 
 
 // Enum Arise.EEnSymFollowType
 enum class EEnSymFollowType : uint8_t
 {
-	EEnSymFollowType__FOLLOW_TYPE_NORMAL = 0,
-	EEnSymFollowType__FOLLOW_TYPE_RUSH = 1,
-	EEnSymFollowType__FOLLOW_TYPE_SILENCE = 2,
-	EEnSymFollowType__FOLLOW_TYPE_MAX = 3
+	FOLLOW_TYPE_NORMAL             = 0,
+	FOLLOW_TYPE_RUSH               = 1,
+	FOLLOW_TYPE_SILENCE            = 2,
+	FOLLOW_TYPE_MAX                = 3
 };
 
 
 // Enum Arise.EEnSymWanderingType
 enum class EEnSymWanderingType : uint8_t
 {
-	EEnSymWanderingType__WANDERING_TYPE_WAIT = 0,
-	EEnSymWanderingType__WANDERING_TYPE_WANDER = 1,
-	EEnSymWanderingType__WANDERING_TYPE_AIR = 2,
-	EEnSymWanderingType__WANDERING_TYPE_ROUTE = 3,
-	EEnSymWanderingType__WANDERING_TYPE_ROUTE_BACK = 4,
-	EEnSymWanderingType__WANDERING_TYPE_MAX = 5
+	WANDERING_TYPE_WAIT            = 0,
+	WANDERING_TYPE_WANDER          = 1,
+	WANDERING_TYPE_AIR             = 2,
+	WANDERING_TYPE_ROUTE           = 3,
+	WANDERING_TYPE_ROUTE_BACK      = 4,
+	WANDERING_TYPE_MAX             = 5
 };
 
 
 // Enum Arise.EEnSymWaitType
 enum class EEnSymWaitType : uint8_t
 {
-	EEnSymWaitType__WAIT_TYPE_NONE = 0,
-	EEnSymWaitType__WAIT_TYPE_WAITING = 1,
-	EEnSymWaitType__WAIT_TYPE_GROUND = 2,
-	EEnSymWaitType__WAIT_TYPE_MIMIC = 3,
-	EEnSymWaitType__WAIT_TYPE_CEIL = 4,
-	EEnSymWaitType__WAIT_TYPE_MAX  = 5
+	WAIT_TYPE_NONE                 = 0,
+	WAIT_TYPE_WAITING              = 1,
+	WAIT_TYPE_GROUND               = 2,
+	WAIT_TYPE_MIMIC                = 3,
+	WAIT_TYPE_CEIL                 = 4,
+	WAIT_TYPE_MAX                  = 5
 };
 
 
 // Enum Arise.EPFLightweightNpcAction
 enum class EPFLightweightNpcAction : uint8_t
 {
-	EPFLightweightNpcAction__Idle  = 0,
-	EPFLightweightNpcAction__Walk  = 1,
-	EPFLightweightNpcAction__EPFLightweightNpcAction_MAX = 2
+	Idle                           = 0,
+	Walk                           = 1,
+	EPFLightweightNpcAction_MAX    = 2
 };
 
 
 // Enum Arise.EPFNavAreaFlag
 enum class EPFNavAreaFlag : uint8_t
 {
-	EPFNavAreaFlag__Unknown        = 0,
-	EPFNavAreaFlag__Door           = 1,
-	EPFNavAreaFlag__Jump           = 2,
-	EPFNavAreaFlag__Fly            = 3,
-	EPFNavAreaFlag__Self           = 4,
-	EPFNavAreaFlag__EPFNavAreaFlag_MAX = 5
+	Unknown                        = 0,
+	Door                           = 1,
+	Jump                           = 2,
+	Fly                            = 3,
+	Self                           = 4,
+	EPFNavAreaFlag_MAX             = 5
 };
 
 
 // Enum Arise.EPFNpcActorWalk
 enum class EPFNpcActorWalk : uint8_t
 {
-	EPFNpcActorWalk__Walk          = 0,
-	EPFNpcActorWalk__Run           = 1,
-	EPFNpcActorWalk__EPFNpcActorWalk_MAX = 2
+	Walk                           = 0,
+	Run                            = 1,
+	EPFNpcActorWalk_MAX            = 2
 };
 
 
 // Enum Arise.EPFNpcAnimPlayActionLoop
 enum class EPFNpcAnimPlayActionLoop : uint8_t
 {
-	EPFNpcAnimPlayActionLoop__Default = 0,
-	EPFNpcAnimPlayActionLoop__NeverLoop = 1,
-	EPFNpcAnimPlayActionLoop__ForeverLoop = 2,
-	EPFNpcAnimPlayActionLoop__EPFNpcAnimPlayActionLoop_MAX = 3
+	Default                        = 0,
+	NeverLoop                      = 1,
+	ForeverLoop                    = 2,
+	EPFNpcAnimPlayActionLoop_MAX   = 3
 };
 
 
 // Enum Arise.EPFNpcCameraFadingMode
 enum class EPFNpcCameraFadingMode : uint8_t
 {
-	EPFNpcCameraFadingMode__Far    = 0,
-	EPFNpcCameraFadingMode__Near   = 1,
-	EPFNpcCameraFadingMode__EPFNpcCameraFadingMode_MAX = 2
-};
-
-
-// Enum Arise.EPFNpcInteractionType
-enum class EPFNpcInteractionType : uint8_t
-{
-	EPFNpcInteractionType__NPC_INTERACTION_NONE = 0,
-	EPFNpcInteractionType__NPC_INTERACTION_ONETOP = 1,
-	EPFNpcInteractionType__NPC_INTERACTION_EVENT = 2,
-	EPFNpcInteractionType__NPC_INTERACTION_SHOP = 3,
-	EPFNpcInteractionType__NPC_INTERACTION_INN = 4,
-	EPFNpcInteractionType__NPC_INTERACTION_QUEST_CLIENT = 5,
-	EPFNpcInteractionType__NPC_INTERACTION_QUEST_INFORMATION = 6,
-	EPFNpcInteractionType__NPC_INTERACTION_QUEST_MAIN = 7,
-	EPFNpcInteractionType__NPC_INTERACTION_SHOP_BLACKSMITH = 8,
-	EPFNpcInteractionType__NPC_INTERACTION_SHOP_ACCESSORY = 9,
-	EPFNpcInteractionType__NPC_INTERACTION_SHIP = 10,
-	EPFNpcInteractionType__NPC_INTERACTION_OWL = 11,
-	EPFNpcInteractionType__NPC_INTERACTION_UTILITY = 12,
-	EPFNpcInteractionType__NPC_INTERACTION_RECOVERY = 13,
-	EPFNpcInteractionType__NPC_INTERACTION_FARM = 14,
-	EPFNpcInteractionType__NPC_INTERACTION_COLOSSEUM = 15,
-	EPFNpcInteractionType__NPC_INTERACTION_INFORMATION = 16,
-	EPFNpcInteractionType__NPC_INTERACTION_GENERAL_STORE = 17,
-	EPFNpcInteractionType__NPC_INTERACTION_INJURED_PERSON = 18,
-	EPFNpcInteractionType__NPC_INTERACTION_FISHING_TACKLE = 19,
-	EPFNpcInteractionType__NPC_INTERACTION_QUEST_ORDER = 20,
-	EPFNpcInteractionType__NPC_INTERACTION_QUEST_REPORT = 21,
-	EPFNpcInteractionType__NPC_INTERACTION_QUEST_TARGET = 22,
-	EPFNpcInteractionType__NPC_INTERACTION_PERCH = 23,
-	EPFNpcInteractionType__NPC_INTERACTION_MAX = 24
+	Far                            = 0,
+	Near                           = 1,
+	EPFNpcCameraFadingMode_MAX     = 2
 };
 
 
 // Enum Arise.EPFNpcSpawnPriority
 enum class EPFNpcSpawnPriority : uint8_t
 {
-	EPFNpcSpawnPriority__Normal    = 0,
-	EPFNpcSpawnPriority__AboveNormal = 1,
-	EPFNpcSpawnPriority__Middle    = 2,
-	EPFNpcSpawnPriority__AboveMiddle = 3,
-	EPFNpcSpawnPriority__High      = 4,
-	EPFNpcSpawnPriority__AboveHigh = 5,
-	EPFNpcSpawnPriority__Highest   = 6,
-	EPFNpcSpawnPriority__EPFNpcSpawnPriority_MAX = 7
+	Normal                         = 0,
+	AboveNormal                    = 1,
+	Middle                         = 2,
+	AboveMiddle                    = 3,
+	High                           = 4,
+	AboveHigh                      = 5,
+	Highest                        = 6,
+	EPFNpcSpawnPriority_MAX        = 7
 };
 
 
 // Enum Arise.EPFNpcWeaponVisibleType
 enum class EPFNpcWeaponVisibleType : uint8_t
 {
-	EPFNpcWeaponVisibleType__Default = 0,
-	EPFNpcWeaponVisibleType__Invisible = 1,
-	EPFNpcWeaponVisibleType__Visible_Mount = 2,
-	EPFNpcWeaponVisibleType__Visible_Unmount = 3,
-	EPFNpcWeaponVisibleType__EPFNpcWeaponVisibleType_MAX = 4
+	Default                        = 0,
+	Invisible                      = 1,
+	Visible_Mount                  = 2,
+	Visible_Unmount                = 3,
+	EPFNpcWeaponVisibleType_MAX    = 4
 };
 
 
 // Enum Arise.EPFNpcSymbolIcon
 enum class EPFNpcSymbolIcon : uint8_t
 {
-	EPFNpcSymbolIcon__Talk         = 0,
-	EPFNpcSymbolIcon__Search       = 1,
-	EPFNpcSymbolIcon__MainQuest    = 2,
-	EPFNpcSymbolIcon__SubQuest     = 3,
-	EPFNpcSymbolIcon__EPFNpcSymbolIcon_MAX = 4
+	Talk                           = 0,
+	Search                         = 1,
+	MainQuest                      = 2,
+	SubQuest                       = 3,
+	EPFNpcSymbolIcon_MAX           = 4
 };
 
 
 // Enum Arise.EPFNpcActInfoType
 enum class EPFNpcActInfoType : uint8_t
 {
-	EPFNpcActInfoType__NPC_ACTINFO_TALK = 0,
-	EPFNpcActInfoType__NPC_ACTINFO_SEARCH = 1,
-	EPFNpcActInfoType__NPC_ACTINFO_MAX = 2
+	NPC_ACTINFO_TALK               = 0,
+	NPC_ACTINFO_SEARCH             = 1,
+	NPC_ACTINFO_MAX                = 2
 };
 
 
 // Enum Arise.EPFNpcCharacterSpawnType
 enum class EPFNpcCharacterSpawnType : uint8_t
 {
-	EPFNpcCharacterSpawnType__Unknown = 0,
-	EPFNpcCharacterSpawnType__Stand = 1,
-	EPFNpcCharacterSpawnType__Walk = 2,
-	EPFNpcCharacterSpawnType__Event = 3,
-	EPFNpcCharacterSpawnType__Camp = 4,
-	EPFNpcCharacterSpawnType__EPFNpcCharacterSpawnType_MAX = 5
+	Unknown                        = 0,
+	Stand                          = 1,
+	Walk                           = 2,
+	Event                          = 3,
+	Camp                           = 4,
+	EPFNpcCharacterSpawnType_MAX   = 5
+};
+
+
+// Enum Arise.EPFNpcInteractionType
+enum class EPFNpcInteractionType : uint8_t
+{
+	NPC_INTERACTION_NONE           = 0,
+	NPC_INTERACTION_ONETOP         = 1,
+	NPC_INTERACTION_EVENT          = 2,
+	NPC_INTERACTION_SHOP           = 3,
+	NPC_INTERACTION_INN            = 4,
+	NPC_INTERACTION_QUEST_CLIENT   = 5,
+	NPC_INTERACTION_QUEST_INFORMATION = 6,
+	NPC_INTERACTION_QUEST_MAIN     = 7,
+	NPC_INTERACTION_SHOP_BLACKSMITH = 8,
+	NPC_INTERACTION_SHOP_ACCESSORY = 9,
+	NPC_INTERACTION_SHIP           = 10,
+	NPC_INTERACTION_OWL            = 11,
+	NPC_INTERACTION_UTILITY        = 12,
+	NPC_INTERACTION_RECOVERY       = 13,
+	NPC_INTERACTION_FARM           = 14,
+	NPC_INTERACTION_COLOSSEUM      = 15,
+	NPC_INTERACTION_INFORMATION    = 16,
+	NPC_INTERACTION_GENERAL_STORE  = 17,
+	NPC_INTERACTION_INJURED_PERSON = 18,
+	NPC_INTERACTION_FISHING_TACKLE = 19,
+	NPC_INTERACTION_QUEST_ORDER    = 20,
+	NPC_INTERACTION_QUEST_REPORT   = 21,
+	NPC_INTERACTION_QUEST_TARGET   = 22,
+	NPC_INTERACTION_PERCH          = 23,
+	NPC_INTERACTION_MAX            = 24
 };
 
 
 // Enum Arise.ENpcDatabaseKey
 enum class ENpcDatabaseKey : uint8_t
 {
-	ENpcDatabaseKey__DefineData_Release = 0,
-	ENpcDatabaseKey__DefineData_Debug = 1,
-	ENpcDatabaseKey__FacialPreset  = 2,
-	ENpcDatabaseKey__MAX           = 3
+	DefineData_Release             = 0,
+	DefineData_Debug               = 1,
+	FacialPreset                   = 2,
+	MAX                            = 3
 };
 
 
 // Enum Arise.EPFNpcInteraction
 enum class EPFNpcInteraction : uint8_t
 {
-	EPFNpcInteraction__InteractionTalk = 0,
-	EPFNpcInteraction__InteractionEvent = 1,
-	EPFNpcInteraction__EPFNpcInteraction_MAX = 2
+	InteractionTalk                = 0,
+	InteractionEvent               = 1,
+	EPFNpcInteraction_MAX          = 2
 };
 
 
 // Enum Arise.EPFNpcWalkCollideShape
 enum class EPFNpcWalkCollideShape : uint8_t
 {
-	EPFNpcWalkCollideShape__None   = 0,
-	EPFNpcWalkCollideShape__Capsule = 1,
-	EPFNpcWalkCollideShape__Box    = 2,
-	EPFNpcWalkCollideShape__EPFNpcWalkCollideShape_MAX = 3
+	None                           = 0,
+	Capsule                        = 1,
+	Box                            = 2,
+	EPFNpcWalkCollideShape_MAX     = 3
 };
 
 
 // Enum Arise.EOneTopDatabaseKey
 enum class EOneTopDatabaseKey : uint8_t
 {
-	EOneTopDatabaseKey__OneTopData_Release = 0,
-	EOneTopDatabaseKey__OneTopData_Debug = 1,
-	EOneTopDatabaseKey__MAX        = 2
+	OneTopData_Release             = 0,
+	OneTopData_Debug               = 1,
+	MAX                            = 2
 };
 
 
 // Enum Arise.EPlacementDatabaseKey
 enum class EPlacementDatabaseKey : uint8_t
 {
-	EPlacementDatabaseKey__BreakPoint = 0,
-	EPlacementDatabaseKey__SearchPoint = 1,
-	EPlacementDatabaseKey__TreasurePoint = 2,
-	EPlacementDatabaseKey__TPObject = 3,
-	EPlacementDatabaseKey__FastTravelPoint = 4,
-	EPlacementDatabaseKey__FacilityPoint = 5,
-	EPlacementDatabaseKey__OwlPoint = 6,
-	EPlacementDatabaseKey__CampPoint = 7,
-	EPlacementDatabaseKey__FishingPoint = 8,
-	EPlacementDatabaseKey__CookingPoint = 9,
-	EPlacementDatabaseKey__BountyEnemyPoint = 10,
-	EPlacementDatabaseKey__PlayerPassBlocking = 11,
-	EPlacementDatabaseKey__MainQuestPoint = 12,
-	EPlacementDatabaseKey__MapGimmick = 13,
-	EPlacementDatabaseKey__NpcPoint = 14,
-	EPlacementDatabaseKey__LadderPoint = 15,
-	EPlacementDatabaseKey__FallingPoint = 16,
-	EPlacementDatabaseKey__NpcTalk = 17,
-	EPlacementDatabaseKey__SearchModel = 18,
-	EPlacementDatabaseKey__SearchPointItem = 19,
-	EPlacementDatabaseKey__TreasurePointItem = 20,
-	EPlacementDatabaseKey__SearchOwl = 21,
-	EPlacementDatabaseKey__MiningPointItem = 22,
-	EPlacementDatabaseKey__EncountSymbol = 23,
-	EPlacementDatabaseKey__RecoveryPoint = 24,
-	EPlacementDatabaseKey__StarShipPoint = 25,
-	EPlacementDatabaseKey__MAX     = 26
+	BreakPoint                     = 0,
+	SearchPoint                    = 1,
+	TreasurePoint                  = 2,
+	TPObject                       = 3,
+	FastTravelPoint                = 4,
+	FacilityPoint                  = 5,
+	OwlPoint                       = 6,
+	CampPoint                      = 7,
+	FishingPoint                   = 8,
+	CookingPoint                   = 9,
+	BountyEnemyPoint               = 10,
+	PlayerPassBlocking             = 11,
+	MainQuestPoint                 = 12,
+	MapGimmick                     = 13,
+	NpcPoint                       = 14,
+	LadderPoint                    = 15,
+	FallingPoint                   = 16,
+	NpcTalk                        = 17,
+	SearchModel                    = 18,
+	SearchPointItem                = 19,
+	TreasurePointItem              = 20,
+	SearchOwl                      = 21,
+	MiningPointItem                = 22,
+	EncountSymbol                  = 23,
+	RecoveryPoint                  = 24,
+	StarShipPoint                  = 25,
+	MAX                            = 26
 };
 
 
 // Enum Arise.EPFPlacementInteraction
 enum class EPFPlacementInteraction : uint8_t
 {
-	EPFPlacementInteraction__Unknown = 0,
-	EPFPlacementInteraction__BreakPoint = 1,
-	EPFPlacementInteraction__SearchPoint = 2,
-	EPFPlacementInteraction__TreasurePoint = 3,
-	EPFPlacementInteraction__TPObject = 4,
-	EPFPlacementInteraction__FastTravelPoint = 5,
-	EPFPlacementInteraction__OwlPoint = 6,
-	EPFPlacementInteraction__CampPoint = 7,
-	EPFPlacementInteraction__FishingPoint = 8,
-	EPFPlacementInteraction__CookingPoint = 9,
-	EPFPlacementInteraction__BountyEnemyPoint = 10,
-	EPFPlacementInteraction__PlayerPassBlocking = 11,
-	EPFPlacementInteraction__MainQuestPoint = 12,
-	EPFPlacementInteraction__MapGimmick = 13,
-	EPFPlacementInteraction__RecoveryPoint = 14,
-	EPFPlacementInteraction__NumMaxPoint = 15,
-	EPFPlacementInteraction__EPFPlacementInteraction_MAX = 16
+	Unknown                        = 0,
+	BreakPoint                     = 1,
+	SearchPoint                    = 2,
+	TreasurePoint                  = 3,
+	TPObject                       = 4,
+	FastTravelPoint                = 5,
+	OwlPoint                       = 6,
+	CampPoint                      = 7,
+	FishingPoint                   = 8,
+	CookingPoint                   = 9,
+	BountyEnemyPoint               = 10,
+	PlayerPassBlocking             = 11,
+	MainQuestPoint                 = 12,
+	MapGimmick                     = 13,
+	RecoveryPoint                  = 14,
+	NumMaxPoint                    = 15,
+	EPFPlacementInteraction_MAX    = 16
 };
 
 
 // Enum Arise.EPFNpcSpawnType
 enum class EPFNpcSpawnType : uint8_t
 {
-	EPFNpcSpawnType__PlayerFree    = 0,
-	EPFNpcSpawnType__Event         = 1,
-	EPFNpcSpawnType__EPFNpcSpawnType_MAX = 2
+	PlayerFree                     = 0,
+	Event                          = 1,
+	EPFNpcSpawnType_MAX            = 2
 };
 
 
 // Enum Arise.EPFNpcSpawnStatus
 enum class EPFNpcSpawnStatus : uint8_t
 {
-	EPFNpcSpawnStatus__HasEvent    = 0,
-	EPFNpcSpawnStatus__HasQuest    = 1,
-	EPFNpcSpawnStatus__HasShortChat = 2,
-	EPFNpcSpawnStatus__HasFacility = 3,
-	EPFNpcSpawnStatus__HasOneTop   = 4,
-	EPFNpcSpawnStatus__Mob         = 5,
-	EPFNpcSpawnStatus__EPFNpcSpawnStatus_MAX = 6
+	HasEvent                       = 0,
+	HasQuest                       = 1,
+	HasShortChat                   = 2,
+	HasFacility                    = 3,
+	HasOneTop                      = 4,
+	Mob                            = 5,
+	EPFNpcSpawnStatus_MAX          = 6
 };
 
 
 // Enum Arise.EPFNpcTalkReaction
 enum class EPFNpcTalkReaction : uint8_t
 {
-	EPFNpcTalkReaction__NPC_TALK_REACTION_KEEP = 0,
-	EPFNpcTalkReaction__NPC_TALK_REACTION_LOOKAT = 1,
-	EPFNpcTalkReaction__NPC_TALK_REACTION_TURN = 2,
-	EPFNpcTalkReaction__NPC_TALK_REACTION_MAX = 3
+	NPC_TALK_REACTION_KEEP         = 0,
+	NPC_TALK_REACTION_LOOKAT       = 1,
+	NPC_TALK_REACTION_TURN         = 2,
+	NPC_TALK_REACTION_MAX          = 3
 };
 
 
 // Enum Arise.EPFNpcCollideShape
 enum class EPFNpcCollideShape : uint8_t
 {
-	EPFNpcCollideShape__NPC_COLLIDE_SHAPE_NONE = 0,
-	EPFNpcCollideShape__NPC_COLLIDE_SHAPE_CAPSULE = 1,
-	EPFNpcCollideShape__NPC_COLLIDE_SHAPE_BOX = 2,
-	EPFNpcCollideShape__NPC_COLLIDE_SHAPE_MAX = 3
+	NPC_COLLIDE_SHAPE_NONE         = 0,
+	NPC_COLLIDE_SHAPE_CAPSULE      = 1,
+	NPC_COLLIDE_SHAPE_BOX          = 2,
+	NPC_COLLIDE_SHAPE_MAX          = 3
 };
 
 
 // Enum Arise.EPFNpcSpline
 enum class EPFNpcSpline : uint8_t
 {
-	EPFNpcSpline__NPC_SPLINE_NORMAL = 0,
-	EPFNpcSpline__NPC_SPLINE_REVERSE = 1,
-	EPFNpcSpline__NPC_SPLINE_MAX   = 2
+	NPC_SPLINE_NORMAL              = 0,
+	NPC_SPLINE_REVERSE             = 1,
+	NPC_SPLINE_MAX                 = 2
 };
 
 
 // Enum Arise.EPFNpcMoveSpeed
 enum class EPFNpcMoveSpeed : uint8_t
 {
-	EPFNpcMoveSpeed__NPC_MOVE_SPEED_WALK = 0,
-	EPFNpcMoveSpeed__NPC_MOVE_SPEED_RUN = 1,
-	EPFNpcMoveSpeed__NPC_MOVE_SPEED_MAX = 2
+	NPC_MOVE_SPEED_WALK            = 0,
+	NPC_MOVE_SPEED_RUN             = 1,
+	NPC_MOVE_SPEED_MAX             = 2
 };
 
 
 // Enum Arise.EPFNpcIdle
 enum class EPFNpcIdle : uint8_t
 {
-	EPFNpcIdle__NPC_IDLE_NEUTRAL   = 0,
-	EPFNpcIdle__NPC_IDLE_WORK      = 1,
-	EPFNpcIdle__NPC_IDLE_MAX       = 2
+	NPC_IDLE_NEUTRAL               = 0,
+	NPC_IDLE_WORK                  = 1,
+	NPC_IDLE_MAX                   = 2
 };
 
 
 // Enum Arise.EPFNpcBehavior
 enum class EPFNpcBehavior : uint8_t
 {
-	EPFNpcBehavior__NPC_BEHAVIOR_BLANK = 0,
-	EPFNpcBehavior__NPC_BEHAVIOR_MOVE = 1,
-	EPFNpcBehavior__NPC_BEHAVIOR_TALK = 2,
-	EPFNpcBehavior__NPC_BEHAVIOR_MAX = 3
+	NPC_BEHAVIOR_BLANK             = 0,
+	NPC_BEHAVIOR_MOVE              = 1,
+	NPC_BEHAVIOR_TALK              = 2,
+	NPC_BEHAVIOR_MAX               = 3
 };
 
 
 // Enum Arise.ESearchItemRarity
 enum class ESearchItemRarity : uint8_t
 {
-	ESearchItemRarity__Normal      = 0,
-	ESearchItemRarity__Rare        = 1,
-	ESearchItemRarity__ESearchItemRarity_MAX = 2
+	Normal                         = 0,
+	Rare                           = 1,
+	ESearchItemRarity_MAX          = 2
 };
 
 
 // Enum Arise.ESearchModelBounds
 enum class ESearchModelBounds : uint8_t
 {
-	ESearchModelBounds__Component  = 0,
-	ESearchModelBounds__Vertices   = 1,
-	ESearchModelBounds__ESearchModelBounds_MAX = 2
+	Component                      = 0,
+	Vertices                       = 1,
+	ESearchModelBounds_MAX         = 2
 };
 
 
 // Enum Arise.ESearchModelState
 enum class ESearchModelState : uint8_t
 {
-	ESearchModelState__Closed      = 0,
-	ESearchModelState__Opened      = 1,
-	ESearchModelState__Close       = 2,
-	ESearchModelState__Open        = 3,
-	ESearchModelState__ESearchModelState_MAX = 4
+	Closed                         = 0,
+	Opened                         = 1,
+	Close                          = 2,
+	Open                           = 3,
+	ESearchModelState_MAX          = 4
 };
 
 
 // Enum Arise.EPFPlacementSerialize
 enum class EPFPlacementSerialize : uint8_t
 {
-	EPFPlacementSerialize__Unknown = 0,
-	EPFPlacementSerialize__BreakPoint = 1,
-	EPFPlacementSerialize__SearchPoint = 2,
-	EPFPlacementSerialize__TreasurePoint = 3,
-	EPFPlacementSerialize__TPObject = 4,
-	EPFPlacementSerialize__FastTravelPoint = 5,
-	EPFPlacementSerialize__OwlPoint = 6,
-	EPFPlacementSerialize__CampPoint = 7,
-	EPFPlacementSerialize__FishingPoint = 8,
-	EPFPlacementSerialize__CookingPoint = 9,
-	EPFPlacementSerialize__BountyEnemyPoint = 10,
-	EPFPlacementSerialize__PlayerPassBlocking = 11,
-	EPFPlacementSerialize__MainQuestPoint = 12,
-	EPFPlacementSerialize__MapGimmick = 13,
-	EPFPlacementSerialize__NpcPoint = 14,
-	EPFPlacementSerialize__LadderPoint = 15,
-	EPFPlacementSerialize__FallingPoint = 16,
-	EPFPlacementSerialize__EncountSymbol = 17,
-	EPFPlacementSerialize__RecoveryPoint = 18,
-	EPFPlacementSerialize__StarShipPoint = 19,
-	EPFPlacementSerialize__NumMaxPoint = 20,
-	EPFPlacementSerialize__EPFPlacementSerialize_MAX = 21
-};
-
-
-// Enum Arise.EPFAxisInput
-enum class EPFAxisInput : uint8_t
-{
-	EPFAxisInput__MoveForward      = 0,
-	EPFAxisInput__MoveRight        = 1,
-	EPFAxisInput__RotatePitch      = 2,
-	EPFAxisInput__RotateYaw        = 3,
-	EPFAxisInput__TypeMax          = 4,
-	EPFAxisInput__EPFAxisInput_MAX = 5
+	Unknown                        = 0,
+	BreakPoint                     = 1,
+	SearchPoint                    = 2,
+	TreasurePoint                  = 3,
+	TPObject                       = 4,
+	FastTravelPoint                = 5,
+	OwlPoint                       = 6,
+	CampPoint                      = 7,
+	FishingPoint                   = 8,
+	CookingPoint                   = 9,
+	BountyEnemyPoint               = 10,
+	PlayerPassBlocking             = 11,
+	MainQuestPoint                 = 12,
+	MapGimmick                     = 13,
+	NpcPoint                       = 14,
+	LadderPoint                    = 15,
+	FallingPoint                   = 16,
+	EncountSymbol                  = 17,
+	RecoveryPoint                  = 18,
+	StarShipPoint                  = 19,
+	NumMaxPoint                    = 20,
+	EPFPlacementSerialize_MAX      = 21
 };
 
 
 // Enum Arise.EPFButtonInput
 enum class EPFButtonInput : uint8_t
 {
-	EPFButtonInput__Decide         = 0,
-	EPFButtonInput__Cancel         = 1,
-	EPFButtonInput__Interaction    = 2,
-	EPFButtonInput__Jump           = 3,
-	EPFButtonInput__ChangeCameraDistance = 4,
-	EPFButtonInput__ResetCameraAngle = 5,
-	EPFButtonInput__Gallop         = 6,
-	EPFButtonInput__TypeMax        = 7,
-	EPFButtonInput__EPFButtonInput_MAX = 8
+	Decide                         = 0,
+	Cancel                         = 1,
+	Interaction                    = 2,
+	Jump                           = 3,
+	ChangeCameraDistance           = 4,
+	ResetCameraAngle               = 5,
+	Gallop                         = 6,
+	TypeMax                        = 7,
+	EPFButtonInput_MAX             = 8
 };
 
 
 // Enum Arise.EPFSearchPointStatus
 enum class EPFSearchPointStatus : uint8_t
 {
-	EPFSearchPointStatus__Unacquired_DEPRECATED = 0,
-	EPFSearchPointStatus__AcquireOnlyOnce_DEPRECATED = 1,
-	EPFSearchPointStatus__WaitingForPop_DEPRECATED = 2,
-	EPFSearchPointStatus__CanPop_DEPRECATED = 3,
-	EPFSearchPointStatus__Zero     = 4,
-	EPFSearchPointStatus__Invalidate = 5,
-	EPFSearchPointStatus__CanRepop = 6,
-	EPFSearchPointStatus__WaitingForRepop = 7,
-	EPFSearchPointStatus__EPFSearchPointStatus_MAX = 8
+	Unacquired_DEPRECATED          = 0,
+	AcquireOnlyOnce_DEPRECATED     = 1,
+	WaitingForPop_DEPRECATED       = 2,
+	CanPop_DEPRECATED              = 3,
+	Zero                           = 4,
+	Invalidate                     = 5,
+	CanRepop                       = 6,
+	WaitingForRepop                = 7,
+	EPFSearchPointStatus_MAX       = 8
 };
 
 
 // Enum Arise.EPFUIParts
 enum class EPFUIParts : uint8_t
 {
-	EPFUIParts__NAVI_MAP           = 0,
-	EPFUIParts__DESTINATION_STAR_ICON = 1,
-	EPFUIParts__POP_UP_ANNOUNCE    = 2,
-	EPFUIParts__PLAYABLE_HELP      = 3,
-	EPFUIParts__OPERATION_BUTTON_HELP = 4,
-	EPFUIParts__MAP_LINK_DESTINATION = 5,
-	EPFUIParts__INTERACT_ICON      = 6,
-	EPFUIParts__INTERACT_BUTTON_HELP = 7,
-	EPFUIParts__STAR_SPIRITUAL_GAUGE = 8,
-	EPFUIParts__DIETARY_EFFECT_GAUGE = 9,
-	EPFUIParts__NEXT_MAIN_QUEST_TEXT = 10,
-	EPFUIParts__NEXT_SUB_QUEST_TEXT = 11,
-	EPFUIParts__ENCOUNTER_GAUGE    = 12,
-	EPFUIParts__ENEMY_APPROACH_ICON = 13,
-	EPFUIParts__BATTLE_RESULT      = 14,
-	EPFUIParts__LONG_CHAT_BUTTON   = 15,
-	EPFUIParts__SHORT_CHAT         = 16,
-	EPFUIParts__MESSAGE_WINDOW     = 17,
-	EPFUIParts__SYSTEM_WINDOW      = 18,
-	EPFUIParts__AREA_CHANGE_NAME   = 19,
-	EPFUIParts__TP_GAUGE           = 20,
-	EPFUIParts__MAX                = 21
+	NAVI_MAP                       = 0,
+	DESTINATION_STAR_ICON          = 1,
+	POP_UP_ANNOUNCE                = 2,
+	PLAYABLE_HELP                  = 3,
+	OPERATION_BUTTON_HELP          = 4,
+	MAP_LINK_DESTINATION           = 5,
+	INTERACT_ICON                  = 6,
+	INTERACT_BUTTON_HELP           = 7,
+	STAR_SPIRITUAL_GAUGE           = 8,
+	DIETARY_EFFECT_GAUGE           = 9,
+	NEXT_MAIN_QUEST_TEXT           = 10,
+	NEXT_SUB_QUEST_TEXT            = 11,
+	ENCOUNTER_GAUGE                = 12,
+	ENEMY_APPROACH_ICON            = 13,
+	BATTLE_RESULT                  = 14,
+	LONG_CHAT_BUTTON               = 15,
+	SHORT_CHAT                     = 16,
+	MESSAGE_WINDOW                 = 17,
+	SYSTEM_WINDOW                  = 18,
+	AREA_CHANGE_NAME               = 19,
+	TP_GAUGE                       = 20,
+	MAX                            = 21
 };
 
 
 // Enum Arise.EPFUIPattern
 enum class EPFUIPattern : uint8_t
 {
-	EPFUIPattern__NONE             = 0,
-	EPFUIPattern__MAIN_QUEST_UPDATE = 1,
-	EPFUIPattern__OPEN_MESSAGE_WINDOW = 2,
-	EPFUIPattern__OPNE_DIALOG      = 3,
-	EPFUIPattern__GET_TITLE_EVENT  = 4,
-	EPFUIPattern__SUB_QUEST_UPDATE = 5,
-	EPFUIPattern__REMUNERATION     = 6,
-	EPFUIPattern__MAX              = 7
+	NONE                           = 0,
+	MAIN_QUEST_UPDATE              = 1,
+	OPEN_MESSAGE_WINDOW            = 2,
+	OPNE_DIALOG                    = 3,
+	GET_TITLE_EVENT                = 4,
+	SUB_QUEST_UPDATE               = 5,
+	REMUNERATION                   = 6,
+	MAX                            = 7
 };
 
 
 // Enum Arise.EOption
 enum class EOption : uint8_t
 {
-	EOption__NONE                  = 0,
-	EOption__ITEM_MAX              = 1,
-	EOption__RP_CHARA              = 2,
-	EOption__OPTIONTYPE            = 3,
-	EOption__OPTIONTYPE01          = 4,
-	EOption__OPTIONTYPE02          = 5,
-	EOption__OPTIONTYPE_MAX        = 6,
-	EOption__EOption_MAX           = 7
+	NONE                           = 0,
+	ITEM_MAX                       = 1,
+	RP_CHARA                       = 2,
+	OPTIONTYPE                     = 3,
+	OPTIONTYPE01                   = 4,
+	OPTIONTYPE02                   = 5,
+	OPTIONTYPE_MAX                 = 6,
+	EOption_MAX                    = 7
 };
 
 
 // Enum Arise.EPassBlockMsgType
 enum class EPassBlockMsgType : uint8_t
 {
-	EPassBlockMsgType__MsgNone     = 0,
-	EPassBlockMsgType__MsgShortChat = 1,
-	EPassBlockMsgType__MsgWindow   = 2,
-	EPassBlockMsgType__MsgScript   = 3,
-	EPassBlockMsgType__MsgEvent    = 4,
-	EPassBlockMsgType__MsgNpc      = 5,
-	EPassBlockMsgType__MsgSysBlock = 6,
-	EPassBlockMsgType__EPassBlockMsgType_MAX = 7
+	MsgNone                        = 0,
+	MsgShortChat                   = 1,
+	MsgWindow                      = 2,
+	MsgScript                      = 3,
+	MsgEvent                       = 4,
+	MsgNpc                         = 5,
+	MsgSysBlock                    = 6,
+	EPassBlockMsgType_MAX          = 7
 };
 
 
 // Enum Arise.EPlayRecordList
 enum class EPlayRecordList : uint8_t
 {
-	EPlayRecordList__PLAY_RECORD_TOTAL_TIME = 0,
-	EPlayRecordList__PLAY_RECORD_TOTAL_GRADE = 1,
-	EPlayRecordList__PLAY_RECORD_USE_GRADE = 2,
-	EPlayRecordList__PLAY_RECORD_TOTAL_GALD = 3,
-	EPlayRecordList__PLAY_RECORD_TOTAL_PAY_GALD = 4,
-	EPlayRecordList__PLAY_RECORD_GALD = 5,
-	EPlayRecordList__PLAYRECORD_007 = 6,
-	EPlayRecordList__PLAYRECORD_008 = 7,
-	EPlayRecordList__PLAYRECORD_009 = 8,
-	EPlayRecordList__PLAYRECORD_010 = 9,
-	EPlayRecordList__PLAYRECORD_011 = 10,
-	EPlayRecordList__PLAYRECORD_012 = 11,
-	EPlayRecordList__PLAYRECORD_013 = 12,
-	EPlayRecordList__PLAYRECORD_014 = 13,
-	EPlayRecordList__PLAYRECORD_015 = 14,
-	EPlayRecordList__PLAYRECORD_016 = 15,
-	EPlayRecordList__PLAYRECORD_017 = 16,
-	EPlayRecordList__PLAYRECORD_018 = 17,
-	EPlayRecordList__PLAYRECORD_019 = 18,
-	EPlayRecordList__PLAYRECORD_020 = 19,
-	EPlayRecordList__PLAYRECORD_021 = 20,
-	EPlayRecordList__PLAYRECORD_022 = 21,
-	EPlayRecordList__PLAYRECORD_023 = 22,
-	EPlayRecordList__PLAYRECORD_024 = 23,
-	EPlayRecordList__PLAYRECORD_025 = 24,
-	EPlayRecordList__PLAYRECORD_026 = 25,
-	EPlayRecordList__PLAYRECORD_027 = 26,
-	EPlayRecordList__PLAYRECORD_028 = 27,
-	EPlayRecordList__PLAYRECORD_029 = 28,
-	EPlayRecordList__PLAY_RECORD_TOTAL_BTLTIME = 29,
-	EPlayRecordList__PLAY_RECORD_BTL_COUNT = 30,
-	EPlayRecordList__PLAY_RECORD_MAX_HIT_COUNT = 31,
-	EPlayRecordList__PLAY_RECORD_MAX_HIT_DAMAGE = 32,
-	EPlayRecordList__PLAYRECORD_034 = 33,
-	EPlayRecordList__PLAY_RECORD_DEFEAT_ENEMY = 34,
-	EPlayRecordList__PLAY_RECORD_DEFEAT_ENEMY_TYPE = 35,
-	EPlayRecordList__PLAY_RECORD_DEFEAT_GIGANT_TYPE = 36,
-	EPlayRecordList__PLAY_RECORD_RUNAWAY = 37,
-	EPlayRecordList__PLAY_RECORD_BOOST_ATTACK = 38,
-	EPlayRecordList__PLAY_RECORD_BOOST_STRIKE = 39,
-	EPlayRecordList__PLAY_RECORD_COUNTER_RAID = 40,
-	EPlayRecordList__PLAYRECORD_042 = 41,
-	EPlayRecordList__PLAY_RECORD_BOOST_ATTACK_BREAK = 42,
-	EPlayRecordList__PLAY_RECORD_FLOWER = 43,
-	EPlayRecordList__EPlayRecordList_MAX = 44
+	PLAY_RECORD_TOTAL_TIME         = 0,
+	PLAY_RECORD_TOTAL_GRADE        = 1,
+	PLAY_RECORD_USE_GRADE          = 2,
+	PLAY_RECORD_TOTAL_GALD         = 3,
+	PLAY_RECORD_TOTAL_PAY_GALD     = 4,
+	PLAY_RECORD_GALD               = 5,
+	PLAYRECORD_007                 = 6,
+	PLAYRECORD_008                 = 7,
+	PLAYRECORD_009                 = 8,
+	PLAYRECORD_010                 = 9,
+	PLAYRECORD_011                 = 10,
+	PLAYRECORD_012                 = 11,
+	PLAYRECORD_013                 = 12,
+	PLAYRECORD_014                 = 13,
+	PLAYRECORD_015                 = 14,
+	PLAYRECORD_016                 = 15,
+	PLAYRECORD_017                 = 16,
+	PLAYRECORD_018                 = 17,
+	PLAYRECORD_019                 = 18,
+	PLAYRECORD_020                 = 19,
+	PLAYRECORD_021                 = 20,
+	PLAYRECORD_022                 = 21,
+	PLAYRECORD_023                 = 22,
+	PLAYRECORD_024                 = 23,
+	PLAYRECORD_025                 = 24,
+	PLAYRECORD_026                 = 25,
+	PLAYRECORD_027                 = 26,
+	PLAYRECORD_028                 = 27,
+	PLAYRECORD_029                 = 28,
+	PLAY_RECORD_TOTAL_BTLTIME      = 29,
+	PLAY_RECORD_BTL_COUNT          = 30,
+	PLAY_RECORD_MAX_HIT_COUNT      = 31,
+	PLAY_RECORD_MAX_HIT_DAMAGE     = 32,
+	PLAYRECORD_034                 = 33,
+	PLAY_RECORD_DEFEAT_ENEMY       = 34,
+	PLAY_RECORD_DEFEAT_ENEMY_TYPE  = 35,
+	PLAY_RECORD_DEFEAT_GIGANT_TYPE = 36,
+	PLAY_RECORD_RUNAWAY            = 37,
+	PLAY_RECORD_BOOST_ATTACK       = 38,
+	PLAY_RECORD_BOOST_STRIKE       = 39,
+	PLAY_RECORD_COUNTER_RAID       = 40,
+	PLAYRECORD_042                 = 41,
+	PLAY_RECORD_BOOST_ATTACK_BREAK = 42,
+	PLAY_RECORD_FLOWER             = 43,
+	EPlayRecordList_MAX            = 44
 };
 
 
 // Enum Arise.EQuestType
 enum class EQuestType : uint8_t
 {
-	EQuestType__MainQuest          = 0,
-	EQuestType__SubQuest           = 1,
-	EQuestType__EQuestType_MAX     = 2
+	MainQuest                      = 0,
+	SubQuest                       = 1,
+	EQuestType_MAX                 = 2
 };
 
 
 // Enum Arise.EQuestDatabaseKey
 enum class EQuestDatabaseKey : uint8_t
 {
-	EQuestDatabaseKey__Message     = 0,
-	EQuestDatabaseKey__Guide       = 1,
-	EQuestDatabaseKey__Lineup      = 2,
-	EQuestDatabaseKey__EnemyCounter = 3,
-	EQuestDatabaseKey__ItemCounter = 4,
-	EQuestDatabaseKey__Clear       = 5,
-	EQuestDatabaseKey__MAX         = 6
+	Message                        = 0,
+	Guide                          = 1,
+	Lineup                         = 2,
+	EnemyCounter                   = 3,
+	ItemCounter                    = 4,
+	Clear                          = 5,
+	MAX                            = 6
 };
 
 
 // Enum Arise.EQuestGuideCategory
 enum class EQuestGuideCategory : uint8_t
 {
-	EQuestGuideCategory__Main      = 0,
-	EQuestGuideCategory__Sub       = 1,
-	EQuestGuideCategory__Wanted    = 2,
-	EQuestGuideCategory__EQuestGuideCategory_MAX = 3
+	Main                           = 0,
+	Sub                            = 1,
+	Wanted                         = 2,
+	EQuestGuideCategory_MAX        = 3
 };
 
 
 // Enum Arise.EQuestStepProgress
 enum class EQuestStepProgress : uint8_t
 {
-	EQuestStepProgress__Closed     = 0,
-	EQuestStepProgress__Opened     = 1,
-	EQuestStepProgress__Cleared    = 2,
-	EQuestStepProgress__EQuestStepProgress_MAX = 3
+	Closed                         = 0,
+	Opened                         = 1,
+	Cleared                        = 2,
+	EQuestStepProgress_MAX         = 3
 };
 
 
 // Enum Arise.EQuestGuideProgress
 enum class EQuestGuideProgress : uint8_t
 {
-	EQuestGuideProgress__Closed    = 0,
-	EQuestGuideProgress__Lineuped  = 1,
-	EQuestGuideProgress__Opened    = 2,
-	EQuestGuideProgress__Cleared   = 3,
-	EQuestGuideProgress__Reorder   = 4,
-	EQuestGuideProgress__EQuestGuideProgress_MAX = 5
+	Closed                         = 0,
+	Lineuped                       = 1,
+	Opened                         = 2,
+	Cleared                        = 3,
+	Reorder                        = 4,
+	EQuestGuideProgress_MAX        = 5
 };
 
 
 // Enum Arise.EInheritanceScenarioFlagCategory
 enum class EInheritanceScenarioFlagCategory : uint8_t
 {
-	EInheritanceScenarioFlagCategory__NONE = 0,
-	EInheritanceScenarioFlagCategory__MAP = 1,
-	EInheritanceScenarioFlagCategory__TROPHY = 2,
-	EInheritanceScenarioFlagCategory__LC = 3,
-	EInheritanceScenarioFlagCategory__GRS = 4,
-	EInheritanceScenarioFlagCategory__EInheritanceScenarioFlagCategory_MAX = 5
+	NONE                           = 0,
+	MAP                            = 1,
+	TROPHY                         = 2,
+	LC                             = 3,
+	GRS                            = 4,
+	EInheritanceScenarioFlagCategory_MAX = 5
 };
 
 
 // Enum Arise.EScenarioBitFlagCategory
 enum class EScenarioBitFlagCategory : uint8_t
 {
-	EScenarioBitFlagCategory__SYSTEM = 0,
-	EScenarioBitFlagCategory__BATTLE = 1,
-	EScenarioBitFlagCategory__MENU = 2,
-	EScenarioBitFlagCategory__MAIN = 3,
-	EScenarioBitFlagCategory__SUB  = 4,
-	EScenarioBitFlagCategory__LCHAT = 5,
-	EScenarioBitFlagCategory__SCHAT = 6,
-	EScenarioBitFlagCategory__GIMMICK = 7,
-	EScenarioBitFlagCategory__MAP  = 8,
-	EScenarioBitFlagCategory__MAPPOINT = 9,
-	EScenarioBitFlagCategory__UNIQUE = 10,
-	EScenarioBitFlagCategory__SCRIPT = 11,
-	EScenarioBitFlagCategory__MOVIE = 12,
-	EScenarioBitFlagCategory__MINIGAME = 13,
-	EScenarioBitFlagCategory__PARTY = 14,
-	EScenarioBitFlagCategory__ITEM = 15,
-	EScenarioBitFlagCategory__DEBUG_GIMMICK = 16,
-	EScenarioBitFlagCategory__DEBUG_MINIGAME = 17,
-	EScenarioBitFlagCategory__DEBUG = 18,
-	EScenarioBitFlagCategory__FASTTRAVEL = 19,
-	EScenarioBitFlagCategory__LCHAT_PLAY = 20,
-	EScenarioBitFlagCategory__EScenarioBitFlagCategory_MAX = 21
+	SYSTEM                         = 0,
+	BATTLE                         = 1,
+	MENU                           = 2,
+	MAIN                           = 3,
+	SUB                            = 4,
+	LCHAT                          = 5,
+	SCHAT                          = 6,
+	GIMMICK                        = 7,
+	MAP                            = 8,
+	MAPPOINT                       = 9,
+	UNIQUE                         = 10,
+	SCRIPT                         = 11,
+	MOVIE                          = 12,
+	MINIGAME                       = 13,
+	PARTY                          = 14,
+	ITEM                           = 15,
+	DEBUG_GIMMICK                  = 16,
+	DEBUG_MINIGAME                 = 17,
+	DEBUG                          = 18,
+	FASTTRAVEL                     = 19,
+	LCHAT_PLAY                     = 20,
+	EScenarioBitFlagCategory_MAX   = 21
 };
 
 
 // Enum Arise.ESceneFadeSpeed
 enum class ESceneFadeSpeed : uint8_t
 {
-	ESceneFadeSpeed__FadeNormalSpeed = 0,
-	ESceneFadeSpeed__FadeSlowSpeed = 1,
-	ESceneFadeSpeed__FadeHiSpeed   = 2,
-	ESceneFadeSpeed__FadeFreeSpeed = 3,
-	ESceneFadeSpeed__ESceneFadeSpeed_MAX = 4
+	FadeNormalSpeed                = 0,
+	FadeSlowSpeed                  = 1,
+	FadeHiSpeed                    = 2,
+	FadeFreeSpeed                  = 3,
+	ESceneFadeSpeed_MAX            = 4
 };
 
 
 // Enum Arise.ESceneFadeColor
 enum class ESceneFadeColor : uint8_t
 {
-	ESceneFadeColor__FadeNone      = 0,
-	ESceneFadeColor__FadeBlack     = 1,
-	ESceneFadeColor__FadeWhite     = 2,
-	ESceneFadeColor__ESceneFadeColor_MAX = 3
+	FadeNone                       = 0,
+	FadeBlack                      = 1,
+	FadeWhite                      = 2,
+	ESceneFadeColor_MAX            = 3
 };
 
 
 // Enum Arise.ESceneFadeType
 enum class ESceneFadeType : uint8_t
 {
-	ESceneFadeType__FadeNone       = 0,
-	ESceneFadeType__FadeIn         = 1,
-	ESceneFadeType__FadeOut        = 2,
-	ESceneFadeType__FadeEnd        = 3,
-	ESceneFadeType__ESceneFadeType_MAX = 4
+	FadeNone                       = 0,
+	FadeIn                         = 1,
+	FadeOut                        = 2,
+	FadeEnd                        = 3,
+	ESceneFadeType_MAX             = 4
 };
 
 
 // Enum Arise.ESearchOwlType
 enum class ESearchOwlType : uint8_t
 {
-	ESearchOwlType__OWL_COLOR_A    = 0,
-	ESearchOwlType__OWL_COLOR_B    = 1,
-	ESearchOwlType__OWL_COLOR_C    = 2,
-	ESearchOwlType__OWL_COLOR_D    = 3,
-	ESearchOwlType__OWL_COLOR_E    = 4,
-	ESearchOwlType__OWL_COLOR_F    = 5,
-	ESearchOwlType__OWL_COLOR_MAX  = 6
+	OWL_COLOR_A                    = 0,
+	OWL_COLOR_B                    = 1,
+	OWL_COLOR_C                    = 2,
+	OWL_COLOR_D                    = 3,
+	OWL_COLOR_E                    = 4,
+	OWL_COLOR_F                    = 5,
+	OWL_COLOR_MAX                  = 6
 };
 
 
 // Enum Arise.EShopType
 enum class EShopType : uint8_t
 {
-	EShopType__Item                = 0,
-	EShopType__Weapon              = 1,
-	EShopType__Accessory           = 2,
-	EShopType__EShopType_MAX       = 3
+	Item                           = 0,
+	Weapon                         = 1,
+	Accessory                      = 2,
+	EShopType_MAX                  = 3
 };
 
 
 // Enum Arise.EAriseSCHLocationType
 enum class EAriseSCHLocationType : uint8_t
 {
-	EAriseSCHLocationType__Region  = 0,
-	EAriseSCHLocationType__Area    = 1,
-	EAriseSCHLocationType__Location = 2,
-	EAriseSCHLocationType__Scene   = 3,
-	EAriseSCHLocationType__None    = 4,
-	EAriseSCHLocationType__EAriseSCHLocationType_MAX = 5
+	Region                         = 0,
+	Area                           = 1,
+	Location                       = 2,
+	Scene                          = 3,
+	None                           = 4,
+	EAriseSCHLocationType_MAX      = 5
 };
 
 
 // Enum Arise.EPriorityType
 enum class EPriorityType : uint8_t
 {
-	EPriorityType__A               = 0,
-	EPriorityType__B               = 1,
-	EPriorityType__C               = 2,
-	EPriorityType__D               = 3,
-	EPriorityType__E               = 4,
-	EPriorityType__F               = 5,
-	EPriorityType__EPriorityType_MAX = 6
+	A                              = 0,
+	B                              = 1,
+	C                              = 2,
+	D                              = 3,
+	E                              = 4,
+	F                              = 5,
+	EPriorityType_MAX              = 6
 };
 
 
 // Enum Arise.ESpeakerType
 enum class ESpeakerType : uint8_t
 {
-	ESpeakerType__INVALID          = 0,
-	ESpeakerType__ARI              = 1,
-	ESpeakerType__SIO              = 2,
-	ESpeakerType__NNA              = 3,
-	ESpeakerType__ZGU              = 4,
-	ESpeakerType__MNK              = 5,
-	ESpeakerType__YRA              = 6,
-	ESpeakerType__ZFA              = 7,
-	ESpeakerType__BEZ              = 8,
-	ESpeakerType__KIL              = 9,
-	ESpeakerType__AGM              = 10,
-	ESpeakerType__DFN              = 11,
-	ESpeakerType__SOL              = 12,
-	ESpeakerType__LHI              = 13,
-	ESpeakerType__NPC              = 14,
-	ESpeakerType__NPC01            = 15,
-	ESpeakerType__NPC02            = 16,
-	ESpeakerType__NPC03            = 17,
-	ESpeakerType__NPC04            = 18,
-	ESpeakerType__NPC05            = 19,
-	ESpeakerType__NPC06            = 20,
-	ESpeakerType__NPC07            = 21,
-	ESpeakerType__NPC08            = 22,
-	ESpeakerType__FRU              = 23,
-	ESpeakerType__MRS              = 24,
-	ESpeakerType__DNS              = 25,
-	ESpeakerType__ODT              = 26,
-	ESpeakerType__CCL              = 27,
-	ESpeakerType__KRN              = 28,
-	ESpeakerType__EDN              = 29,
-	ESpeakerType__EIZ              = 30,
-	ESpeakerType__KLZ              = 31,
-	ESpeakerType__DAR              = 32,
-	ESpeakerType__LSW              = 33,
-	ESpeakerType__LGU              = 34,
-	ESpeakerType__LLA              = 35,
-	ESpeakerType__DOC              = 36,
-	ESpeakerType__ELS              = 37,
-	ESpeakerType__ELM              = 38,
-	ESpeakerType__SGU              = 39,
-	ESpeakerType__CBK              = 40,
-	ESpeakerType__CBA              = 41,
-	ESpeakerType__EMOTION          = 42,
-	ESpeakerType__SELF             = 43,
-	ESpeakerType__ALLPEOPLE        = 44,
-	ESpeakerType__PARTY            = 45,
-	ESpeakerType__ALLY             = 46,
-	ESpeakerType__ENEMY            = 47,
-	ESpeakerType__PUBLIC           = 48,
-	ESpeakerType__OBJECT           = 49,
-	ESpeakerType__ESpeakerType_MAX = 50
+	INVALID                        = 0,
+	ARI                            = 1,
+	SIO                            = 2,
+	NNA                            = 3,
+	ZGU                            = 4,
+	MNK                            = 5,
+	YRA                            = 6,
+	ZFA                            = 7,
+	BEZ                            = 8,
+	KIL                            = 9,
+	AGM                            = 10,
+	DFN                            = 11,
+	SOL                            = 12,
+	LHI                            = 13,
+	NPC                            = 14,
+	NPC01                          = 15,
+	NPC02                          = 16,
+	NPC03                          = 17,
+	NPC04                          = 18,
+	NPC05                          = 19,
+	NPC06                          = 20,
+	NPC07                          = 21,
+	NPC08                          = 22,
+	FRU                            = 23,
+	MRS                            = 24,
+	DNS                            = 25,
+	ODT                            = 26,
+	CCL                            = 27,
+	KRN                            = 28,
+	EDN                            = 29,
+	EIZ                            = 30,
+	KLZ                            = 31,
+	DAR                            = 32,
+	LSW                            = 33,
+	LGU                            = 34,
+	LLA                            = 35,
+	DOC                            = 36,
+	ELS                            = 37,
+	ELM                            = 38,
+	SGU                            = 39,
+	CBK                            = 40,
+	CBA                            = 41,
+	EMOTION                        = 42,
+	SELF                           = 43,
+	ALLPEOPLE                      = 44,
+	PARTY                          = 45,
+	ALLY                           = 46,
+	ENEMY                          = 47,
+	PUBLIC                         = 48,
+	OBJECT                         = 49,
+	ESpeakerType_MAX               = 50
 };
 
 
 // Enum Arise.EFaceIcon
 enum class EFaceIcon : uint8_t
 {
-	EFaceIcon__NORMAL              = 0,
-	EFaceIcon__JOY                 = 1,
-	EFaceIcon__ANGER               = 2,
-	EFaceIcon__SAD                 = 3,
-	EFaceIcon__BLUNDER             = 4,
-	EFaceIcon__SURPRISE            = 5,
-	EFaceIcon__EFaceIcon_MAX       = 6
+	NORMAL                         = 0,
+	JOY                            = 1,
+	ANGER                          = 2,
+	SAD                            = 3,
+	BLUNDER                        = 4,
+	SURPRISE                       = 5,
+	EFaceIcon_MAX                  = 6
 };
 
 
 // Enum Arise.EShortchatIconType
 enum class EShortchatIconType : uint8_t
 {
-	EShortchatIconType__ARI        = 0,
-	EShortchatIconType__SIO        = 1,
-	EShortchatIconType__NNA        = 2,
-	EShortchatIconType__ZGU        = 3,
-	EShortchatIconType__MNK        = 4,
-	EShortchatIconType__YRA        = 5,
-	EShortchatIconType__Icon7      = 6,
-	EShortchatIconType__Icon8      = 7,
-	EShortchatIconType__Icon9      = 8,
-	EShortchatIconType__Icon10     = 9,
-	EShortchatIconType__Icon11     = 10,
-	EShortchatIconType__Icon12     = 11,
-	EShortchatIconType__Icon13     = 12,
-	EShortchatIconType__Icon14     = 13,
-	EShortchatIconType__Icon15     = 14,
-	EShortchatIconType__Icon16     = 15,
-	EShortchatIconType__Icon17     = 16,
-	EShortchatIconType__Icon18     = 17,
-	EShortchatIconType__Icon19     = 18,
-	EShortchatIconType__Icon20     = 19,
-	EShortchatIconType__Icon21     = 20,
-	EShortchatIconType__Icon22     = 21,
-	EShortchatIconType__Icon23     = 22,
-	EShortchatIconType__Icon24     = 23,
-	EShortchatIconType__Icon25     = 24,
-	EShortchatIconType__Icon26     = 25,
-	EShortchatIconType__Icon27     = 26,
-	EShortchatIconType__Icon28     = 27,
-	EShortchatIconType__Icon29     = 28,
-	EShortchatIconType__Icon30     = 29,
-	EShortchatIconType__Icon31     = 30,
-	EShortchatIconType__Icon32     = 31,
-	EShortchatIconType__Icon33     = 32,
-	EShortchatIconType__Icon34     = 33,
-	EShortchatIconType__Icon35     = 34,
-	EShortchatIconType__Icon36     = 35,
-	EShortchatIconType__EShortchatIconType_MAX = 36
+	ARI                            = 0,
+	SIO                            = 1,
+	NNA                            = 2,
+	ZGU                            = 3,
+	MNK                            = 4,
+	YRA                            = 5,
+	Icon7                          = 6,
+	Icon8                          = 7,
+	Icon9                          = 8,
+	Icon10                         = 9,
+	Icon11                         = 10,
+	Icon12                         = 11,
+	Icon13                         = 12,
+	Icon14                         = 13,
+	Icon15                         = 14,
+	Icon16                         = 15,
+	Icon17                         = 16,
+	Icon18                         = 17,
+	Icon19                         = 18,
+	Icon20                         = 19,
+	Icon21                         = 20,
+	Icon22                         = 21,
+	Icon23                         = 22,
+	Icon24                         = 23,
+	Icon25                         = 24,
+	Icon26                         = 25,
+	Icon27                         = 26,
+	Icon28                         = 27,
+	Icon29                         = 28,
+	Icon30                         = 29,
+	Icon31                         = 30,
+	Icon32                         = 31,
+	Icon33                         = 32,
+	Icon34                         = 33,
+	Icon35                         = 34,
+	Icon36                         = 35,
+	EShortchatIconType_MAX         = 36
 };
 
 
 // Enum Arise.ESCH_PFActionType
 enum class ESCH_PFActionType : uint8_t
 {
-	ESCH_PFActionType__JUMP_LANDING_DAMAGE = 0,
-	ESCH_PFActionType__SWIM_SLOW_TRANS = 1,
-	ESCH_PFActionType__TOUCH_SQUAT = 2,
-	ESCH_PFActionType__LOSE_TRANS_IDLE = 3,
-	ESCH_PFActionType__SYS_IDLE_CHARA = 4,
-	ESCH_PFActionType__HIGH_PLACE  = 5,
-	ESCH_PFActionType__HOT         = 6,
-	ESCH_PFActionType__COLD        = 7,
-	ESCH_PFActionType__HIGHLAND    = 8,
-	ESCH_PFActionType__ESCH_MAX    = 9
+	JUMP_LANDING_DAMAGE            = 0,
+	SWIM_SLOW_TRANS                = 1,
+	TOUCH_SQUAT                    = 2,
+	LOSE_TRANS_IDLE                = 3,
+	SYS_IDLE_CHARA                 = 4,
+	HIGH_PLACE                     = 5,
+	HOT                            = 6,
+	COLD                           = 7,
+	HIGHLAND                       = 8,
+	ESCH_MAX                       = 9
 };
 
 
 // Enum Arise.EPFSCHObjDefine
 enum class EPFSCHObjDefine : uint8_t
 {
-	EPFSCHObjDefine__INVALID       = 0,
-	EPFSCHObjDefine__Npc           = 1,
-	EPFSCHObjDefine__Boss          = 2,
-	EPFSCHObjDefine__Artifact      = 3,
-	EPFSCHObjDefine__Owl           = 4,
-	EPFSCHObjDefine__Treasure      = 5,
-	EPFSCHObjDefine__Collection    = 6,
-	EPFSCHObjDefine__ItemRare      = 7,
-	EPFSCHObjDefine__ItemRare01    = 8,
-	EPFSCHObjDefine__ItemRare02    = 9,
-	EPFSCHObjDefine__OreRank       = 10,
-	EPFSCHObjDefine__OreRank01     = 11,
-	EPFSCHObjDefine__OreRank02     = 12,
-	EPFSCHObjDefine__Ranch         = 13,
-	EPFSCHObjDefine__Arena         = 14,
-	EPFSCHObjDefine__Fishing       = 15,
-	EPFSCHObjDefine__Camp          = 16,
-	EPFSCHObjDefine__Kitchen       = 17,
-	EPFSCHObjDefine__Information   = 18,
-	EPFSCHObjDefine__General       = 19,
-	EPFSCHObjDefine__Blacksmith    = 20,
-	EPFSCHObjDefine__Sculptor      = 21,
-	EPFSCHObjDefine__Ore           = 22,
-	EPFSCHObjDefine__Inn           = 23,
-	EPFSCHObjDefine__Quest         = 24,
-	EPFSCHObjDefine__YoungWoman    = 25,
-	EPFSCHObjDefine__Cat           = 26,
-	EPFSCHObjDefine__Rare          = 27,
-	EPFSCHObjDefine__StrongBoss    = 28,
-	EPFSCHObjDefine__QuestEnemy    = 29,
-	EPFSCHObjDefine__QuestItem     = 30,
-	EPFSCHObjDefine__Meat          = 31,
-	EPFSCHObjDefine__EPFSCHObjDefine_MAX = 32
+	INVALID                        = 0,
+	Npc                            = 1,
+	Boss                           = 2,
+	Artifact                       = 3,
+	Owl                            = 4,
+	Treasure                       = 5,
+	Collection                     = 6,
+	ItemRare                       = 7,
+	ItemRare01                     = 8,
+	ItemRare02                     = 9,
+	OreRank                        = 10,
+	OreRank01                      = 11,
+	OreRank02                      = 12,
+	Ranch                          = 13,
+	Arena                          = 14,
+	Fishing                        = 15,
+	Camp                           = 16,
+	Kitchen                        = 17,
+	Information                    = 18,
+	General                        = 19,
+	Blacksmith                     = 20,
+	Sculptor                       = 21,
+	Ore                            = 22,
+	Inn                            = 23,
+	Quest                          = 24,
+	YoungWoman                     = 25,
+	Cat                            = 26,
+	Rare                           = 27,
+	StrongBoss                     = 28,
+	QuestEnemy                     = 29,
+	QuestItem                      = 30,
+	Meat                           = 31,
+	EPFSCHObjDefine_MAX            = 32
 };
 
 
 // Enum Arise.ESCHPFOwlDetectFlagCheckType
 enum class ESCHPFOwlDetectFlagCheckType : uint8_t
 {
-	ESCHPFOwlDetectFlagCheckType__CheckNone = 0,
-	ESCHPFOwlDetectFlagCheckType__CheckTrue = 1,
-	ESCHPFOwlDetectFlagCheckType__CheckFalse = 2,
-	ESCHPFOwlDetectFlagCheckType__ESCHPFOwlDetectFlagCheckType_MAX = 3
+	CheckNone                      = 0,
+	CheckTrue                      = 1,
+	CheckFalse                     = 2,
+	ESCHPFOwlDetectFlagCheckType_MAX = 3
 };
 
 
 // Enum Arise.EArisePFSCPauseState
 enum class EArisePFSCPauseState : uint8_t
 {
-	EArisePFSCPauseState__None     = 0,
-	EArisePFSCPauseState__AutoSave = 1,
-	EArisePFSCPauseState__Scene    = 2,
-	EArisePFSCPauseState__State    = 3,
-	EArisePFSCPauseState__Battle   = 4,
-	EArisePFSCPauseState__SystemWindow = 5,
-	EArisePFSCPauseState__Menu     = 6,
-	EArisePFSCPauseState__Interact = 7,
-	EArisePFSCPauseState__EArisePFSCPauseState_MAX = 8
+	None                           = 0,
+	AutoSave                       = 1,
+	Scene                          = 2,
+	State                          = 3,
+	Battle                         = 4,
+	SystemWindow                   = 5,
+	Menu                           = 6,
+	Interact                       = 7,
+	EArisePFSCPauseState_MAX       = 8
 };
 
 
 // Enum Arise.EStaffrollImageDirection
 enum class EStaffrollImageDirection : uint8_t
 {
-	EStaffrollImageDirection__None = 0,
-	EStaffrollImageDirection__Center = 1,
-	EStaffrollImageDirection__Right = 2,
-	EStaffrollImageDirection__Left = 3,
-	EStaffrollImageDirection__Center_S_Size = 4,
-	EStaffrollImageDirection__EStaffrollImageDirection_MAX = 5
+	None                           = 0,
+	Center                         = 1,
+	Right                          = 2,
+	Left                           = 3,
+	Center_S_Size                  = 4,
+	EStaffrollImageDirection_MAX   = 5
 };
 
 
 // Enum Arise.EStaffrollImageAnime
 enum class EStaffrollImageAnime : uint8_t
 {
-	EStaffrollImageAnime__None     = 0,
-	EStaffrollImageAnime__Open     = 1,
-	EStaffrollImageAnime__Close    = 2,
-	EStaffrollImageAnime__EStaffrollImageAnime_MAX = 3
+	None                           = 0,
+	Open                           = 1,
+	Close                          = 2,
+	EStaffrollImageAnime_MAX       = 3
 };
 
 
 // Enum Arise.EStaffrollDirection
 enum class EStaffrollDirection : uint8_t
 {
-	EStaffrollDirection__None      = 0,
-	EStaffrollDirection__Center    = 1,
-	EStaffrollDirection__Right     = 2,
-	EStaffrollDirection__Left      = 3,
-	EStaffrollDirection__EStaffrollDirection_MAX = 4
+	None                           = 0,
+	Center                         = 1,
+	Right                          = 2,
+	Left                           = 3,
+	EStaffrollDirection_MAX        = 4
 };
 
 
 // Enum Arise.EStaffrollFormatType
 enum class EStaffrollFormatType : uint8_t
 {
-	EStaffrollFormatType__Normal   = 0,
-	EStaffrollFormatType__Small    = 1,
-	EStaffrollFormatType__Title_Red = 2,
-	EStaffrollFormatType__CompanyLogo = 3,
-	EStaffrollFormatType__End      = 4,
-	EStaffrollFormatType__PositionName_Color1 = 5,
-	EStaffrollFormatType__PositionName_Color2 = 6,
-	EStaffrollFormatType__Fin      = 7,
-	EStaffrollFormatType__ChangeFade = 8,
-	EStaffrollFormatType__BigText  = 9,
-	EStaffrollFormatType__EStaffrollFormatType_MAX = 10
+	Normal                         = 0,
+	Small                          = 1,
+	Title_Red                      = 2,
+	CompanyLogo                    = 3,
+	End                            = 4,
+	PositionName_Color1            = 5,
+	PositionName_Color2            = 6,
+	Fin                            = 7,
+	ChangeFade                     = 8,
+	BigText                        = 9,
+	EStaffrollFormatType_MAX       = 10
 };
 
 
 // Enum Arise.EAssetLoadingPriority
 enum class EAssetLoadingPriority : uint8_t
 {
-	EAssetLoadingPriority__ResidentChara = 0,
-	EAssetLoadingPriority__Level   = 1,
-	EAssetLoadingPriority__Battle_Preload = 2,
-	EAssetLoadingPriority__PF_NPC  = 3,
-	EAssetLoadingPriority__PF_Etc  = 4,
-	EAssetLoadingPriority__PF_Treasure = 5,
-	EAssetLoadingPriority__Immediate = 6,
-	EAssetLoadingPriority__GameSection_MainGame = 7,
-	EAssetLoadingPriority__GameSection_Title = 8,
-	EAssetLoadingPriority__GameSection_Boot = 9,
-	EAssetLoadingPriority__GameSection_InitSystem = 10,
-	EAssetLoadingPriority__EAssetLoadingPriority_MAX = 11
+	ResidentChara                  = 0,
+	Level                          = 1,
+	Battle_Preload                 = 2,
+	PF_NPC                         = 3,
+	PF_Etc                         = 4,
+	PF_Treasure                    = 5,
+	Immediate                      = 6,
+	GameSection_MainGame           = 7,
+	GameSection_Title              = 8,
+	GameSection_Boot               = 9,
+	GameSection_InitSystem         = 10,
+	EAssetLoadingPriority_MAX      = 11
 };
 
 
 // Enum Arise.EApplicationLocale
 enum class EApplicationLocale : uint8_t
 {
-	EApplicationLocale__All        = 0,
-	EApplicationLocale__Japan      = 1,
-	EApplicationLocale__NorthAmerica = 2,
-	EApplicationLocale__Europe     = 3,
-	EApplicationLocale__Asia       = 4,
-	EApplicationLocale__EApplicationLocale_MAX = 5
+	All                            = 0,
+	Japan                          = 1,
+	NorthAmerica                   = 2,
+	Europe                         = 3,
+	Asia                           = 4,
+	EApplicationLocale_MAX         = 5
 };
 
 
 // Enum Arise.EGamePlatform
 enum class EGamePlatform : uint8_t
 {
-	EGamePlatform__Windows         = 0,
-	EGamePlatform__PS4             = 1,
-	EGamePlatform__XboxOne         = 2,
-	EGamePlatform__Unknown         = 3,
-	EGamePlatform__EGamePlatform_MAX = 4
+	Windows                        = 0,
+	PS4                            = 1,
+	XboxOne                        = 2,
+	Unknown                        = 3,
+	EGamePlatform_MAX              = 4
 };
 
 
 // Enum Arise.ESystemWindowFlag
 enum class ESystemWindowFlag : uint8_t
 {
-	ESystemWindowFlag__Disable_Decide = 0,
-	ESystemWindowFlag__Disable_Cancel = 1,
-	ESystemWindowFlag__Origin_Top  = 2,
-	ESystemWindowFlag__Origin_Bottom = 3,
-	ESystemWindowFlag__Origin_Left = 4,
-	ESystemWindowFlag__Origin_Right = 5,
-	ESystemWindowFlag__Origin_Center = 6,
-	ESystemWindowFlag__Align_Left  = 7,
-	ESystemWindowFlag__Align_Right = 8,
-	ESystemWindowFlag__Align_Center = 9,
-	ESystemWindowFlag__Choice_Align_Left = 10,
-	ESystemWindowFlag__Choice_Align_Right = 11,
-	ESystemWindowFlag__Choice_Align_Center = 12,
-	ESystemWindowFlag__Choice_Block_Left = 13,
-	ESystemWindowFlag__Choice_Block_Right = 14,
-	ESystemWindowFlag__Choice_Block_Center = 15,
-	ESystemWindowFlag__Choice_Cursor_Hidden = 16,
-	ESystemWindowFlag__Disable_Pause = 17,
-	ESystemWindowFlag__ESystemWindowFlag_MAX = 18
+	Disable_Decide                 = 0,
+	Disable_Cancel                 = 1,
+	Origin_Top                     = 2,
+	Origin_Bottom                  = 3,
+	Origin_Left                    = 4,
+	Origin_Right                   = 5,
+	Origin_Center                  = 6,
+	Align_Left                     = 7,
+	Align_Right                    = 8,
+	Align_Center                   = 9,
+	Choice_Align_Left              = 10,
+	Choice_Align_Right             = 11,
+	Choice_Align_Center            = 12,
+	Choice_Block_Left              = 13,
+	Choice_Block_Right             = 14,
+	Choice_Block_Center            = 15,
+	Choice_Cursor_Hidden           = 16,
+	Disable_Pause                  = 17,
+	ESystemWindowFlag_MAX          = 18
 };
 
 
 // Enum Arise.ESystemWindowAutoPosition
 enum class ESystemWindowAutoPosition : uint8_t
 {
-	ESystemWindowAutoPosition__AutoPosition_Off = 0,
-	ESystemWindowAutoPosition__AutoPosition_Center = 1,
-	ESystemWindowAutoPosition__AutoPosition_Left = 2,
-	ESystemWindowAutoPosition__AutoPosition_Right = 3,
-	ESystemWindowAutoPosition__AutoPosition_Top = 4,
-	ESystemWindowAutoPosition__AutoPosition_Bottom = 5,
-	ESystemWindowAutoPosition__AutoPosition_LeftTop = 6,
-	ESystemWindowAutoPosition__AutoPosition_LeftBottom = 7,
-	ESystemWindowAutoPosition__AutoPosition_RightTop = 8,
-	ESystemWindowAutoPosition__AutoPosition_RightBottom = 9,
-	ESystemWindowAutoPosition__AutoPosition_ENUM_END = 10,
-	ESystemWindowAutoPosition__AutoPosition_MAX = 11
+	AutoPosition_Off               = 0,
+	AutoPosition_Center            = 1,
+	AutoPosition_Left              = 2,
+	AutoPosition_Right             = 3,
+	AutoPosition_Top               = 4,
+	AutoPosition_Bottom            = 5,
+	AutoPosition_LeftTop           = 6,
+	AutoPosition_LeftBottom        = 7,
+	AutoPosition_RightTop          = 8,
+	AutoPosition_RightBottom       = 9,
+	AutoPosition_ENUM_END          = 10,
+	AutoPosition_MAX               = 11
 };
 
 
 // Enum Arise.EUIElementType
 enum class EUIElementType : uint8_t
 {
-	EUIElementType__PF_Minimap     = 0,
-	EUIElementType__PF_MinimapRotate = 1,
-	EUIElementType__PF_DirectionGuide = 2,
-	EUIElementType__UIElementMax   = 3,
-	EUIElementType__EUIElementType_MAX = 4
+	PF_Minimap                     = 0,
+	PF_MinimapRotate               = 1,
+	PF_DirectionGuide              = 2,
+	UIElementMax                   = 3,
+	EUIElementType_MAX             = 4
 };
 
 
 // Enum Arise.EInputDeviceType
 enum class EInputDeviceType : uint8_t
 {
-	EInputDeviceType__KEYBOARD     = 0,
-	EInputDeviceType__GAMEPAD      = 1,
-	EInputDeviceType__EInputDeviceType_MAX = 2
+	KEYBOARD                       = 0,
+	GAMEPAD                        = 1,
+	EInputDeviceType_MAX           = 2
 };
 
 
 // Enum Arise.EButtonIconSet
 enum class EButtonIconSet : uint8_t
 {
-	EButtonIconSet__KEYBOARD       = 0,
-	EButtonIconSet__XINPUT_XONE    = 1,
-	EButtonIconSet__DUALSHOCK4     = 2,
-	EButtonIconSet__AUTO           = 3,
-	EButtonIconSet__EButtonIconSet_MAX = 4
+	KEYBOARD                       = 0,
+	XINPUT_XONE                    = 1,
+	DUALSHOCK4                     = 2,
+	AUTO                           = 3,
+	EButtonIconSet_MAX             = 4
 };
 
 
 // Enum Arise.EVisualItemEquipType
 enum class EVisualItemEquipType : uint8_t
 {
-	EVisualItemEquipType__UNKNOWN  = 0,
-	EVisualItemEquipType__GLASSESA = 1,
-	EVisualItemEquipType__GLASSESB = 2,
-	EVisualItemEquipType__GLASSESC = 3,
-	EVisualItemEquipType__GLASSESD = 4,
-	EVisualItemEquipType__GLASSESE = 5,
-	EVisualItemEquipType__GLASSESF = 6,
-	EVisualItemEquipType__EYEPATCHR = 7,
-	EVisualItemEquipType__EYEPATCHRL = 8,
-	EVisualItemEquipType__BANDAGER = 9,
-	EVisualItemEquipType__BANDAGEL = 10,
-	EVisualItemEquipType__DEAR     = 11,
-	EVisualItemEquipType__CEAR     = 12,
-	EVisualItemEquipType__REAR     = 13,
-	EVisualItemEquipType__DHORN    = 14,
-	EVisualItemEquipType__CROWN    = 15,
-	EVisualItemEquipType__FLOW     = 16,
-	EVisualItemEquipType__ROSE     = 17,
-	EVisualItemEquipType__RIBBON   = 18,
-	EVisualItemEquipType__ANG      = 19,
-	EVisualItemEquipType__DEVIL    = 20,
-	EVisualItemEquipType__BUTTE    = 21,
-	EVisualItemEquipType__WINGR    = 22,
-	EVisualItemEquipType__WINGL    = 23,
-	EVisualItemEquipType__TAILA    = 24,
-	EVisualItemEquipType__TAILB    = 25,
-	EVisualItemEquipType__TAILC    = 26,
-	EVisualItemEquipType__TAILD    = 27,
-	EVisualItemEquipType__FURURU   = 28,
-	EVisualItemEquipType__EVisualItemEquipType_MAX = 29
+	UNKNOWN                        = 0,
+	GLASSESA                       = 1,
+	GLASSESB                       = 2,
+	GLASSESC                       = 3,
+	GLASSESD                       = 4,
+	GLASSESE                       = 5,
+	GLASSESF                       = 6,
+	EYEPATCHR                      = 7,
+	EYEPATCHRL                     = 8,
+	BANDAGER                       = 9,
+	BANDAGEL                       = 10,
+	DEAR                           = 11,
+	CEAR                           = 12,
+	REAR                           = 13,
+	DHORN                          = 14,
+	CROWN                          = 15,
+	FLOW                           = 16,
+	ROSE                           = 17,
+	RIBBON                         = 18,
+	ANG                            = 19,
+	DEVIL                          = 20,
+	BUTTE                          = 21,
+	WINGR                          = 22,
+	WINGL                          = 23,
+	TAILA                          = 24,
+	TAILB                          = 25,
+	TAILC                          = 26,
+	TAILD                          = 27,
+	FURURU                         = 28,
+	EVisualItemEquipType_MAX       = 29
 };
 
 
 // Enum Arise.EWorldLevelType
 enum class EWorldLevelType : uint8_t
 {
-	EWorldLevelType__LVTYPE_FREE   = 0,
-	EWorldLevelType__LVTYPE_FIELD  = 1,
-	EWorldLevelType__LVTYPE_TOWN   = 2,
-	EWorldLevelType__LVTYPE_DUNGEON = 3,
-	EWorldLevelType__LVTYPE_EVENT  = 4,
-	EWorldLevelType__LVTYPE_MAX    = 5
+	LVTYPE_FREE                    = 0,
+	LVTYPE_FIELD                   = 1,
+	LVTYPE_TOWN                    = 2,
+	LVTYPE_DUNGEON                 = 3,
+	LVTYPE_EVENT                   = 4,
+	LVTYPE_MAX                     = 5
 };
 
 
 // Enum Arise.EEffectState
 enum class EEffectState : uint8_t
 {
-	EEffectState__Init             = 0,
-	EEffectState__On               = 1,
-	EEffectState__Off              = 2,
-	EEffectState__Disable          = 3,
-	EEffectState__Nothing          = 4,
-	EEffectState__EEffectState_MAX = 5
+	Init                           = 0,
+	On                             = 1,
+	Off                            = 2,
+	Disable                        = 3,
+	Nothing                        = 4,
+	EEffectState_MAX               = 5
 };
 
 
 // Enum Arise.ELightState
 enum class ELightState : uint8_t
 {
-	ELightState__Init              = 0,
-	ELightState__On                = 1,
-	ELightState__Off               = 2,
-	ELightState__FadeOn            = 3,
-	ELightState__FadeOff           = 4,
-	ELightState__Disable           = 5,
-	ELightState__Nothing           = 6,
-	ELightState__ELightState_MAX   = 7
+	Init                           = 0,
+	On                             = 1,
+	Off                            = 2,
+	FadeOn                         = 3,
+	FadeOff                        = 4,
+	Disable                        = 5,
+	Nothing                        = 6,
+	ELightState_MAX                = 7
+};
+
+
+// Enum Arise.EPFAxisInput
+enum class EPFAxisInput : uint8_t
+{
+	MoveForward                    = 0,
+	MoveRight                      = 1,
+	RotatePitch                    = 2,
+	RotateYaw                      = 3,
+	TypeMax                        = 4,
+	EPFAxisInput_MAX               = 5
 };
 
 
@@ -7978,36 +7978,6 @@ struct FBtl_DecalMaterilParameter
 	TArray<struct FBtl_DecalMaterilParameterValue>     Parameters;                                               // 0x0000(0x0010) (Edit, ZeroConstructor)
 };
 
-// ScriptStruct Arise.DestructibleStaticMeshParam
-// 0x0060
-struct FDestructibleStaticMeshParam
-{
-	class UStaticMesh*                                 Mesh;                                                     // 0x0000(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	TArray<class UMaterialInstance*>                   Materials;                                                // 0x0008(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditFixedSize, ZeroConstructor)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0018(0x0008) MISSED OFFSET
-	struct FTransform                                  Transform;                                                // 0x0020(0x0030) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	class UStaticMeshComponent*                        StaticMeshComponent;                                      // 0x0050(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
-};
-
-// ScriptStruct Arise.DestructibleParticleParam
-// 0x0050
-struct FDestructibleParticleParam
-{
-	class UParticleSystem*                             Template;                                                 // 0x0000(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	class UParticleSystemComponent*                    Particle;                                                 // 0x0008(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FTransform                                  Transform;                                                // 0x0010(0x0030) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	EBtlDestructibleParticleAction                     Action;                                                   // 0x0040(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, EditFixedSize, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0xF];                                       // 0x0041(0x000F) MISSED OFFSET
-};
-
-// ScriptStruct Arise.DestructParticleOverrideMaterial
-// 0x0010
-struct FDestructParticleOverrideMaterial
-{
-	TArray<struct FNamedEmitterMaterial>               OverrideMaterials;                                        // 0x0000(0x0010) (Edit, ZeroConstructor)
-};
-
 // ScriptStruct Arise.BtlDestructCache
 // 0x0028
 struct FBtlDestructCache
@@ -8051,6 +8021,29 @@ struct FBtlChangeOrderHandle
 struct FBtlEncountGroupList
 {
 	TArray<struct FBtlEncountGroup>                    Data;                                                     // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+};
+
+// ScriptStruct Arise.DestructibleStaticMeshParam
+// 0x0060
+struct FDestructibleStaticMeshParam
+{
+	class UStaticMesh*                                 Mesh;                                                     // 0x0000(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	TArray<class UMaterialInstance*>                   Materials;                                                // 0x0008(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditFixedSize, ZeroConstructor)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0018(0x0008) MISSED OFFSET
+	struct FTransform                                  Transform;                                                // 0x0020(0x0030) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	class UStaticMeshComponent*                        StaticMeshComponent;                                      // 0x0050(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+};
+
+// ScriptStruct Arise.DestructibleParticleParam
+// 0x0050
+struct FDestructibleParticleParam
+{
+	class UParticleSystem*                             Template;                                                 // 0x0000(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	class UParticleSystemComponent*                    Particle;                                                 // 0x0008(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FTransform                                  Transform;                                                // 0x0010(0x0030) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	EBtlDestructibleParticleAction                     Action;                                                   // 0x0040(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, EditFixedSize, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0xF];                                       // 0x0041(0x000F) MISSED OFFSET
 };
 
 // ScriptStruct Arise.BtlSpecialStrikePeriod
@@ -8454,28 +8447,11 @@ struct FBtlMagicTaskNode
 	unsigned char                                      UnknownData04[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
 };
 
-// ScriptStruct Arise.BtlMagicNode
-// 0x0040
-struct FBtlMagicNode
-{
-	class UBtlMagicTask*                               Task;                                                     // 0x0000(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
-	EBtlMagicConditionType                             BeginConditionType;                                       // 0x0008(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0008(0x0003) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
-	unsigned char                                      UnknownData01[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
-	TArray<class UBtlMagicCondition*>                  Conditions;                                               // 0x0010(0x0010) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor)
-	EBtlMagicConditionType                             BreakConditionType;                                       // 0x0020(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x0020(0x0003) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
-	unsigned char                                      UnknownData03[0x4];                                       // 0x0024(0x0004) MISSED OFFSET
-	TArray<class UBtlMagicCondition*>                  BreakConditions;                                          // 0x0028(0x0010) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor)
-	float                                              Time;                                                     // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	float                                              Duration;                                                 // 0x003C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-};
-
-// ScriptStruct Arise.BtlMagicTimeline
+// ScriptStruct Arise.DestructParticleOverrideMaterial
 // 0x0010
-struct FBtlMagicTimeline
+struct FDestructParticleOverrideMaterial
 {
-	TArray<struct FBtlMagicNode>                       Nodes;                                                    // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
+	TArray<struct FNamedEmitterMaterial>               OverrideMaterials;                                        // 0x0000(0x0010) (Edit, ZeroConstructor)
 };
 
 // ScriptStruct Arise.BtlMagicReCycleCache
@@ -9894,6 +9870,30 @@ struct FSlateVertexBP
 	unsigned char                                      UnknownData00[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
 };
 
+// ScriptStruct Arise.BtlMagicNode
+// 0x0040
+struct FBtlMagicNode
+{
+	class UBtlMagicTask*                               Task;                                                     // 0x0000(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
+	EBtlMagicConditionType                             BeginConditionType;                                       // 0x0008(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0008(0x0003) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
+	unsigned char                                      UnknownData01[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
+	TArray<class UBtlMagicCondition*>                  Conditions;                                               // 0x0010(0x0010) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor)
+	EBtlMagicConditionType                             BreakConditionType;                                       // 0x0020(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x0020(0x0003) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
+	unsigned char                                      UnknownData03[0x4];                                       // 0x0024(0x0004) MISSED OFFSET
+	TArray<class UBtlMagicCondition*>                  BreakConditions;                                          // 0x0028(0x0010) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor)
+	float                                              Time;                                                     // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	float                                              Duration;                                                 // 0x003C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct Arise.BtlMagicTimeline
+// 0x0010
+struct FBtlMagicTimeline
+{
+	TArray<struct FBtlMagicNode>                       Nodes;                                                    // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
+};
+
 // ScriptStruct Arise.DebugParamDescCollection
 // 0x0010
 struct FDebugParamDescCollection
@@ -9964,16 +9964,6 @@ struct FEncountSymbolGroupParamData
 	struct FString                                     LocationName;                                             // 0x0080(0x0010) (Edit, BlueprintVisible, ZeroConstructor, EditConst)
 	struct FString                                     OverwriteLocationName;                                    // 0x0090(0x0010) (Edit, BlueprintVisible, ZeroConstructor, EditConst)
 	struct FScenarioConditionNamed                     ScenarioCondition;                                        // 0x00A0(0x0020) (Edit, BlueprintVisible, EditConst)
-};
-
-// ScriptStruct Arise.EncoutSymbolInfo
-// 0x0018
-struct FEncoutSymbolInfo
-{
-	struct FString                                     actorId;                                                  // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	EEncountSymbolState                                SymbolState;                                              // 0x0010(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               bRare;                                                    // 0x0011(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x6];                                       // 0x0012(0x0006) MISSED OFFSET
 };
 
 // ScriptStruct Arise.EnSymFindedParamData
@@ -10612,6 +10602,16 @@ struct FFishingRewardItemDatabase
 	TArray<struct FFishingRewardItemTipsData>          Tips;                                                     // 0x0010(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
 };
 
+// ScriptStruct Arise.EncoutSymbolInfo
+// 0x0018
+struct FEncoutSymbolInfo
+{
+	struct FString                                     actorId;                                                  // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	EEncountSymbolState                                SymbolState;                                              // 0x0010(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               bRare;                                                    // 0x0011(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x6];                                       // 0x0012(0x0006) MISSED OFFSET
+};
+
 // ScriptStruct Arise.SceneInfo
 // 0x0002
 struct FSceneInfo
@@ -10942,6 +10942,13 @@ struct FLongChatList
 	TArray<struct FLongChatItem>                       LongChatItemArray;                                        // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
 };
 
+// ScriptStruct Arise.LongchatName
+// 0x0010
+struct FLongchatName
+{
+	struct FDatabaseLabel                              LongchatName;                                             // 0x0000(0x0010) (Edit, BlueprintVisible)
+};
+
 // ScriptStruct Arise.LongChatScript
 // 0x0028 (0x0030 - 0x0008)
 struct FLongChatScript : public FTableRowBase
@@ -10950,32 +10957,6 @@ struct FLongChatScript : public FTableRowBase
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0009(0x0007) MISSED OFFSET
 	struct FString                                     Operation;                                                // 0x0010(0x0010) (Edit, BlueprintVisible, ZeroConstructor, EditConst)
 	TArray<struct FString>                             Params;                                                   // 0x0020(0x0010) (Edit, BlueprintVisible, ZeroConstructor, EditConst)
-};
-
-// ScriptStruct Arise.LongchatName
-// 0x0010
-struct FLongchatName
-{
-	struct FDatabaseLabel                              LongchatName;                                             // 0x0000(0x0010) (Edit, BlueprintVisible)
-};
-
-// ScriptStruct Arise.StrLureNote
-// 0x0020 (0x0028 - 0x0008)
-struct FStrLureNote : public FTableRowBase
-{
-	struct FString                                     ActionType;                                               // 0x0008(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	float                                              Time;                                                     // 0x0018(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              TimeCapacity;                                             // 0x001C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              Point;                                                    // 0x0020(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0024(0x0004) MISSED OFFSET
-};
-
-// ScriptStruct Arise.StrLureNoteTimer
-// 0x0008
-struct FStrLureNoteTimer
-{
-	int                                                tableIndex;                                               // 0x0000(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              Tick;                                                     // 0x0004(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct Arise.LvExpDatabase
@@ -11211,14 +11192,23 @@ struct FMapOrderUser
 	TArray<EMapOrderType>                              MapOrderType;                                             // 0x0070(0x0010) (BlueprintVisible, ZeroConstructor)
 };
 
-// ScriptStruct Arise.MapPoinWidgetData
-// 0x0018
-struct FMapPoinWidgetData
+// ScriptStruct Arise.StrLureNote
+// 0x0020 (0x0028 - 0x0008)
+struct FStrLureNote : public FTableRowBase
 {
-	class UClickableWidgetBase*                        Widget;                                                   // 0x0000(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FVector2D                                   Position;                                                 // 0x0008(0x0008) (BlueprintVisible, IsPlainOldData)
-	int                                                ID;                                                       // 0x0010(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0014(0x0004) MISSED OFFSET
+	struct FString                                     ActionType;                                               // 0x0008(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	float                                              Time;                                                     // 0x0018(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              TimeCapacity;                                             // 0x001C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              Point;                                                    // 0x0020(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0024(0x0004) MISSED OFFSET
+};
+
+// ScriptStruct Arise.StrLureNoteTimer
+// 0x0008
+struct FStrLureNoteTimer
+{
+	int                                                tableIndex;                                               // 0x0000(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              Tick;                                                     // 0x0004(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct Arise.MenuAccessorySelectItem
@@ -11658,21 +11648,14 @@ struct FMenuCookPlayerStatus
 	int                                                NowHP;                                                    // 0x0008(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct Arise.CursorNameData
+// ScriptStruct Arise.MapPoinWidgetData
 // 0x0018
-struct FCursorNameData
+struct FMapPoinWidgetData
 {
-	struct FName                                       Label;                                                    // 0x0000(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                DefaultValue;                                             // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
-	struct FName                                       Group;                                                    // 0x0010(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-};
-
-// ScriptStruct Arise.CursorDataCollection
-// 0x0010
-struct FCursorDataCollection
-{
-	TArray<struct FCursorNameData>                     Data;                                                     // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	class UClickableWidgetBase*                        Widget;                                                   // 0x0000(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FVector2D                                   Position;                                                 // 0x0008(0x0008) (BlueprintVisible, IsPlainOldData)
+	int                                                ID;                                                       // 0x0010(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0014(0x0004) MISSED OFFSET
 };
 
 // ScriptStruct Arise.AriseMenuDlcInfoTop
@@ -11811,167 +11794,21 @@ struct FMenuVisualDataArray
 	TArray<struct FMenuVisualData>                     Data;                                                     // 0x0008(0x0010) (BlueprintVisible, ZeroConstructor)
 };
 
-// ScriptStruct Arise.FarmAnimalFoodData
+// ScriptStruct Arise.CursorNameData
+// 0x0018
+struct FCursorNameData
+{
+	struct FName                                       Label;                                                    // 0x0000(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                DefaultValue;                                             // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
+	struct FName                                       Group;                                                    // 0x0010(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
+// ScriptStruct Arise.CursorDataCollection
 // 0x0010
-struct FFarmAnimalFoodData
+struct FCursorDataCollection
 {
-	int                                                GrowTime;                                                 // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                Min;                                                      // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                Max;                                                      // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                Probability;                                              // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-};
-
-// ScriptStruct Arise.IconValue
-// 0x0004
-struct FIconValue
-{
-	int                                                IconNo;                                                   // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-};
-
-// ScriptStruct Arise.IntData
-// 0x0004
-struct FIntData
-{
-	int                                                Data;                                                     // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-};
-
-// ScriptStruct Arise.FarmAnimalData
-// 0x0090
-struct FFarmAnimalData
-{
-	int                                                ID;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
-	struct FString                                     Label;                                                    // 0x0008(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	struct FString                                     KeyFalg;                                                  // 0x0018(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	int                                                BuyPrice;                                                 // 0x0028(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                SalePrice;                                                // 0x002C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                AnimalType;                                               // 0x0030(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                FoodItemID;                                               // 0x0034(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                TalkItemID;                                               // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                EnemyDamage;                                              // 0x003C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	TArray<struct FFarmAnimalFoodData>                 FarmFood;                                                 // 0x0040(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FIconValue>                          FarmIcon;                                                 // 0x0050(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	int                                                ModelVariationNumM;                                       // 0x0060(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                ModelVariationNumF;                                       // 0x0064(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	TArray<struct FIntData>                            ModelNoM;                                                 // 0x0068(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FIntData>                            ModelNoF;                                                 // 0x0078(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	int                                                ModelPopTime;                                             // 0x0088(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                GrowthModelTime;                                          // 0x008C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-};
-
-// ScriptStruct Arise.FarmFertilizerData
-// 0x0014
-struct FFarmFertilizerData
-{
-	int                                                GrowTime;                                                 // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                Min;                                                      // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                Max;                                                      // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                Probability;                                              // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                HerbMake;                                                 // 0x0010(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-};
-
-// ScriptStruct Arise.FarmCropData
-// 0x0020
-struct FFarmCropData
-{
-	int                                                No;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                ItemID;                                                   // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                IconNo;                                                   // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                SaleValue;                                                // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	TArray<struct FFarmFertilizerData>                 FertilizerData;                                           // 0x0010(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-};
-
-// ScriptStruct Arise.MouseRestrain
-// 0x0004
-struct FMouseRestrain
-{
-	int                                                Restrain;                                                 // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-};
-
-// ScriptStruct Arise.EnemyRestrain
-// 0x0004
-struct FEnemyRestrain
-{
-	int                                                Restrain;                                                 // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-};
-
-// ScriptStruct Arise.FarmBaseData
-// 0x0050
-struct FFarmBaseData
-{
-	int                                                AnimalSlot_Min;                                           // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                AnimalSlot_Max;                                           // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                CropSlot_Min;                                             // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                CropSlot_Max;                                             // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                FarmSlotPrice;                                            // 0x0010(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                CropSlotPrice;                                            // 0x0014(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                MouseEffect;                                              // 0x0018(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x001C(0x0004) MISSED OFFSET
-	TArray<struct FMouseRestrain>                      MouseRestrainArray;                                       // 0x0020(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	int                                                EnemyAttackTime_Min;                                      // 0x0030(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                EnemyAttackTime_Max;                                      // 0x0034(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	TArray<struct FEnemyRestrain>                      EnemyRestrainArray;                                       // 0x0038(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	int                                                SupportSlot_Max;                                          // 0x0048(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x004C(0x0004) MISSED OFFSET
-};
-
-// ScriptStruct Arise.FarmAnimalModelData
-// 0x0040
-struct FFarmAnimalModelData
-{
-	int                                                ID;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                AnimalNo;                                                 // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                Gender;                                                   // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                GrowState;                                                // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	struct FString                                     ModelID;                                                  // 0x0010(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	struct FString                                     AnimSetPath;                                              // 0x0020(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	float                                              CollisionSize;                                            // 0x0030(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	float                                              CollisionWidthScale;                                      // 0x0034(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	float                                              CollisionOffset;                                          // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x003C(0x0004) MISSED OFFSET
-};
-
-// ScriptStruct Arise.FarmFoodBaseData
-// 0x0020
-struct FFarmFoodBaseData
-{
-	int                                                ID;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                Type;                                                     // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	struct FString                                     Label;                                                    // 0x0008(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	int                                                Price;                                                    // 0x0018(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x001C(0x0004) MISSED OFFSET
-};
-
-// ScriptStruct Arise.FarmRandomHeabData
-// 0x0008
-struct FFarmRandomHeabData
-{
-	int                                                ID;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                Lottery;                                                  // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-};
-
-// ScriptStruct Arise.FarmShortChatData
-// 0x0020
-struct FFarmShortChatData
-{
-	int                                                ID;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
-	struct FString                                     ShortChatID;                                              // 0x0008(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	int                                                AnimalNo;                                                 // 0x0018(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	int                                                GetItem;                                                  // 0x001C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-};
-
-// ScriptStruct Arise.FarmData
-// 0x0070
-struct FFarmData
-{
-	TArray<struct FFarmAnimalData>                     AnimalData;                                               // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FFarmCropData>                       CropData;                                                 // 0x0010(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FFarmBaseData>                       FarmData;                                                 // 0x0020(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FFarmAnimalModelData>                ModelData;                                                // 0x0030(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FFarmFoodBaseData>                   FoodData;                                                 // 0x0040(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FFarmRandomHeabData>                 HerbData;                                                 // 0x0050(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-	TArray<struct FFarmShortChatData>                  ShortChatData;                                            // 0x0060(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FCursorNameData>                     Data;                                                     // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
 };
 
 // ScriptStruct Arise.MenuFarmUpdateMessage
@@ -13181,14 +13018,167 @@ struct FPFPlacementMapGimmickDatabaseRow
 	unsigned char                                      UnknownData03[0xF];                                       // 0x00B1(0x000F) MISSED OFFSET
 };
 
-// ScriptStruct Arise.PFNpcAnimPlayActionCommand
+// ScriptStruct Arise.FarmAnimalFoodData
 // 0x0010
-struct FPFNpcAnimPlayActionCommand
+struct FFarmAnimalFoodData
 {
-	struct FName                                       ActionKey;                                                // 0x0000(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               bBlend;                                                   // 0x0008(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	EPFNpcAnimPlayActionLoop                           Loop;                                                     // 0x0009(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x6];                                       // 0x000A(0x0006) MISSED OFFSET
+	int                                                GrowTime;                                                 // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                Min;                                                      // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                Max;                                                      // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                Probability;                                              // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
+// ScriptStruct Arise.IconValue
+// 0x0004
+struct FIconValue
+{
+	int                                                IconNo;                                                   // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
+// ScriptStruct Arise.IntData
+// 0x0004
+struct FIntData
+{
+	int                                                Data;                                                     // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
+// ScriptStruct Arise.FarmAnimalData
+// 0x0090
+struct FFarmAnimalData
+{
+	int                                                ID;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	struct FString                                     Label;                                                    // 0x0008(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	struct FString                                     KeyFalg;                                                  // 0x0018(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	int                                                BuyPrice;                                                 // 0x0028(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                SalePrice;                                                // 0x002C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                AnimalType;                                               // 0x0030(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                FoodItemID;                                               // 0x0034(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                TalkItemID;                                               // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                EnemyDamage;                                              // 0x003C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	TArray<struct FFarmAnimalFoodData>                 FarmFood;                                                 // 0x0040(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FIconValue>                          FarmIcon;                                                 // 0x0050(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	int                                                ModelVariationNumM;                                       // 0x0060(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                ModelVariationNumF;                                       // 0x0064(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	TArray<struct FIntData>                            ModelNoM;                                                 // 0x0068(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FIntData>                            ModelNoF;                                                 // 0x0078(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	int                                                ModelPopTime;                                             // 0x0088(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                GrowthModelTime;                                          // 0x008C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
+// ScriptStruct Arise.FarmFertilizerData
+// 0x0014
+struct FFarmFertilizerData
+{
+	int                                                GrowTime;                                                 // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                Min;                                                      // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                Max;                                                      // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                Probability;                                              // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                HerbMake;                                                 // 0x0010(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
+// ScriptStruct Arise.FarmCropData
+// 0x0020
+struct FFarmCropData
+{
+	int                                                No;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                ItemID;                                                   // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                IconNo;                                                   // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                SaleValue;                                                // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	TArray<struct FFarmFertilizerData>                 FertilizerData;                                           // 0x0010(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+};
+
+// ScriptStruct Arise.MouseRestrain
+// 0x0004
+struct FMouseRestrain
+{
+	int                                                Restrain;                                                 // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
+// ScriptStruct Arise.EnemyRestrain
+// 0x0004
+struct FEnemyRestrain
+{
+	int                                                Restrain;                                                 // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
+// ScriptStruct Arise.FarmBaseData
+// 0x0050
+struct FFarmBaseData
+{
+	int                                                AnimalSlot_Min;                                           // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                AnimalSlot_Max;                                           // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                CropSlot_Min;                                             // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                CropSlot_Max;                                             // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                FarmSlotPrice;                                            // 0x0010(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                CropSlotPrice;                                            // 0x0014(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                MouseEffect;                                              // 0x0018(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x001C(0x0004) MISSED OFFSET
+	TArray<struct FMouseRestrain>                      MouseRestrainArray;                                       // 0x0020(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	int                                                EnemyAttackTime_Min;                                      // 0x0030(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                EnemyAttackTime_Max;                                      // 0x0034(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	TArray<struct FEnemyRestrain>                      EnemyRestrainArray;                                       // 0x0038(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	int                                                SupportSlot_Max;                                          // 0x0048(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x004C(0x0004) MISSED OFFSET
+};
+
+// ScriptStruct Arise.FarmAnimalModelData
+// 0x0040
+struct FFarmAnimalModelData
+{
+	int                                                ID;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                AnimalNo;                                                 // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                Gender;                                                   // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                GrowState;                                                // 0x000C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	struct FString                                     ModelID;                                                  // 0x0010(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	struct FString                                     AnimSetPath;                                              // 0x0020(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	float                                              CollisionSize;                                            // 0x0030(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	float                                              CollisionWidthScale;                                      // 0x0034(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	float                                              CollisionOffset;                                          // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x003C(0x0004) MISSED OFFSET
+};
+
+// ScriptStruct Arise.FarmFoodBaseData
+// 0x0020
+struct FFarmFoodBaseData
+{
+	int                                                ID;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                Type;                                                     // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	struct FString                                     Label;                                                    // 0x0008(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	int                                                Price;                                                    // 0x0018(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x001C(0x0004) MISSED OFFSET
+};
+
+// ScriptStruct Arise.FarmRandomHeabData
+// 0x0008
+struct FFarmRandomHeabData
+{
+	int                                                ID;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                Lottery;                                                  // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
+// ScriptStruct Arise.FarmShortChatData
+// 0x0020
+struct FFarmShortChatData
+{
+	int                                                ID;                                                       // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0004(0x0004) MISSED OFFSET
+	struct FString                                     ShortChatID;                                              // 0x0008(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	int                                                AnimalNo;                                                 // 0x0018(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	int                                                GetItem;                                                  // 0x001C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+};
+
+// ScriptStruct Arise.FarmData
+// 0x0070
+struct FFarmData
+{
+	TArray<struct FFarmAnimalData>                     AnimalData;                                               // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FFarmCropData>                       CropData;                                                 // 0x0010(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FFarmBaseData>                       FarmData;                                                 // 0x0020(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FFarmAnimalModelData>                ModelData;                                                // 0x0030(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FFarmFoodBaseData>                   FoodData;                                                 // 0x0040(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FFarmRandomHeabData>                 HerbData;                                                 // 0x0050(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FFarmShortChatData>                  ShortChatData;                                            // 0x0060(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
 };
 
 // ScriptStruct Arise.PFNpcCameraSettingsData
@@ -13213,6 +13203,16 @@ struct FPFNpcCameraSettingsData
 	bool                                               bEditCameraFarFadeTime;                                   // 0x0028(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData05[0x3];                                       // 0x0029(0x0003) MISSED OFFSET
 	float                                              CameraFarFadeTime;                                        // 0x002C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct Arise.PFNpcAnimPlayActionCommand
+// 0x0010
+struct FPFNpcAnimPlayActionCommand
+{
+	struct FName                                       ActionKey;                                                // 0x0000(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               bBlend;                                                   // 0x0008(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	EPFNpcAnimPlayActionLoop                           Loop;                                                     // 0x0009(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x6];                                       // 0x000A(0x0006) MISSED OFFSET
 };
 
 // ScriptStruct Arise.PFNpcInteractionData
@@ -13698,13 +13698,6 @@ struct FPFNpWalkSpawnData
 	TArray<TWeakObjectPtr<class APFNpcCharacterBase>>  PooledPawn;                                               // 0x0098(0x0010) (ZeroConstructor, Transient)
 };
 
-// ScriptStruct Arise.PFOneTopID
-// 0x0010
-struct FPFOneTopID
-{
-	struct FDatabaseLabel                              ID;                                                       // 0x0000(0x0010) (Edit, BlueprintVisible)
-};
-
 // ScriptStruct Arise.PFOneTopMetaData
 // 0x0018
 struct FPFOneTopMetaData
@@ -13780,24 +13773,6 @@ struct FPFOneTopDatabaseRow
 	struct FPFOneTopData                               Data;                                                     // 0x0030(0x0050) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
 };
 
-// ScriptStruct Arise.PFOneTopRecord
-// 0x0090
-struct FPFOneTopRecord
-{
-	struct FString                                     Region;                                                   // 0x0000(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	struct FPFOneTopDatabaseRow                        Row;                                                      // 0x0010(0x0080) (BlueprintVisible, BlueprintReadOnly)
-};
-
-// ScriptStruct Arise.PFOneTopWord
-// 0x0070
-struct FPFOneTopWord
-{
-	struct FText                                       Caption;                                                  // 0x0000(0x0018) (BlueprintVisible, BlueprintReadOnly)
-	struct FText                                       Text;                                                     // 0x0018(0x0018) (BlueprintVisible, BlueprintReadOnly)
-	struct FDictionaryText                             CaptionId;                                                // 0x0030(0x0020) (BlueprintVisible, BlueprintReadOnly)
-	struct FDictionaryText                             TextID;                                                   // 0x0050(0x0020) (BlueprintVisible, BlueprintReadOnly)
-};
-
 // ScriptStruct Arise.PFOneTopRegionRow
 // 0x0020
 struct FPFOneTopRegionRow
@@ -13833,6 +13808,14 @@ struct FOneTopFakeLipSyncParameter
 	int                                                PerCount;                                                 // 0x0000(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	float                                              MinTime;                                                  // 0x0004(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	float                                              MaxTime;                                                  // 0x0008(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct Arise.PFOneTopRecord
+// 0x0090
+struct FPFOneTopRecord
+{
+	struct FString                                     Region;                                                   // 0x0000(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	struct FPFOneTopDatabaseRow                        Row;                                                      // 0x0010(0x0080) (BlueprintVisible, BlueprintReadOnly)
 };
 
 // ScriptStruct Arise.PFOneTopContext
@@ -13979,6 +13962,23 @@ struct FPFPlacementCampPointDatabase
 struct FPFPlacementCookingPointDatabase
 {
 	TArray<struct FPFPlacementCookingPointDatabaseRow> Record;                                                   // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+};
+
+// ScriptStruct Arise.PFOneTopID
+// 0x0010
+struct FPFOneTopID
+{
+	struct FDatabaseLabel                              ID;                                                       // 0x0000(0x0010) (Edit, BlueprintVisible)
+};
+
+// ScriptStruct Arise.PFOneTopWord
+// 0x0070
+struct FPFOneTopWord
+{
+	struct FText                                       Caption;                                                  // 0x0000(0x0018) (BlueprintVisible, BlueprintReadOnly)
+	struct FText                                       Text;                                                     // 0x0018(0x0018) (BlueprintVisible, BlueprintReadOnly)
+	struct FDictionaryText                             CaptionId;                                                // 0x0030(0x0020) (BlueprintVisible, BlueprintReadOnly)
+	struct FDictionaryText                             TextID;                                                   // 0x0050(0x0020) (BlueprintVisible, BlueprintReadOnly)
 };
 
 // ScriptStruct Arise.PFPlacementEncountSymbolDatabase
@@ -14257,13 +14257,6 @@ struct FPFPlacementPlayerPassBlockingDatabase
 	TArray<struct FPFPlacementPlayerPassBlockingDatabaseRow> Record;                                                   // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
 };
 
-// ScriptStruct Arise.PFPlacementRecoveryPointDatabase
-// 0x0010
-struct FPFPlacementRecoveryPointDatabase
-{
-	TArray<struct FPFPlacementRecoveryPointDatabaseRow> Record;                                                   // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-};
-
 // ScriptStruct Arise.SearhcModelData
 // 0x0020
 struct FSearhcModelData
@@ -14372,11 +14365,11 @@ struct FPFPlacementTPObjectDatabase
 	TArray<struct FPFPlacementTPObjectDatabaseRow>     Record;                                                   // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
 };
 
-// ScriptStruct Arise.PFPlacementTreasurePointDatabase
+// ScriptStruct Arise.PFPlacementRecoveryPointDatabase
 // 0x0010
-struct FPFPlacementTreasurePointDatabase
+struct FPFPlacementRecoveryPointDatabase
 {
-	TArray<struct FPFPlacementTreasurePointDatabaseRow> Record;                                                   // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+	TArray<struct FPFPlacementRecoveryPointDatabaseRow> Record;                                                   // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
 };
 
 // ScriptStruct Arise.PFButtonInputConfigElement
@@ -14415,6 +14408,13 @@ struct FPFInputConfig
 {
 	struct FPFButtonInputConfig                        Buttons[0x7];                                             // 0x0000(0x0010) (Edit)
 	struct FPFAxisInputConfig                          Axes[0x4];                                                // 0x0070(0x0010) (Edit)
+};
+
+// ScriptStruct Arise.PFPlacementTreasurePointDatabase
+// 0x0010
+struct FPFPlacementTreasurePointDatabase
+{
+	TArray<struct FPFPlacementTreasurePointDatabaseRow> Record;                                                   // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
 };
 
 // ScriptStruct Arise.PFTreasurePointItemID
@@ -14683,13 +14683,6 @@ struct FQuestClearDataRow
 	TArray<struct FQuestClearTrophyData>               Trophy;                                                   // 0x0010(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
 };
 
-// ScriptStruct Arise.QuestDatabaseRow
-// 0x0010
-struct FQuestDatabaseRow
-{
-	TArray<struct FQuestData>                          Data;                                                     // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
-};
-
 // ScriptStruct Arise.QuestLineupCheckFlag
 // 0x0018
 struct FQuestLineupCheckFlag
@@ -14803,6 +14796,13 @@ struct FRecipeAccessoryDatabaseRow
 struct FRecipeWeaponDatabaseRow
 {
 	TArray<struct FRecipeWeaponData>                   Record;                                                   // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
+};
+
+// ScriptStruct Arise.QuestDatabaseRow
+// 0x0010
+struct FQuestDatabaseRow
+{
+	TArray<struct FQuestData>                          Data;                                                     // 0x0000(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst)
 };
 
 // ScriptStruct Arise.ScenarioBitFlagDatabaseRow
@@ -16285,6 +16285,13 @@ struct FMenuActionStateTableRow : public FTableRowBase
 	class UClass*                                      Class;                                                    // 0x0008(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 };
 
+// ScriptStruct Arise.MenuAnimTableRow
+// 0x0008 (0x0010 - 0x0008)
+struct FMenuAnimTableRow : public FTableRowBase
+{
+	class UClass*                                      Class;                                                    // 0x0008(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+};
+
 // ScriptStruct Arise.MenuCharacterDefaultPosition
 // 0x0010 (0x0018 - 0x0008)
 struct FMenuCharacterDefaultPosition : public FTableRowBase
@@ -16293,13 +16300,6 @@ struct FMenuCharacterDefaultPosition : public FTableRowBase
 	float                                              Y;                                                        // 0x000C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	float                                              Scale;                                                    // 0x0010(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	float                                              Rotate;                                                   // 0x0014(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-};
-
-// ScriptStruct Arise.MenuAnimTableRow
-// 0x0008 (0x0010 - 0x0008)
-struct FMenuAnimTableRow : public FTableRowBase
-{
-	class UClass*                                      Class;                                                    // 0x0008(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct Arise.AriseCookingEventData

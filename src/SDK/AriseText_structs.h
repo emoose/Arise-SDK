@@ -15,10 +15,10 @@ namespace SDK
 // Enum AriseText.EFontRenderType
 enum class EFontRenderType : uint8_t
 {
-	EFontRenderType__DEFAULT       = 0,
-	EFontRenderType__OUTLINE       = 1,
-	EFontRenderType__SHADOW        = 2,
-	EFontRenderType__EFontRenderType_MAX = 3
+	DEFAULT                        = 0,
+	OUTLINE                        = 1,
+	SHADOW                         = 2,
+	EFontRenderType_MAX            = 3
 };
 
 

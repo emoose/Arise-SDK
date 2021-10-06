@@ -541,30 +541,6 @@ public:
 };
 
 
-// Class AkAudio.AkReverbVolume
-// 0x0038 (0x0398 - 0x0360)
-class AAkReverbVolume : public AVolume
-{
-public:
-	unsigned char                                      bEnabled : 1;                                             // 0x0360(0x0001) (Deprecated)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0361(0x0007) MISSED OFFSET
-	class UAkAuxBus*                                   AuxBus;                                                   // 0x0368(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
-	struct FString                                     AuxBusName;                                               // 0x0370(0x0010) (ZeroConstructor, Deprecated)
-	float                                              SendLevel;                                                // 0x0380(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
-	float                                              FadeRate;                                                 // 0x0384(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
-	float                                              Priority;                                                 // 0x0388(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x038C(0x0004) MISSED OFFSET
-	class UAkLateReverbComponent*                      LateReverbComponent;                                      // 0x0390(0x0008) (Edit, BlueprintVisible, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AkAudio.AkReverbVolume");
-		return ptr;
-	}
-
-};
-
-
 // Class AkAudio.AkRoomComponent
 // 0x0030 (0x0280 - 0x0250)
 class UAkRoomComponent : public USceneComponent
@@ -848,6 +824,30 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class AkAudio.AkWwiseTreeSelector");
+		return ptr;
+	}
+
+};
+
+
+// Class AkAudio.AkReverbVolume
+// 0x0038 (0x0398 - 0x0360)
+class AAkReverbVolume : public AVolume
+{
+public:
+	unsigned char                                      bEnabled : 1;                                             // 0x0360(0x0001) (Deprecated)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0361(0x0007) MISSED OFFSET
+	class UAkAuxBus*                                   AuxBus;                                                   // 0x0368(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
+	struct FString                                     AuxBusName;                                               // 0x0370(0x0010) (ZeroConstructor, Deprecated)
+	float                                              SendLevel;                                                // 0x0380(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
+	float                                              FadeRate;                                                 // 0x0384(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
+	float                                              Priority;                                                 // 0x0388(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x038C(0x0004) MISSED OFFSET
+	class UAkLateReverbComponent*                      LateReverbComponent;                                      // 0x0390(0x0008) (Edit, BlueprintVisible, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AkAudio.AkReverbVolume");
 		return ptr;
 	}
 

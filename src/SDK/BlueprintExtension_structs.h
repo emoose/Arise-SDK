@@ -15,21 +15,21 @@ namespace SDK
 // Enum BlueprintExtension.EBPEX_VerticalTextAligment
 enum class EBPEX_VerticalTextAligment : uint8_t
 {
-	EBPEX_VerticalTextAligment__TextTop = 0,
-	EBPEX_VerticalTextAligment__TextCenter = 1,
-	EBPEX_VerticalTextAligment__TextBottom = 2,
-	EBPEX_VerticalTextAligment__QuadTop = 3,
-	EBPEX_VerticalTextAligment__EBPEX_MAX = 4
+	TextTop                        = 0,
+	TextCenter                     = 1,
+	TextBottom                     = 2,
+	QuadTop                        = 3,
+	EBPEX_MAX                      = 4
 };
 
 
 // Enum BlueprintExtension.EBPEX_HorizTextAligment
 enum class EBPEX_HorizTextAligment : uint8_t
 {
-	EBPEX_HorizTextAligment__Left  = 0,
-	EBPEX_HorizTextAligment__Center = 1,
-	EBPEX_HorizTextAligment__Right = 2,
-	EBPEX_HorizTextAligment__EBPEX_MAX = 3
+	Left                           = 0,
+	Center                         = 1,
+	Right                          = 2,
+	EBPEX_MAX                      = 3
 };
 
 

@@ -15,41 +15,41 @@ namespace SDK
 // Enum AriseActionCharacter.EAriseAnimFlags
 enum class EAriseAnimFlags : uint8_t
 {
-	EAriseAnimFlags__UseFacialAnimation = 0,
-	EAriseAnimFlags__UseLegIK      = 1,
-	EAriseAnimFlags__UseLookAt     = 2,
-	EAriseAnimFlags__NoFlags       = 3,
-	EAriseAnimFlags__UseAllFlags   = 4,
-	EAriseAnimFlags__EAriseAnimFlags_MAX = 5
+	UseFacialAnimation             = 0,
+	UseLegIK                       = 1,
+	UseLookAt                      = 2,
+	NoFlags                        = 3,
+	UseAllFlags                    = 4,
+	EAriseAnimFlags_MAX            = 5
 };
 
 
 // Enum AriseActionCharacter.EPCBuildParameterFlag
 enum class EPCBuildParameterFlag : uint8_t
 {
-	EPCBuildParameterFlag__WEAPON  = 0,
-	EPCBuildParameterFlag__ACCESSORY = 1,
-	EPCBuildParameterFlag__EPCBuildParameterFlag_MAX = 2
+	WEAPON                         = 0,
+	ACCESSORY                      = 1,
+	EPCBuildParameterFlag_MAX      = 2
 };
 
 
 // Enum AriseActionCharacter.EAriseCinematicCharacterWeaponVisible
 enum class EAriseCinematicCharacterWeaponVisible : uint8_t
 {
-	EAriseCinematicCharacterWeaponVisible__Hide = 0,
-	EAriseCinematicCharacterWeaponVisible__Show_WPN = 1,
-	EAriseCinematicCharacterWeaponVisible__Show_MOUNT = 2,
-	EAriseCinematicCharacterWeaponVisible__Show = 3,
-	EAriseCinematicCharacterWeaponVisible__EAriseCinematicCharacterWeaponVisible_MAX = 4
+	Hide                           = 0,
+	Show_WPN                       = 1,
+	Show_MOUNT                     = 2,
+	Show                           = 3,
+	EAriseCinematicCharacterWeaponVisible_MAX = 4
 };
 
 
 // Enum AriseActionCharacter.EAriseCinematicCharacterBuild
 enum class EAriseCinematicCharacterBuild : uint8_t
 {
-	EAriseCinematicCharacterBuild__Parameter = 0,
-	EAriseCinematicCharacterBuild__PC = 1,
-	EAriseCinematicCharacterBuild__EAriseCinematicCharacterBuild_MAX = 2
+	Parameter                      = 0,
+	PC                             = 1,
+	EAriseCinematicCharacterBuild_MAX = 2
 };
 
 

@@ -28,51 +28,51 @@ enum class EInterpCurveMode : uint8_t
 // Enum CoreUObject.ERangeBoundTypes
 enum class ERangeBoundTypes : uint8_t
 {
-	ERangeBoundTypes__Exclusive    = 0,
-	ERangeBoundTypes__Inclusive    = 1,
-	ERangeBoundTypes__Open         = 2,
-	ERangeBoundTypes__ERangeBoundTypes_MAX = 3
+	Exclusive                      = 0,
+	Inclusive                      = 1,
+	Open                           = 2,
+	ERangeBoundTypes_MAX           = 3
 };
 
 
 // Enum CoreUObject.ELocalizedTextSourceCategory
 enum class ELocalizedTextSourceCategory : uint8_t
 {
-	ELocalizedTextSourceCategory__Game = 0,
-	ELocalizedTextSourceCategory__Engine = 1,
-	ELocalizedTextSourceCategory__Editor = 2,
-	ELocalizedTextSourceCategory__ELocalizedTextSourceCategory_MAX = 3
+	Game                           = 0,
+	Engine                         = 1,
+	Editor                         = 2,
+	ELocalizedTextSourceCategory_MAX = 3
 };
 
 
 // Enum CoreUObject.EAutomationEventType
 enum class EAutomationEventType : uint8_t
 {
-	EAutomationEventType__Info     = 0,
-	EAutomationEventType__Warning  = 1,
-	EAutomationEventType__Error    = 2,
-	EAutomationEventType__EAutomationEventType_MAX = 3
+	Info                           = 0,
+	Warning                        = 1,
+	Error                          = 2,
+	EAutomationEventType_MAX       = 3
 };
 
 
 // Enum CoreUObject.EMouseCursor
 enum class EMouseCursor : uint8_t
 {
-	EMouseCursor__None             = 0,
-	EMouseCursor__Default          = 1,
-	EMouseCursor__TextEditBeam     = 2,
-	EMouseCursor__ResizeLeftRight  = 3,
-	EMouseCursor__ResizeUpDown     = 4,
-	EMouseCursor__ResizeSouthEast  = 5,
-	EMouseCursor__ResizeSouthWest  = 6,
-	EMouseCursor__CardinalCross    = 7,
-	EMouseCursor__Crosshairs       = 8,
-	EMouseCursor__Hand             = 9,
-	EMouseCursor__GrabHand         = 10,
-	EMouseCursor__GrabHandClosed   = 11,
-	EMouseCursor__SlashedCircle    = 12,
-	EMouseCursor__EyeDropper       = 13,
-	EMouseCursor__EMouseCursor_MAX = 14
+	None                           = 0,
+	Default                        = 1,
+	TextEditBeam                   = 2,
+	ResizeLeftRight                = 3,
+	ResizeUpDown                   = 4,
+	ResizeSouthEast                = 5,
+	ResizeSouthWest                = 6,
+	CardinalCross                  = 7,
+	Crosshairs                     = 8,
+	Hand                           = 9,
+	GrabHand                       = 10,
+	GrabHandClosed                 = 11,
+	SlashedCircle                  = 12,
+	EyeDropper                     = 13,
+	EMouseCursor_MAX               = 14
 };
 
 
@@ -100,57 +100,57 @@ enum class ELifetimeCondition : uint8_t
 // Enum CoreUObject.EUnit
 enum class EUnit : uint8_t
 {
-	EUnit__Micrometers             = 0,
-	EUnit__Millimeters             = 1,
-	EUnit__Centimeters             = 2,
-	EUnit__Meters                  = 3,
-	EUnit__Kilometers              = 4,
-	EUnit__Inches                  = 5,
-	EUnit__Feet                    = 6,
-	EUnit__Yards                   = 7,
-	EUnit__Miles                   = 8,
-	EUnit__Lightyears              = 9,
-	EUnit__Degrees                 = 10,
-	EUnit__Radians                 = 11,
-	EUnit__MetersPerSecond         = 12,
-	EUnit__KilometersPerHour       = 13,
-	EUnit__MilesPerHour            = 14,
-	EUnit__Celsius                 = 15,
-	EUnit__Farenheit               = 16,
-	EUnit__Kelvin                  = 17,
-	EUnit__Micrograms              = 18,
-	EUnit__Milligrams              = 19,
-	EUnit__Grams                   = 20,
-	EUnit__Kilograms               = 21,
-	EUnit__MetricTons              = 22,
-	EUnit__Ounces                  = 23,
-	EUnit__Pounds                  = 24,
-	EUnit__Stones                  = 25,
-	EUnit__Newtons                 = 26,
-	EUnit__PoundsForce             = 27,
-	EUnit__KilogramsForce          = 28,
-	EUnit__Hertz                   = 29,
-	EUnit__Kilohertz               = 30,
-	EUnit__Megahertz               = 31,
-	EUnit__Gigahertz               = 32,
-	EUnit__RevolutionsPerMinute    = 33,
-	EUnit__Bytes                   = 34,
-	EUnit__Kilobytes               = 35,
-	EUnit__Megabytes               = 36,
-	EUnit__Gigabytes               = 37,
-	EUnit__Terabytes               = 38,
-	EUnit__Lumens                  = 39,
-	EUnit__Milliseconds            = 40,
-	EUnit__Seconds                 = 41,
-	EUnit__Minutes                 = 42,
-	EUnit__Hours                   = 43,
-	EUnit__Days                    = 44,
-	EUnit__Months                  = 45,
-	EUnit__Years                   = 46,
-	EUnit__Multiplier              = 47,
-	EUnit__Percentage              = 48,
-	EUnit__Unspecified             = 49,
-	EUnit__EUnit_MAX               = 50
+	Micrometers                    = 0,
+	Millimeters                    = 1,
+	Centimeters                    = 2,
+	Meters                         = 3,
+	Kilometers                     = 4,
+	Inches                         = 5,
+	Feet                           = 6,
+	Yards                          = 7,
+	Miles                          = 8,
+	Lightyears                     = 9,
+	Degrees                        = 10,
+	Radians                        = 11,
+	MetersPerSecond                = 12,
+	KilometersPerHour              = 13,
+	MilesPerHour                   = 14,
+	Celsius                        = 15,
+	Farenheit                      = 16,
+	Kelvin                         = 17,
+	Micrograms                     = 18,
+	Milligrams                     = 19,
+	Grams                          = 20,
+	Kilograms                      = 21,
+	MetricTons                     = 22,
+	Ounces                         = 23,
+	Pounds                         = 24,
+	Stones                         = 25,
+	Newtons                        = 26,
+	PoundsForce                    = 27,
+	KilogramsForce                 = 28,
+	Hertz                          = 29,
+	Kilohertz                      = 30,
+	Megahertz                      = 31,
+	Gigahertz                      = 32,
+	RevolutionsPerMinute           = 33,
+	Bytes                          = 34,
+	Kilobytes                      = 35,
+	Megabytes                      = 36,
+	Gigabytes                      = 37,
+	Terabytes                      = 38,
+	Lumens                         = 39,
+	Milliseconds                   = 40,
+	Seconds                        = 41,
+	Minutes                        = 42,
+	Hours                          = 43,
+	Days                           = 44,
+	Months                         = 45,
+	Years                          = 46,
+	Multiplier                     = 47,
+	Percentage                     = 48,
+	Unspecified                    = 49,
+	EUnit_MAX                      = 50
 };
 
 
@@ -228,40 +228,40 @@ enum class EPixelFormat : uint8_t
 // Enum CoreUObject.EAxis
 enum class EAxis : uint8_t
 {
-	EAxis__None                    = 0,
-	EAxis__X                       = 1,
-	EAxis__Y                       = 2,
-	EAxis__Z                       = 3,
-	EAxis__EAxis_MAX               = 4
+	None                           = 0,
+	X                              = 1,
+	Y                              = 2,
+	Z                              = 3,
+	EAxis_MAX                      = 4
 };
 
 
 // Enum CoreUObject.ELogTimes
 enum class ELogTimes : uint8_t
 {
-	ELogTimes__None                = 0,
-	ELogTimes__UTC                 = 1,
-	ELogTimes__SinceGStartTime     = 2,
-	ELogTimes__Local               = 3,
-	ELogTimes__ELogTimes_MAX       = 4
+	None                           = 0,
+	UTC                            = 1,
+	SinceGStartTime                = 2,
+	Local                          = 3,
+	ELogTimes_MAX                  = 4
 };
 
 
 // Enum CoreUObject.ESearchDir
 enum class ESearchDir : uint8_t
 {
-	ESearchDir__FromStart          = 0,
-	ESearchDir__FromEnd            = 1,
-	ESearchDir__ESearchDir_MAX     = 2
+	FromStart                      = 0,
+	FromEnd                        = 1,
+	ESearchDir_MAX                 = 2
 };
 
 
 // Enum CoreUObject.ESearchCase
 enum class ESearchCase : uint8_t
 {
-	ESearchCase__CaseSensitive     = 0,
-	ESearchCase__IgnoreCase        = 1,
-	ESearchCase__ESearchCase_MAX   = 2
+	CaseSensitive                  = 0,
+	IgnoreCase                     = 1,
+	ESearchCase_MAX                = 2
 };
 
 
@@ -346,13 +346,6 @@ struct FTwoVectors
 	struct FVector                                     v2;                                                       // 0x000C(0x000C) (Edit, BlueprintVisible, SaveGame, IsPlainOldData)
 };
 
-// ScriptStruct CoreUObject.Plane
-// 0x0004 (0x0010 - 0x000C)
-struct alignas(16) FPlane : public FVector
-{
-	float                                              W;                                                        // 0x000C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
-};
-
 // ScriptStruct CoreUObject.Rotator
 // 0x000C
 struct FRotator
@@ -405,6 +398,13 @@ struct FIntPoint
 	int                                                Y;                                                        // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
 };
 
+// ScriptStruct CoreUObject.Plane
+// 0x0004 (0x0010 - 0x000C)
+struct alignas(16) FPlane : public FVector
+{
+	float                                              W;                                                        // 0x000C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
+};
+
 // ScriptStruct CoreUObject.IntVector
 // 0x000C
 struct FIntVector
@@ -454,16 +454,6 @@ struct FBox
 	struct FVector                                     Max;                                                      // 0x000C(0x000C) (Edit, BlueprintVisible, SaveGame, IsPlainOldData)
 	unsigned char                                      IsValid;                                                  // 0x0018(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0019(0x0003) MISSED OFFSET
-};
-
-// ScriptStruct CoreUObject.Box2D
-// 0x0014
-struct FBox2D
-{
-	struct FVector2D                                   Min;                                                      // 0x0000(0x0008) (Edit, BlueprintVisible, SaveGame, IsPlainOldData)
-	struct FVector2D                                   Max;                                                      // 0x0008(0x0008) (Edit, BlueprintVisible, SaveGame, IsPlainOldData)
-	unsigned char                                      bIsValid;                                                 // 0x0010(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
 };
 
 // ScriptStruct CoreUObject.BoxSphereBounds
@@ -648,6 +638,16 @@ struct FRandomStream
 {
 	int                                                InitialSeed;                                              // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
 	int                                                Seed;                                                     // 0x0004(0x0004) (ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct CoreUObject.Box2D
+// 0x0014
+struct FBox2D
+{
+	struct FVector2D                                   Min;                                                      // 0x0000(0x0008) (Edit, BlueprintVisible, SaveGame, IsPlainOldData)
+	struct FVector2D                                   Max;                                                      // 0x0008(0x0008) (Edit, BlueprintVisible, SaveGame, IsPlainOldData)
+	unsigned char                                      bIsValid;                                                 // 0x0010(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0011(0x0003) MISSED OFFSET
 };
 
 // ScriptStruct CoreUObject.DateTime

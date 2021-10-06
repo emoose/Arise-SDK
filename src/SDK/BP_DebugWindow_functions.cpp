@@ -346,9 +346,9 @@ void UBP_DebugWindow_C::DrawWindowFrame(class AHUD* MasterHUD)
 // Parameters:
 // float                          Cx                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          cy                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bin                            (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           bIn                            (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UBP_DebugWindow_C::InWindowCorner_(float Cx, float cy, bool* bin)
+void UBP_DebugWindow_C::InWindowCorner_(float Cx, float cy, bool* bIn)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_DebugWindow.BP_DebugWindow_C.InWindowCorner?");
 
@@ -362,8 +362,8 @@ void UBP_DebugWindow_C::InWindowCorner_(float Cx, float cy, bool* bin)
 
 	fn->FunctionFlags = flags;
 
-	if (bin != nullptr)
-		*bin = params.bin;
+	if (bIn != nullptr)
+		*bIn = params.bIn;
 }
 
 
@@ -416,9 +416,9 @@ void UBP_DebugWindow_C::OnMouseDown(float Cx, float cy)
 // Parameters:
 // float                          Cx                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          cy                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bin                            (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           bIn                            (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UBP_DebugWindow_C::InWindow_(float Cx, float cy, bool* bin)
+void UBP_DebugWindow_C::InWindow_(float Cx, float cy, bool* bIn)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_DebugWindow.BP_DebugWindow_C.InWindow?");
 
@@ -432,8 +432,8 @@ void UBP_DebugWindow_C::InWindow_(float Cx, float cy, bool* bin)
 
 	fn->FunctionFlags = flags;
 
-	if (bin != nullptr)
-		*bin = params.bin;
+	if (bIn != nullptr)
+		*bIn = params.bIn;
 }
 
 

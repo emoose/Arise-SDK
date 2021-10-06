@@ -15,18 +15,18 @@ namespace SDK
 // UserDefinedEnum ENM_FieldSceneLocalState.ENM_FieldSceneLocalState
 enum class ENM_FieldSceneLocalState : uint8_t
 {
-	ENM_FieldSceneLocalState__NewEnumerator0 = 0,
-	ENM_FieldSceneLocalState__NewEnumerator1 = 1,
-	ENM_FieldSceneLocalState__NewEnumerator4 = 2,
-	ENM_FieldSceneLocalState__NewEnumerator3 = 3,
-	ENM_FieldSceneLocalState__NewEnumerator5 = 4,
-	ENM_FieldSceneLocalState__NewEnumerator6 = 5,
-	ENM_FieldSceneLocalState__NewEnumerator7 = 6,
-	ENM_FieldSceneLocalState__NewEnumerator8 = 7,
-	ENM_FieldSceneLocalState__NewEnumerator10 = 8,
-	ENM_FieldSceneLocalState__NewEnumerator9 = 9,
-	ENM_FieldSceneLocalState__NewEnumerator11 = 10,
-	ENM_FieldSceneLocalState__ENM_MAX = 11
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator4                 = 2,
+	NewEnumerator3                 = 3,
+	NewEnumerator5                 = 4,
+	NewEnumerator6                 = 5,
+	NewEnumerator7                 = 6,
+	NewEnumerator8                 = 7,
+	NewEnumerator10                = 8,
+	NewEnumerator9                 = 9,
+	NewEnumerator11                = 10,
+	ENM_MAX                        = 11
 };
 
 

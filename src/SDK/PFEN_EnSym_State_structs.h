@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum PFEN_EnSym_State.PFEN_EnSym_State
 enum class EPFEN_EnSym_State : uint8_t
 {
-	PFEN_EnSym_State__NewEnumerator3 = 0,
-	PFEN_EnSym_State__NewEnumerator1 = 1,
-	PFEN_EnSym_State__NewEnumerator2 = 2,
-	PFEN_EnSym_State__PFEN_EnSym_MAX = 3
+	NewEnumerator3                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	PFEN_EnSym_MAX                 = 3
 };
 
 

@@ -15,123 +15,123 @@ namespace SDK
 // Enum AriseSound.EAkActionOnEventType
 enum class EAkActionOnEventType : uint8_t
 {
-	EAkActionOnEventType__Stop     = 0,
-	EAkActionOnEventType__Pause    = 1,
-	EAkActionOnEventType__Resume   = 2,
-	EAkActionOnEventType__Break    = 3,
-	EAkActionOnEventType__ReleaseEnvelope = 4,
-	EAkActionOnEventType__EAkActionOnEventType_MAX = 5
+	Stop                           = 0,
+	Pause                          = 1,
+	Resume                         = 2,
+	Break                          = 3,
+	ReleaseEnvelope                = 4,
+	EAkActionOnEventType_MAX       = 5
 };
 
 
 // Enum AriseSound.ESoundBusType
 enum class ESoundBusType : uint8_t
 {
-	ESoundBusType__Location        = 0,
-	ESoundBusType__Battle          = 1,
-	ESoundBusType__System          = 2,
-	ESoundBusType__Master          = 3,
-	ESoundBusType__ESoundBusType_MAX = 4
+	Location                       = 0,
+	Battle                         = 1,
+	System                         = 2,
+	Master                         = 3,
+	ESoundBusType_MAX              = 4
 };
 
 
 // Enum AriseSound.ERequestEventType
 enum class ERequestEventType : uint8_t
 {
-	ERequestEventType__Play        = 0,
-	ERequestEventType__Pause       = 1,
-	ERequestEventType__Resume      = 2,
-	ERequestEventType__Stop        = 3,
-	ERequestEventType__ERequestEventType_MAX = 4
+	Play                           = 0,
+	Pause                          = 1,
+	Resume                         = 2,
+	Stop                           = 3,
+	ERequestEventType_MAX          = 4
 };
 
 
 // Enum AriseSound.EPostEventInfoState
 enum class EPostEventInfoState : uint8_t
 {
-	EPostEventInfoState__None      = 0,
-	EPostEventInfoState__Idle      = 1,
-	EPostEventInfoState__JustPlaying = 2,
-	EPostEventInfoState__Playing   = 3,
-	EPostEventInfoState__DeleteReady = 4,
-	EPostEventInfoState__Delete    = 5,
-	EPostEventInfoState__EPostEventInfoState_MAX = 6
+	None                           = 0,
+	Idle                           = 1,
+	JustPlaying                    = 2,
+	Playing                        = 3,
+	DeleteReady                    = 4,
+	Delete                         = 5,
+	EPostEventInfoState_MAX        = 6
 };
 
 
 // Enum AriseSound.EBGMCrossFadeType
 enum class EBGMCrossFadeType : uint8_t
 {
-	EBGMCrossFadeType__Main_PF     = 0,
-	EBGMCrossFadeType__Main_BTL    = 1,
-	EBGMCrossFadeType__Main_MAX    = 2
+	Main_PF                        = 0,
+	Main_BTL                       = 1,
+	Main_MAX                       = 2
 };
 
 
 // Enum AriseSound.EDuckVolType
 enum class EDuckVolType : uint8_t
 {
-	EDuckVolType__None             = 0,
-	EDuckVolType__Duck0db          = 1,
-	EDuckVolType__Duck1db          = 2,
-	EDuckVolType__Duck2db          = 3,
-	EDuckVolType__Duck3db          = 4,
-	EDuckVolType__Duck4db          = 5,
-	EDuckVolType__Duck5db          = 6,
-	EDuckVolType__Duck6db          = 7,
-	EDuckVolType__Duck99db         = 8,
-	EDuckVolType__EDuckVolType_MAX = 9
+	None                           = 0,
+	Duck0db                        = 1,
+	Duck1db                        = 2,
+	Duck2db                        = 3,
+	Duck3db                        = 4,
+	Duck4db                        = 5,
+	Duck5db                        = 6,
+	Duck6db                        = 7,
+	Duck99db                       = 8,
+	EDuckVolType_MAX               = 9
 };
 
 
 // Enum AriseSound.EBGMFadeType
 enum class EBGMFadeType : uint8_t
 {
-	EBGMFadeType__Default          = 0,
-	EBGMFadeType__Sec              = 1,
-	EBGMFadeType__Sec01            = 2,
-	EBGMFadeType__Sec02            = 3,
-	EBGMFadeType__Sec03            = 4,
-	EBGMFadeType__Sec04            = 5,
-	EBGMFadeType__Auto_05          = 6,
-	EBGMFadeType__Auto             = 7,
-	EBGMFadeType__Auto01           = 8,
-	EBGMFadeType__Auto02           = 9,
-	EBGMFadeType__Auto03           = 10,
-	EBGMFadeType__Auto04           = 11,
-	EBGMFadeType__EBGMFadeType_MAX = 12
+	Default                        = 0,
+	Sec                            = 1,
+	Sec01                          = 2,
+	Sec02                          = 3,
+	Sec03                          = 4,
+	Sec04                          = 5,
+	Auto_05                        = 6,
+	Auto                           = 7,
+	Auto01                         = 8,
+	Auto02                         = 9,
+	Auto03                         = 10,
+	Auto04                         = 11,
+	EBGMFadeType_MAX               = 12
 };
 
 
 // Enum AriseSound.EMapPfBGMPlayType
 enum class EMapPfBGMPlayType : uint8_t
 {
-	EMapPfBGMPlayType__Start       = 0,
-	EMapPfBGMPlayType__Enroute     = 1,
-	EMapPfBGMPlayType__EMapPfBGMPlayType_MAX = 2
+	Start                          = 0,
+	Enroute                        = 1,
+	EMapPfBGMPlayType_MAX          = 2
 };
 
 
 // Enum AriseSound.EVoiceLanguage
 enum class EVoiceLanguage : uint8_t
 {
-	EVoiceLanguage__English_US     = 0,
-	EVoiceLanguage__Japanese       = 1,
-	EVoiceLanguage__EVoiceLanguage_MAX = 2
+	English_US                     = 0,
+	Japanese                       = 1,
+	EVoiceLanguage_MAX             = 2
 };
 
 
 // Enum AriseSound.ESoundBankLoadScene
 enum class ESoundBankLoadScene : uint8_t
 {
-	ESoundBankLoadScene__Startup   = 0,
-	ESoundBankLoadScene__Title     = 1,
-	ESoundBankLoadScene__PlayerFree = 2,
-	ESoundBankLoadScene__Battle    = 3,
-	ESoundBankLoadScene__BattleResult = 4,
-	ESoundBankLoadScene__Event     = 5,
-	ESoundBankLoadScene__Menu      = 6,
-	ESoundBankLoadScene__ESoundBankLoadScene_MAX = 7
+	Startup                        = 0,
+	Title                          = 1,
+	PlayerFree                     = 2,
+	Battle                         = 3,
+	BattleResult                   = 4,
+	Event                          = 5,
+	Menu                           = 6,
+	ESoundBankLoadScene_MAX        = 7
 };
 
 

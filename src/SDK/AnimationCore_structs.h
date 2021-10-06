@@ -15,20 +15,20 @@ namespace SDK
 // Enum AnimationCore.ETransformConstraintType
 enum class ETransformConstraintType : uint8_t
 {
-	ETransformConstraintType__Translation = 0,
-	ETransformConstraintType__Rotation = 1,
-	ETransformConstraintType__Scale = 2,
-	ETransformConstraintType__Parent = 3,
-	ETransformConstraintType__ETransformConstraintType_MAX = 4
+	Translation                    = 0,
+	Rotation                       = 1,
+	Scale                          = 2,
+	Parent                         = 3,
+	ETransformConstraintType_MAX   = 4
 };
 
 
 // Enum AnimationCore.EConstraintType
 enum class EConstraintType : uint8_t
 {
-	EConstraintType__Transform     = 0,
-	EConstraintType__Aim           = 1,
-	EConstraintType__MAX           = 2
+	Transform                      = 0,
+	Aim                            = 1,
+	MAX                            = 2
 };
 
 

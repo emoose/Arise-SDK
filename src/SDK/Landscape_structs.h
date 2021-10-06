@@ -36,49 +36,49 @@ enum class ELandscapeGizmoType : uint8_t
 // Enum Landscape.EGrassScaling
 enum class EGrassScaling : uint8_t
 {
-	EGrassScaling__Uniform         = 0,
-	EGrassScaling__Free            = 1,
-	EGrassScaling__LockXY          = 2,
-	EGrassScaling__EGrassScaling_MAX = 3
+	Uniform                        = 0,
+	Free                           = 1,
+	LockXY                         = 2,
+	EGrassScaling_MAX              = 3
 };
 
 
 // Enum Landscape.ELandscapeLODFalloff
 enum class ELandscapeLODFalloff : uint8_t
 {
-	ELandscapeLODFalloff__Linear   = 0,
-	ELandscapeLODFalloff__SquareRoot = 1,
-	ELandscapeLODFalloff__ELandscapeLODFalloff_MAX = 2
+	Linear                         = 0,
+	SquareRoot                     = 1,
+	ELandscapeLODFalloff_MAX       = 2
 };
 
 
 // Enum Landscape.ELandscapeLayerDisplayMode
 enum class ELandscapeLayerDisplayMode : uint8_t
 {
-	ELandscapeLayerDisplayMode__Default = 0,
-	ELandscapeLayerDisplayMode__Alphabetical = 1,
-	ELandscapeLayerDisplayMode__UserSpecific = 2,
-	ELandscapeLayerDisplayMode__ELandscapeLayerDisplayMode_MAX = 3
+	Default                        = 0,
+	Alphabetical                   = 1,
+	UserSpecific                   = 2,
+	ELandscapeLayerDisplayMode_MAX = 3
 };
 
 
 // Enum Landscape.ELandscapeLayerPaintingRestriction
 enum class ELandscapeLayerPaintingRestriction : uint8_t
 {
-	ELandscapeLayerPaintingRestriction__None = 0,
-	ELandscapeLayerPaintingRestriction__UseMaxLayers = 1,
-	ELandscapeLayerPaintingRestriction__ExistingOnly = 2,
-	ELandscapeLayerPaintingRestriction__UseComponentWhitelist = 3,
-	ELandscapeLayerPaintingRestriction__ELandscapeLayerPaintingRestriction_MAX = 4
+	None                           = 0,
+	UseMaxLayers                   = 1,
+	ExistingOnly                   = 2,
+	UseComponentWhitelist          = 3,
+	ELandscapeLayerPaintingRestriction_MAX = 4
 };
 
 
 // Enum Landscape.ELandscapeImportAlphamapType
 enum class ELandscapeImportAlphamapType : uint8_t
 {
-	ELandscapeImportAlphamapType__Additive = 0,
-	ELandscapeImportAlphamapType__Layered = 1,
-	ELandscapeImportAlphamapType__ELandscapeImportAlphamapType_MAX = 2
+	Additive                       = 0,
+	Layered                        = 1,
+	ELandscapeImportAlphamapType_MAX = 2
 };
 
 

@@ -15,12 +15,12 @@ namespace SDK
 // UserDefinedEnum EPauseMenuResult.EPauseMenuResult
 enum class EPauseMenuResult : uint8_t
 {
-	EPauseMenuResult__NewEnumerator0 = 0,
-	EPauseMenuResult__NewEnumerator1 = 1,
-	EPauseMenuResult__NewEnumerator2 = 2,
-	EPauseMenuResult__NewEnumerator3 = 3,
-	EPauseMenuResult__NewEnumerator4 = 4,
-	EPauseMenuResult__EPauseMenuResult_MAX = 5
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	NewEnumerator3                 = 3,
+	NewEnumerator4                 = 4,
+	EPauseMenuResult_MAX           = 5
 };
 
 

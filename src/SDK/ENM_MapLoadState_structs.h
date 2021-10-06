@@ -15,17 +15,17 @@ namespace SDK
 // UserDefinedEnum ENM_MapLoadState.ENM_MapLoadState
 enum class ENM_MapLoadState : uint8_t
 {
-	ENM_MapLoadState__NewEnumerator0 = 0,
-	ENM_MapLoadState__NewEnumerator1 = 1,
-	ENM_MapLoadState__NewEnumerator5 = 2,
-	ENM_MapLoadState__NewEnumerator2 = 3,
-	ENM_MapLoadState__NewEnumerator6 = 4,
-	ENM_MapLoadState__NewEnumerator3 = 5,
-	ENM_MapLoadState__NewEnumerator7 = 6,
-	ENM_MapLoadState__NewEnumerator4 = 7,
-	ENM_MapLoadState__NewEnumerator8 = 8,
-	ENM_MapLoadState__NewEnumerator9 = 9,
-	ENM_MapLoadState__ENM_MAX      = 10
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator5                 = 2,
+	NewEnumerator2                 = 3,
+	NewEnumerator6                 = 4,
+	NewEnumerator3                 = 5,
+	NewEnumerator7                 = 6,
+	NewEnumerator4                 = 7,
+	NewEnumerator8                 = 8,
+	NewEnumerator9                 = 9,
+	ENM_MAX                        = 10
 };
 
 

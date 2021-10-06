@@ -15,101 +15,101 @@ namespace SDK
 // Enum AnimGraphRuntime.AnimPhysSimSpaceType
 enum class EAnimPhysSimSpaceType : uint8_t
 {
-	AnimPhysSimSpaceType__Component = 0,
-	AnimPhysSimSpaceType__Actor    = 1,
-	AnimPhysSimSpaceType__World    = 2,
-	AnimPhysSimSpaceType__RootRelative = 3,
-	AnimPhysSimSpaceType__BoneRelative = 4,
-	AnimPhysSimSpaceType__AnimPhysSimSpaceType_MAX = 5
+	Component                      = 0,
+	Actor                          = 1,
+	World                          = 2,
+	RootRelative                   = 3,
+	BoneRelative                   = 4,
+	AnimPhysSimSpaceType_MAX       = 5
 };
 
 
 // Enum AnimGraphRuntime.EDeltaTimeTypeForUpdateLimit
 enum class EDeltaTimeTypeForUpdateLimit : uint8_t
 {
-	EDeltaTimeTypeForUpdateLimit__ConsoleVariable = 0,
-	EDeltaTimeTypeForUpdateLimit__SumSubStepDeltaTime = 1,
-	EDeltaTimeTypeForUpdateLimit__AnimationsTimeStep = 2,
-	EDeltaTimeTypeForUpdateLimit__EDeltaTimeTypeForUpdateLimit_MAX = 3
+	ConsoleVariable                = 0,
+	SumSubStepDeltaTime            = 1,
+	AnimationsTimeStep             = 2,
+	EDeltaTimeTypeForUpdateLimit_MAX = 3
 };
 
 
 // Enum AnimGraphRuntime.ESphericalLimitType
 enum class ESphericalLimitType : uint8_t
 {
-	ESphericalLimitType__Inner     = 0,
-	ESphericalLimitType__Outer     = 1,
-	ESphericalLimitType__ESphericalLimitType_MAX = 2
+	Inner                          = 0,
+	Outer                          = 1,
+	ESphericalLimitType_MAX        = 2
 };
 
 
 // Enum AnimGraphRuntime.AnimPhysLinearConstraintType
 enum class EAnimPhysLinearConstraintType : uint8_t
 {
-	AnimPhysLinearConstraintType__Free = 0,
-	AnimPhysLinearConstraintType__Limited = 1,
-	AnimPhysLinearConstraintType__AnimPhysLinearConstraintType_MAX = 2
+	Free                           = 0,
+	Limited                        = 1,
+	AnimPhysLinearConstraintType_MAX = 2
 };
 
 
 // Enum AnimGraphRuntime.AnimPhysAngularConstraintType
 enum class EAnimPhysAngularConstraintType : uint8_t
 {
-	AnimPhysAngularConstraintType__Angular = 0,
-	AnimPhysAngularConstraintType__Cone = 1,
-	AnimPhysAngularConstraintType__AnimPhysAngularConstraintType_MAX = 2
+	Angular                        = 0,
+	Cone                           = 1,
+	AnimPhysAngularConstraintType_MAX = 2
 };
 
 
 // Enum AnimGraphRuntime.EDrivenDestinationMode
 enum class EDrivenDestinationMode : uint8_t
 {
-	EDrivenDestinationMode__Bone   = 0,
-	EDrivenDestinationMode__MorphTarget = 1,
-	EDrivenDestinationMode__MaterialParameter = 2,
-	EDrivenDestinationMode__EDrivenDestinationMode_MAX = 3
+	Bone                           = 0,
+	MorphTarget                    = 1,
+	MaterialParameter              = 2,
+	EDrivenDestinationMode_MAX     = 3
 };
 
 
 // Enum AnimGraphRuntime.EDrivenBoneModificationMode
 enum class EDrivenBoneModificationMode : uint8_t
 {
-	EDrivenBoneModificationMode__AddToInput = 0,
-	EDrivenBoneModificationMode__ReplaceComponent = 1,
-	EDrivenBoneModificationMode__AddToRefPose = 2,
-	EDrivenBoneModificationMode__EDrivenBoneModificationMode_MAX = 3
+	AddToInput                     = 0,
+	ReplaceComponent               = 1,
+	AddToRefPose                   = 2,
+	EDrivenBoneModificationMode_MAX = 3
 };
 
 
 // Enum AnimGraphRuntime.EConstraintOffsetOption
 enum class EConstraintOffsetOption : uint8_t
 {
-	EConstraintOffsetOption__None  = 0,
-	EConstraintOffsetOption__Offset_RefPose = 1,
-	EConstraintOffsetOption__EConstraintOffsetOption_MAX = 2
+	None                           = 0,
+	Offset_RefPose                 = 1,
+	EConstraintOffsetOption_MAX    = 2
 };
 
 
 // Enum AnimGraphRuntime.CopyBoneDeltaMode
 enum class ECopyBoneDeltaMode : uint8_t
 {
-	CopyBoneDeltaMode__Accumulate  = 0,
-	CopyBoneDeltaMode__Copy        = 1,
-	CopyBoneDeltaMode__CopyBoneDeltaMode_MAX = 2
+	Accumulate                     = 0,
+	Copy                           = 1,
+	CopyBoneDeltaMode_MAX          = 2
 };
 
 
 // Enum AnimGraphRuntime.EInterpolationBlend
 enum class EInterpolationBlend : uint8_t
 {
-	EInterpolationBlend__Linear    = 0,
-	EInterpolationBlend__Cubic     = 1,
-	EInterpolationBlend__Sinusoidal = 2,
-	EInterpolationBlend__EaseInOutExponent2 = 3,
-	EInterpolationBlend__EaseInOutExponent3 = 4,
-	EInterpolationBlend__EaseInOutExponent4 = 5,
-	EInterpolationBlend__EaseInOutExponent5 = 6,
-	EInterpolationBlend__MAX       = 7
+	Linear                         = 0,
+	Cubic                          = 1,
+	Sinusoidal                     = 2,
+	EaseInOutExponent2             = 3,
+	EaseInOutExponent3             = 4,
+	EaseInOutExponent4             = 5,
+	EaseInOutExponent5             = 6,
+	MAX                            = 7
 };
 
 
@@ -126,49 +126,49 @@ enum class EBoneModificationMode : uint8_t
 // Enum AnimGraphRuntime.EModifyCurveApplyMode
 enum class EModifyCurveApplyMode : uint8_t
 {
-	EModifyCurveApplyMode__Add     = 0,
-	EModifyCurveApplyMode__Scale   = 1,
-	EModifyCurveApplyMode__Blend   = 2,
-	EModifyCurveApplyMode__WeightedMovingAverage = 3,
-	EModifyCurveApplyMode__RemapCurve = 4,
-	EModifyCurveApplyMode__EModifyCurveApplyMode_MAX = 5
+	Add                            = 0,
+	Scale                          = 1,
+	Blend                          = 2,
+	WeightedMovingAverage          = 3,
+	RemapCurve                     = 4,
+	EModifyCurveApplyMode_MAX      = 5
 };
 
 
 // Enum AnimGraphRuntime.EPoseDriverOutput
 enum class EPoseDriverOutput : uint8_t
 {
-	EPoseDriverOutput__DrivePoses  = 0,
-	EPoseDriverOutput__DriveCurves = 1,
-	EPoseDriverOutput__EPoseDriverOutput_MAX = 2
+	DrivePoses                     = 0,
+	DriveCurves                    = 1,
+	EPoseDriverOutput_MAX          = 2
 };
 
 
 // Enum AnimGraphRuntime.EPoseDriverSource
 enum class EPoseDriverSource : uint8_t
 {
-	EPoseDriverSource__Rotation    = 0,
-	EPoseDriverSource__Translation = 1,
-	EPoseDriverSource__EPoseDriverSource_MAX = 2
+	Rotation                       = 0,
+	Translation                    = 1,
+	EPoseDriverSource_MAX          = 2
 };
 
 
 // Enum AnimGraphRuntime.EPoseDriverType
 enum class EPoseDriverType : uint8_t
 {
-	EPoseDriverType__SwingAndTwist = 0,
-	EPoseDriverType__SwingOnly     = 1,
-	EPoseDriverType__Translation   = 2,
-	EPoseDriverType__EPoseDriverType_MAX = 3
+	SwingAndTwist                  = 0,
+	SwingOnly                      = 1,
+	Translation                    = 2,
+	EPoseDriverType_MAX            = 3
 };
 
 
 // Enum AnimGraphRuntime.ESnapshotSourceMode
 enum class ESnapshotSourceMode : uint8_t
 {
-	ESnapshotSourceMode__NamedSnapshot = 0,
-	ESnapshotSourceMode__SnapshotPin = 1,
-	ESnapshotSourceMode__ESnapshotSourceMode_MAX = 2
+	NamedSnapshot                  = 0,
+	SnapshotPin                    = 1,
+	ESnapshotSourceMode_MAX        = 2
 };
 
 
@@ -184,52 +184,52 @@ enum class ERefPoseType : uint8_t
 // Enum AnimGraphRuntime.EScaleChainInitialLength
 enum class EScaleChainInitialLength : uint8_t
 {
-	EScaleChainInitialLength__FixedDefaultLengthValue = 0,
-	EScaleChainInitialLength__Distance = 1,
-	EScaleChainInitialLength__ChainLength = 2,
-	EScaleChainInitialLength__EScaleChainInitialLength_MAX = 3
+	FixedDefaultLengthValue        = 0,
+	Distance                       = 1,
+	ChainLength                    = 2,
+	EScaleChainInitialLength_MAX   = 3
 };
 
 
 // Enum AnimGraphRuntime.ESequenceEvalReinit
 enum class ESequenceEvalReinit : uint8_t
 {
-	ESequenceEvalReinit__NoReset   = 0,
-	ESequenceEvalReinit__StartPosition = 1,
-	ESequenceEvalReinit__ExplicitTime = 2,
-	ESequenceEvalReinit__ESequenceEvalReinit_MAX = 3
+	NoReset                        = 0,
+	StartPosition                  = 1,
+	ExplicitTime                   = 2,
+	ESequenceEvalReinit_MAX        = 3
 };
 
 
 // Enum AnimGraphRuntime.ESplineBoneAxis
 enum class ESplineBoneAxis : uint8_t
 {
-	ESplineBoneAxis__X             = 0,
-	ESplineBoneAxis__Y             = 1,
-	ESplineBoneAxis__Z             = 2,
-	ESplineBoneAxis__ESplineBoneAxis_MAX = 3
+	X                              = 0,
+	Y                              = 1,
+	Z                              = 2,
+	ESplineBoneAxis_MAX            = 3
 };
 
 
 // Enum AnimGraphRuntime.ERBFDistanceMethod
 enum class ERBFDistanceMethod : uint8_t
 {
-	ERBFDistanceMethod__Euclidean  = 0,
-	ERBFDistanceMethod__Quaternion = 1,
-	ERBFDistanceMethod__SwingAngle = 2,
-	ERBFDistanceMethod__ERBFDistanceMethod_MAX = 3
+	Euclidean                      = 0,
+	Quaternion                     = 1,
+	SwingAngle                     = 2,
+	ERBFDistanceMethod_MAX         = 3
 };
 
 
 // Enum AnimGraphRuntime.ERBFFunctionType
 enum class ERBFFunctionType : uint8_t
 {
-	ERBFFunctionType__Gaussian     = 0,
-	ERBFFunctionType__Exponential  = 1,
-	ERBFFunctionType__Linear       = 2,
-	ERBFFunctionType__Cubic        = 3,
-	ERBFFunctionType__Quintic      = 4,
-	ERBFFunctionType__ERBFFunctionType_MAX = 5
+	Gaussian                       = 0,
+	Exponential                    = 1,
+	Linear                         = 2,
+	Cubic                          = 3,
+	Quintic                        = 4,
+	ERBFFunctionType_MAX           = 5
 };
 
 
@@ -490,14 +490,6 @@ struct FAngularRangeLimit
 	struct FBoneReference                              Bone;                                                     // 0x0018(0x0018) (Edit)
 };
 
-// ScriptStruct AnimGraphRuntime.AnimNode_ApplyLimits
-// 0x0020 (0x0138 - 0x0118)
-struct FAnimNode_ApplyLimits : public FAnimNode_SkeletalControlBase
-{
-	TArray<struct FAngularRangeLimit>                  AngularRangeLimits;                                       // 0x0118(0x0010) (Edit, ZeroConstructor)
-	TArray<struct FVector>                             AngularOffsets;                                           // 0x0128(0x0010) (Edit, BlueprintVisible, EditFixedSize, ZeroConstructor)
-};
-
 // ScriptStruct AnimGraphRuntime.BlendBoneByChannelEntry
 // 0x0038
 struct FBlendBoneByChannelEntry
@@ -526,6 +518,14 @@ struct FAnimNode_BlendBoneByChannel : public FAnimNode_Base
 	bool                                               bBIsRelevant;                                             // 0x0088(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x7];                                       // 0x0089(0x0007) MISSED OFFSET
 	TArray<struct FBlendBoneByChannelEntry>            ValidBoneEntries;                                         // 0x0090(0x0010) (ZeroConstructor, Transient)
+};
+
+// ScriptStruct AnimGraphRuntime.AnimNode_ApplyLimits
+// 0x0020 (0x0138 - 0x0118)
+struct FAnimNode_ApplyLimits : public FAnimNode_SkeletalControlBase
+{
+	TArray<struct FAngularRangeLimit>                  AngularRangeLimits;                                       // 0x0118(0x0010) (Edit, ZeroConstructor)
+	TArray<struct FVector>                             AngularOffsets;                                           // 0x0128(0x0010) (Edit, BlueprintVisible, EditFixedSize, ZeroConstructor)
 };
 
 // ScriptStruct AnimGraphRuntime.AnimNode_BlendListByBool

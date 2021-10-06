@@ -15,11 +15,11 @@ namespace SDK
 // UserDefinedEnum ENM_PrePFStartOperationType.ENM_PrePFStartOperationType
 enum class ENM_PrePFStartOperationType : uint8_t
 {
-	ENM_PrePFStartOperationType__NewEnumerator4 = 0,
-	ENM_PrePFStartOperationType__NewEnumerator0 = 1,
-	ENM_PrePFStartOperationType__NewEnumerator1 = 2,
-	ENM_PrePFStartOperationType__NewEnumerator2 = 3,
-	ENM_PrePFStartOperationType__ENM_MAX = 4
+	NewEnumerator4                 = 0,
+	NewEnumerator0                 = 1,
+	NewEnumerator1                 = 2,
+	NewEnumerator2                 = 3,
+	ENM_MAX                        = 4
 };
 
 

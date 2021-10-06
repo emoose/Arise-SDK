@@ -15,21 +15,21 @@ namespace SDK
 // Enum ClothingSystemRuntime.EClothingWindMethod
 enum class EClothingWindMethod : uint8_t
 {
-	EClothingWindMethod__Legacy    = 0,
-	EClothingWindMethod__Accurate  = 1,
-	EClothingWindMethod__EClothingWindMethod_MAX = 2
+	Legacy                         = 0,
+	Accurate                       = 1,
+	EClothingWindMethod_MAX        = 2
 };
 
 
 // Enum ClothingSystemRuntime.MaskTarget_PhysMesh
 enum class EMaskTarget_PhysMesh : uint8_t
 {
-	MaskTarget_PhysMesh__None      = 0,
-	MaskTarget_PhysMesh__MaxDistance = 1,
-	MaskTarget_PhysMesh__BackstopDistance = 2,
-	MaskTarget_PhysMesh__BackstopRadius = 3,
-	MaskTarget_PhysMesh__AnimDriveMultiplier = 4,
-	MaskTarget_PhysMesh__MaskTarget_MAX = 5
+	None                           = 0,
+	MaxDistance                    = 1,
+	BackstopDistance               = 2,
+	BackstopRadius                 = 3,
+	AnimDriveMultiplier            = 4,
+	MaskTarget_MAX                 = 5
 };
 
 

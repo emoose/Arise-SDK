@@ -15,24 +15,24 @@ namespace SDK
 // UserDefinedEnum TO14_BPI_GUI_MNU_TAG2_FLOW.TO14_BPI_GUI_MNU_TAG2_FLOW
 enum class ETO14_BPI_GUI_MNU_TAG2_FLOW : uint8_t
 {
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator0 = 0,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator2 = 1,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator3 = 2,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator4 = 3,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator15 = 4,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator5 = 5,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator6 = 6,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator7 = 7,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator8 = 8,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator9 = 9,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator10 = 10,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator11 = 11,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator12 = 12,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator13 = 13,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator14 = 14,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator16 = 15,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__NewEnumerator17 = 16,
-	TO14_BPI_GUI_MNU_TAG2_FLOW__TO14_BPI_GUI_MNU_TAG2_MAX = 17
+	NewEnumerator0                 = 0,
+	NewEnumerator2                 = 1,
+	NewEnumerator3                 = 2,
+	NewEnumerator4                 = 3,
+	NewEnumerator15                = 4,
+	NewEnumerator5                 = 5,
+	NewEnumerator6                 = 6,
+	NewEnumerator7                 = 7,
+	NewEnumerator8                 = 8,
+	NewEnumerator9                 = 9,
+	NewEnumerator10                = 10,
+	NewEnumerator11                = 11,
+	NewEnumerator12                = 12,
+	NewEnumerator13                = 13,
+	NewEnumerator14                = 14,
+	NewEnumerator16                = 15,
+	NewEnumerator17                = 16,
+	TO14_BPI_GUI_MNU_TAG2_MAX      = 17
 };
 
 

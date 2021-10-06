@@ -1199,48 +1199,6 @@ struct UAsyncTaskDownloadImage_DownloadImage_Params
 	class UAsyncTaskDownloadImage*                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function UMG.BackgroundBlur.SetVerticalAlignment
-struct UBackgroundBlur_SetVerticalAlignment_Params
-{
-	TEnumAsByte<EVerticalAlignment>                    InVerticalAlignment;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.BackgroundBlur.SetPadding
-struct UBackgroundBlur_SetPadding_Params
-{
-	struct FMargin                                     InPadding;                                                // (Parm, IsPlainOldData)
-};
-
-// Function UMG.BackgroundBlur.SetLowQualityFallbackBrush
-struct UBackgroundBlur_SetLowQualityFallbackBrush_Params
-{
-	struct FSlateBrush                                 InBrush;                                                  // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function UMG.BackgroundBlur.SetHorizontalAlignment
-struct UBackgroundBlur_SetHorizontalAlignment_Params
-{
-	TEnumAsByte<EHorizontalAlignment>                  InHorizontalAlignment;                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.BackgroundBlur.SetBlurStrength
-struct UBackgroundBlur_SetBlurStrength_Params
-{
-	float                                              InStrength;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.BackgroundBlur.SetBlurRadius
-struct UBackgroundBlur_SetBlurRadius_Params
-{
-	int                                                InBlurRadius;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function UMG.BackgroundBlur.SetApplyAlphaToBlur
-struct UBackgroundBlur_SetApplyAlphaToBlur_Params
-{
-	bool                                               bInApplyAlphaToBlur;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function UMG.BackgroundBlurSlot.SetVerticalAlignment
 struct UBackgroundBlurSlot_SetVerticalAlignment_Params
 {
@@ -1818,22 +1776,46 @@ struct UEditableTextBox_ClearError_Params
 {
 };
 
-// Function UMG.ExpandableArea.SetIsExpanded_Animated
-struct UExpandableArea_SetIsExpanded_Animated_Params
+// Function UMG.BackgroundBlur.SetVerticalAlignment
+struct UBackgroundBlur_SetVerticalAlignment_Params
 {
-	bool                                               IsExpanded;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EVerticalAlignment>                    InVerticalAlignment;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function UMG.ExpandableArea.SetIsExpanded
-struct UExpandableArea_SetIsExpanded_Params
+// Function UMG.BackgroundBlur.SetPadding
+struct UBackgroundBlur_SetPadding_Params
 {
-	bool                                               IsExpanded;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FMargin                                     InPadding;                                                // (Parm, IsPlainOldData)
 };
 
-// Function UMG.ExpandableArea.GetIsExpanded
-struct UExpandableArea_GetIsExpanded_Params
+// Function UMG.BackgroundBlur.SetLowQualityFallbackBrush
+struct UBackgroundBlur_SetLowQualityFallbackBrush_Params
 {
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	struct FSlateBrush                                 InBrush;                                                  // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function UMG.BackgroundBlur.SetHorizontalAlignment
+struct UBackgroundBlur_SetHorizontalAlignment_Params
+{
+	TEnumAsByte<EHorizontalAlignment>                  InHorizontalAlignment;                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.BackgroundBlur.SetBlurStrength
+struct UBackgroundBlur_SetBlurStrength_Params
+{
+	float                                              InStrength;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.BackgroundBlur.SetBlurRadius
+struct UBackgroundBlur_SetBlurRadius_Params
+{
+	int                                                InBlurRadius;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.BackgroundBlur.SetApplyAlphaToBlur
+struct UBackgroundBlur_SetApplyAlphaToBlur_Params
+{
+	bool                                               bInApplyAlphaToBlur;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function UMG.FloatBinding.GetValue
@@ -2298,6 +2280,31 @@ struct UMultiLineEditableText_GetText_Params
 	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 
+// Function UMG.ExpandableArea.SetIsExpanded_Animated
+struct UExpandableArea_SetIsExpanded_Animated_Params
+{
+	bool                                               IsExpanded;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.ExpandableArea.SetIsExpanded
+struct UExpandableArea_SetIsExpanded_Params
+{
+	bool                                               IsExpanded;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function UMG.ExpandableArea.GetIsExpanded
+struct UExpandableArea_GetIsExpanded_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function UMG.Overlay.AddChildToOverlay
+struct UOverlay_AddChildToOverlay_Params
+{
+	class UWidget*                                     Content;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UOverlaySlot*                                ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
 // Function UMG.MultiLineEditableTextBox.SetText
 struct UMultiLineEditableTextBox_SetText_Params
 {
@@ -2333,13 +2340,6 @@ struct UMultiLineEditableTextBox_OnMultiLineEditableTextBoxChangedEvent__Delegat
 struct UMultiLineEditableTextBox_GetText_Params
 {
 	struct FText                                       ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function UMG.Overlay.AddChildToOverlay
-struct UOverlay_AddChildToOverlay_Params
-{
-	class UWidget*                                     Content;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UOverlaySlot*                                ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
 // Function UMG.OverlaySlot.SetVerticalAlignment

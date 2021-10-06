@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum DE_PFPartyTopLookAtType.DE_PFPartyTopLookAtType
 enum class EDE_PFPartyTopLookAtType : uint8_t
 {
-	DE_PFPartyTopLookAtType__NewEnumerator2 = 0,
-	DE_PFPartyTopLookAtType__NewEnumerator0 = 1,
-	DE_PFPartyTopLookAtType__NewEnumerator1 = 2,
-	DE_PFPartyTopLookAtType__DE_MAX = 3
+	NewEnumerator2                 = 0,
+	NewEnumerator0                 = 1,
+	NewEnumerator1                 = 2,
+	DE_MAX                         = 3
 };
 
 

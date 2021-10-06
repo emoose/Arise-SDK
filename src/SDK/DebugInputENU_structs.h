@@ -15,13 +15,13 @@ namespace SDK
 // UserDefinedEnum DebugInputENU.DebugInputENU
 enum class EDebugInputENU : uint8_t
 {
-	DebugInputENU__NewEnumerator0  = 0,
-	DebugInputENU__NewEnumerator1  = 1,
-	DebugInputENU__NewEnumerator2  = 2,
-	DebugInputENU__NewEnumerator3  = 3,
-	DebugInputENU__NewEnumerator4  = 4,
-	DebugInputENU__NewEnumerator5  = 5,
-	DebugInputENU__DebugInputENU_MAX = 6
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	NewEnumerator3                 = 3,
+	NewEnumerator4                 = 4,
+	NewEnumerator5                 = 5,
+	DebugInputENU_MAX              = 6
 };
 
 

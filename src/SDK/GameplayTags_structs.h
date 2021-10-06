@@ -12,48 +12,48 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
-// Enum GameplayTags.EGameplayTagQueryExprType
-enum class EGameplayTagQueryExprType : uint8_t
-{
-	EGameplayTagQueryExprType__Undefined = 0,
-	EGameplayTagQueryExprType__AnyTagsMatch = 1,
-	EGameplayTagQueryExprType__AllTagsMatch = 2,
-	EGameplayTagQueryExprType__NoTagsMatch = 3,
-	EGameplayTagQueryExprType__AnyExprMatch = 4,
-	EGameplayTagQueryExprType__AllExprMatch = 5,
-	EGameplayTagQueryExprType__NoExprMatch = 6,
-	EGameplayTagQueryExprType__EGameplayTagQueryExprType_MAX = 7
-};
-
-
 // Enum GameplayTags.EGameplayContainerMatchType
 enum class EGameplayContainerMatchType : uint8_t
 {
-	EGameplayContainerMatchType__Any = 0,
-	EGameplayContainerMatchType__All = 1,
-	EGameplayContainerMatchType__EGameplayContainerMatchType_MAX = 2
+	Any                            = 0,
+	All                            = 1,
+	EGameplayContainerMatchType_MAX = 2
 };
 
 
 // Enum GameplayTags.EGameplayTagMatchType
 enum class EGameplayTagMatchType : uint8_t
 {
-	EGameplayTagMatchType__Explicit = 0,
-	EGameplayTagMatchType__IncludeParentTags = 1,
-	EGameplayTagMatchType__EGameplayTagMatchType_MAX = 2
+	Explicit                       = 0,
+	IncludeParentTags              = 1,
+	EGameplayTagMatchType_MAX      = 2
 };
 
 
 // Enum GameplayTags.EGameplayTagSourceType
 enum class EGameplayTagSourceType : uint8_t
 {
-	EGameplayTagSourceType__Native = 0,
-	EGameplayTagSourceType__DefaultTagList = 1,
-	EGameplayTagSourceType__TagList = 2,
-	EGameplayTagSourceType__RestrictedTagList = 3,
-	EGameplayTagSourceType__DataTable = 4,
-	EGameplayTagSourceType__Invalid = 5,
-	EGameplayTagSourceType__EGameplayTagSourceType_MAX = 6
+	Native                         = 0,
+	DefaultTagList                 = 1,
+	TagList                        = 2,
+	RestrictedTagList              = 3,
+	DataTable                      = 4,
+	Invalid                        = 5,
+	EGameplayTagSourceType_MAX     = 6
+};
+
+
+// Enum GameplayTags.EGameplayTagQueryExprType
+enum class EGameplayTagQueryExprType : uint8_t
+{
+	Undefined                      = 0,
+	AnyTagsMatch                   = 1,
+	AllTagsMatch                   = 2,
+	NoTagsMatch                    = 3,
+	AnyExprMatch                   = 4,
+	AllExprMatch                   = 5,
+	NoExprMatch                    = 6,
+	EGameplayTagQueryExprType_MAX  = 7
 };
 
 

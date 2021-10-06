@@ -8253,6 +8253,35 @@ struct UAtmosphericFogComponent_DisableGroundScattering_Params
 	bool                                               NewGroundScattering;                                      // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function Engine.AudioVolume.SetReverbSettings
+struct AAudioVolume_SetReverbSettings_Params
+{
+	struct FReverbSettings                             NewReverbSettings;                                        // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function Engine.AudioVolume.SetPriority
+struct AAudioVolume_SetPriority_Params
+{
+	float                                              NewPriority;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AudioVolume.SetInteriorSettings
+struct AAudioVolume_SetInteriorSettings_Params
+{
+	struct FInteriorSettings                           NewInteriorSettings;                                      // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function Engine.AudioVolume.SetEnabled
+struct AAudioVolume_SetEnabled_Params
+{
+	bool                                               bNewEnabled;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AudioVolume.OnRep_bEnabled
+struct AAudioVolume_OnRep_bEnabled_Params
+{
+};
+
 // Function Engine.AvoidanceManager.RegisterMovementComponent
 struct UAvoidanceManager_RegisterMovementComponent_Params
 {
@@ -20308,35 +20337,6 @@ struct UWindDirectionalSourceComponent_SetMinimumGustAmount_Params
 struct UWindDirectionalSourceComponent_SetMaximumGustAmount_Params
 {
 	float                                              InNewMaxGust;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AudioVolume.SetReverbSettings
-struct AAudioVolume_SetReverbSettings_Params
-{
-	struct FReverbSettings                             NewReverbSettings;                                        // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function Engine.AudioVolume.SetPriority
-struct AAudioVolume_SetPriority_Params
-{
-	float                                              NewPriority;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AudioVolume.SetInteriorSettings
-struct AAudioVolume_SetInteriorSettings_Params
-{
-	struct FInteriorSettings                           NewInteriorSettings;                                      // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function Engine.AudioVolume.SetEnabled
-struct AAudioVolume_SetEnabled_Params
-{
-	bool                                               bNewEnabled;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AudioVolume.OnRep_bEnabled
-struct AAudioVolume_OnRep_bEnabled_Params
-{
 };
 
 }

@@ -766,9 +766,9 @@ void ABP_MapLinkBase_C::Finalize()
 // float                          FanRadius                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          FanAngle                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FVector                 FanVector                      (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// bool                           bin                            (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           bIn                            (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void ABP_MapLinkBase_C::InFanCharacter(class ACharacter* Charcter, const struct FVector& FanCenter, float FanRadius, float FanAngle, const struct FVector& FanVector, bool* bin)
+void ABP_MapLinkBase_C::InFanCharacter(class ACharacter* Charcter, const struct FVector& FanCenter, float FanRadius, float FanAngle, const struct FVector& FanVector, bool* bIn)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_MapLinkBase.BP_MapLinkBase_C.InFanCharacter");
 
@@ -785,8 +785,8 @@ void ABP_MapLinkBase_C::InFanCharacter(class ACharacter* Charcter, const struct 
 
 	fn->FunctionFlags = flags;
 
-	if (bin != nullptr)
-		*bin = params.bin;
+	if (bIn != nullptr)
+		*bIn = params.bIn;
 }
 
 

@@ -15,11 +15,11 @@ namespace SDK
 // UserDefinedEnum ENUM_EnSym_Bonus.ENUM_EnSym_Bonus
 enum class ENUM_EnSym_Bonus : uint8_t
 {
-	ENUM_EnSym_Bonus__NewEnumerator0 = 0,
-	ENUM_EnSym_Bonus__NewEnumerator1 = 1,
-	ENUM_EnSym_Bonus__NewEnumerator2 = 2,
-	ENUM_EnSym_Bonus__NewEnumerator3 = 3,
-	ENUM_EnSym_Bonus__ENUM_EnSym_MAX = 4
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	NewEnumerator3                 = 3,
+	ENUM_EnSym_MAX                 = 4
 };
 
 

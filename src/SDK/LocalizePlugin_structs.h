@@ -15,18 +15,18 @@ namespace SDK
 // Enum LocalizePlugin.ELocalizeSupportLanguage
 enum class ELocalizeSupportLanguage : uint8_t
 {
-	ELocalizeSupportLanguage__ja_JP = 0,
-	ELocalizeSupportLanguage__en_US = 1,
-	ELocalizeSupportLanguage__fr_FR = 2,
-	ELocalizeSupportLanguage__it_IT = 3,
-	ELocalizeSupportLanguage__de_DE = 4,
-	ELocalizeSupportLanguage__es   = 5,
-	ELocalizeSupportLanguage__es_MX = 6,
-	ELocalizeSupportLanguage__pt_BR = 7,
-	ELocalizeSupportLanguage__ru_RU = 8,
-	ELocalizeSupportLanguage__zh_TW = 9,
-	ELocalizeSupportLanguage__ko_KR = 10,
-	ELocalizeSupportLanguage__ELocalizeSupportLanguage_MAX = 11
+	ja_JP                          = 0,
+	en_US                          = 1,
+	fr_FR                          = 2,
+	it_IT                          = 3,
+	de_DE                          = 4,
+	es                             = 5,
+	es_MX                          = 6,
+	pt_BR                          = 7,
+	ru_RU                          = 8,
+	zh_TW                          = 9,
+	ko_KR                          = 10,
+	ELocalizeSupportLanguage_MAX   = 11
 };
 
 

@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum DE_PF_NpcEventCategory.DE_PF_NpcEventCategory
 enum class EDE_PF_NpcEventCategory : uint8_t
 {
-	DE_PF_NpcEventCategory__NewEnumerator2 = 0,
-	DE_PF_NpcEventCategory__NewEnumerator0 = 1,
-	DE_PF_NpcEventCategory__NewEnumerator1 = 2,
-	DE_PF_NpcEventCategory__DE_PF_MAX = 3
+	NewEnumerator2                 = 0,
+	NewEnumerator0                 = 1,
+	NewEnumerator1                 = 2,
+	DE_PF_MAX                      = 3
 };
 
 

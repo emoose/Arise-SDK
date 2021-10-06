@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum DE_PF_MAPOBJ_EventType.DE_PF_MAPOBJ_EventType
 enum class EDE_PF_MAPOBJ_EventType : uint8_t
 {
-	DE_PF_MAPOBJ_EventType__NewEnumerator0 = 0,
-	DE_PF_MAPOBJ_EventType__NewEnumerator1 = 1,
-	DE_PF_MAPOBJ_EventType__NewEnumerator2 = 2,
-	DE_PF_MAPOBJ_EventType__DE_PF_MAPOBJ_MAX = 3
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	DE_PF_MAPOBJ_MAX               = 3
 };
 
 

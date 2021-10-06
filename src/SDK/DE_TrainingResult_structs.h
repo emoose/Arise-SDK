@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum DE_TrainingResult.DE_TrainingResult
 enum class EDE_TrainingResult : uint8_t
 {
-	DE_TrainingResult__NewEnumerator0 = 0,
-	DE_TrainingResult__NewEnumerator1 = 1,
-	DE_TrainingResult__NewEnumerator2 = 2,
-	DE_TrainingResult__DE_MAX      = 3
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	DE_MAX                         = 3
 };
 
 

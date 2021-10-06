@@ -15,19 +15,19 @@ namespace SDK
 // Enum CinematicTools.ECinematicFolderCategory
 enum class ECinematicFolderCategory : uint8_t
 {
-	ECinematicFolderCategory__None = 0,
-	ECinematicFolderCategory__Character = 1,
-	ECinematicFolderCategory__Camera = 2,
-	ECinematicFolderCategory__ECinematicFolderCategory_MAX = 3
+	None                           = 0,
+	Character                      = 1,
+	Camera                         = 2,
+	ECinematicFolderCategory_MAX   = 3
 };
 
 
 // Enum CinematicTools.ECinematicWidgetVisibility
 enum class ECinematicWidgetVisibility : uint8_t
 {
-	ECinematicWidgetVisibility__Visible = 0,
-	ECinematicWidgetVisibility__Hidden = 1,
-	ECinematicWidgetVisibility__ECinematicWidgetVisibility_MAX = 2
+	Visible                        = 0,
+	Hidden                         = 1,
+	ECinematicWidgetVisibility_MAX = 2
 };
 
 
@@ -318,20 +318,20 @@ struct FCinematicFacialPoseSectionTemplate : public FMovieSceneEvalTemplate
 	unsigned char                                      UnknownData01[0x7];                                       // 0x00E9(0x0007) MISSED OFFSET
 };
 
-// ScriptStruct CinematicTools.CinematicJointSectionTemplate
-// 0x01E8 (0x0208 - 0x0020)
-struct FCinematicJointSectionTemplate : public FMovieSceneEvalTemplate
-{
-	struct FName                                       JointName;                                                // 0x0020(0x0008) (ZeroConstructor, IsPlainOldData)
-	struct FMovieSceneFloatChannel                     RotationChannels[0x3];                                    // 0x0028(0x00A0)
-};
-
 // ScriptStruct CinematicTools.CinematicLipPatternSectionTemplate
 // 0x00B0 (0x00D0 - 0x0020)
 struct FCinematicLipPatternSectionTemplate : public FMovieSceneEvalTemplate
 {
 	struct FString                                     PatternName;                                              // 0x0020(0x0010) (ZeroConstructor)
 	struct FMovieSceneFloatChannel                     WeightChannel;                                            // 0x0030(0x00A0)
+};
+
+// ScriptStruct CinematicTools.CinematicJointSectionTemplate
+// 0x01E8 (0x0208 - 0x0020)
+struct FCinematicJointSectionTemplate : public FMovieSceneEvalTemplate
+{
+	struct FName                                       JointName;                                                // 0x0020(0x0008) (ZeroConstructor, IsPlainOldData)
+	struct FMovieSceneFloatChannel                     RotationChannels[0x3];                                    // 0x0028(0x00A0)
 };
 
 // ScriptStruct CinematicTools.CinematicLookAtSectionTemplate

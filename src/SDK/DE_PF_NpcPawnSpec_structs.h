@@ -15,11 +15,11 @@ namespace SDK
 // UserDefinedEnum DE_PF_NpcPawnSpec.DE_PF_NpcPawnSpec
 enum class EDE_PF_NpcPawnSpec : uint8_t
 {
-	DE_PF_NpcPawnSpec__NewEnumerator3 = 0,
-	DE_PF_NpcPawnSpec__NewEnumerator5 = 1,
-	DE_PF_NpcPawnSpec__NewEnumerator8 = 2,
-	DE_PF_NpcPawnSpec__NewEnumerator9 = 3,
-	DE_PF_NpcPawnSpec__DE_PF_MAX   = 4
+	NewEnumerator3                 = 0,
+	NewEnumerator5                 = 1,
+	NewEnumerator8                 = 2,
+	NewEnumerator9                 = 3,
+	DE_PF_MAX                      = 4
 };
 
 

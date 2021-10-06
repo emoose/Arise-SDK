@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum EKeyHelpMode.EKeyHelpMode
 enum class EKeyHelpMode : uint8_t
 {
-	EKeyHelpMode__NewEnumerator0   = 0,
-	EKeyHelpMode__NewEnumerator1   = 1,
-	EKeyHelpMode__NewEnumerator2   = 2,
-	EKeyHelpMode__EKeyHelpMode_MAX = 3
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	EKeyHelpMode_MAX               = 3
 };
 
 

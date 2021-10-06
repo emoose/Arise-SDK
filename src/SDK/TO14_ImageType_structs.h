@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum TO14_ImageType.TO14_ImageType
 enum class ETO14_ImageType : uint8_t
 {
-	TO14_ImageType__NewEnumerator4 = 0,
-	TO14_ImageType__NewEnumerator0 = 1,
-	TO14_ImageType__NewEnumerator1 = 2,
-	TO14_ImageType__TO14_MAX       = 3
+	NewEnumerator4                 = 0,
+	NewEnumerator0                 = 1,
+	NewEnumerator1                 = 2,
+	TO14_MAX                       = 3
 };
 
 

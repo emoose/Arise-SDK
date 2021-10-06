@@ -15,204 +15,204 @@ namespace SDK
 // Enum AriseCharacter.EAttachmentNum
 enum class EAttachmentNum : uint8_t
 {
-	EAttachmentNum__ATTACHMENT_1ST = 0,
-	EAttachmentNum__ATTACHMENT_2ND = 1,
-	EAttachmentNum__ATTACHMENT_3RD = 2,
-	EAttachmentNum__MAX            = 3
+	ATTACHMENT_1ST                 = 0,
+	ATTACHMENT_2ND                 = 1,
+	ATTACHMENT_3RD                 = 2,
+	MAX                            = 3
 };
 
 
 // Enum AriseCharacter.EAchCharacterBuildComponent
 enum class EAchCharacterBuildComponent : uint8_t
 {
-	EAchCharacterBuildComponent__Base = 0,
-	EAchCharacterBuildComponent__Extension = 1,
-	EAchCharacterBuildComponent__Weapon = 2,
-	EAchCharacterBuildComponent__Hair = 3,
-	EAchCharacterBuildComponent__Effect = 4,
-	EAchCharacterBuildComponent__Attachment = 5,
-	EAchCharacterBuildComponent__Gadget = 6,
-	EAchCharacterBuildComponent__EAchCharacterBuildComponent_MAX = 7
+	Base                           = 0,
+	Extension                      = 1,
+	Weapon                         = 2,
+	Hair                           = 3,
+	Effect                         = 4,
+	Attachment                     = 5,
+	Gadget                         = 6,
+	EAchCharacterBuildComponent_MAX = 7
 };
 
 
 // Enum AriseCharacter.EAchCharacterBuildCullHandling
 enum class EAchCharacterBuildCullHandling : uint8_t
 {
-	EAchCharacterBuildCullHandling__Undefined = 0,
-	EAchCharacterBuildCullHandling__AlwaysApplyFrustumCull = 1,
-	EAchCharacterBuildCullHandling__AlwaysApplyOcclusionCull = 2,
-	EAchCharacterBuildCullHandling__EAchCharacterBuildCullHandling_MAX = 3
+	Undefined                      = 0,
+	AlwaysApplyFrustumCull         = 1,
+	AlwaysApplyOcclusionCull       = 2,
+	EAchCharacterBuildCullHandling_MAX = 3
 };
 
 
 // Enum AriseCharacter.EAchCharacterMeshConnectMethod
 enum class EAchCharacterMeshConnectMethod : uint8_t
 {
-	EAchCharacterMeshConnectMethod__Attach = 0,
-	EAchCharacterMeshConnectMethod__MasterPose = 1,
-	EAchCharacterMeshConnectMethod__EAchCharacterMeshConnectMethod_MAX = 2
+	Attach                         = 0,
+	MasterPose                     = 1,
+	EAchCharacterMeshConnectMethod_MAX = 2
 };
 
 
 // Enum AriseCharacter.EAchGameScene
 enum class EAchGameScene : uint8_t
 {
-	EAchGameScene__ALL             = 0,
-	EAchGameScene__PF              = 1,
-	EAchGameScene__Battle          = 2,
-	EAchGameScene__EAchGameScene_MAX = 3
+	ALL                            = 0,
+	PF                             = 1,
+	Battle                         = 2,
+	EAchGameScene_MAX              = 3
 };
 
 
 // Enum AriseCharacter.EAchCharacterCapturePose
 enum class EAchCharacterCapturePose : uint8_t
 {
-	EAchCharacterCapturePose__CCP_BasePose = 0,
-	EAchCharacterCapturePose__CCP_MAX = 1
+	CCP_BasePose                   = 0,
+	CCP_MAX                        = 1
 };
 
 
 // Enum AriseCharacter.EFacialFlagOverrideCondition
 enum class EFacialFlagOverrideCondition : uint8_t
 {
-	EFacialFlagOverrideCondition__None = 0,
-	EFacialFlagOverrideCondition__Language_Japanese = 1,
-	EFacialFlagOverrideCondition__Language_English_US = 2,
-	EFacialFlagOverrideCondition__EFacialFlagOverrideCondition_MAX = 3
+	None                           = 0,
+	Language_Japanese              = 1,
+	Language_English_US            = 2,
+	EFacialFlagOverrideCondition_MAX = 3
 };
 
 
 // Enum AriseCharacter.EAriseFakeLipShapeFlags
 enum class EAriseFakeLipShapeFlags : uint8_t
 {
-	EAriseFakeLipShapeFlags__A     = 0,
-	EAriseFakeLipShapeFlags__I     = 1,
-	EAriseFakeLipShapeFlags__U     = 2,
-	EAriseFakeLipShapeFlags__E     = 3,
-	EAriseFakeLipShapeFlags__O     = 4,
-	EAriseFakeLipShapeFlags__EAriseFakeLipShapeFlags_MAX = 5
+	A                              = 0,
+	I                              = 1,
+	U                              = 2,
+	E                              = 3,
+	O                              = 4,
+	EAriseFakeLipShapeFlags_MAX    = 5
 };
 
 
 // Enum AriseCharacter.EAchFacialAutoLip
 enum class EAchFacialAutoLip : uint8_t
 {
-	EAchFacialAutoLip__None        = 0,
-	EAchFacialAutoLip__LipSync     = 1,
-	EAchFacialAutoLip__Fake        = 2,
-	EAchFacialAutoLip__EAchFacialAutoLip_MAX = 3
+	None                           = 0,
+	LipSync                        = 1,
+	Fake                           = 2,
+	EAchFacialAutoLip_MAX          = 3
 };
 
 
 // Enum AriseCharacter.EAchFacialLipShape
 enum class EAchFacialLipShape : uint8_t
 {
-	EAchFacialLipShape__N          = 0,
-	EAchFacialLipShape__A          = 1,
-	EAchFacialLipShape__I          = 2,
-	EAchFacialLipShape__U          = 3,
-	EAchFacialLipShape__E          = 4,
-	EAchFacialLipShape__O          = 5,
-	EAchFacialLipShape__EAchFacialLipShape_MAX = 6
+	N                              = 0,
+	A                              = 1,
+	I                              = 2,
+	U                              = 3,
+	E                              = 4,
+	O                              = 5,
+	EAchFacialLipShape_MAX         = 6
 };
 
 
 // Enum AriseCharacter.EAchCharacterUpdateRateOptimization
 enum class EAchCharacterUpdateRateOptimization : uint8_t
 {
-	EAchCharacterUpdateRateOptimization__Default = 0,
-	EAchCharacterUpdateRateOptimization__Distance = 1,
-	EAchCharacterUpdateRateOptimization__LOD = 2,
-	EAchCharacterUpdateRateOptimization__EAchCharacterUpdateRateOptimization_MAX = 3
+	Default                        = 0,
+	Distance                       = 1,
+	LOD                            = 2,
+	EAchCharacterUpdateRateOptimization_MAX = 3
 };
 
 
 // Enum AriseCharacter.EAchScenarioCharacterGadgetMode
 enum class EAchScenarioCharacterGadgetMode : uint8_t
 {
-	EAchScenarioCharacterGadgetMode__Unmount = 0,
-	EAchScenarioCharacterGadgetMode__Mount = 1,
-	EAchScenarioCharacterGadgetMode__Hide = 2,
-	EAchScenarioCharacterGadgetMode__Show = 3,
-	EAchScenarioCharacterGadgetMode__NumMax = 4,
-	EAchScenarioCharacterGadgetMode__EAchScenarioCharacterGadgetMode_MAX = 5
+	Unmount                        = 0,
+	Mount                          = 1,
+	Hide                           = 2,
+	Show                           = 3,
+	NumMax                         = 4,
+	EAchScenarioCharacterGadgetMode_MAX = 5
 };
 
 
 // Enum AriseCharacter.EAchCharacterAttachment
 enum class EAchCharacterAttachment : uint8_t
 {
-	EAchCharacterAttachment__SkeletalMesh = 0,
-	EAchCharacterAttachment__StaticMesh = 1,
-	EAchCharacterAttachment__Effect = 2,
-	EAchCharacterAttachment__EAchCharacterAttachment_MAX = 3
+	SkeletalMesh                   = 0,
+	StaticMesh                     = 1,
+	Effect                         = 2,
+	EAchCharacterAttachment_MAX    = 3
 };
 
 
 // Enum AriseCharacter.EAchCharacterFootmark
 enum class EAchCharacterFootmark : uint8_t
 {
-	EAchCharacterFootmark__MEN_00  = 0,
-	EAchCharacterFootmark__FEMALE_00 = 1,
-	EAchCharacterFootmark__MEN_01  = 2,
-	EAchCharacterFootmark__FEMALE_01 = 3,
-	EAchCharacterFootmark__MAX     = 4
+	MEN_00                         = 0,
+	FEMALE_00                      = 1,
+	MEN_01                         = 2,
+	FEMALE_01                      = 3,
+	MAX                            = 4
 };
 
 
 // Enum AriseCharacter.EAchCharacterModelCategory
 enum class EAchCharacterModelCategory : uint8_t
 {
-	EAchCharacterModelCategory__ENPC = 0,
-	EAchCharacterModelCategory__MON = 1,
-	EAchCharacterModelCategory__NPC = 2,
-	EAchCharacterModelCategory__PC = 3,
-	EAchCharacterModelCategory__ANIMAL = 4,
-	EAchCharacterModelCategory__Unknown = 5,
-	EAchCharacterModelCategory__EAchCharacterModelCategory_MAX = 6
+	ENPC                           = 0,
+	MON                            = 1,
+	NPC                            = 2,
+	PC                             = 3,
+	ANIMAL                         = 4,
+	Unknown                        = 5,
+	EAchCharacterModelCategory_MAX = 6
 };
 
 
 // Enum AriseCharacter.EAchDataCategory
 enum class EAchDataCategory : uint8_t
 {
-	EAchDataCategory__Release      = 0,
-	EAchDataCategory__Debug        = 1,
-	EAchDataCategory__DLC          = 2,
-	EAchDataCategory__EAchDataCategory_MAX = 3
+	Release                        = 0,
+	Debug                          = 1,
+	DLC                            = 2,
+	EAchDataCategory_MAX           = 3
 };
 
 
 // Enum AriseCharacter.EAchCharacterModelBase
 enum class EAchCharacterModelBase : uint8_t
 {
-	EAchCharacterModelBase__Body   = 0,
-	EAchCharacterModelBase__Face   = 1,
-	EAchCharacterModelBase__Hair   = 2,
-	EAchCharacterModelBase__Max    = 3
+	Body                           = 0,
+	Face                           = 1,
+	Hair                           = 2,
+	Max                            = 3
 };
 
 
 // Enum AriseCharacter.EAchScenarioCharAgeType
 enum class EAchScenarioCharAgeType : uint8_t
 {
-	EAchScenarioCharAgeType__Child = 0,
-	EAchScenarioCharAgeType__Young = 1,
-	EAchScenarioCharAgeType__Adult = 2,
-	EAchScenarioCharAgeType__Aged  = 3,
-	EAchScenarioCharAgeType__Unknown = 4,
-	EAchScenarioCharAgeType__EAchScenarioCharAgeType_MAX = 5
+	Child                          = 0,
+	Young                          = 1,
+	Adult                          = 2,
+	Aged                           = 3,
+	Unknown                        = 4,
+	EAchScenarioCharAgeType_MAX    = 5
 };
 
 
 // Enum AriseCharacter.EAchScenarioCharSexType
 enum class EAchScenarioCharSexType : uint8_t
 {
-	EAchScenarioCharSexType__Male  = 0,
-	EAchScenarioCharSexType__Female = 1,
-	EAchScenarioCharSexType__Other = 2,
-	EAchScenarioCharSexType__EAchScenarioCharSexType_MAX = 3
+	Male                           = 0,
+	Female                         = 1,
+	Other                          = 2,
+	EAchScenarioCharSexType_MAX    = 3
 };
 
 

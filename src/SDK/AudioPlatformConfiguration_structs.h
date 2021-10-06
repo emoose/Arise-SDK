@@ -15,12 +15,12 @@ namespace SDK
 // Enum AudioPlatformConfiguration.ESoundwaveSampleRateSettings
 enum class ESoundwaveSampleRateSettings : uint8_t
 {
-	ESoundwaveSampleRateSettings__Max = 0,
-	ESoundwaveSampleRateSettings__High = 1,
-	ESoundwaveSampleRateSettings__Medium = 2,
-	ESoundwaveSampleRateSettings__Low = 3,
-	ESoundwaveSampleRateSettings__Min = 4,
-	ESoundwaveSampleRateSettings__MatchDevice = 5
+	Max                            = 0,
+	High                           = 1,
+	Medium                         = 2,
+	Low                            = 3,
+	Min                            = 4,
+	MatchDevice                    = 5
 };
 
 

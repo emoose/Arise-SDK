@@ -15,14 +15,14 @@ namespace SDK
 // UserDefinedEnum ENM_MapLinkBehavior.ENM_MapLinkBehavior
 enum class ENM_MapLinkBehavior : uint8_t
 {
-	ENM_MapLinkBehavior__NewEnumerator0 = 0,
-	ENM_MapLinkBehavior__NewEnumerator1 = 1,
-	ENM_MapLinkBehavior__NewEnumerator2 = 2,
-	ENM_MapLinkBehavior__NewEnumerator3 = 3,
-	ENM_MapLinkBehavior__NewEnumerator4 = 4,
-	ENM_MapLinkBehavior__NewEnumerator5 = 5,
-	ENM_MapLinkBehavior__NewEnumerator6 = 6,
-	ENM_MapLinkBehavior__ENM_MAX   = 7
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	NewEnumerator3                 = 3,
+	NewEnumerator4                 = 4,
+	NewEnumerator5                 = 5,
+	NewEnumerator6                 = 6,
+	ENM_MAX                        = 7
 };
 
 

@@ -173,22 +173,6 @@ public:
 };
 
 
-// Class Slate.TextBlockWidgetStyle
-// 0x01E0 (0x0210 - 0x0030)
-class UTextBlockWidgetStyle : public USlateWidgetStyleContainerBase
-{
-public:
-	struct FTextBlockStyle                             TextBlockStyle;                                           // 0x0030(0x01E0) (Edit)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Slate.TextBlockWidgetStyle");
-		return ptr;
-	}
-
-};
-
-
 // Class Slate.SpinBoxWidgetStyle
 // 0x02E8 (0x0318 - 0x0030)
 class USpinBoxWidgetStyle : public USlateWidgetStyleContainerBase
@@ -199,6 +183,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Slate.SpinBoxWidgetStyle");
+		return ptr;
+	}
+
+};
+
+
+// Class Slate.TextBlockWidgetStyle
+// 0x01E0 (0x0210 - 0x0030)
+class UTextBlockWidgetStyle : public USlateWidgetStyleContainerBase
+{
+public:
+	struct FTextBlockStyle                             TextBlockStyle;                                           // 0x0030(0x01E0) (Edit)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Slate.TextBlockWidgetStyle");
 		return ptr;
 	}
 

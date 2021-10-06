@@ -261,7 +261,7 @@ public:
 	struct FScriptMulticastDelegate                    OnComponentActivated;                                     // 0x00C0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	struct FScriptMulticastDelegate                    OnComponentDeactivated;                                   // 0x00D0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	class APFPlayerCharacter* PFPlayerCharacter;
-	//unsigned char                                      UnknownData08[0x10];                                      // 0x00E8(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData08[0x8];                                      // 0x00E8(0x0008) MISSED OFFSET
 	bool                                               bEditableWhenNative;                                      // 0x00F0(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData09[0x7];                                       // 0x00F1(0x0007) MISSED OFFSET
 
@@ -298,6 +298,7 @@ public:
 	void AddTickPrerequisiteActor(class AActor* PrerequisiteActor);
 	void Activate(bool bReset);
 };
+static_assert(sizeof(UActorComponent) == 0xF8, "UActorComponent");
 
 
 // Class Engine.SceneComponent

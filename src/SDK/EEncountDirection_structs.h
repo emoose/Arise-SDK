@@ -15,12 +15,12 @@ namespace SDK
 // UserDefinedEnum EEncountDirection.EEncountDirection
 enum class EEncountDirection : uint8_t
 {
-	EEncountDirection__NewEnumerator0 = 0,
-	EEncountDirection__NewEnumerator1 = 1,
-	EEncountDirection__NewEnumerator2 = 2,
-	EEncountDirection__NewEnumerator3 = 3,
-	EEncountDirection__NewEnumerator4 = 4,
-	EEncountDirection__EEncountDirection_MAX = 5
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	NewEnumerator3                 = 3,
+	NewEnumerator4                 = 4,
+	EEncountDirection_MAX          = 5
 };
 
 

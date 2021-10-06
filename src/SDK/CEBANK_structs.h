@@ -12,23 +12,23 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
-// Enum CEBANK.ENetSocketCipherMode
-enum class ENetSocketCipherMode : uint8_t
-{
-	ENetSocketCipherMode__None     = 0,
-	ENetSocketCipherMode__ECB      = 1,
-	ENetSocketCipherMode__CBC      = 2,
-	ENetSocketCipherMode__ENetSocketCipherMode_MAX = 3
-};
-
-
 // Enum CEBANK.ENetSocketEventID
 enum class ENetSocketEventID : uint8_t
 {
-	ENetSocketEventID__Connected   = 0,
-	ENetSocketEventID__Disconnected = 1,
-	ENetSocketEventID__Receive     = 2,
-	ENetSocketEventID__ENetSocketEventID_MAX = 3
+	Connected                      = 0,
+	Disconnected                   = 1,
+	Receive                        = 2,
+	ENetSocketEventID_MAX          = 3
+};
+
+
+// Enum CEBANK.ENetSocketCipherMode
+enum class ENetSocketCipherMode : uint8_t
+{
+	None                           = 0,
+	ECB                            = 1,
+	CBC                            = 2,
+	ENetSocketCipherMode_MAX       = 3
 };
 
 

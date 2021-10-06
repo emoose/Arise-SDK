@@ -15,16 +15,16 @@ namespace SDK
 // UserDefinedEnum TTL_ItemTypeEnum.TTL_ItemTypeEnum
 enum class ETTL_ItemTypeEnum : uint8_t
 {
-	TTL_ItemTypeEnum__NewEnumerator0 = 0,
-	TTL_ItemTypeEnum__NewEnumerator1 = 1,
-	TTL_ItemTypeEnum__NewEnumerator2 = 2,
-	TTL_ItemTypeEnum__NewEnumerator3 = 3,
-	TTL_ItemTypeEnum__NewEnumerator4 = 4,
-	TTL_ItemTypeEnum__NewEnumerator5 = 5,
-	TTL_ItemTypeEnum__NewEnumerator6 = 6,
-	TTL_ItemTypeEnum__NewEnumerator10 = 7,
-	TTL_ItemTypeEnum__NewEnumerator9 = 8,
-	TTL_ItemTypeEnum__TTL_MAX      = 9
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	NewEnumerator3                 = 3,
+	NewEnumerator4                 = 4,
+	NewEnumerator5                 = 5,
+	NewEnumerator6                 = 6,
+	NewEnumerator10                = 7,
+	NewEnumerator9                 = 8,
+	TTL_MAX                        = 9
 };
 
 

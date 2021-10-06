@@ -15,21 +15,21 @@ namespace SDK
 // UserDefinedEnum ENM_BootScreenState.ENM_BootScreenState
 enum class ENM_BootScreenState : uint8_t
 {
-	ENM_BootScreenState__NewEnumerator0 = 0,
-	ENM_BootScreenState__NewEnumerator1 = 1,
-	ENM_BootScreenState__NewEnumerator2 = 2,
-	ENM_BootScreenState__NewEnumerator3 = 3,
-	ENM_BootScreenState__NewEnumerator14 = 4,
-	ENM_BootScreenState__NewEnumerator4 = 5,
-	ENM_BootScreenState__NewEnumerator5 = 6,
-	ENM_BootScreenState__NewEnumerator6 = 7,
-	ENM_BootScreenState__NewEnumerator7 = 8,
-	ENM_BootScreenState__NewEnumerator8 = 9,
-	ENM_BootScreenState__NewEnumerator9 = 10,
-	ENM_BootScreenState__NewEnumerator10 = 11,
-	ENM_BootScreenState__NewEnumerator11 = 12,
-	ENM_BootScreenState__NewEnumerator12 = 13,
-	ENM_BootScreenState__ENM_MAX   = 14
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	NewEnumerator3                 = 3,
+	NewEnumerator14                = 4,
+	NewEnumerator4                 = 5,
+	NewEnumerator5                 = 6,
+	NewEnumerator6                 = 7,
+	NewEnumerator7                 = 8,
+	NewEnumerator8                 = 9,
+	NewEnumerator9                 = 10,
+	NewEnumerator10                = 11,
+	NewEnumerator11                = 12,
+	NewEnumerator12                = 13,
+	ENM_MAX                        = 14
 };
 
 

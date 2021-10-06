@@ -15,57 +15,57 @@ namespace SDK
 // Enum MediaAssets.EMediaWebcamCaptureDeviceFilter
 enum class EMediaWebcamCaptureDeviceFilter : uint8_t
 {
-	EMediaWebcamCaptureDeviceFilter__DepthSensor = 0,
-	EMediaWebcamCaptureDeviceFilter__Front = 1,
-	EMediaWebcamCaptureDeviceFilter__Rear = 2,
-	EMediaWebcamCaptureDeviceFilter__Unknown = 3,
-	EMediaWebcamCaptureDeviceFilter__EMediaWebcamCaptureDeviceFilter_MAX = 4
+	DepthSensor                    = 0,
+	Front                          = 1,
+	Rear                           = 2,
+	Unknown                        = 3,
+	EMediaWebcamCaptureDeviceFilter_MAX = 4
 };
 
 
 // Enum MediaAssets.EMediaVideoCaptureDeviceFilter
 enum class EMediaVideoCaptureDeviceFilter : uint8_t
 {
-	EMediaVideoCaptureDeviceFilter__Card = 0,
-	EMediaVideoCaptureDeviceFilter__Software = 1,
-	EMediaVideoCaptureDeviceFilter__Unknown = 2,
-	EMediaVideoCaptureDeviceFilter__Webcam = 3,
-	EMediaVideoCaptureDeviceFilter__EMediaVideoCaptureDeviceFilter_MAX = 4
+	Card                           = 0,
+	Software                       = 1,
+	Unknown                        = 2,
+	Webcam                         = 3,
+	EMediaVideoCaptureDeviceFilter_MAX = 4
 };
 
 
 // Enum MediaAssets.EMediaAudioCaptureDeviceFilter
 enum class EMediaAudioCaptureDeviceFilter : uint8_t
 {
-	EMediaAudioCaptureDeviceFilter__Card = 0,
-	EMediaAudioCaptureDeviceFilter__Microphone = 1,
-	EMediaAudioCaptureDeviceFilter__Software = 2,
-	EMediaAudioCaptureDeviceFilter__Unknown = 3,
-	EMediaAudioCaptureDeviceFilter__EMediaAudioCaptureDeviceFilter_MAX = 4
+	Card                           = 0,
+	Microphone                     = 1,
+	Software                       = 2,
+	Unknown                        = 3,
+	EMediaAudioCaptureDeviceFilter_MAX = 4
 };
 
 
 // Enum MediaAssets.EMediaPlayerTrack
 enum class EMediaPlayerTrack : uint8_t
 {
-	EMediaPlayerTrack__Audio       = 0,
-	EMediaPlayerTrack__Caption     = 1,
-	EMediaPlayerTrack__Metadata    = 2,
-	EMediaPlayerTrack__Script      = 3,
-	EMediaPlayerTrack__Subtitle    = 4,
-	EMediaPlayerTrack__Text        = 5,
-	EMediaPlayerTrack__Video       = 6,
-	EMediaPlayerTrack__EMediaPlayerTrack_MAX = 7
+	Audio                          = 0,
+	Caption                        = 1,
+	Metadata                       = 2,
+	Script                         = 3,
+	Subtitle                       = 4,
+	Text                           = 5,
+	Video                          = 6,
+	EMediaPlayerTrack_MAX          = 7
 };
 
 
 // Enum MediaAssets.EMediaSoundChannels
 enum class EMediaSoundChannels : uint8_t
 {
-	EMediaSoundChannels__Mono      = 0,
-	EMediaSoundChannels__Stereo    = 1,
-	EMediaSoundChannels__Surround  = 2,
-	EMediaSoundChannels__EMediaSoundChannels_MAX = 3
+	Mono                           = 0,
+	Stereo                         = 1,
+	Surround                       = 2,
+	EMediaSoundChannels_MAX        = 3
 };
 
 

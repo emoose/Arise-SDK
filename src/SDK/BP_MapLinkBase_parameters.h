@@ -237,7 +237,7 @@ struct ABP_MapLinkBase_C_InFanCharacter_Params
 	float                                              FanRadius;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	float                                              FanAngle;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	struct FVector                                     FanVector;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	bool                                               bin;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIn;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function BP_MapLinkBase.BP_MapLinkBase_C.DebugDrawFanLine

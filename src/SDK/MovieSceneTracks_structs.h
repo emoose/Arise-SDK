@@ -15,62 +15,62 @@ namespace SDK
 // Enum MovieSceneTracks.MovieScene3DPathSection_Axis
 enum class EMovieScene3DPathSection_Axis : uint8_t
 {
-	MovieScene3DPathSection_Axis__X = 0,
-	MovieScene3DPathSection_Axis__Y = 1,
-	MovieScene3DPathSection_Axis__Z = 2,
-	MovieScene3DPathSection_Axis__NEG_X = 3,
-	MovieScene3DPathSection_Axis__NEG_Y = 4,
-	MovieScene3DPathSection_Axis__NEG_Z = 5,
-	MovieScene3DPathSection_Axis__MovieScene3DPathSection_MAX = 6
+	X                              = 0,
+	Y                              = 1,
+	Z                              = 2,
+	NEG_X                          = 3,
+	NEG_Y                          = 4,
+	NEG_Z                          = 5,
+	MovieScene3DPathSection_MAX    = 6
 };
 
 
 // Enum MovieSceneTracks.E3DTransformAxis
 enum class E3DTransformAxis : uint8_t
 {
-	E3DTransformAxis__None         = 0,
-	E3DTransformAxis__FitToChara   = 1,
-	E3DTransformAxis__FitToMap     = 2,
-	E3DTransformAxis__E3DTransformAxis_MAX = 3
+	None                           = 0,
+	FitToChara                     = 1,
+	FitToMap                       = 2,
+	E3DTransformAxis_MAX           = 3
 };
 
 
 // Enum MovieSceneTracks.EFireEventsAtPosition
 enum class EFireEventsAtPosition : uint8_t
 {
-	EFireEventsAtPosition__AtStartOfEvaluation = 0,
-	EFireEventsAtPosition__AtEndOfEvaluation = 1,
-	EFireEventsAtPosition__AfterSpawn = 2,
-	EFireEventsAtPosition__EFireEventsAtPosition_MAX = 3
+	AtStartOfEvaluation            = 0,
+	AtEndOfEvaluation              = 1,
+	AfterSpawn                     = 2,
+	EFireEventsAtPosition_MAX      = 3
 };
 
 
 // Enum MovieSceneTracks.ELevelVisibility
 enum class ELevelVisibility : uint8_t
 {
-	ELevelVisibility__Visible      = 0,
-	ELevelVisibility__Hidden       = 1,
-	ELevelVisibility__ELevelVisibility_MAX = 2
+	Visible                        = 0,
+	Hidden                         = 1,
+	ELevelVisibility_MAX           = 2
 };
 
 
 // Enum MovieSceneTracks.EParticleKey
 enum class EParticleKey : uint8_t
 {
-	EParticleKey__Activate         = 0,
-	EParticleKey__Deactivate       = 1,
-	EParticleKey__Trigger          = 2,
-	EParticleKey__EParticleKey_MAX = 3
+	Activate                       = 0,
+	Deactivate                     = 1,
+	Trigger                        = 2,
+	EParticleKey_MAX               = 3
 };
 
 
 // Enum MovieSceneTracks.EMovieSceneSpawnStreamingType
 enum class EMovieSceneSpawnStreamingType : uint8_t
 {
-	EMovieSceneSpawnStreamingType__None = 0,
-	EMovieSceneSpawnStreamingType__Request = 1,
-	EMovieSceneSpawnStreamingType__RequestSync = 2,
-	EMovieSceneSpawnStreamingType__EMovieSceneSpawnStreamingType_MAX = 3
+	None                           = 0,
+	Request                        = 1,
+	RequestSync                    = 2,
+	EMovieSceneSpawnStreamingType_MAX = 3
 };
 
 
@@ -398,15 +398,6 @@ struct FMovieSceneColorKeyStruct : public FMovieSceneKeyStruct
 	unsigned char                                      UnknownData00[0x1C];                                      // 0x001C(0x001C) MISSED OFFSET
 };
 
-// ScriptStruct MovieSceneTracks.MovieSceneColorSectionTemplate
-// 0x0288 (0x02D0 - 0x0048)
-struct FMovieSceneColorSectionTemplate : public FMovieScenePropertySectionTemplate
-{
-	struct FMovieSceneFloatChannel                     Curves[0x4];                                              // 0x0048(0x00A0)
-	EMovieSceneBlendType                               BlendType;                                                // 0x02C8(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x02C9(0x0007) MISSED OFFSET
-};
-
 // ScriptStruct MovieSceneTracks.MovieSceneEventSectionTemplate
 // 0x00A0 (0x00C0 - 0x0020)
 struct FMovieSceneEventSectionTemplate : public FMovieSceneEvalTemplate
@@ -567,13 +558,13 @@ struct FMovieSceneSlomoSectionTemplate : public FMovieSceneEvalTemplate
 	struct FMovieSceneFloatChannel                     SlomoCurve;                                               // 0x0020(0x00A0)
 };
 
-// ScriptStruct MovieSceneTracks.MovieSceneSpawnSectionTemplate
-// 0x0098 (0x00B8 - 0x0020)
-struct FMovieSceneSpawnSectionTemplate : public FMovieSceneEvalTemplate
+// ScriptStruct MovieSceneTracks.MovieSceneColorSectionTemplate
+// 0x0288 (0x02D0 - 0x0048)
+struct FMovieSceneColorSectionTemplate : public FMovieScenePropertySectionTemplate
 {
-	struct FMovieSceneBoolChannel                      Curve;                                                    // 0x0020(0x0090)
-	bool                                               bDisableIfOverrided;                                      // 0x00B0(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x00B1(0x0007) MISSED OFFSET
+	struct FMovieSceneFloatChannel                     Curves[0x4];                                              // 0x0048(0x00A0)
+	EMovieSceneBlendType                               BlendType;                                                // 0x02C8(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x02C9(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct MovieSceneTracks.MovieSceneVectorKeyStructBase
@@ -612,6 +603,15 @@ struct FMovieSceneVector2DKeyStruct : public FMovieSceneVectorKeyStructBase
 struct FMovieSceneVisibilitySectionTemplate : public FMovieSceneBoolPropertySectionTemplate
 {
 
+};
+
+// ScriptStruct MovieSceneTracks.MovieSceneSpawnSectionTemplate
+// 0x0098 (0x00B8 - 0x0020)
+struct FMovieSceneSpawnSectionTemplate : public FMovieSceneEvalTemplate
+{
+	struct FMovieSceneBoolChannel                      Curve;                                                    // 0x0020(0x0090)
+	bool                                               bDisableIfOverrided;                                      // 0x00B0(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x00B1(0x0007) MISSED OFFSET
 };
 
 }

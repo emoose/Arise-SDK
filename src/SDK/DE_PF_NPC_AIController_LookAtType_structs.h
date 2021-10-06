@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum DE_PF_NPC_AIController_LookAtType.DE_PF_NPC_AIController_LookAtType
 enum class EDE_PF_NPC_AIController_LookAtType : uint8_t
 {
-	DE_PF_NPC_AIController_LookAtType__NewEnumerator0 = 0,
-	DE_PF_NPC_AIController_LookAtType__NewEnumerator1 = 1,
-	DE_PF_NPC_AIController_LookAtType__NewEnumerator2 = 2,
-	DE_PF_NPC_AIController_LookAtType__DE_PF_NPC_AIController_MAX = 3
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	DE_PF_NPC_AIController_MAX     = 3
 };
 
 

@@ -169,9 +169,9 @@ void UBP_DebugWidget_C::OnMouseDown(float X, float Y)
 // Parameters:
 // float                          Cx                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          cy                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bin                            (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           bIn                            (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UBP_DebugWidget_C::InWindown(float Cx, float cy, bool* bin)
+void UBP_DebugWidget_C::InWindown(float Cx, float cy, bool* bIn)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_DebugWidget.BP_DebugWidget_C.InWindown");
 
@@ -185,8 +185,8 @@ void UBP_DebugWidget_C::InWindown(float Cx, float cy, bool* bin)
 
 	fn->FunctionFlags = flags;
 
-	if (bin != nullptr)
-		*bin = params.bin;
+	if (bIn != nullptr)
+		*bIn = params.bIn;
 }
 
 

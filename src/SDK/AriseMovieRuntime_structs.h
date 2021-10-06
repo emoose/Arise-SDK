@@ -15,57 +15,57 @@ namespace SDK
 // Enum AriseMovieRuntime.EAriseMovieStatus
 enum class EAriseMovieStatus : uint8_t
 {
-	EAriseMovieStatus__None        = 0,
-	EAriseMovieStatus__Loading     = 1,
-	EAriseMovieStatus__Preparing   = 2,
-	EAriseMovieStatus__Prepared    = 3,
-	EAriseMovieStatus__Playing     = 4,
-	EAriseMovieStatus__Paused      = 5,
-	EAriseMovieStatus__Stopping    = 6,
-	EAriseMovieStatus__Stopped     = 7,
-	EAriseMovieStatus__Error       = 8,
-	EAriseMovieStatus__EAriseMovieStatus_MAX = 9
-};
-
-
-// Enum AriseMovieRuntime.EAriseMovieMaterialType
-enum class EAriseMovieMaterialType : uint8_t
-{
-	EAriseMovieMaterialType__Opaque = 0,
-	EAriseMovieMaterialType__Translucent = 1,
-	EAriseMovieMaterialType__Alpha = 2,
-	EAriseMovieMaterialType__AlphaPlus = 3,
-	EAriseMovieMaterialType__EAriseMovieMaterialType_MAX = 4
-};
-
-
-// Enum AriseMovieRuntime.EMovieFadeType
-enum class EMovieFadeType : uint8_t
-{
-	EMovieFadeType__None           = 0,
-	EMovieFadeType__Black          = 1,
-	EMovieFadeType__White          = 2,
-	EMovieFadeType__EMovieFadeType_MAX = 3
-};
-
-
-// Enum AriseMovieRuntime.EAriseMovieSoundDevice
-enum class EAriseMovieSoundDevice : uint8_t
-{
-	EAriseMovieSoundDevice__None   = 0,
-	EAriseMovieSoundDevice__Main   = 1,
-	EAriseMovieSoundDevice__Sub    = 2,
-	EAriseMovieSoundDevice__Extra  = 3,
-	EAriseMovieSoundDevice__EAriseMovieSoundDevice_MAX = 4
+	None                           = 0,
+	Loading                        = 1,
+	Preparing                      = 2,
+	Prepared                       = 3,
+	Playing                        = 4,
+	Paused                         = 5,
+	Stopping                       = 6,
+	Stopped                        = 7,
+	Error                          = 8,
+	EAriseMovieStatus_MAX          = 9
 };
 
 
 // Enum AriseMovieRuntime.EAriseMovieShareProtection
 enum class EAriseMovieShareProtection : uint8_t
 {
-	EAriseMovieShareProtection__None = 0,
-	EAriseMovieShareProtection__Copyright = 1,
-	EAriseMovieShareProtection__EAriseMovieShareProtection_MAX = 2
+	None                           = 0,
+	Copyright                      = 1,
+	EAriseMovieShareProtection_MAX = 2
+};
+
+
+// Enum AriseMovieRuntime.EAriseMovieMaterialType
+enum class EAriseMovieMaterialType : uint8_t
+{
+	Opaque                         = 0,
+	Translucent                    = 1,
+	Alpha                          = 2,
+	AlphaPlus                      = 3,
+	EAriseMovieMaterialType_MAX    = 4
+};
+
+
+// Enum AriseMovieRuntime.EMovieFadeType
+enum class EMovieFadeType : uint8_t
+{
+	None                           = 0,
+	Black                          = 1,
+	White                          = 2,
+	EMovieFadeType_MAX             = 3
+};
+
+
+// Enum AriseMovieRuntime.EAriseMovieSoundDevice
+enum class EAriseMovieSoundDevice : uint8_t
+{
+	None                           = 0,
+	Main                           = 1,
+	Sub                            = 2,
+	Extra                          = 3,
+	EAriseMovieSoundDevice_MAX     = 4
 };
 
 

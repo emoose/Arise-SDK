@@ -15,13 +15,13 @@ namespace SDK
 // UserDefinedEnum EKeyboardChengState.EKeyboardChengState
 enum class EKeyboardChengState : uint8_t
 {
-	EKeyboardChengState__NewEnumerator0 = 0,
-	EKeyboardChengState__NewEnumerator1 = 1,
-	EKeyboardChengState__NewEnumerator2 = 2,
-	EKeyboardChengState__NewEnumerator3 = 3,
-	EKeyboardChengState__NewEnumerator5 = 4,
-	EKeyboardChengState__NewEnumerator4 = 5,
-	EKeyboardChengState__EKeyboardChengState_MAX = 6
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	NewEnumerator3                 = 3,
+	NewEnumerator5                 = 4,
+	NewEnumerator4                 = 5,
+	EKeyboardChengState_MAX        = 6
 };
 
 

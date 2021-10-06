@@ -15,21 +15,21 @@ namespace SDK
 // Enum SoftBone.ERestoringWeight
 enum class ERestoringWeight : uint8_t
 {
-	ERestoringWeight__RW_Constant  = 0,
-	ERestoringWeight__RW_Linear    = 1,
-	ERestoringWeight__RW_Quadratic = 2,
-	ERestoringWeight__RW_Custom    = 3,
-	ERestoringWeight__RW_MAX       = 4
+	RW_Constant                    = 0,
+	RW_Linear                      = 1,
+	RW_Quadratic                   = 2,
+	RW_Custom                      = 3,
+	RW_MAX                         = 4
 };
 
 
 // Enum SoftBone.ESimulationHertz
 enum class ESimulationHertz : uint8_t
 {
-	ESimulationHertz__SH_30Hz      = 0,
-	ESimulationHertz__SH_60Hz      = 1,
-	ESimulationHertz__SH_120Hz     = 2,
-	ESimulationHertz__SH_MAX       = 3
+	SH_30Hz                        = 0,
+	SH_60Hz                        = 1,
+	SH_120Hz                       = 2,
+	SH_MAX                         = 3
 };
 
 

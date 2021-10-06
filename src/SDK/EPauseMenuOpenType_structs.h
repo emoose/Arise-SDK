@@ -15,13 +15,13 @@ namespace SDK
 // UserDefinedEnum EPauseMenuOpenType.EPauseMenuOpenType
 enum class EPauseMenuOpenType : uint8_t
 {
-	EPauseMenuOpenType__NewEnumerator5 = 0,
-	EPauseMenuOpenType__NewEnumerator0 = 1,
-	EPauseMenuOpenType__NewEnumerator3 = 2,
-	EPauseMenuOpenType__NewEnumerator1 = 3,
-	EPauseMenuOpenType__NewEnumerator4 = 4,
-	EPauseMenuOpenType__NewEnumerator2 = 5,
-	EPauseMenuOpenType__EPauseMenuOpenType_MAX = 6
+	NewEnumerator5                 = 0,
+	NewEnumerator0                 = 1,
+	NewEnumerator3                 = 2,
+	NewEnumerator1                 = 3,
+	NewEnumerator4                 = 4,
+	NewEnumerator2                 = 5,
+	EPauseMenuOpenType_MAX         = 6
 };
 
 

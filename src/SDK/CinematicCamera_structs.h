@@ -15,10 +15,10 @@ namespace SDK
 // Enum CinematicCamera.ECameraFocusMethod
 enum class ECameraFocusMethod : uint8_t
 {
-	ECameraFocusMethod__None       = 0,
-	ECameraFocusMethod__Manual     = 1,
-	ECameraFocusMethod__Tracking   = 2,
-	ECameraFocusMethod__ECameraFocusMethod_MAX = 3
+	None                           = 0,
+	Manual                         = 1,
+	Tracking                       = 2,
+	ECameraFocusMethod_MAX         = 3
 };
 
 

@@ -4690,18 +4690,6 @@ struct UAriseListBoxSlot_GetListIndex_Params
 	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Arise.AriseListBoxSlotRefine.SetHorizontalAlignment
-struct UAriseListBoxSlotRefine_SetHorizontalAlignment_Params
-{
-	TEnumAsByte<EHorizontalAlignment>                  InHorizontalAlignment;                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.AriseListBoxSlotRefine.GetListIndex
-struct UAriseListBoxSlotRefine_GetListIndex_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Arise.AriseListenerComponent.GetVolume
 struct UAriseListenerComponent_GetVolume_Params
 {
@@ -4809,6 +4797,18 @@ struct UAriseMiningSaveDataLibrary_CreateMiningSaveData_Params
 {
 	class UClass*                                      SaveGameClass;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 	class UAriseMiningSaveData*                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.AriseListBoxSlotRefine.SetHorizontalAlignment
+struct UAriseListBoxSlotRefine_SetHorizontalAlignment_Params
+{
+	TEnumAsByte<EHorizontalAlignment>                  InHorizontalAlignment;                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.AriseListBoxSlotRefine.GetListIndex
+struct UAriseListBoxSlotRefine_GetListIndex_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Arise.ArisePartyOrder.SwitchPartyTop
@@ -19023,81 +19023,6 @@ struct UBtlDerivedInputStateComponent_CanMysticAction_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Arise.BtlDestructibleActor.StaticImpactPointExportToAsset
-struct ABtlDestructibleActor_StaticImpactPointExportToAsset_Params
-{
-};
-
-// Function Arise.BtlDestructibleActor.RunDestrucible
-struct ABtlDestructibleActor_RunDestrucible_Params
-{
-	struct FVector                                     ImpactPoint;                                              // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-};
-
-// Function Arise.BtlDestructibleActor.PropagationMaterial
-struct ABtlDestructibleActor_PropagationMaterial_Params
-{
-};
-
-// Function Arise.BtlDestructibleActor.MeshCheckDevelopment
-struct ABtlDestructibleActor_MeshCheckDevelopment_Params
-{
-};
-
-// Function Arise.BtlDestructibleActor.MakeExtensionParticle
-struct ABtlDestructibleActor_MakeExtensionParticle_Params
-{
-};
-
-// Function Arise.BtlDestructibleActor.MakeAlphaMaskComponent
-struct ABtlDestructibleActor_MakeAlphaMaskComponent_Params
-{
-};
-
-// Function Arise.BtlDestructibleActor.GetChunkAverageLocation
-struct ABtlDestructibleActor_GetChunkAverageLocation_Params
-{
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.BtlDestructibleActor.GetAlphaMaskComponent
-struct ABtlDestructibleActor_GetAlphaMaskComponent_Params
-{
-	class UAlphaMaskComponent*                         ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-};
-
-// Function Arise.BtlDestructibleActor.DebugRunDestrucible
-struct ABtlDestructibleActor_DebugRunDestrucible_Params
-{
-};
-
-// Function Arise.BtlDestructibleActor.DebugResetDestrucible
-struct ABtlDestructibleActor_DebugResetDestrucible_Params
-{
-};
-
-// Function Arise.BtlDestructibleActor.DebugForceVisible
-struct ABtlDestructibleActor_DebugForceVisible_Params
-{
-};
-
-// Function Arise.BtlDestructibleActor.DebugForceInvisible
-struct ABtlDestructibleActor_DebugForceInvisible_Params
-{
-};
-
-// Function Arise.BtlDestructibleActor.ApplayMaterial
-struct ABtlDestructibleActor_ApplayMaterial_Params
-{
-	class UParticleSystemComponent*                    TargetParticle;                                           // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FDestructParticleOverrideMaterial           OverrideMaterial;                                         // (ConstParm, Parm, OutParm, ReferenceParm)
-};
-
-// Function Arise.BtlDestructibleActor.ActionDestoryExtensionParticle
-struct ABtlDestructibleActor_ActionDestoryExtensionParticle_Params
-{
-};
-
 // Function Arise.BattleDestructibleInterface.RunDestructible
 struct UBattleDestructibleInterface_RunDestructible_Params
 {
@@ -21531,19 +21456,79 @@ struct ABtlMagicActor_Abort_Params
 {
 };
 
-// Function Arise.BtlMagicAsset.IsTaskType
-struct UBtlMagicAsset_IsTaskType_Params
+// Function Arise.BtlDestructibleActor.StaticImpactPointExportToAsset
+struct ABtlDestructibleActor_StaticImpactPointExportToAsset_Params
 {
-	struct FName                                       Identifier;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Class;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Arise.BtlMagicAsset.GetTaskNum
-struct UBtlMagicAsset_GetTaskNum_Params
+// Function Arise.BtlDestructibleActor.RunDestrucible
+struct ABtlDestructibleActor_RunDestrucible_Params
 {
-	struct FName                                       Identifier;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	struct FVector                                     ImpactPoint;                                              // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+};
+
+// Function Arise.BtlDestructibleActor.PropagationMaterial
+struct ABtlDestructibleActor_PropagationMaterial_Params
+{
+};
+
+// Function Arise.BtlDestructibleActor.MeshCheckDevelopment
+struct ABtlDestructibleActor_MeshCheckDevelopment_Params
+{
+};
+
+// Function Arise.BtlDestructibleActor.MakeExtensionParticle
+struct ABtlDestructibleActor_MakeExtensionParticle_Params
+{
+};
+
+// Function Arise.BtlDestructibleActor.MakeAlphaMaskComponent
+struct ABtlDestructibleActor_MakeAlphaMaskComponent_Params
+{
+};
+
+// Function Arise.BtlDestructibleActor.GetChunkAverageLocation
+struct ABtlDestructibleActor_GetChunkAverageLocation_Params
+{
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.BtlDestructibleActor.GetAlphaMaskComponent
+struct ABtlDestructibleActor_GetAlphaMaskComponent_Params
+{
+	class UAlphaMaskComponent*                         ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function Arise.BtlDestructibleActor.DebugRunDestrucible
+struct ABtlDestructibleActor_DebugRunDestrucible_Params
+{
+};
+
+// Function Arise.BtlDestructibleActor.DebugResetDestrucible
+struct ABtlDestructibleActor_DebugResetDestrucible_Params
+{
+};
+
+// Function Arise.BtlDestructibleActor.DebugForceVisible
+struct ABtlDestructibleActor_DebugForceVisible_Params
+{
+};
+
+// Function Arise.BtlDestructibleActor.DebugForceInvisible
+struct ABtlDestructibleActor_DebugForceInvisible_Params
+{
+};
+
+// Function Arise.BtlDestructibleActor.ApplayMaterial
+struct ABtlDestructibleActor_ApplayMaterial_Params
+{
+	class UParticleSystemComponent*                    TargetParticle;                                           // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FDestructParticleOverrideMaterial           OverrideMaterial;                                         // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function Arise.BtlDestructibleActor.ActionDestoryExtensionParticle
+struct ABtlDestructibleActor_ActionDestoryExtensionParticle_Params
+{
 };
 
 // Function Arise.BtlMagicConditionConst_BlueprintBase.Received_GetConditionName
@@ -29335,19 +29320,19 @@ struct ADebugMenuActorBase_DBM_RegisterButton_DataTableRows_Params
 	struct FScriptDelegate                             OnDecide;                                                 // (Parm, ZeroConstructor)
 };
 
-// Function Arise.DebugMenu_AliasSkill.DBM_UIM_SkillSet
-struct UDebugMenu_AliasSkill_DBM_UIM_SkillSet_Params
+// Function Arise.BtlMagicAsset.IsTaskType
+struct UBtlMagicAsset_IsTaskType_Params
 {
+	struct FName                                       Identifier;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Class;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Arise.DebugMenu_AliasSkill.DBM_UIM_SkillLearn
-struct UDebugMenu_AliasSkill_DBM_UIM_SkillLearn_Params
+// Function Arise.BtlMagicAsset.GetTaskNum
+struct UBtlMagicAsset_GetTaskNum_Params
 {
-};
-
-// Function Arise.DebugMenu_AliasSkill.DBM_UIM_Alias
-struct UDebugMenu_AliasSkill_DBM_UIM_Alias_Params
-{
+	struct FName                                       Identifier;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Arise.DebugMenu_UserInterface.DBM_UIM_WindowModeCmd
@@ -29511,6 +29496,21 @@ struct UDummyItemDataList_GetData_Params
 {
 	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FDummyItemData                              ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function Arise.DebugMenu_AliasSkill.DBM_UIM_SkillSet
+struct UDebugMenu_AliasSkill_DBM_UIM_SkillSet_Params
+{
+};
+
+// Function Arise.DebugMenu_AliasSkill.DBM_UIM_SkillLearn
+struct UDebugMenu_AliasSkill_DBM_UIM_SkillLearn_Params
+{
+};
+
+// Function Arise.DebugMenu_AliasSkill.DBM_UIM_Alias
+struct UDebugMenu_AliasSkill_DBM_UIM_Alias_Params
+{
 };
 
 // Function Arise.EncountAssetLibrary.UnloadSymbolModelAll
@@ -29745,453 +29745,6 @@ struct AEncountGroup_BPE_FadeOut_Params
 // Function Arise.EncountGroup.BPE_ExecFadeOut
 struct AEncountGroup_BPE_ExecFadeOut_Params
 {
-};
-
-// Function Arise.EncountManager.SetEncountSymbolInfo_State
-struct AEncountManager_SetEncountSymbolInfo_State_Params
-{
-	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
-	EEncountSymbolState                                InState;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.SetEncountSymbolInfo_Rare
-struct AEncountManager_SetEncountSymbolInfo_Rare_Params
-{
-	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
-	bool                                               bEnable;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.SetEncountSymbolInfo
-struct AEncountManager_SetEncountSymbolInfo_Params
-{
-	struct FString                                     SymbolName;                                               // (Parm, ZeroConstructor)
-	struct FEncoutSymbolInfo                           SymbolInfo;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.SetEncountLock
-struct AEncountManager_SetEncountLock_Params
-{
-	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.ResumeSpawnedSymbol
-struct AEncountManager_ResumeSpawnedSymbol_Params
-{
-};
-
-// Function Arise.EncountManager.ResetBattleBonus
-struct AEncountManager_ResetBattleBonus_Params
-{
-};
-
-// Function Arise.EncountManager.RemoveSpawnedSymbol
-struct AEncountManager_RemoveSpawnedSymbol_Params
-{
-	class AActor*                                      InActor;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.RemoveSpawnedGroups
-struct AEncountManager_RemoveSpawnedGroups_Params
-{
-	class AEncountGroup*                               InGroup;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.RemoveEncountSymbolByInvalidLevel
-struct AEncountManager_RemoveEncountSymbolByInvalidLevel_Params
-{
-};
-
-// Function Arise.EncountManager.RemoveEncountGroup
-struct AEncountManager_RemoveEncountGroup_Params
-{
-	struct FName                                       Name;                                                     // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.PrintRareGroupLog
-struct AEncountManager_PrintRareGroupLog_Params
-{
-};
-
-// Function Arise.EncountManager.PlayNotifySound
-struct AEncountManager_PlayNotifySound_Params
-{
-	float                                              ReactDistance;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.PauseSpawnedSymbol
-struct AEncountManager_PauseSpawnedSymbol_Params
-{
-};
-
-// Function Arise.EncountManager.OnResetEncountGauge
-struct AEncountManager_OnResetEncountGauge_Params
-{
-};
-
-// Function Arise.EncountManager.OnPlayEvent
-struct AEncountManager_OnPlayEvent_Params
-{
-};
-
-// Function Arise.EncountManager.OnGetSurroundEncountMAPOBJNames
-struct AEncountManager_OnGetSurroundEncountMAPOBJNames_Params
-{
-	class AActor*                                      InMAPOBJ;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	struct FBtlEncountGroupParam                       Param;                                                    // (Parm, OutParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.OnGetSurroundEncountGroupNames
-struct AEncountManager_OnGetSurroundEncountGroupNames_Params
-{
-	TArray<struct FString>                             EncountGroupNames;                                        // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	class AEncountGroup*                               InGroup;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	struct FBtlEncountGroupParam                       Param;                                                    // (Parm, OutParm)
-	struct FString                                     EncountGroupName;                                         // (Parm, OutParm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.OnGetInteractionProhibitedRange
-struct AEncountManager_OnGetInteractionProhibitedRange_Params
-{
-	float                                              ReactHorizontalDistance;                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              ReactVerticalDistance;                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.OnGetEncountGroupNames
-struct AEncountManager_OnGetEncountGroupNames_Params
-{
-	struct FString                                     AutoSymbolName;                                           // (Parm, ZeroConstructor)
-	class AEncountGroup*                               InGroup;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	struct FBtlEncountGroupParam                       Param;                                                    // (Parm, OutParm)
-	struct FString                                     EncountGroupName;                                         // (Parm, OutParm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.OnGetEncountGaugeSubParams
-struct AEncountManager_OnGetEncountGaugeSubParams_Params
-{
-	float                                              EnableHighSpeedRange;                                     // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              LowSpeed;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              HighSpeed;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.OnGetEncountGaugeAddParams
-struct AEncountManager_OnGetEncountGaugeAddParams_Params
-{
-	float                                              GaugeMagnify;                                             // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              DistanceAdjust;                                           // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              ReactDistance;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.OnChangeState
-struct AEncountManager_OnChangeState_Params
-{
-	EAriseGameState                                    ChangedState;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               NewState;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.OnChangeDisplayScene
-struct AEncountManager_OnChangeDisplayScene_Params
-{
-	unsigned char                                      ChangedScene;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      OldScene;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.MaketEncountGroupParam
-struct AEncountManager_MaketEncountGroupParam_Params
-{
-	struct FString                                     AutoSymbolName;                                           // (Parm, ZeroConstructor)
-	class AActor*                                      Encounting;                                               // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReactDistance;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReactHeight;                                              // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FBtlEncountGroupParam>               OutParams;                                                // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Arise.EncountManager.IsValidEncountGroup
-struct AEncountManager_IsValidEncountGroup_Params
-{
-	struct FName                                       Name;                                                     // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.IsInCautionRangeCheck
-struct AEncountManager_IsInCautionRangeCheck_Params
-{
-	class AActor*                                      Symbol;                                                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Range;                                                    // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Height;                                                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.IsFollowing
-struct AEncountManager_IsFollowing_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.IsFever
-struct AEncountManager_IsFever_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.IsDistanceSymbolGroupPC
-struct AEncountManager_IsDistanceSymbolGroupPC_Params
-{
-	float                                              ReactDistance;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.IsCaution
-struct AEncountManager_IsCaution_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetViewDistanceMagnify
-struct AEncountManager_GetViewDistanceMagnify_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetViewAngleMagnify
-struct AEncountManager_GetViewAngleMagnify_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetSymbolsWithinCautionRange
-struct AEncountManager_GetSymbolsWithinCautionRange_Params
-{
-	TArray<class AActor*>                              OutSymbols;                                               // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Arise.EncountManager.GetSymbolsNumWithinCautionRange
-struct AEncountManager_GetSymbolsNumWithinCautionRange_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetSpawendSymbolDistance
-struct AEncountManager_GetSpawendSymbolDistance_Params
-{
-	TArray<struct FString>                             NearSymbols;                                              // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Arise.EncountManager.GetSearchRangeMagnify
-struct AEncountManager_GetSearchRangeMagnify_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetRiskValue
-struct AEncountManager_GetRiskValue_Params
-{
-	int                                                Value;                                                    // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                HighRisk;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                LowRisk;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                GEq;                                                      // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                A;                                                        // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                B;                                                        // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetNearSymbolGroup
-struct AEncountManager_GetNearSymbolGroup_Params
-{
-	class AEncountGroup*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetNearSymbol
-struct AEncountManager_GetNearSymbol_Params
-{
-	TArray<class AActor*>                              Symbols;                                                  // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	class APFEncountSymbol*                            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetNearSpawnedSymbol
-struct AEncountManager_GetNearSpawnedSymbol_Params
-{
-	class APFEncountSymbol*                            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetMaxSymbolLevel
-struct AEncountManager_GetMaxSymbolLevel_Params
-{
-	TArray<class AEncountGroup*>                       Groups;                                                   // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	int                                                Level;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetFollowingSymbols
-struct AEncountManager_GetFollowingSymbols_Params
-{
-	TArray<class AActor*>                              FollowingSymbols;                                         // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Arise.EncountManager.GetEncountSymbolInfo_State
-struct AEncountManager_GetEncountSymbolInfo_State_Params
-{
-	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
-	EEncountSymbolState                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetEncountSymbolInfo_Rare
-struct AEncountManager_GetEncountSymbolInfo_Rare_Params
-{
-	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetEncountSymbolInfo_3
-struct AEncountManager_GetEncountSymbolInfo_3_Params
-{
-	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
-	struct FEncoutSymbolInfo                           Info;                                                     // (Parm, OutParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetEncountSymbolInfo
-struct AEncountManager_GetEncountSymbolInfo_Params
-{
-	struct FString                                     SymbolName;                                               // (Parm, ZeroConstructor)
-	struct FEncoutSymbolInfo                           SymbolInfo;                                               // (Parm, OutParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetEncountGroup
-struct AEncountManager_GetEncountGroup_Params
-{
-	TArray<struct FName>                               Group;                                                    // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Arise.EncountManager.GetDistanceSymbolGroupSurround
-struct AEncountManager_GetDistanceSymbolGroupSurround_Params
-{
-	class AActor*                                      Sender;                                                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	TArray<class AEncountGroup*>                       OutGroups;                                                // (Parm, OutParm, ZeroConstructor)
-	float                                              ReactDistance;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReactHeight;                                              // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.GetDistanceEncountMAPOBJSurround
-struct AEncountManager_GetDistanceEncountMAPOBJSurround_Params
-{
-	class AActor*                                      Sender;                                                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	TArray<class AActor*>                              OutMapObjs;                                               // (Parm, OutParm, ZeroConstructor)
-	float                                              ReactDistance;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReactHeight;                                              // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.EncountLink
-struct AEncountManager_EncountLink_Params
-{
-	class APFEncountSymbol*                            SenderSymbol;                                             // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.ClearEncountSymbolInfo
-struct AEncountManager_ClearEncountSymbolInfo_Params
-{
-};
-
-// Function Arise.EncountManager.ClearEncountGroup
-struct AEncountManager_ClearEncountGroup_Params
-{
-};
-
-// Function Arise.EncountManager.CheckWaitSymbolAssetsLoadedForMapJump
-struct AEncountManager_CheckWaitSymbolAssetsLoadedForMapJump_Params
-{
-	bool                                               bOutWait;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.BPE_OutCamp
-struct AEncountManager_BPE_OutCamp_Params
-{
-};
-
-// Function Arise.EncountManager.BPE_OnChangeDisplayScene
-struct AEncountManager_BPE_OnChangeDisplayScene_Params
-{
-	EAriseGameScene                                    ChangedScene;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	EAriseGameScene                                    OldScene;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.BPE_IsLoadedSymbolAssets
-struct AEncountManager_BPE_IsLoadedSymbolAssets_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.BPE_GetMinimapRange
-struct AEncountManager_BPE_GetMinimapRange_Params
-{
-	float                                              OutRange;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              OutHeight;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.BPE_GetLevelDiffValue
-struct AEncountManager_BPE_GetLevelDiffValue_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.BPE_GetEncountSurroundHeight
-struct AEncountManager_BPE_GetEncountSurroundHeight_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.BPE_GetEncountSurroundDistance
-struct AEncountManager_BPE_GetEncountSurroundDistance_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.BPE_GetBattleBonusEndValue
-struct AEncountManager_BPE_GetBattleBonusEndValue_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.BPE_GetBattleBonusDeduction
-struct AEncountManager_BPE_GetBattleBonusDeduction_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.AddSpawnedSymbol
-struct AEncountManager_AddSpawnedSymbol_Params
-{
-	class AActor*                                      InActor;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.AddSpawnedGroups
-struct AEncountManager_AddSpawnedGroups_Params
-{
-	class AEncountGroup*                               InGroup;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.AddEncountSymbol_3
-struct AEncountManager_AddEncountSymbol_3_Params
-{
-	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.AddEncountSymbol
-struct AEncountManager_AddEncountSymbol_Params
-{
-	struct FString                                     SymbolName;                                               // (Parm, ZeroConstructor)
-	struct FName                                       OwnerLevelName;                                           // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-};
-
-// Function Arise.EncountManager.AddEncountGroup
-struct AEncountManager_AddEncountGroup_Params
-{
-	struct FName                                       Name;                                                     // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
 // Function Arise.EnemyEncountBase.C_IsOutBox
@@ -30973,20 +30526,451 @@ struct AShortChatManager_CleanupPriority_Params
 {
 };
 
-// Function Arise.GameFunctionMounter.GetState
-struct AGameFunctionMounter_GetState_Params
+// Function Arise.EncountManager.SetEncountSymbolInfo_State
+struct AEncountManager_SetEncountSymbolInfo_State_Params
 {
-	EFunctionMountState                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
+	EEncountSymbolState                                InState;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Arise.GameFunctionMounter.DoUnMount
-struct AGameFunctionMounter_DoUnMount_Params
+// Function Arise.EncountManager.SetEncountSymbolInfo_Rare
+struct AEncountManager_SetEncountSymbolInfo_Rare_Params
+{
+	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
+	bool                                               bEnable;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.SetEncountSymbolInfo
+struct AEncountManager_SetEncountSymbolInfo_Params
+{
+	struct FString                                     SymbolName;                                               // (Parm, ZeroConstructor)
+	struct FEncoutSymbolInfo                           SymbolInfo;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.SetEncountLock
+struct AEncountManager_SetEncountLock_Params
+{
+	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.ResumeSpawnedSymbol
+struct AEncountManager_ResumeSpawnedSymbol_Params
 {
 };
 
-// Function Arise.GameFunctionMounter.DoMount
-struct AGameFunctionMounter_DoMount_Params
+// Function Arise.EncountManager.ResetBattleBonus
+struct AEncountManager_ResetBattleBonus_Params
 {
+};
+
+// Function Arise.EncountManager.RemoveSpawnedSymbol
+struct AEncountManager_RemoveSpawnedSymbol_Params
+{
+	class AActor*                                      InActor;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.RemoveSpawnedGroups
+struct AEncountManager_RemoveSpawnedGroups_Params
+{
+	class AEncountGroup*                               InGroup;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.RemoveEncountSymbolByInvalidLevel
+struct AEncountManager_RemoveEncountSymbolByInvalidLevel_Params
+{
+};
+
+// Function Arise.EncountManager.RemoveEncountGroup
+struct AEncountManager_RemoveEncountGroup_Params
+{
+	struct FName                                       Name;                                                     // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.PrintRareGroupLog
+struct AEncountManager_PrintRareGroupLog_Params
+{
+};
+
+// Function Arise.EncountManager.PlayNotifySound
+struct AEncountManager_PlayNotifySound_Params
+{
+	float                                              ReactDistance;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.PauseSpawnedSymbol
+struct AEncountManager_PauseSpawnedSymbol_Params
+{
+};
+
+// Function Arise.EncountManager.OnResetEncountGauge
+struct AEncountManager_OnResetEncountGauge_Params
+{
+};
+
+// Function Arise.EncountManager.OnPlayEvent
+struct AEncountManager_OnPlayEvent_Params
+{
+};
+
+// Function Arise.EncountManager.OnGetSurroundEncountMAPOBJNames
+struct AEncountManager_OnGetSurroundEncountMAPOBJNames_Params
+{
+	class AActor*                                      InMAPOBJ;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FBtlEncountGroupParam                       Param;                                                    // (Parm, OutParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.OnGetSurroundEncountGroupNames
+struct AEncountManager_OnGetSurroundEncountGroupNames_Params
+{
+	TArray<struct FString>                             EncountGroupNames;                                        // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	class AEncountGroup*                               InGroup;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FBtlEncountGroupParam                       Param;                                                    // (Parm, OutParm)
+	struct FString                                     EncountGroupName;                                         // (Parm, OutParm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.OnGetInteractionProhibitedRange
+struct AEncountManager_OnGetInteractionProhibitedRange_Params
+{
+	float                                              ReactHorizontalDistance;                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              ReactVerticalDistance;                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.OnGetEncountGroupNames
+struct AEncountManager_OnGetEncountGroupNames_Params
+{
+	struct FString                                     AutoSymbolName;                                           // (Parm, ZeroConstructor)
+	class AEncountGroup*                               InGroup;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FBtlEncountGroupParam                       Param;                                                    // (Parm, OutParm)
+	struct FString                                     EncountGroupName;                                         // (Parm, OutParm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.OnGetEncountGaugeSubParams
+struct AEncountManager_OnGetEncountGaugeSubParams_Params
+{
+	float                                              EnableHighSpeedRange;                                     // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              LowSpeed;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              HighSpeed;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.OnGetEncountGaugeAddParams
+struct AEncountManager_OnGetEncountGaugeAddParams_Params
+{
+	float                                              GaugeMagnify;                                             // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              DistanceAdjust;                                           // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              ReactDistance;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.OnChangeState
+struct AEncountManager_OnChangeState_Params
+{
+	EAriseGameState                                    ChangedState;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               NewState;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.OnChangeDisplayScene
+struct AEncountManager_OnChangeDisplayScene_Params
+{
+	unsigned char                                      ChangedScene;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      OldScene;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.MaketEncountGroupParam
+struct AEncountManager_MaketEncountGroupParam_Params
+{
+	struct FString                                     AutoSymbolName;                                           // (Parm, ZeroConstructor)
+	class AActor*                                      Encounting;                                               // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReactDistance;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReactHeight;                                              // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FBtlEncountGroupParam>               OutParams;                                                // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Arise.EncountManager.IsValidEncountGroup
+struct AEncountManager_IsValidEncountGroup_Params
+{
+	struct FName                                       Name;                                                     // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.IsInCautionRangeCheck
+struct AEncountManager_IsInCautionRangeCheck_Params
+{
+	class AActor*                                      Symbol;                                                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Range;                                                    // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Height;                                                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.IsFollowing
+struct AEncountManager_IsFollowing_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.IsFever
+struct AEncountManager_IsFever_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.IsDistanceSymbolGroupPC
+struct AEncountManager_IsDistanceSymbolGroupPC_Params
+{
+	float                                              ReactDistance;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.IsCaution
+struct AEncountManager_IsCaution_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetViewDistanceMagnify
+struct AEncountManager_GetViewDistanceMagnify_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetViewAngleMagnify
+struct AEncountManager_GetViewAngleMagnify_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetSymbolsWithinCautionRange
+struct AEncountManager_GetSymbolsWithinCautionRange_Params
+{
+	TArray<class AActor*>                              OutSymbols;                                               // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Arise.EncountManager.GetSymbolsNumWithinCautionRange
+struct AEncountManager_GetSymbolsNumWithinCautionRange_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetSpawendSymbolDistance
+struct AEncountManager_GetSpawendSymbolDistance_Params
+{
+	TArray<struct FString>                             NearSymbols;                                              // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Arise.EncountManager.GetSearchRangeMagnify
+struct AEncountManager_GetSearchRangeMagnify_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetRiskValue
+struct AEncountManager_GetRiskValue_Params
+{
+	int                                                Value;                                                    // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                HighRisk;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                LowRisk;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                GEq;                                                      // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                A;                                                        // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                B;                                                        // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetNearSymbolGroup
+struct AEncountManager_GetNearSymbolGroup_Params
+{
+	class AEncountGroup*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetNearSymbol
+struct AEncountManager_GetNearSymbol_Params
+{
+	TArray<class AActor*>                              Symbols;                                                  // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	class APFEncountSymbol*                            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetNearSpawnedSymbol
+struct AEncountManager_GetNearSpawnedSymbol_Params
+{
+	class APFEncountSymbol*                            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetMaxSymbolLevel
+struct AEncountManager_GetMaxSymbolLevel_Params
+{
+	TArray<class AEncountGroup*>                       Groups;                                                   // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	int                                                Level;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetFollowingSymbols
+struct AEncountManager_GetFollowingSymbols_Params
+{
+	TArray<class AActor*>                              FollowingSymbols;                                         // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Arise.EncountManager.GetEncountSymbolInfo_State
+struct AEncountManager_GetEncountSymbolInfo_State_Params
+{
+	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
+	EEncountSymbolState                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetEncountSymbolInfo_Rare
+struct AEncountManager_GetEncountSymbolInfo_Rare_Params
+{
+	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetEncountSymbolInfo_3
+struct AEncountManager_GetEncountSymbolInfo_3_Params
+{
+	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
+	struct FEncoutSymbolInfo                           Info;                                                     // (Parm, OutParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetEncountSymbolInfo
+struct AEncountManager_GetEncountSymbolInfo_Params
+{
+	struct FString                                     SymbolName;                                               // (Parm, ZeroConstructor)
+	struct FEncoutSymbolInfo                           SymbolInfo;                                               // (Parm, OutParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetEncountGroup
+struct AEncountManager_GetEncountGroup_Params
+{
+	TArray<struct FName>                               Group;                                                    // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Arise.EncountManager.GetDistanceSymbolGroupSurround
+struct AEncountManager_GetDistanceSymbolGroupSurround_Params
+{
+	class AActor*                                      Sender;                                                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	TArray<class AEncountGroup*>                       OutGroups;                                                // (Parm, OutParm, ZeroConstructor)
+	float                                              ReactDistance;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReactHeight;                                              // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.GetDistanceEncountMAPOBJSurround
+struct AEncountManager_GetDistanceEncountMAPOBJSurround_Params
+{
+	class AActor*                                      Sender;                                                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	TArray<class AActor*>                              OutMapObjs;                                               // (Parm, OutParm, ZeroConstructor)
+	float                                              ReactDistance;                                            // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReactHeight;                                              // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.EncountLink
+struct AEncountManager_EncountLink_Params
+{
+	class APFEncountSymbol*                            SenderSymbol;                                             // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.ClearEncountSymbolInfo
+struct AEncountManager_ClearEncountSymbolInfo_Params
+{
+};
+
+// Function Arise.EncountManager.ClearEncountGroup
+struct AEncountManager_ClearEncountGroup_Params
+{
+};
+
+// Function Arise.EncountManager.CheckWaitSymbolAssetsLoadedForMapJump
+struct AEncountManager_CheckWaitSymbolAssetsLoadedForMapJump_Params
+{
+	bool                                               bOutWait;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.BPE_OutCamp
+struct AEncountManager_BPE_OutCamp_Params
+{
+};
+
+// Function Arise.EncountManager.BPE_OnChangeDisplayScene
+struct AEncountManager_BPE_OnChangeDisplayScene_Params
+{
+	EAriseGameScene                                    ChangedScene;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	EAriseGameScene                                    OldScene;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.BPE_IsLoadedSymbolAssets
+struct AEncountManager_BPE_IsLoadedSymbolAssets_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.BPE_GetMinimapRange
+struct AEncountManager_BPE_GetMinimapRange_Params
+{
+	float                                              OutRange;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              OutHeight;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.BPE_GetLevelDiffValue
+struct AEncountManager_BPE_GetLevelDiffValue_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.BPE_GetEncountSurroundHeight
+struct AEncountManager_BPE_GetEncountSurroundHeight_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.BPE_GetEncountSurroundDistance
+struct AEncountManager_BPE_GetEncountSurroundDistance_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.BPE_GetBattleBonusEndValue
+struct AEncountManager_BPE_GetBattleBonusEndValue_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.BPE_GetBattleBonusDeduction
+struct AEncountManager_BPE_GetBattleBonusDeduction_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.AddSpawnedSymbol
+struct AEncountManager_AddSpawnedSymbol_Params
+{
+	class AActor*                                      InActor;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.AddSpawnedGroups
+struct AEncountManager_AddSpawnedGroups_Params
+{
+	class AEncountGroup*                               InGroup;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.AddEncountSymbol_3
+struct AEncountManager_AddEncountSymbol_3_Params
+{
+	struct FString                                     actorId;                                                  // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.AddEncountSymbol
+struct AEncountManager_AddEncountSymbol_Params
+{
+	struct FString                                     SymbolName;                                               // (Parm, ZeroConstructor)
+	struct FName                                       OwnerLevelName;                                           // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+};
+
+// Function Arise.EncountManager.AddEncountGroup
+struct AEncountManager_AddEncountGroup_Params
+{
+	struct FName                                       Name;                                                     // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
 // Function Arise.GarbageCollectionManager.SetEnabled
@@ -31051,6 +31035,22 @@ struct UGarbageCollectionManager_GetFreeMemSize_Params
 struct UGarbageCollectionManager_DoGarbageIfNeed_Params
 {
 	EGCManagerUsage                                    Usage;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.GameFunctionMounter.GetState
+struct AGameFunctionMounter_GetState_Params
+{
+	EFunctionMountState                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.GameFunctionMounter.DoUnMount
+struct AGameFunctionMounter_DoUnMount_Params
+{
+};
+
+// Function Arise.GameFunctionMounter.DoMount
+struct AGameFunctionMounter_DoMount_Params
+{
 };
 
 // Function Arise.GenericAnimationFunctionLibrary.SetAnimationTimeFloat
@@ -31751,31 +31751,6 @@ struct UListBoxRefineHelper_Activate_Params
 	bool                                               sw;                                                       // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Arise.ListBoxItemInterface.SetCursorFocus
-struct UListBoxItemInterface_SetCursorFocus_Params
-{
-	bool                                               IsFocusable;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.ListBoxItemInterface.OnMouseFocus
-struct UListBoxItemInterface_OnMouseFocus_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.ListBoxItemInterface.OnMouseCursor
-struct UListBoxItemInterface_OnMouseCursor_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.ListBoxItemInterface.GetSortValue
-struct UListBoxItemInterface_GetSortValue_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Arise.ListBoxWork.TickWork
 struct UListBoxWork_TickWork_Params
 {
@@ -31953,6 +31928,31 @@ struct ULLM_AccessInterface_LLM_GetAllocSize_Params
 // Function Arise.LLM_AccessInterface.LLM_ClearSceneTag
 struct ULLM_AccessInterface_LLM_ClearSceneTag_Params
 {
+};
+
+// Function Arise.ListBoxItemInterface.SetCursorFocus
+struct UListBoxItemInterface_SetCursorFocus_Params
+{
+	bool                                               IsFocusable;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.ListBoxItemInterface.OnMouseFocus
+struct UListBoxItemInterface_OnMouseFocus_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.ListBoxItemInterface.OnMouseCursor
+struct UListBoxItemInterface_OnMouseCursor_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.ListBoxItemInterface.GetSortValue
+struct UListBoxItemInterface_GetSortValue_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Arise.LocationMapManager.VerifyMapLinkOpenNext
@@ -32305,6 +32305,71 @@ struct ALongChatCharacter_AutoEyeBlinkEnable_Params
 	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function Arise.LongChatManager.RemoveQue
+struct ALongChatManager_RemoveQue_Params
+{
+	struct FString                                     LongchatName;                                             // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.LongChatManager.ConvertQueIDToPlayQue
+struct ALongChatManager_ConvertQueIDToPlayQue_Params
+{
+	TArray<struct FString>                             LongChatQue;                                              // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Arise.LongChatManager.Clear
+struct ALongChatManager_Clear_Params
+{
+};
+
+// Function Arise.LongChatManager.AddQue
+struct ALongChatManager_AddQue_Params
+{
+	struct FString                                     LongchatName;                                             // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.LongChatSceneBuilder.UnloadAsset
+struct ALongChatSceneBuilder_UnloadAsset_Params
+{
+};
+
+// Function Arise.LongChatSceneBuilder.PreStreamTexturesOfCharacters
+struct ALongChatSceneBuilder_PreStreamTexturesOfCharacters_Params
+{
+	float                                              InSeconds;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<class ACharacter*>                          EntryCharacters;                                          // (ConstParm, Parm, ZeroConstructor)
+	struct FLatentActionInfo                           LatentInfo;                                               // (Parm)
+};
+
+// Function Arise.LongChatSceneBuilder.LoadAsset
+struct ALongChatSceneBuilder_LoadAsset_Params
+{
+	struct FString                                     BaseAssetPath;                                            // (Parm, ZeroConstructor)
+};
+
+// Function Arise.LongChatSceneBuilder.IsLoadedAsset
+struct ALongChatSceneBuilder_IsLoadedAsset_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.LongChatSceneBuilder.GetAnimSequencePath
+struct ALongChatSceneBuilder_GetAnimSequencePath_Params
+{
+	struct FString                                     charId;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     animId;                                                   // (Parm, ZeroConstructor)
+	struct FSoftObjectPath                             ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function Arise.LongChatSceneBuilder.GetAnimInstanceClass
+struct ALongChatSceneBuilder_GetAnimInstanceClass_Params
+{
+	struct FString                                     _AnimAssetPath;                                           // (Parm, ZeroConstructor)
+	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function Arise.LongChatFunctionLibrary.UpdateLongChatPlayQue
 struct ULongChatFunctionLibrary_UpdateLongChatPlayQue_Params
 {
@@ -32395,91 +32460,6 @@ struct ULongChatFunctionLibrary_CopyPostProcessSettings_Params
 {
 	struct FPostProcessSettings                        srcSetting;                                               // (ConstParm, Parm, OutParm, ReferenceParm)
 	struct FPostProcessSettings                        dstSetting;                                               // (Parm, OutParm)
-};
-
-// Function Arise.LongChatManager.RemoveQue
-struct ALongChatManager_RemoveQue_Params
-{
-	struct FString                                     LongchatName;                                             // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.LongChatManager.ConvertQueIDToPlayQue
-struct ALongChatManager_ConvertQueIDToPlayQue_Params
-{
-	TArray<struct FString>                             LongChatQue;                                              // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Arise.LongChatManager.Clear
-struct ALongChatManager_Clear_Params
-{
-};
-
-// Function Arise.LongChatManager.AddQue
-struct ALongChatManager_AddQue_Params
-{
-	struct FString                                     LongchatName;                                             // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.LongChatSceneBuilder.UnloadAsset
-struct ALongChatSceneBuilder_UnloadAsset_Params
-{
-};
-
-// Function Arise.LongChatSceneBuilder.PreStreamTexturesOfCharacters
-struct ALongChatSceneBuilder_PreStreamTexturesOfCharacters_Params
-{
-	float                                              InSeconds;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<class ACharacter*>                          EntryCharacters;                                          // (ConstParm, Parm, ZeroConstructor)
-	struct FLatentActionInfo                           LatentInfo;                                               // (Parm)
-};
-
-// Function Arise.LongChatSceneBuilder.LoadAsset
-struct ALongChatSceneBuilder_LoadAsset_Params
-{
-	struct FString                                     BaseAssetPath;                                            // (Parm, ZeroConstructor)
-};
-
-// Function Arise.LongChatSceneBuilder.IsLoadedAsset
-struct ALongChatSceneBuilder_IsLoadedAsset_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.LongChatSceneBuilder.GetAnimSequencePath
-struct ALongChatSceneBuilder_GetAnimSequencePath_Params
-{
-	struct FString                                     charId;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     animId;                                                   // (Parm, ZeroConstructor)
-	struct FSoftObjectPath                             ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function Arise.LongChatSceneBuilder.GetAnimInstanceClass
-struct ALongChatSceneBuilder_GetAnimInstanceClass_Params
-{
-	struct FString                                     _AnimAssetPath;                                           // (Parm, ZeroConstructor)
-	class UClass*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.LureNote.UpdateTimline
-struct ALureNote_UpdateTimline_Params
-{
-	float                                              Tick;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.LureNote.RestartTimline
-struct ALureNote_RestartTimline_Params
-{
-};
-
-// Function Arise.LureNote.CreateLureNote
-struct ALureNote_CreateLureNote_Params
-{
-	struct FString                                     LureNoteDatatable;                                        // (Parm, ZeroConstructor)
-	float                                              inStartWaitTime;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              inTimelineLength;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Arise.MapAnimalAnimInstance.InitializeAnimation
@@ -32806,85 +32786,24 @@ struct AMapOrderManager_AnalyzeDatabase_Params
 	TArray<int>                                        Priority;                                                 // (Parm, OutParm, ZeroConstructor)
 };
 
-// Function Arise.MapPointHelper.ShowWidgets
-struct UMapPointHelper_ShowWidgets_Params
+// Function Arise.LureNote.UpdateTimline
+struct ALureNote_UpdateTimline_Params
 {
-	bool                                               bWithAnimation;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Tick;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Arise.MapPointHelper.SelectValid
-struct UMapPointHelper_SelectValid_Params
+// Function Arise.LureNote.RestartTimline
+struct ALureNote_RestartTimline_Params
 {
+};
+
+// Function Arise.LureNote.CreateLureNote
+struct ALureNote_CreateLureNote_Params
+{
+	struct FString                                     LureNoteDatatable;                                        // (Parm, ZeroConstructor)
+	float                                              inStartWaitTime;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              inTimelineLength;                                         // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.MapPointHelper.Select
-struct UMapPointHelper_Select_Params
-{
-	int                                                iNewIndex;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.MapPointHelper.RegistPointWidget
-struct UMapPointHelper_RegistPointWidget_Params
-{
-	class UClickableWidgetBase*                        iWidget;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	int                                                UniqueId;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.MapPointHelper.RegistLineWidget
-struct UMapPointHelper_RegistLineWidget_Params
-{
-	class UUserWidget*                                 iWidget;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	int                                                UniqueId;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.MapPointHelper.RefreshWidgets
-struct UMapPointHelper_RefreshWidgets_Params
-{
-};
-
-// Function Arise.MapPointHelper.Refresh
-struct UMapPointHelper_Refresh_Params
-{
-};
-
-// Function Arise.MapPointHelper.Initialize
-struct UMapPointHelper_Initialize_Params
-{
-};
-
-// Function Arise.MapPointHelper.HideWidgets
-struct UMapPointHelper_HideWidgets_Params
-{
-	bool                                               bWithAnimation;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.MapPointHelper.DefaultPadControl
-struct UMapPointHelper_DefaultPadControl_Params
-{
-	class AMenuPadProcess*                             PadProcess;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              AxisX;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              AxisY;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Margin;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Weight;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.MapPointHelper.CreateInstance
-struct UMapPointHelper_CreateInstance_Params
-{
-	class UMapPointHelper*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.MapPointHelper.Clear
-struct UMapPointHelper_Clear_Params
-{
-};
-
-// Function Arise.MapPointHelper.Activate
-struct UMapPointHelper_Activate_Params
-{
-	bool                                               sw;                                                       // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Arise.MathLibrary.SwapFloat
@@ -34693,6 +34612,87 @@ struct UMenuCookSupport_CheckInnCookSkill_Params
 	int                                                RecipeID;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 	EArisePartyID                                      CharacterID;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.MapPointHelper.ShowWidgets
+struct UMapPointHelper_ShowWidgets_Params
+{
+	bool                                               bWithAnimation;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.MapPointHelper.SelectValid
+struct UMapPointHelper_SelectValid_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.MapPointHelper.Select
+struct UMapPointHelper_Select_Params
+{
+	int                                                iNewIndex;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.MapPointHelper.RegistPointWidget
+struct UMapPointHelper_RegistPointWidget_Params
+{
+	class UClickableWidgetBase*                        iWidget;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	int                                                UniqueId;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.MapPointHelper.RegistLineWidget
+struct UMapPointHelper_RegistLineWidget_Params
+{
+	class UUserWidget*                                 iWidget;                                                  // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	int                                                UniqueId;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.MapPointHelper.RefreshWidgets
+struct UMapPointHelper_RefreshWidgets_Params
+{
+};
+
+// Function Arise.MapPointHelper.Refresh
+struct UMapPointHelper_Refresh_Params
+{
+};
+
+// Function Arise.MapPointHelper.Initialize
+struct UMapPointHelper_Initialize_Params
+{
+};
+
+// Function Arise.MapPointHelper.HideWidgets
+struct UMapPointHelper_HideWidgets_Params
+{
+	bool                                               bWithAnimation;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.MapPointHelper.DefaultPadControl
+struct UMapPointHelper_DefaultPadControl_Params
+{
+	class AMenuPadProcess*                             PadProcess;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              AxisX;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              AxisY;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Margin;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Weight;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.MapPointHelper.CreateInstance
+struct UMapPointHelper_CreateInstance_Params
+{
+	class UMapPointHelper*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.MapPointHelper.Clear
+struct UMapPointHelper_Clear_Params
+{
+};
+
+// Function Arise.MapPointHelper.Activate
+struct UMapPointHelper_Activate_Params
+{
+	bool                                               sw;                                                       // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Arise.AriseMenuDlcTssSlotData.GetSlotBinaryDataBuffer
@@ -39595,29 +39595,6 @@ struct UPFNpcActorComponent_K2_SetupAnimSet_Params
 	class UASAnimationSet*                             AnimSet;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Arise.PFNpcAnimInstance.GetNextTransitionList
-struct UPFNpcAnimInstance_GetNextTransitionList_Params
-{
-	class UASTransition_Base*                          ThisTransition;                                           // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	TArray<class UASTransition_Base*>                  NextTransitionList;                                       // (Parm, OutParm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFNpcAnimInstance.GetCurrentElapsedTime
-struct UPFNpcAnimInstance_GetCurrentElapsedTime_Params
-{
-	float                                              ElapsedTime;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFNpcAnimInstance.GetCurrentAnimTime
-struct UPFNpcAnimInstance_GetCurrentAnimTime_Params
-{
-	float                                              CurrentTime;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              TotalTime;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Arise.PFNpcCharacterActor.ReceiveDoSetVisibility
 struct APFNpcCharacterActor_ReceiveDoSetVisibility_Params
 {
@@ -40522,6 +40499,29 @@ struct UPFNpcResourceDatabaseObject_IsEnableIndex_AnimationRecord_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function Arise.PFNpcAnimInstance.GetNextTransitionList
+struct UPFNpcAnimInstance_GetNextTransitionList_Params
+{
+	class UASTransition_Base*                          ThisTransition;                                           // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	TArray<class UASTransition_Base*>                  NextTransitionList;                                       // (Parm, OutParm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFNpcAnimInstance.GetCurrentElapsedTime
+struct UPFNpcAnimInstance_GetCurrentElapsedTime_Params
+{
+	float                                              ElapsedTime;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFNpcAnimInstance.GetCurrentAnimTime
+struct UPFNpcAnimInstance_GetCurrentAnimTime_Params
+{
+	float                                              CurrentTime;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              TotalTime;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function Arise.PFNpcTalkComponent.K2_SetTalkTextNo
 struct UPFNpcTalkComponent_K2_SetTalkTextNo_Params
 {
@@ -40657,6 +40657,107 @@ struct APFNpcWalkSystem_CreateSpawnData_Params
 {
 	struct FPFNpcDefineID                              DefineID;                                                 // (ConstParm, Parm, OutParm, ReferenceParm)
 	struct FPFNpcWalkSpawnParams                       Params;                                                   // (ConstParm, Parm, OutParm, ReferenceParm)
+};
+
+// Function Arise.PFOneTopDatabaseObject.IsEnableIndex_Region
+struct UPFOneTopDatabaseObject_IsEnableIndex_Region_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopDatabaseObject.IsEnableIndex_Record
+struct UPFOneTopDatabaseObject_IsEnableIndex_Record_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopFunctionLibrary.GetRegions
+struct UPFOneTopFunctionLibrary_GetRegions_Params
+{
+	TArray<struct FString>                             Regions;                                                  // (Parm, OutParm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopFunctionLibrary.GetRegionMaxID
+struct UPFOneTopFunctionLibrary_GetRegionMaxID_Params
+{
+	struct FString                                     Region;                                                   // (Parm, ZeroConstructor)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopFunctionLibrary.GetLipSyncCurveDirectoryPath
+struct UPFOneTopFunctionLibrary_GetLipSyncCurveDirectoryPath_Params
+{
+	struct FString                                     Label;                                                    // (Parm, ZeroConstructor)
+	struct FString                                     OutLipCurveDirectoryPath;                                 // (Parm, OutParm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopFunctionLibrary.GetInteractData
+struct UPFOneTopFunctionLibrary_GetInteractData_Params
+{
+	struct FString                                     Label;                                                    // (Parm, ZeroConstructor)
+	struct FPFOneTopResourceInteractData               OutInteractData;                                          // (Parm, OutParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopFunctionLibrary.GetFakeLipSyncParameter
+struct UPFOneTopFunctionLibrary_GetFakeLipSyncParameter_Params
+{
+	struct FOneTopFakeLipSyncParameter                 OutParameter;                                             // (Parm, OutParm, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopFunctionLibrary.GetContextRecordByCond
+struct UPFOneTopFunctionLibrary_GetContextRecordByCond_Params
+{
+	struct FPFOneTopContext                            Context;                                                  // (ConstParm, Parm, OutParm, ReferenceParm)
+	struct FPFOneTopRecord                             OutRecord;                                                // (Parm, OutParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopFunctionLibrary.GetContext
+struct UPFOneTopFunctionLibrary_GetContext_Params
+{
+	struct FString                                     GroupID;                                                  // (Parm, ZeroConstructor)
+	struct FPFOneTopContext                            Context;                                                  // (Parm, OutParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopResourceDatabaseObject.IsEnableIndex_LipSyncRecord
+struct UPFOneTopResourceDatabaseObject_IsEnableIndex_LipSyncRecord_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopResourceDatabaseObject.IsEnableIndex_InteractRecord
+struct UPFOneTopResourceDatabaseObject_IsEnableIndex_InteractRecord_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOneTopResourceDatabaseObject.IsEnableIndex_DefineRecord
+struct UPFOneTopResourceDatabaseObject_IsEnableIndex_DefineRecord_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.PFOwlPointSerializeInterface.ReceiveSerializeOwlPointParameter
+struct UPFOwlPointSerializeInterface_ReceiveSerializeOwlPointParameter_Params
+{
+	struct FPFPlacementOwlPointDatabaseRow             DestinationParameter;                                     // (Parm, OutParm, ReferenceParm)
+};
+
+// Function Arise.PFPCIdleTransitionDatabase.IsEnableIndex_Record
+struct UPFPCIdleTransitionDatabase_IsEnableIndex_Record_Params
+{
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Arise.PFOneTopComponent.K2_SetTalkTextNo
@@ -40888,107 +40989,6 @@ struct UPFOneTopComponent_K2_AddAlreadyReadSkip_Params
 {
 	int                                                TextNo;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 	int                                                SkipNo;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopDatabaseObject.IsEnableIndex_Region
-struct UPFOneTopDatabaseObject_IsEnableIndex_Region_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopDatabaseObject.IsEnableIndex_Record
-struct UPFOneTopDatabaseObject_IsEnableIndex_Record_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopFunctionLibrary.GetRegions
-struct UPFOneTopFunctionLibrary_GetRegions_Params
-{
-	TArray<struct FString>                             Regions;                                                  // (Parm, OutParm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopFunctionLibrary.GetRegionMaxID
-struct UPFOneTopFunctionLibrary_GetRegionMaxID_Params
-{
-	struct FString                                     Region;                                                   // (Parm, ZeroConstructor)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopFunctionLibrary.GetLipSyncCurveDirectoryPath
-struct UPFOneTopFunctionLibrary_GetLipSyncCurveDirectoryPath_Params
-{
-	struct FString                                     Label;                                                    // (Parm, ZeroConstructor)
-	struct FString                                     OutLipCurveDirectoryPath;                                 // (Parm, OutParm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopFunctionLibrary.GetInteractData
-struct UPFOneTopFunctionLibrary_GetInteractData_Params
-{
-	struct FString                                     Label;                                                    // (Parm, ZeroConstructor)
-	struct FPFOneTopResourceInteractData               OutInteractData;                                          // (Parm, OutParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopFunctionLibrary.GetFakeLipSyncParameter
-struct UPFOneTopFunctionLibrary_GetFakeLipSyncParameter_Params
-{
-	struct FOneTopFakeLipSyncParameter                 OutParameter;                                             // (Parm, OutParm, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopFunctionLibrary.GetContextRecordByCond
-struct UPFOneTopFunctionLibrary_GetContextRecordByCond_Params
-{
-	struct FPFOneTopContext                            Context;                                                  // (ConstParm, Parm, OutParm, ReferenceParm)
-	struct FPFOneTopRecord                             OutRecord;                                                // (Parm, OutParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopFunctionLibrary.GetContext
-struct UPFOneTopFunctionLibrary_GetContext_Params
-{
-	struct FString                                     GroupID;                                                  // (Parm, ZeroConstructor)
-	struct FPFOneTopContext                            Context;                                                  // (Parm, OutParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopResourceDatabaseObject.IsEnableIndex_LipSyncRecord
-struct UPFOneTopResourceDatabaseObject_IsEnableIndex_LipSyncRecord_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopResourceDatabaseObject.IsEnableIndex_InteractRecord
-struct UPFOneTopResourceDatabaseObject_IsEnableIndex_InteractRecord_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOneTopResourceDatabaseObject.IsEnableIndex_DefineRecord
-struct UPFOneTopResourceDatabaseObject_IsEnableIndex_DefineRecord_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.PFOwlPointSerializeInterface.ReceiveSerializeOwlPointParameter
-struct UPFOwlPointSerializeInterface_ReceiveSerializeOwlPointParameter_Params
-{
-	struct FPFPlacementOwlPointDatabaseRow             DestinationParameter;                                     // (Parm, OutParm, ReferenceParm)
-};
-
-// Function Arise.PFPCIdleTransitionDatabase.IsEnableIndex_Record
-struct UPFPCIdleTransitionDatabase_IsEnableIndex_Record_Params
-{
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Arise.PFPlacementFunctionLibrary.GetResidentPlacementDatabase
@@ -41733,12 +41733,6 @@ struct UPFPlayerPassBlockingSerializeInterface_ReceiveSerializePlayerPassBlockin
 	struct FPFPlacementPlayerPassBlockingDatabaseRow   DestinationParameter;                                     // (Parm, OutParm, ReferenceParm)
 };
 
-// Function Arise.PFRecoveryPointSerializeInterface.ReceiveSerializeRecoveryPointParameter
-struct UPFRecoveryPointSerializeInterface_ReceiveSerializeRecoveryPointParameter_Params
-{
-	struct FPFPlacementRecoveryPointDatabaseRow        DestinationParameter;                                     // (Parm, OutParm, ReferenceParm)
-};
-
 // Function Arise.PFSearchFunctionLibrary.SetSearchRepopTime
 struct UPFSearchFunctionLibrary_SetSearchRepopTime_Params
 {
@@ -42389,11 +42383,10 @@ struct UQuestComponent_IsQuestCleared_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Arise.QuestDatabase.IsEnableIndex_Data
-struct UQuestDatabase_IsEnableIndex_Data_Params
+// Function Arise.PFRecoveryPointSerializeInterface.ReceiveSerializeRecoveryPointParameter
+struct UPFRecoveryPointSerializeInterface_ReceiveSerializeRecoveryPointParameter_Params
 {
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	struct FPFPlacementRecoveryPointDatabaseRow        DestinationParameter;                                     // (Parm, OutParm, ReferenceParm)
 };
 
 // Function Arise.QuestDatabaseLibrary.SetQuestStepProgressFromID
@@ -43005,96 +42998,11 @@ struct UQuestTargetCounterDatabase_IsEnableIndex_Record_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// DelegateFunction Arise.SaveImageConv.OnGetThumbneilDataBuffer__DelegateSignature
-struct USaveImageConv_OnGetThumbneilDataBuffer__DelegateSignature_Params
+// Function Arise.QuestDatabase.IsEnableIndex_Data
+struct UQuestDatabase_IsEnableIndex_Data_Params
 {
-	TArray<unsigned char>                              OutBuffer;                                                // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.SaveImageConv.ImageResizeWork
-struct USaveImageConv_ImageResizeWork_Params
-{
-	TArray<struct FColor>                              srcBuffer;                                                // (Parm, OutParm, ZeroConstructor, ReferenceParm)
-	int                                                srcWidth;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                srcHeight;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FColor>                              dstBuffer;                                                // (Parm, OutParm, ZeroConstructor, ReferenceParm)
-	int                                                dstWidth;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                dstHeight;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.SaveImageConv.GetThumbneilDataBufferAsync
-struct USaveImageConv_GetThumbneilDataBufferAsync_Params
-{
-	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FScriptDelegate                             OnComplete;                                               // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-};
-
-// Function Arise.SaveImageConv.GetThumbneilDataBuffer
-struct USaveImageConv_GetThumbneilDataBuffer_Params
-{
-	TArray<unsigned char>                              OutBuffer;                                                // (Parm, OutParm, ZeroConstructor)
-	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.SaveImageConv.GetThumbneilData
-struct USaveImageConv_GetThumbneilData_Params
-{
-	class UTexture2DDynamic*                           OutTexture;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.SaveImageConv.GetTextureBuffer
-struct USaveImageConv_GetTextureBuffer_Params
-{
-	class UTexture2D*                                  InTexture;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<unsigned char>                              OutBuffer;                                                // (Parm, OutParm, ZeroConstructor)
-	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.SaveImageConv.GetImageBufferData
-struct USaveImageConv_GetImageBufferData_Params
-{
-	class UTextureRenderTarget2D*                      InRenderTarget;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FColor>                              OutColor;                                                 // (Parm, OutParm, ZeroConstructor, ReferenceParm)
-	int                                                OutWidth;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                OutHeight;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Arise.SaveImageConv.CreateThumbneilTextureDynamic
-struct USaveImageConv_CreateThumbneilTextureDynamic_Params
-{
-	TArray<unsigned char>                              InBuffer;                                                 // (Parm, OutParm, ZeroConstructor, ReferenceParm)
-	class UTexture2DDynamic*                           OutTexture;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.SaveImageConv.CreateThumbneilTexture
-struct USaveImageConv_CreateThumbneilTexture_Params
-{
-	TArray<unsigned char>                              InBuffer;                                                 // (Parm, OutParm, ZeroConstructor, ReferenceParm)
-	class UTexture2D*                                  OutTexture;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Arise.SaveImageConv.CreateImageTexture
-struct USaveImageConv_CreateImageTexture_Params
-{
-	TArray<struct FColor>                              srcBuffer;                                                // (Parm, OutParm, ZeroConstructor, ReferenceParm)
-	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	class UTexture2D*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Arise.ScenarioBitFlageDatabase.IsEnableIndex_Record
@@ -45466,6 +45374,98 @@ struct UWrapBoxHelper_AddWidget_Params
 struct UWrapBoxHelper_Activate_Params
 {
 	bool                                               sw;                                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// DelegateFunction Arise.SaveImageConv.OnGetThumbneilDataBuffer__DelegateSignature
+struct USaveImageConv_OnGetThumbneilDataBuffer__DelegateSignature_Params
+{
+	TArray<unsigned char>                              OutBuffer;                                                // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.SaveImageConv.ImageResizeWork
+struct USaveImageConv_ImageResizeWork_Params
+{
+	TArray<struct FColor>                              srcBuffer;                                                // (Parm, OutParm, ZeroConstructor, ReferenceParm)
+	int                                                srcWidth;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                srcHeight;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FColor>                              dstBuffer;                                                // (Parm, OutParm, ZeroConstructor, ReferenceParm)
+	int                                                dstWidth;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                dstHeight;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.SaveImageConv.GetThumbneilDataBufferAsync
+struct USaveImageConv_GetThumbneilDataBufferAsync_Params
+{
+	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FScriptDelegate                             OnComplete;                                               // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+};
+
+// Function Arise.SaveImageConv.GetThumbneilDataBuffer
+struct USaveImageConv_GetThumbneilDataBuffer_Params
+{
+	TArray<unsigned char>                              OutBuffer;                                                // (Parm, OutParm, ZeroConstructor)
+	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.SaveImageConv.GetThumbneilData
+struct USaveImageConv_GetThumbneilData_Params
+{
+	class UTexture2DDynamic*                           OutTexture;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.SaveImageConv.GetTextureBuffer
+struct USaveImageConv_GetTextureBuffer_Params
+{
+	class UTexture2D*                                  InTexture;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<unsigned char>                              OutBuffer;                                                // (Parm, OutParm, ZeroConstructor)
+	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.SaveImageConv.GetImageBufferData
+struct USaveImageConv_GetImageBufferData_Params
+{
+	class UTextureRenderTarget2D*                      InRenderTarget;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FColor>                              OutColor;                                                 // (Parm, OutParm, ZeroConstructor, ReferenceParm)
+	int                                                OutWidth;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                OutHeight;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Arise.SaveImageConv.CreateThumbneilTextureDynamic
+struct USaveImageConv_CreateThumbneilTextureDynamic_Params
+{
+	TArray<unsigned char>                              InBuffer;                                                 // (Parm, OutParm, ZeroConstructor, ReferenceParm)
+	class UTexture2DDynamic*                           OutTexture;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.SaveImageConv.CreateThumbneilTexture
+struct USaveImageConv_CreateThumbneilTexture_Params
+{
+	TArray<unsigned char>                              InBuffer;                                                 // (Parm, OutParm, ZeroConstructor, ReferenceParm)
+	class UTexture2D*                                  OutTexture;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Arise.SaveImageConv.CreateImageTexture
+struct USaveImageConv_CreateImageTexture_Params
+{
+	TArray<struct FColor>                              srcBuffer;                                                // (Parm, OutParm, ZeroConstructor, ReferenceParm)
+	int                                                Width;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Height;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	class UTexture2D*                                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 }

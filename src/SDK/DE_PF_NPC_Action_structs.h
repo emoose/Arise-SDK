@@ -15,12 +15,12 @@ namespace SDK
 // UserDefinedEnum DE_PF_NPC_Action.DE_PF_NPC_Action
 enum class EDE_PF_NPC_Action : uint8_t
 {
-	DE_PF_NPC_Action__NewEnumerator0 = 0,
-	DE_PF_NPC_Action__NewEnumerator9 = 1,
-	DE_PF_NPC_Action__NewEnumerator6 = 2,
-	DE_PF_NPC_Action__NewEnumerator10 = 3,
-	DE_PF_NPC_Action__NewEnumerator11 = 4,
-	DE_PF_NPC_Action__DE_PF_NPC_MAX = 5
+	NewEnumerator0                 = 0,
+	NewEnumerator9                 = 1,
+	NewEnumerator6                 = 2,
+	NewEnumerator10                = 3,
+	NewEnumerator11                = 4,
+	DE_PF_NPC_MAX                  = 5
 };
 
 

@@ -15,9 +15,9 @@ namespace SDK
 // UserDefinedEnum DE_PF_Script_QuestFlag.DE_PF_Script_QuestFlag
 enum class EDE_PF_Script_QuestFlag : uint8_t
 {
-	DE_PF_Script_QuestFlag__NewEnumerator0 = 0,
-	DE_PF_Script_QuestFlag__NewEnumerator1 = 1,
-	DE_PF_Script_QuestFlag__DE_PF_Script_MAX = 2
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	DE_PF_Script_MAX               = 2
 };
 
 

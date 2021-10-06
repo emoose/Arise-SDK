@@ -15,198 +15,198 @@ namespace SDK
 // Enum CriWareRuntime.ECriFsBinderStatus
 enum class ECriFsBinderStatus : uint8_t
 {
-	ECriFsBinderStatus__Stop       = 0,
-	ECriFsBinderStatus__Binding    = 1,
-	ECriFsBinderStatus__Complete   = 2,
-	ECriFsBinderStatus__Error      = 3,
-	ECriFsBinderStatus__ECriFsBinderStatus_MAX = 4
+	Stop                           = 0,
+	Binding                        = 1,
+	Complete                       = 2,
+	Error                          = 3,
+	ECriFsBinderStatus_MAX         = 4
 };
 
 
 // Enum CriWareRuntime.EAtomComponentStatus
 enum class EAtomComponentStatus : uint8_t
 {
-	EAtomComponentStatus__Stop     = 0,
-	EAtomComponentStatus__Prep     = 1,
-	EAtomComponentStatus__Playing  = 2,
-	EAtomComponentStatus__PlayEnd  = 3,
-	EAtomComponentStatus__Error    = 4,
-	EAtomComponentStatus__EAtomComponentStatus_MAX = 5
+	Stop                           = 0,
+	Prep                           = 1,
+	Playing                        = 2,
+	PlayEnd                        = 3,
+	Error                          = 4,
+	EAtomComponentStatus_MAX       = 5
 };
 
 
 // Enum CriWareRuntime.EAtomCueSheetLoaderComponentStatus
 enum class EAtomCueSheetLoaderComponentStatus : uint8_t
 {
-	EAtomCueSheetLoaderComponentStatus__Stop = 0,
-	EAtomCueSheetLoaderComponentStatus__Loading = 1,
-	EAtomCueSheetLoaderComponentStatus__LoadEnd = 2,
-	EAtomCueSheetLoaderComponentStatus__Serializing = 3,
-	EAtomCueSheetLoaderComponentStatus__SerializeEnd = 4,
-	EAtomCueSheetLoaderComponentStatus__Binding = 5,
-	EAtomCueSheetLoaderComponentStatus__BindEnd = 6,
-	EAtomCueSheetLoaderComponentStatus__Complete = 7,
-	EAtomCueSheetLoaderComponentStatus__Error = 8,
-	EAtomCueSheetLoaderComponentStatus__EAtomCueSheetLoaderComponentStatus_MAX = 9
+	Stop                           = 0,
+	Loading                        = 1,
+	LoadEnd                        = 2,
+	Serializing                    = 3,
+	SerializeEnd                   = 4,
+	Binding                        = 5,
+	BindEnd                        = 6,
+	Complete                       = 7,
+	Error                          = 8,
+	EAtomCueSheetLoaderComponentStatus_MAX = 9
 };
 
 
 // Enum CriWareRuntime.ECriFsLoaderStatus
 enum class ECriFsLoaderStatus : uint8_t
 {
-	ECriFsLoaderStatus__Stop       = 0,
-	ECriFsLoaderStatus__Loading    = 1,
-	ECriFsLoaderStatus__Complete   = 2,
-	ECriFsLoaderStatus__Error      = 3,
-	ECriFsLoaderStatus__ECriFsLoaderStatus_MAX = 4
+	Stop                           = 0,
+	Loading                        = 1,
+	Complete                       = 2,
+	Error                          = 3,
+	ECriFsLoaderStatus_MAX         = 4
 };
 
 
 // Enum CriWareRuntime.EManaSubtitlesEncoding
 enum class EManaSubtitlesEncoding : uint8_t
 {
-	EManaSubtitlesEncoding__Default = 0,
-	EManaSubtitlesEncoding__ANSI   = 1,
-	EManaSubtitlesEncoding__Utf8   = 2,
-	EManaSubtitlesEncoding__Utf16  = 3,
-	EManaSubtitlesEncoding__EManaSubtitlesEncoding_MAX = 4
+	Default                        = 0,
+	ANSI                           = 1,
+	Utf8                           = 2,
+	Utf16                          = 3,
+	EManaSubtitlesEncoding_MAX     = 4
 };
 
 
 // Enum CriWareRuntime.EManaComponentStatus
 enum class EManaComponentStatus : uint8_t
 {
-	EManaComponentStatus__Stop     = 0,
-	EManaComponentStatus__DecHdr   = 1,
-	EManaComponentStatus__WaitPrep = 2,
-	EManaComponentStatus__Prep     = 3,
-	EManaComponentStatus__Ready    = 4,
-	EManaComponentStatus__Playing  = 5,
-	EManaComponentStatus__PlayEnd  = 6,
-	EManaComponentStatus__Error    = 7,
-	EManaComponentStatus__StopProcessing = 8,
-	EManaComponentStatus__EManaComponentStatus_MAX = 9
+	Stop                           = 0,
+	DecHdr                         = 1,
+	WaitPrep                       = 2,
+	Prep                           = 3,
+	Ready                          = 4,
+	Playing                        = 5,
+	PlayEnd                        = 6,
+	Error                          = 7,
+	StopProcessing                 = 8,
+	EManaComponentStatus_MAX       = 9
 };
 
 
 // Enum CriWareRuntime.EManaPlaybackTimer
 enum class EManaPlaybackTimer : uint8_t
 {
-	EManaPlaybackTimer__Default    = 0,
-	EManaPlaybackTimer__RealTime   = 1,
-	EManaPlaybackTimer__FrameTime  = 2,
-	EManaPlaybackTimer__EManaPlaybackTimer_MAX = 3
+	Default                        = 0,
+	RealTime                       = 1,
+	FrameTime                      = 2,
+	EManaPlaybackTimer_MAX         = 3
 };
 
 
 // Enum CriWareRuntime.EManaFrameAction
 enum class EManaFrameAction : uint8_t
 {
-	EManaFrameAction__Default      = 0,
-	EManaFrameAction__Hold         = 1,
-	EManaFrameAction__Clear        = 2,
-	EManaFrameAction__EManaFrameAction_MAX = 3
+	Default                        = 0,
+	Hold                           = 1,
+	Clear                          = 2,
+	EManaFrameAction_MAX           = 3
 };
 
 
 // Enum CriWareRuntime.EAtomSortOrderType
 enum class EAtomSortOrderType : uint8_t
 {
-	EAtomSortOrderType__Ascending  = 0,
-	EAtomSortOrderType__Descending = 1,
-	EAtomSortOrderType__EAtomSortOrderType_MAX = 2
+	Ascending                      = 0,
+	Descending                     = 1,
+	EAtomSortOrderType_MAX         = 2
 };
 
 
 // Enum CriWareRuntime.EAtomProfileSortType
 enum class EAtomProfileSortType : uint8_t
 {
-	EAtomProfileSortType__AtomComponentID = 0,
-	EAtomProfileSortType__Distance = 1,
-	EAtomProfileSortType__Name     = 2,
-	EAtomProfileSortType__Time     = 3,
-	EAtomProfileSortType__EAtomProfileSortType_MAX = 4
+	AtomComponentID                = 0,
+	Distance                       = 1,
+	Name                           = 2,
+	Time                           = 3,
+	EAtomProfileSortType_MAX       = 4
 };
 
 
 // Enum CriWareRuntime.ECriWareSpeakerSystem
 enum class ECriWareSpeakerSystem : uint8_t
 {
-	ECriWareSpeakerSystem__Surround5Point1 = 0,
-	ECriWareSpeakerSystem__Surround7Point1 = 1,
-	ECriWareSpeakerSystem__ECriWareSpeakerSystem_MAX = 2
+	Surround5Point1                = 0,
+	Surround7Point1                = 1,
+	ECriWareSpeakerSystem_MAX      = 2
 };
 
 
 // Enum CriWareRuntime.EAtomSoundRendererType
 enum class EAtomSoundRendererType : uint8_t
 {
-	EAtomSoundRendererType__Any    = 0,
-	EAtomSoundRendererType__Native = 1,
-	EAtomSoundRendererType__Asr    = 2,
-	EAtomSoundRendererType__Hardware1 = 3,
-	EAtomSoundRendererType__Hardware2 = 4,
-	EAtomSoundRendererType__Hardware3 = 5,
-	EAtomSoundRendererType__Hardware4 = 6,
-	EAtomSoundRendererType__Pad    = 7,
-	EAtomSoundRendererType__EAtomSoundRendererType_MAX = 8
+	Any                            = 0,
+	Native                         = 1,
+	Asr                            = 2,
+	Hardware1                      = 3,
+	Hardware2                      = 4,
+	Hardware3                      = 5,
+	Hardware4                      = 6,
+	Pad                            = 7,
+	EAtomSoundRendererType_MAX     = 8
 };
 
 
 // Enum CriWareRuntime.EEngineIniFileType
 enum class EEngineIniFileType : uint8_t
 {
-	EEngineIniFileType__EngBaseEngineIni = 0,
-	EEngineIniFileType__EngWindowsEngineIni = 1,
-	EEngineIniFileType__ProjDefaultEngineIni = 2,
-	EEngineIniFileType__ProjWindowsEngineIni = 3,
-	EEngineIniFileType__EEngineIniFileType_MAX = 4
+	EngBaseEngineIni               = 0,
+	EngWindowsEngineIni            = 1,
+	ProjDefaultEngineIni           = 2,
+	ProjWindowsEngineIni           = 3,
+	EEngineIniFileType_MAX         = 4
 };
 
 
 // Enum CriWareRuntime.EManaComponentTextureType
 enum class EManaComponentTextureType : uint8_t
 {
-	EManaComponentTextureType__Texture_Y = 0,
-	EManaComponentTextureType__Texture_U = 1,
-	EManaComponentTextureType__Texture_V = 2,
-	EManaComponentTextureType__Texture_A = 3,
-	EManaComponentTextureType__Texture_UV = 4,
-	EManaComponentTextureType__Texture_RGB = 5,
-	EManaComponentTextureType__Texture_MAX = 6
+	Texture_Y                      = 0,
+	Texture_U                      = 1,
+	Texture_V                      = 2,
+	Texture_A                      = 3,
+	Texture_UV                     = 4,
+	Texture_RGB                    = 5,
+	Texture_MAX                    = 6
 };
 
 
 // Enum CriWareRuntime.EManaSoundType
 enum class EManaSoundType : uint8_t
 {
-	EManaSoundType__Adx            = 0,
-	EManaSoundType__HCA            = 1,
-	EManaSoundType__Num            = 2,
-	EManaSoundType__Unknown        = 3,
-	EManaSoundType__EManaSoundType_MAX = 4
+	Adx                            = 0,
+	HCA                            = 1,
+	Num                            = 2,
+	Unknown                        = 3,
+	EManaSoundType_MAX             = 4
 };
 
 
 // Enum CriWareRuntime.EManaColorSpace
 enum class EManaColorSpace : uint8_t
 {
-	EManaColorSpace__Rec601        = 0,
-	EManaColorSpace__Rec709        = 1,
-	EManaColorSpace__Num           = 2,
-	EManaColorSpace__EManaColorSpace_MAX = 3
+	Rec601                         = 0,
+	Rec709                         = 1,
+	Num                            = 2,
+	EManaColorSpace_MAX            = 3
 };
 
 
 // Enum CriWareRuntime.EManaMovieType
 enum class EManaMovieType : uint8_t
 {
-	EManaMovieType__SofdecPrime    = 0,
-	EManaMovieType__H264           = 1,
-	EManaMovieType__VP9            = 2,
-	EManaMovieType__Num            = 3,
-	EManaMovieType__Unknown        = 4,
-	EManaMovieType__EManaMovieType_MAX = 5
+	SofdecPrime                    = 0,
+	H264                           = 1,
+	VP9                            = 2,
+	Num                            = 3,
+	Unknown                        = 4,
+	EManaMovieType_MAX             = 5
 };
 
 

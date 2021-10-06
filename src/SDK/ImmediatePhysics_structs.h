@@ -15,10 +15,10 @@ namespace SDK
 // Enum ImmediatePhysics.ESimulationSpace
 enum class ESimulationSpace : uint8_t
 {
-	ESimulationSpace__ComponentSpace = 0,
-	ESimulationSpace__WorldSpace   = 1,
-	ESimulationSpace__BaseBoneSpace = 2,
-	ESimulationSpace__ESimulationSpace_MAX = 3
+	ComponentSpace                 = 0,
+	WorldSpace                     = 1,
+	BaseBoneSpace                  = 2,
+	ESimulationSpace_MAX           = 3
 };
 
 

@@ -84,22 +84,6 @@ public:
 };
 
 
-// Class GeometryCache.GeometryCacheCodecV1
-// 0x0008 (0x0040 - 0x0038)
-class UGeometryCacheCodecV1 : public UGeometryCacheCodecBase
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class GeometryCache.GeometryCacheCodecV1");
-		return ptr;
-	}
-
-};
-
-
 // Class GeometryCache.GeometryCacheComponent
 // 0x0050 (0x0600 - 0x05B0)
 class UGeometryCacheComponent : public UMeshComponent
@@ -235,6 +219,22 @@ public:
 
 
 	void SetMesh(const struct FGeometryCacheMeshData& NewMeshData);
+};
+
+
+// Class GeometryCache.GeometryCacheCodecV1
+// 0x0008 (0x0040 - 0x0038)
+class UGeometryCacheCodecV1 : public UGeometryCacheCodecBase
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class GeometryCache.GeometryCacheCodecV1");
+		return ptr;
+	}
+
 };
 
 

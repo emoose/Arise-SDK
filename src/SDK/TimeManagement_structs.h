@@ -15,12 +15,12 @@ namespace SDK
 // Enum TimeManagement.EFrameNumberDisplayFormats
 enum class EFrameNumberDisplayFormats : uint8_t
 {
-	EFrameNumberDisplayFormats__NonDropFrameTimecode = 0,
-	EFrameNumberDisplayFormats__DropFrameTimecode = 1,
-	EFrameNumberDisplayFormats__Seconds = 2,
-	EFrameNumberDisplayFormats__Frames = 3,
-	EFrameNumberDisplayFormats__MAX_Count = 4,
-	EFrameNumberDisplayFormats__EFrameNumberDisplayFormats_MAX = 5
+	NonDropFrameTimecode           = 0,
+	DropFrameTimecode              = 1,
+	Seconds                        = 2,
+	Frames                         = 3,
+	MAX_Count                      = 4,
+	EFrameNumberDisplayFormats_MAX = 5
 };
 
 

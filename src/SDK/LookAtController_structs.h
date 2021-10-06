@@ -15,49 +15,49 @@ namespace SDK
 // Enum LookAtController.ELookAtTargetLine
 enum class ELookAtTargetLine : uint8_t
 {
-	ELookAtTargetLine__ComponentSpace_Segment1 = 0,
-	ELookAtTargetLine__ComponentSpace_Segment2 = 1,
-	ELookAtTargetLine__BoneSpace_Segment1 = 2,
-	ELookAtTargetLine__BoneSpace_Segment2 = 3,
-	ELookAtTargetLine__ELookAtTargetLine_MAX = 4
+	ComponentSpace_Segment1        = 0,
+	ComponentSpace_Segment2        = 1,
+	BoneSpace_Segment1             = 2,
+	BoneSpace_Segment2             = 3,
+	ELookAtTargetLine_MAX          = 4
 };
 
 
 // Enum LookAtController.ELookAtClampBase
 enum class ELookAtClampBase : uint8_t
 {
-	ELookAtClampBase__NotAnimatedPose = 0,
-	ELookAtClampBase__AnimatedPose = 1,
-	ELookAtClampBase__ELookAtClampBase_MAX = 2
+	NotAnimatedPose                = 0,
+	AnimatedPose                   = 1,
+	ELookAtClampBase_MAX           = 2
 };
 
 
 // Enum LookAtController.ELookAtBoneType
 enum class ELookAtBoneType : uint8_t
 {
-	ELookAtBoneType__None          = 0,
-	ELookAtBoneType__Head          = 1,
-	ELookAtBoneType__Neck          = 2,
-	ELookAtBoneType__Spine         = 3,
-	ELookAtBoneType__ELookAtBoneType_MAX = 4
+	None                           = 0,
+	Head                           = 1,
+	Neck                           = 2,
+	Spine                          = 3,
+	ELookAtBoneType_MAX            = 4
 };
 
 
 // Enum LookAtController.ELookAtControlFacial
 enum class ELookAtControlFacial : uint8_t
 {
-	ELookAtControlFacial__Center   = 0,
-	ELookAtControlFacial__Up       = 1,
-	ELookAtControlFacial__UpCenter = 2,
-	ELookAtControlFacial__UpLeft   = 3,
-	ELookAtControlFacial__UpRight  = 4,
-	ELookAtControlFacial__Down     = 5,
-	ELookAtControlFacial__DownCenter = 6,
-	ELookAtControlFacial__DownLeft = 7,
-	ELookAtControlFacial__DownRight = 8,
-	ELookAtControlFacial__Left     = 9,
-	ELookAtControlFacial__Right    = 10,
-	ELookAtControlFacial__ELookAtControlFacial_MAX = 11
+	Center                         = 0,
+	Up                             = 1,
+	UpCenter                       = 2,
+	UpLeft                         = 3,
+	UpRight                        = 4,
+	Down                           = 5,
+	DownCenter                     = 6,
+	DownLeft                       = 7,
+	DownRight                      = 8,
+	Left                           = 9,
+	Right                          = 10,
+	ELookAtControlFacial_MAX       = 11
 };
 
 

@@ -15,11 +15,11 @@ namespace SDK
 // UserDefinedEnum TTL_PlayDataTypeEnum.TTL_PlayDataTypeEnum
 enum class ETTL_PlayDataTypeEnum : uint8_t
 {
-	TTL_PlayDataTypeEnum__NewEnumerator0 = 0,
-	TTL_PlayDataTypeEnum__NewEnumerator1 = 1,
-	TTL_PlayDataTypeEnum__NewEnumerator2 = 2,
-	TTL_PlayDataTypeEnum__NewEnumerator3 = 3,
-	TTL_PlayDataTypeEnum__TTL_MAX  = 4
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	NewEnumerator3                 = 3,
+	TTL_MAX                        = 4
 };
 
 

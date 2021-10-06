@@ -69,7 +69,7 @@ struct UBP_DebugWidget_C_InWindown_Params
 {
 	float                                              Cx;                                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	float                                              cy;                                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bin;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIn;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function BP_DebugWidget.BP_DebugWidget_C.Render

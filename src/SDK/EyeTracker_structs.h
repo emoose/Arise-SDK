@@ -15,10 +15,10 @@ namespace SDK
 // Enum EyeTracker.EEyeTrackerStatus
 enum class EEyeTrackerStatus : uint8_t
 {
-	EEyeTrackerStatus__NotConnected = 0,
-	EEyeTrackerStatus__NotTracking = 1,
-	EEyeTrackerStatus__Tracking    = 2,
-	EEyeTrackerStatus__EEyeTrackerStatus_MAX = 3
+	NotConnected                   = 0,
+	NotTracking                    = 1,
+	Tracking                       = 2,
+	EEyeTrackerStatus_MAX          = 3
 };
 
 

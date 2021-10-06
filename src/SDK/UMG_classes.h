@@ -492,40 +492,6 @@ public:
 };
 
 
-// Class UMG.BackgroundBlur
-// 0x00B8 (0x01D0 - 0x0118)
-class UBackgroundBlur : public UContentWidget
-{
-public:
-	struct FMargin                                     Padding;                                                  // 0x0118(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	TEnumAsByte<EHorizontalAlignment>                  HorizontalAlignment;                                      // 0x0128(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EVerticalAlignment>                    VerticalAlignment;                                        // 0x0129(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	bool                                               bApplyAlphaToBlur;                                        // 0x012A(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x1];                                       // 0x012B(0x0001) MISSED OFFSET
-	float                                              BlurStrength;                                             // 0x012C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	bool                                               bOverrideAutoRadiusCalculation;                           // 0x0130(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x0131(0x0003) MISSED OFFSET
-	int                                                BlurRadius;                                               // 0x0134(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FSlateBrush                                 LowQualityFallbackBrush;                                  // 0x0138(0x0088) (Edit, BlueprintVisible, BlueprintReadOnly)
-	unsigned char                                      UnknownData02[0x10];                                      // 0x01C0(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class UMG.BackgroundBlur");
-		return ptr;
-	}
-
-
-	void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
-	void SetPadding(const struct FMargin& InPadding);
-	void SetLowQualityFallbackBrush(const struct FSlateBrush& InBrush);
-	void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-	void SetBlurStrength(float InStrength);
-	void SetBlurRadius(int InBlurRadius);
-	void SetApplyAlphaToBlur(bool bInApplyAlphaToBlur);
-};
-
-
 // Class UMG.BackgroundBlurSlot
 // 0x0028 (0x0060 - 0x0038)
 class UBackgroundBlurSlot : public UPanelSlot
@@ -1115,35 +1081,37 @@ public:
 };
 
 
-// Class UMG.ExpandableArea
-// 0x0230 (0x0330 - 0x0100)
-class UExpandableArea : public UWidget
+// Class UMG.BackgroundBlur
+// 0x00B8 (0x01D0 - 0x0118)
+class UBackgroundBlur : public UContentWidget
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0100(0x0008) MISSED OFFSET
-	struct FExpandableAreaStyle                        Style;                                                    // 0x0108(0x0120) (Edit)
-	struct FSlateBrush                                 BorderBrush;                                              // 0x0228(0x0088) (Edit, BlueprintVisible, BlueprintReadOnly)
-	struct FSlateColor                                 BorderColor;                                              // 0x02B0(0x0028) (Edit, BlueprintVisible, BlueprintReadOnly)
-	bool                                               bIsExpanded;                                              // 0x02D8(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x02D9(0x0003) MISSED OFFSET
-	float                                              MaxHeight;                                                // 0x02DC(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FMargin                                     HeaderPadding;                                            // 0x02E0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	struct FMargin                                     AreaPadding;                                              // 0x02F0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	struct FScriptMulticastDelegate                    OnExpansionChanged;                                       // 0x0300(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	class UWidget*                                     HeaderContent;                                            // 0x0310(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UWidget*                                     BodyContent;                                              // 0x0318(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x10];                                      // 0x0320(0x0010) MISSED OFFSET
+	struct FMargin                                     Padding;                                                  // 0x0118(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	TEnumAsByte<EHorizontalAlignment>                  HorizontalAlignment;                                      // 0x0128(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EVerticalAlignment>                    VerticalAlignment;                                        // 0x0129(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	bool                                               bApplyAlphaToBlur;                                        // 0x012A(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x1];                                       // 0x012B(0x0001) MISSED OFFSET
+	float                                              BlurStrength;                                             // 0x012C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	bool                                               bOverrideAutoRadiusCalculation;                           // 0x0130(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0131(0x0003) MISSED OFFSET
+	int                                                BlurRadius;                                               // 0x0134(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FSlateBrush                                 LowQualityFallbackBrush;                                  // 0x0138(0x0088) (Edit, BlueprintVisible, BlueprintReadOnly)
+	unsigned char                                      UnknownData02[0x10];                                      // 0x01C0(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class UMG.ExpandableArea");
+		static auto ptr = UObject::FindClass("Class UMG.BackgroundBlur");
 		return ptr;
 	}
 
 
-	void SetIsExpanded_Animated(bool IsExpanded);
-	void SetIsExpanded(bool IsExpanded);
-	bool GetIsExpanded();
+	void SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment);
+	void SetPadding(const struct FMargin& InPadding);
+	void SetLowQualityFallbackBrush(const struct FSlateBrush& InBrush);
+	void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
+	void SetBlurStrength(float InStrength);
+	void SetBlurRadius(int InBlurRadius);
+	void SetApplyAlphaToBlur(bool bInApplyAlphaToBlur);
 };
 
 
@@ -1687,43 +1655,35 @@ public:
 };
 
 
-// Class UMG.MultiLineEditableTextBox
-// 0x0AD0 (0x0BF0 - 0x0120)
-class UMultiLineEditableTextBox : public UTextLayoutWidget
+// Class UMG.ExpandableArea
+// 0x0230 (0x0330 - 0x0100)
+class UExpandableArea : public UWidget
 {
 public:
-	struct FText                                       Text;                                                     // 0x0120(0x0018) (Edit)
-	struct FText                                       HintText;                                                 // 0x0138(0x0018) (Edit)
-	struct FScriptDelegate                             HintTextDelegate;                                         // 0x0150(0x0014) (ZeroConstructor, InstancedReference)
-	struct FEditableTextBoxStyle                       WidgetStyle;                                              // 0x0160(0x07F0) (Edit, BlueprintVisible)
-	struct FTextBlockStyle                             TextStyle;                                                // 0x0950(0x01E0) (Edit, BlueprintVisible)
-	bool                                               bIsReadOnly;                                              // 0x0B30(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	bool                                               AllowContextMenu;                                         // 0x0B31(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FVirtualKeyboardOptions                     VirtualKeyboardOptions;                                   // 0x0B32(0x0001) (Edit)
-	EVirtualKeyboardDismissAction                      VirtualKeyboardDismissAction;                             // 0x0B33(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0B34(0x0004) MISSED OFFSET
-	class USlateWidgetStyleAsset*                      Style;                                                    // 0x0B38(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
-	struct FSlateFontInfo                              Font;                                                     // 0x0B40(0x0050) (Deprecated)
-	struct FLinearColor                                ForegroundColor;                                          // 0x0B90(0x0010) (Deprecated, IsPlainOldData)
-	struct FLinearColor                                BackgroundColor;                                          // 0x0BA0(0x0010) (Deprecated, IsPlainOldData)
-	struct FLinearColor                                ReadOnlyForegroundColor;                                  // 0x0BB0(0x0010) (Deprecated, IsPlainOldData)
-	struct FScriptMulticastDelegate                    OnTextChanged;                                            // 0x0BC0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnTextCommitted;                                          // 0x0BD0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	unsigned char                                      UnknownData01[0x10];                                      // 0x0BE0(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0100(0x0008) MISSED OFFSET
+	struct FExpandableAreaStyle                        Style;                                                    // 0x0108(0x0120) (Edit)
+	struct FSlateBrush                                 BorderBrush;                                              // 0x0228(0x0088) (Edit, BlueprintVisible, BlueprintReadOnly)
+	struct FSlateColor                                 BorderColor;                                              // 0x02B0(0x0028) (Edit, BlueprintVisible, BlueprintReadOnly)
+	bool                                               bIsExpanded;                                              // 0x02D8(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x02D9(0x0003) MISSED OFFSET
+	float                                              MaxHeight;                                                // 0x02DC(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FMargin                                     HeaderPadding;                                            // 0x02E0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	struct FMargin                                     AreaPadding;                                              // 0x02F0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	struct FScriptMulticastDelegate                    OnExpansionChanged;                                       // 0x0300(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	class UWidget*                                     HeaderContent;                                            // 0x0310(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UWidget*                                     BodyContent;                                              // 0x0318(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x10];                                      // 0x0320(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class UMG.MultiLineEditableTextBox");
+		static auto ptr = UObject::FindClass("Class UMG.ExpandableArea");
 		return ptr;
 	}
 
 
-	void SetText(const struct FText& InText);
-	void SetIsReadOnly(bool bReadOnly);
-	void SetError(const struct FText& InError);
-	void OnMultiLineEditableTextBoxCommittedEvent__DelegateSignature(const struct FText& Text, TEnumAsByte<ETextCommit> CommitMethod);
-	void OnMultiLineEditableTextBoxChangedEvent__DelegateSignature(const struct FText& Text);
-	struct FText GetText();
+	void SetIsExpanded_Animated(bool IsExpanded);
+	void SetIsExpanded(bool IsExpanded);
+	bool GetIsExpanded();
 };
 
 
@@ -1789,6 +1749,46 @@ public:
 
 
 	class UOverlaySlot* AddChildToOverlay(class UWidget* Content);
+};
+
+
+// Class UMG.MultiLineEditableTextBox
+// 0x0AD0 (0x0BF0 - 0x0120)
+class UMultiLineEditableTextBox : public UTextLayoutWidget
+{
+public:
+	struct FText                                       Text;                                                     // 0x0120(0x0018) (Edit)
+	struct FText                                       HintText;                                                 // 0x0138(0x0018) (Edit)
+	struct FScriptDelegate                             HintTextDelegate;                                         // 0x0150(0x0014) (ZeroConstructor, InstancedReference)
+	struct FEditableTextBoxStyle                       WidgetStyle;                                              // 0x0160(0x07F0) (Edit, BlueprintVisible)
+	struct FTextBlockStyle                             TextStyle;                                                // 0x0950(0x01E0) (Edit, BlueprintVisible)
+	bool                                               bIsReadOnly;                                              // 0x0B30(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	bool                                               AllowContextMenu;                                         // 0x0B31(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FVirtualKeyboardOptions                     VirtualKeyboardOptions;                                   // 0x0B32(0x0001) (Edit)
+	EVirtualKeyboardDismissAction                      VirtualKeyboardDismissAction;                             // 0x0B33(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0B34(0x0004) MISSED OFFSET
+	class USlateWidgetStyleAsset*                      Style;                                                    // 0x0B38(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
+	struct FSlateFontInfo                              Font;                                                     // 0x0B40(0x0050) (Deprecated)
+	struct FLinearColor                                ForegroundColor;                                          // 0x0B90(0x0010) (Deprecated, IsPlainOldData)
+	struct FLinearColor                                BackgroundColor;                                          // 0x0BA0(0x0010) (Deprecated, IsPlainOldData)
+	struct FLinearColor                                ReadOnlyForegroundColor;                                  // 0x0BB0(0x0010) (Deprecated, IsPlainOldData)
+	struct FScriptMulticastDelegate                    OnTextChanged;                                            // 0x0BC0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnTextCommitted;                                          // 0x0BD0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	unsigned char                                      UnknownData01[0x10];                                      // 0x0BE0(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class UMG.MultiLineEditableTextBox");
+		return ptr;
+	}
+
+
+	void SetText(const struct FText& InText);
+	void SetIsReadOnly(bool bReadOnly);
+	void SetError(const struct FText& InError);
+	void OnMultiLineEditableTextBoxCommittedEvent__DelegateSignature(const struct FText& Text, TEnumAsByte<ETextCommit> CommitMethod);
+	void OnMultiLineEditableTextBoxChangedEvent__DelegateSignature(const struct FText& Text);
+	struct FText GetText();
 };
 
 

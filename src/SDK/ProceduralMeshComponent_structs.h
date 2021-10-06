@@ -15,10 +15,10 @@ namespace SDK
 // Enum ProceduralMeshComponent.EProcMeshSliceCapOption
 enum class EProcMeshSliceCapOption : uint8_t
 {
-	EProcMeshSliceCapOption__NoCap = 0,
-	EProcMeshSliceCapOption__CreateNewSectionForCap = 1,
-	EProcMeshSliceCapOption__UseLastSectionForCap = 2,
-	EProcMeshSliceCapOption__EProcMeshSliceCapOption_MAX = 3
+	NoCap                          = 0,
+	CreateNewSectionForCap         = 1,
+	UseLastSectionForCap           = 2,
+	EProcMeshSliceCapOption_MAX    = 3
 };
 
 

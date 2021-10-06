@@ -346,21 +346,6 @@ public:
 };
 
 
-// Class CEBANK.TssRead
-// 0x0000 (0x0038 - 0x0038)
-class UTssRead : public UAProtocolMessage
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class CEBANK.TssRead");
-		return ptr;
-	}
-
-};
-
-
 // Class CEBANK.TssReadList
 // 0x0000 (0x0038 - 0x0038)
 class UTssReadList : public UAProtocolMessage
@@ -415,6 +400,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class CEBANK.UserLogin");
+		return ptr;
+	}
+
+};
+
+
+// Class CEBANK.TssRead
+// 0x0000 (0x0038 - 0x0038)
+class UTssRead : public UAProtocolMessage
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class CEBANK.TssRead");
 		return ptr;
 	}
 

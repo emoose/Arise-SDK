@@ -120,7 +120,7 @@ struct UBP_DebugWindow_C_InWindowCorner__Params
 {
 	float                                              Cx;                                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	float                                              cy;                                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bin;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIn;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function BP_DebugWindow.BP_DebugWindow_C.OnMouseUp
@@ -142,7 +142,7 @@ struct UBP_DebugWindow_C_InWindow__Params
 {
 	float                                              Cx;                                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	float                                              cy;                                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bin;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               bIn;                                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function BP_DebugWindow.BP_DebugWindow_C.Render

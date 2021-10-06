@@ -15,19 +15,19 @@ namespace SDK
 // Enum VisualFade.EVisualFadeCompleteBehavior
 enum class EVisualFadeCompleteBehavior : uint8_t
 {
-	EVisualFadeCompleteBehavior__Stay = 0,
-	EVisualFadeCompleteBehavior__Deactivate = 1,
-	EVisualFadeCompleteBehavior__EVisualFadeCompleteBehavior_MAX = 2
+	Stay                           = 0,
+	Deactivate                     = 1,
+	EVisualFadeCompleteBehavior_MAX = 2
 };
 
 
 // Enum VisualFade.EVisualFadeLayer
 enum class EVisualFadeLayer : uint8_t
 {
-	EVisualFadeLayer__Bottom       = 0,
-	EVisualFadeLayer__Middle       = 1,
-	EVisualFadeLayer__Top          = 2,
-	EVisualFadeLayer__EVisualFadeLayer_MAX = 3
+	Bottom                         = 0,
+	Middle                         = 1,
+	Top                            = 2,
+	EVisualFadeLayer_MAX           = 3
 };
 
 

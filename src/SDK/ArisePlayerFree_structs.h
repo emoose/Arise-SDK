@@ -15,172 +15,172 @@ namespace SDK
 // Enum ArisePlayerFree.EPFTempChangeParameterSource
 enum class EPFTempChangeParameterSource : uint8_t
 {
-	EPFTempChangeParameterSource__CustomState = 0,
-	EPFTempChangeParameterSource__AnimNotify = 1,
-	EPFTempChangeParameterSource__EPFTempChangeParameterSource_MAX = 2
+	CustomState                    = 0,
+	AnimNotify                     = 1,
+	EPFTempChangeParameterSource_MAX = 2
 };
 
 
 // Enum ArisePlayerFree.EPFActorMovementState
 enum class EPFActorMovementState : uint8_t
 {
-	EPFActorMovementState__IDLE    = 0,
-	EPFActorMovementState__WALK    = 1,
-	EPFActorMovementState__RUN     = 2,
-	EPFActorMovementState__DASH    = 3,
-	EPFActorMovementState__TYPE_MAX = 4,
-	EPFActorMovementState__EPFActorMovementState_MAX = 5
+	IDLE                           = 0,
+	WALK                           = 1,
+	RUN                            = 2,
+	DASH                           = 3,
+	TYPE_MAX                       = 4,
+	EPFActorMovementState_MAX      = 5
 };
 
 
 // Enum ArisePlayerFree.EPFActorInteractReceiverShape
 enum class EPFActorInteractReceiverShape : uint8_t
 {
-	EPFActorInteractReceiverShape__Cylinder = 0,
-	EPFActorInteractReceiverShape__Box = 1,
-	EPFActorInteractReceiverShape__Primitive = 2,
-	EPFActorInteractReceiverShape__EPFActorInteractReceiverShape_MAX = 3
+	Cylinder                       = 0,
+	Box                            = 1,
+	Primitive                      = 2,
+	EPFActorInteractReceiverShape_MAX = 3
 };
 
 
 // Enum ArisePlayerFree.EAnalogJumpInterpFunc
 enum class EAnalogJumpInterpFunc : uint8_t
 {
-	EAnalogJumpInterpFunc__None    = 0,
-	EAnalogJumpInterpFunc__SinIn   = 1,
-	EAnalogJumpInterpFunc__SinOut  = 2,
-	EAnalogJumpInterpFunc__SinInOut = 3,
-	EAnalogJumpInterpFunc__ExpoIn  = 4,
-	EAnalogJumpInterpFunc__ExpoOut = 5,
-	EAnalogJumpInterpFunc__ExpoInOut = 6,
-	EAnalogJumpInterpFunc__CircularIn = 7,
-	EAnalogJumpInterpFunc__CircularOut = 8,
-	EAnalogJumpInterpFunc__CircularInOut = 9,
-	EAnalogJumpInterpFunc__EAnalogJumpInterpFunc_MAX = 10
+	None                           = 0,
+	SinIn                          = 1,
+	SinOut                         = 2,
+	SinInOut                       = 3,
+	ExpoIn                         = 4,
+	ExpoOut                        = 5,
+	ExpoInOut                      = 6,
+	CircularIn                     = 7,
+	CircularOut                    = 8,
+	CircularInOut                  = 9,
+	EAnalogJumpInterpFunc_MAX      = 10
 };
 
 
 // Enum ArisePlayerFree.EPFActorInteractState
 enum class EPFActorInteractState : uint8_t
 {
-	EPFActorInteractState__Neutral = 0,
-	EPFActorInteractState__Disable = 1,
-	EPFActorInteractState__Enable  = 2,
-	EPFActorInteractState__EPFActorInteractState_MAX = 3
+	Neutral                        = 0,
+	Disable                        = 1,
+	Enable                         = 2,
+	EPFActorInteractState_MAX      = 3
 };
 
 
 // Enum ArisePlayerFree.EPFInteractCategory
 enum class EPFInteractCategory : uint8_t
 {
-	EPFInteractCategory__Search    = 0,
-	EPFInteractCategory__MapLink   = 1,
-	EPFInteractCategory__Treasure  = 2,
-	EPFInteractCategory__Movement  = 3,
-	EPFInteractCategory__EPFInteractCategory_MAX = 4
+	Search                         = 0,
+	MapLink                        = 1,
+	Treasure                       = 2,
+	Movement                       = 3,
+	EPFInteractCategory_MAX        = 4
 };
 
 
 // Enum ArisePlayerFree.EPFInteractReceiveFlags
 enum class EPFInteractReceiveFlags : uint8_t
 {
-	EPFInteractReceiveFlags__Search = 0,
-	EPFInteractReceiveFlags__CharaAction = 1,
-	EPFInteractReceiveFlags__EPFInteractReceiveFlags_MAX = 2
+	Search                         = 0,
+	CharaAction                    = 1,
+	EPFInteractReceiveFlags_MAX    = 2
 };
 
 
 // Enum ArisePlayerFree.EPFPlayerCameraLookAtActionMode
 enum class EPFPlayerCameraLookAtActionMode : uint8_t
 {
-	EPFPlayerCameraLookAtActionMode__NoAction = 0,
-	EPFPlayerCameraLookAtActionMode__WalkOnly = 1,
-	EPFPlayerCameraLookAtActionMode__MoveOnly = 2,
-	EPFPlayerCameraLookAtActionMode__AutoMove = 3,
-	EPFPlayerCameraLookAtActionMode__AutoMoveWaitInteract = 4,
-	EPFPlayerCameraLookAtActionMode__AutoWalk = 5,
-	EPFPlayerCameraLookAtActionMode__AutoWalkWaitInteract = 6,
-	EPFPlayerCameraLookAtActionMode__EPFPlayerCameraLookAtActionMode_MAX = 7
+	NoAction                       = 0,
+	WalkOnly                       = 1,
+	MoveOnly                       = 2,
+	AutoMove                       = 3,
+	AutoMoveWaitInteract           = 4,
+	AutoWalk                       = 5,
+	AutoWalkWaitInteract           = 6,
+	EPFPlayerCameraLookAtActionMode_MAX = 7
 };
 
 
 // Enum ArisePlayerFree.EPFCullingType
 enum class EPFCullingType : uint8_t
 {
-	EPFCullingType__Object         = 0,
-	EPFCullingType__Actor          = 1,
-	EPFCullingType__Character      = 2,
-	EPFCullingType__EPFCullingType_MAX = 3
+	Object                         = 0,
+	Actor                          = 1,
+	Character                      = 2,
+	EPFCullingType_MAX             = 3
 };
 
 
 // Enum ArisePlayerFree.EPFFieldActionCollisionShape
 enum class EPFFieldActionCollisionShape : uint8_t
 {
-	EPFFieldActionCollisionShape__Box = 0,
-	EPFFieldActionCollisionShape__Cylinder = 1,
-	EPFFieldActionCollisionShape__EPFFieldActionCollisionShape_MAX = 2
+	Box                            = 0,
+	Cylinder                       = 1,
+	EPFFieldActionCollisionShape_MAX = 2
 };
 
 
 // Enum ArisePlayerFree.EPFOwlSearchState
 enum class EPFOwlSearchState : uint8_t
 {
-	EPFOwlSearchState__NotFound    = 0,
-	EPFOwlSearchState__Long        = 1,
-	EPFOwlSearchState__Short       = 2,
-	EPFOwlSearchState__EPFOwlSearchState_MAX = 3
+	NotFound                       = 0,
+	Long                           = 1,
+	Short                          = 2,
+	EPFOwlSearchState_MAX          = 3
 };
 
 
 // Enum ArisePlayerFree.EPFPCTransToIdle
 enum class EPFPCTransToIdle : uint8_t
 {
-	EPFPCTransToIdle__Unknown      = 0,
-	EPFPCTransToIdle__WalkTransIdle = 1,
-	EPFPCTransToIdle__RunBrake     = 2,
-	EPFPCTransToIdle__DashBrake    = 3,
-	EPFPCTransToIdle__Landing      = 4,
-	EPFPCTransToIdle__ResetPose    = 5,
-	EPFPCTransToIdle__Annoying     = 6,
-	EPFPCTransToIdle__EPFPCTransToIdle_MAX = 7
+	Unknown                        = 0,
+	WalkTransIdle                  = 1,
+	RunBrake                       = 2,
+	DashBrake                      = 3,
+	Landing                        = 4,
+	ResetPose                      = 5,
+	Annoying                       = 6,
+	EPFPCTransToIdle_MAX           = 7
 };
 
 
 // Enum ArisePlayerFree.EPFPCEnableIKSlot
 enum class EPFPCEnableIKSlot : uint8_t
 {
-	EPFPCEnableIKSlot__ActionState = 0,
-	EPFPCEnableIKSlot__AnimationState = 1,
-	EPFPCEnableIKSlot__AnimNotify  = 2,
-	EPFPCEnableIKSlot__EPFPCEnableIKSlot_MAX = 3
+	ActionState                    = 0,
+	AnimationState                 = 1,
+	AnimNotify                     = 2,
+	EPFPCEnableIKSlot_MAX          = 3
 };
 
 
 // Enum ArisePlayerFree.EPFPlayerActionLockModeSlot
 enum class EPFPlayerActionLockModeSlot : uint8_t
 {
-	EPFPlayerActionLockModeSlot__LookAtMode = 0,
-	EPFPlayerActionLockModeSlot__Max = 1
+	LookAtMode                     = 0,
+	Max                            = 1
 };
 
 
 // Enum ArisePlayerFree.EPFPlayerCharacterAutoMoveType
 enum class EPFPlayerCharacterAutoMoveType : uint8_t
 {
-	EPFPlayerCharacterAutoMoveType__Default = 0,
-	EPFPlayerCharacterAutoMoveType__WalkOnly = 1,
-	EPFPlayerCharacterAutoMoveType__EPFPlayerCharacterAutoMoveType_MAX = 2
+	Default                        = 0,
+	WalkOnly                       = 1,
+	EPFPlayerCharacterAutoMoveType_MAX = 2
 };
 
 
 // Enum ArisePlayerFree.EPFPCFootIKMode
 enum class EPFPCFootIKMode : uint8_t
 {
-	EPFPCFootIKMode__Off           = 0,
-	EPFPCFootIKMode__On            = 1,
-	EPFPCFootIKMode__Auto          = 2,
-	EPFPCFootIKMode__EPFPCFootIKMode_MAX = 3
+	Off                            = 0,
+	On                             = 1,
+	Auto                           = 2,
+	EPFPCFootIKMode_MAX            = 3
 };
 
 

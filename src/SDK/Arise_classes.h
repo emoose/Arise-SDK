@@ -1875,26 +1875,6 @@ public:
 };
 
 
-// Class Arise.AriseListBoxSlotRefine
-// 0x0010 (0x0048 - 0x0038)
-class UAriseListBoxSlotRefine : public UPanelSlot
-{
-public:
-	TEnumAsByte<EHorizontalAlignment>                  HorizontalAlignment;                                      // 0x0038(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0xF];                                       // 0x0039(0x000F) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Arise.AriseListBoxSlotRefine");
-		return ptr;
-	}
-
-
-	void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
-	int GetListIndex();
-};
-
-
 // Class Arise.AriseListenerComponent
 // 0x04B0 (0x0700 - 0x0250)
 class UAriseListenerComponent : public USceneComponent
@@ -1975,6 +1955,26 @@ public:
 	int STATIC_GetMiningSaveData_MaxItemNum();
 	class UAriseMiningSaveData* STATIC_GetMiningSaveData();
 	class UAriseMiningSaveData* STATIC_CreateMiningSaveData(class UClass* SaveGameClass);
+};
+
+
+// Class Arise.AriseListBoxSlotRefine
+// 0x0010 (0x0048 - 0x0038)
+class UAriseListBoxSlotRefine : public UPanelSlot
+{
+public:
+	TEnumAsByte<EHorizontalAlignment>                  HorizontalAlignment;                                      // 0x0038(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0xF];                                       // 0x0039(0x000F) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Arise.AriseListBoxSlotRefine");
+		return ptr;
+	}
+
+
+	void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
+	int GetListIndex();
 };
 
 
@@ -8836,57 +8836,6 @@ public:
 };
 
 
-// Class Arise.BtlDestructibleActor
-// 0x00B8 (0x0400 - 0x0348)
-class ABtlDestructibleActor : public ADestructibleActor
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0348(0x0008) MISSED OFFSET
-	EDestructibleType                                  DestructibleType;                                         // 0x0350(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	EBtlDestructMeshFilter                             Filter;                                                   // 0x0351(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x6];                                       // 0x0352(0x0006) MISSED OFFSET
-	TArray<struct FBtlUnitID>                          FilterUnitID;                                             // 0x0358(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	TArray<struct FVector>                             StaticImpactPoint;                                        // 0x0368(0x0010) (Edit, ZeroConstructor)
-	class UParticleSystemComponent*                    ParticleInstance;                                         // 0x0378(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
-	struct FVector                                     HitPoint;                                                 // 0x0380(0x000C) (BlueprintVisible, Transient, IsPlainOldData)
-	struct FVector                                     HitDirection;                                             // 0x038C(0x000C) (BlueprintVisible, Transient, IsPlainOldData)
-	TArray<struct FDestructibleStaticMeshParam>        StaticMesh;                                               // 0x0398(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	TArray<struct FDestructibleParticleParam>          ExtensionParticle;                                        // 0x03A8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	class UParticleSystem*                             Particle;                                                 // 0x03B8(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	TArray<struct FDestructParticleOverrideMaterial>   FractureEffectsOverrideMaterials;                         // 0x03C0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditFixedSize, ZeroConstructor)
-	TArray<struct FNamedEmitterMaterial>               ParticleOverrideMaterials;                                // 0x03D0(0x0010) (Edit, ZeroConstructor)
-	struct FName                                       ParticleAttackName;                                       // 0x03E0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               bDestroyAfterParticleEnable;                              // 0x03E8(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	bool                                               bDistanceFadeEnable;                                      // 0x03E9(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x2];                                       // 0x03EA(0x0002) MISSED OFFSET
-	float                                              FadeTime;                                                 // 0x03EC(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	float                                              FadeWaitTimer;                                            // 0x03F0(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	struct FVector                                     DebugImpactPoint;                                         // 0x03F4(0x000C) (Edit, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Arise.BtlDestructibleActor");
-		return ptr;
-	}
-
-
-	void StaticImpactPointExportToAsset();
-	void RunDestrucible(const struct FVector& ImpactPoint);
-	void PropagationMaterial();
-	void MeshCheckDevelopment();
-	void MakeExtensionParticle();
-	void MakeAlphaMaskComponent();
-	struct FVector GetChunkAverageLocation();
-	class UAlphaMaskComponent* GetAlphaMaskComponent();
-	void DebugRunDestrucible();
-	void DebugResetDestrucible();
-	void DebugForceVisible();
-	void DebugForceInvisible();
-	void ApplayMaterial(class UParticleSystemComponent* TargetParticle, const struct FDestructParticleOverrideMaterial& OverrideMaterial);
-	void ActionDestoryExtensionParticle();
-};
-
-
 // Class Arise.BattleDestructibleInterface
 // 0x0000 (0x0028 - 0x0028)
 class UBattleDestructibleInterface : public UInterface
@@ -9905,52 +9854,54 @@ public:
 };
 
 
-// Class Arise.BtlMagicAsset
-// 0x00B8 (0x00E8 - 0x0030)
-class UBtlMagicAsset : public UDataAsset
+// Class Arise.BtlDestructibleActor
+// 0x00B8 (0x0400 - 0x0348)
+class ABtlDestructibleActor : public ADestructibleActor
 {
 public:
-	bool                                               bInfinite;                                                // 0x0030(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0031(0x0003) MISSED OFFSET
-	float                                              LifeTime;                                                 // 0x0034(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                DestoryFlags;                                             // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	EBtlMagicSpawnCandidateTarget                      SpawnCandidateTarget;                                     // 0x003C(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bIsReCycleMagicActor;                                     // 0x003D(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x2];                                       // 0x003E(0x0002) MISSED OFFSET
-	TArray<struct FBtlMagicTimeline>                   Timeline;                                                 // 0x0040(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
-	bool                                               IsUseSlowSpellerIgnore;                                   // 0x0050(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               IsUseStopSpellerIgnore;                                   // 0x0051(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	EBtlMagicVisiableAdjust                            VisiableAdjust;                                           // 0x0052(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x5];                                       // 0x0053(0x0005) MISSED OFFSET
-	struct FBtlArts_XmlDatatableLabel                  OverrideArtsLabel;                                        // 0x0058(0x0008) (Edit, DisableEditOnInstance)
-	class UClass*                                      OwnerActorClass;                                          // 0x0060(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               bLocationCenter;                                          // 0x0068(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x7];                                       // 0x0069(0x0007) MISSED OFFSET
-	struct FName                                       SpawnLocationSocket;                                      // 0x0070(0x0008) (ZeroConstructor, IsPlainOldData)
-	EBtlMagicLocationType                              SpawnLocationType;                                        // 0x0078(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x3];                                       // 0x0079(0x0003) MISSED OFFSET
-	struct FVector                                     SpawnLocationOffset;                                      // 0x007C(0x000C) (IsPlainOldData)
-	struct FName                                       SpawnRotationSocket;                                      // 0x0088(0x0008) (ZeroConstructor, IsPlainOldData)
-	EBtlMagicRotationType                              SpawnRotationType;                                        // 0x0090(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData05[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
-	struct FRotator                                    SpawnRotationOffset;                                      // 0x0094(0x000C) (IsPlainOldData)
-	uint32_t                                           InstanceMemorySize;                                       // 0x00A0(0x0004) (ZeroConstructor, IsPlainOldData)
-	bool                                               bIsFollowLocation;                                        // 0x00A4(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData06[0x3];                                       // 0x00A5(0x0003) MISSED OFFSET
-	struct FBtl_MagicSpawnLocationParam                SpawnLocation;                                            // 0x00A8(0x0020) (Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
-	bool                                               bIsFollowRotation;                                        // 0x00C8(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData07[0x7];                                       // 0x00C9(0x0007) MISSED OFFSET
-	struct FBtl_MagicSpawnRotationParam                SpawnRotation;                                            // 0x00D0(0x0018) (Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0348(0x0008) MISSED OFFSET
+	EDestructibleType                                  DestructibleType;                                         // 0x0350(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	EBtlDestructMeshFilter                             Filter;                                                   // 0x0351(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x6];                                       // 0x0352(0x0006) MISSED OFFSET
+	TArray<struct FBtlUnitID>                          FilterUnitID;                                             // 0x0358(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	TArray<struct FVector>                             StaticImpactPoint;                                        // 0x0368(0x0010) (Edit, ZeroConstructor)
+	class UParticleSystemComponent*                    ParticleInstance;                                         // 0x0378(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
+	struct FVector                                     HitPoint;                                                 // 0x0380(0x000C) (BlueprintVisible, Transient, IsPlainOldData)
+	struct FVector                                     HitDirection;                                             // 0x038C(0x000C) (BlueprintVisible, Transient, IsPlainOldData)
+	TArray<struct FDestructibleStaticMeshParam>        StaticMesh;                                               // 0x0398(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	TArray<struct FDestructibleParticleParam>          ExtensionParticle;                                        // 0x03A8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	class UParticleSystem*                             Particle;                                                 // 0x03B8(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	TArray<struct FDestructParticleOverrideMaterial>   FractureEffectsOverrideMaterials;                         // 0x03C0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditFixedSize, ZeroConstructor)
+	TArray<struct FNamedEmitterMaterial>               ParticleOverrideMaterials;                                // 0x03D0(0x0010) (Edit, ZeroConstructor)
+	struct FName                                       ParticleAttackName;                                       // 0x03E0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               bDestroyAfterParticleEnable;                              // 0x03E8(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	bool                                               bDistanceFadeEnable;                                      // 0x03E9(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x2];                                       // 0x03EA(0x0002) MISSED OFFSET
+	float                                              FadeTime;                                                 // 0x03EC(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	float                                              FadeWaitTimer;                                            // 0x03F0(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	struct FVector                                     DebugImpactPoint;                                         // 0x03F4(0x000C) (Edit, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.BtlMagicAsset");
+		static auto ptr = UObject::FindClass("Class Arise.BtlDestructibleActor");
 		return ptr;
 	}
 
 
-	bool IsTaskType(const struct FName& Identifier, class UClass* Class);
-	int GetTaskNum(const struct FName& Identifier);
+	void StaticImpactPointExportToAsset();
+	void RunDestrucible(const struct FVector& ImpactPoint);
+	void PropagationMaterial();
+	void MeshCheckDevelopment();
+	void MakeExtensionParticle();
+	void MakeAlphaMaskComponent();
+	struct FVector GetChunkAverageLocation();
+	class UAlphaMaskComponent* GetAlphaMaskComponent();
+	void DebugRunDestrucible();
+	void DebugResetDestrucible();
+	void DebugForceVisible();
+	void DebugForceInvisible();
+	void ApplayMaterial(class UParticleSystemComponent* TargetParticle, const struct FDestructParticleOverrideMaterial& OverrideMaterial);
+	void ActionDestoryExtensionParticle();
 };
 
 
@@ -14077,22 +14028,52 @@ public:
 };
 
 
-// Class Arise.DebugMenu_AliasSkill
-// 0x0000 (0x0028 - 0x0028)
-class UDebugMenu_AliasSkill : public UBlueprintFunctionLibrary
+// Class Arise.BtlMagicAsset
+// 0x00B8 (0x00E8 - 0x0030)
+class UBtlMagicAsset : public UDataAsset
 {
 public:
+	bool                                               bInfinite;                                                // 0x0030(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0031(0x0003) MISSED OFFSET
+	float                                              LifeTime;                                                 // 0x0034(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                DestoryFlags;                                             // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	EBtlMagicSpawnCandidateTarget                      SpawnCandidateTarget;                                     // 0x003C(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bIsReCycleMagicActor;                                     // 0x003D(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x2];                                       // 0x003E(0x0002) MISSED OFFSET
+	TArray<struct FBtlMagicTimeline>                   Timeline;                                                 // 0x0040(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
+	bool                                               IsUseSlowSpellerIgnore;                                   // 0x0050(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               IsUseStopSpellerIgnore;                                   // 0x0051(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	EBtlMagicVisiableAdjust                            VisiableAdjust;                                           // 0x0052(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x5];                                       // 0x0053(0x0005) MISSED OFFSET
+	struct FBtlArts_XmlDatatableLabel                  OverrideArtsLabel;                                        // 0x0058(0x0008) (Edit, DisableEditOnInstance)
+	class UClass*                                      OwnerActorClass;                                          // 0x0060(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               bLocationCenter;                                          // 0x0068(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x7];                                       // 0x0069(0x0007) MISSED OFFSET
+	struct FName                                       SpawnLocationSocket;                                      // 0x0070(0x0008) (ZeroConstructor, IsPlainOldData)
+	EBtlMagicLocationType                              SpawnLocationType;                                        // 0x0078(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData04[0x3];                                       // 0x0079(0x0003) MISSED OFFSET
+	struct FVector                                     SpawnLocationOffset;                                      // 0x007C(0x000C) (IsPlainOldData)
+	struct FName                                       SpawnRotationSocket;                                      // 0x0088(0x0008) (ZeroConstructor, IsPlainOldData)
+	EBtlMagicRotationType                              SpawnRotationType;                                        // 0x0090(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData05[0x3];                                       // 0x0091(0x0003) MISSED OFFSET
+	struct FRotator                                    SpawnRotationOffset;                                      // 0x0094(0x000C) (IsPlainOldData)
+	uint32_t                                           InstanceMemorySize;                                       // 0x00A0(0x0004) (ZeroConstructor, IsPlainOldData)
+	bool                                               bIsFollowLocation;                                        // 0x00A4(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData06[0x3];                                       // 0x00A5(0x0003) MISSED OFFSET
+	struct FBtl_MagicSpawnLocationParam                SpawnLocation;                                            // 0x00A8(0x0020) (Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
+	bool                                               bIsFollowRotation;                                        // 0x00C8(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData07[0x7];                                       // 0x00C9(0x0007) MISSED OFFSET
+	struct FBtl_MagicSpawnRotationParam                SpawnRotation;                                            // 0x00D0(0x0018) (Edit, BlueprintVisible, BlueprintReadOnly, DisableEditOnInstance)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.DebugMenu_AliasSkill");
+		static auto ptr = UObject::FindClass("Class Arise.BtlMagicAsset");
 		return ptr;
 	}
 
 
-	void STATIC_DBM_UIM_SkillSet();
-	void STATIC_DBM_UIM_SkillLearn();
-	void STATIC_DBM_UIM_Alias();
+	bool IsTaskType(const struct FName& Identifier, class UClass* Class);
+	int GetTaskNum(const struct FName& Identifier);
 };
 
 
@@ -14190,19 +14171,22 @@ public:
 };
 
 
-// Class Arise.EncountAssetManager
-// 0x00A0 (0x00C8 - 0x0028)
-class UEncountAssetManager : public UObject
+// Class Arise.DebugMenu_AliasSkill
+// 0x0000 (0x0028 - 0x0028)
+class UDebugMenu_AliasSkill : public UBlueprintFunctionLibrary
 {
 public:
-	unsigned char                                      UnknownData00[0xA0];                                      // 0x0028(0x00A0) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.EncountAssetManager");
+		static auto ptr = UObject::FindClass("Class Arise.DebugMenu_AliasSkill");
 		return ptr;
 	}
 
+
+	void STATIC_DBM_UIM_SkillSet();
+	void STATIC_DBM_UIM_SkillLearn();
+	void STATIC_DBM_UIM_Alias();
 };
 
 
@@ -14346,103 +14330,19 @@ public:
 };
 
 
-// Class Arise.EncountManager
-// 0x00C8 (0x03F0 - 0x0328)
-class AEncountManager : public AActor
+// Class Arise.EncountAssetManager
+// 0x00A0 (0x00C8 - 0x0028)
+class UEncountAssetManager : public UObject
 {
 public:
-	TArray<struct FEncoutSymbolInfo>                   EncountSymbolInfos;                                       // 0x0328(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	class UEncountAssetManager*                        AssetManager;                                             // 0x0338(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData)
-	TArray<class AEncountGroup*>                       SpawnedGroups;                                            // 0x0340(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient)
-	TArray<class AActor*>                              SpawnedSymbols;                                           // 0x0350(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient)
-	TArray<class AActor*>                              SpawnedMAPOBJ;                                            // 0x0360(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0370(0x0010) MISSED OFFSET
-	struct FScriptMulticastDelegate                    BattleBonusFeverEvent;                                    // 0x0380(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	float                                              EncountGauge;                                             // 0x0390(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	bool                                               bLockEncount;                                             // 0x0394(0x0001) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x2];                                       // 0x0395(0x0002) MISSED OFFSET
-	bool                                               bLockUnloadBattleAsset;                                   // 0x0397(0x0001) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	bool                                               bLockEntry;                                               // 0x0398(0x0001) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x7];                                       // 0x0399(0x0007) MISSED OFFSET
-	TArray<TEnumAsByte<EObjectTypeQuery>>              ObjectTypeQueries;                                        // 0x03A0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
-	unsigned char                                      UnknownData03[0x10];                                      // 0x03B0(0x0010) MISSED OFFSET
-	TArray<struct FString>                             MakeEncountGroupNames;                                    // 0x03C0(0x0010) (BlueprintVisible, ZeroConstructor, Transient)
-	unsigned char                                      UnknownData04[0x20];                                      // 0x03D0(0x0020) MISSED OFFSET
+	unsigned char                                      UnknownData00[0xA0];                                      // 0x0028(0x00A0) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.EncountManager");
+		static auto ptr = UObject::FindClass("Class Arise.EncountAssetManager");
 		return ptr;
 	}
 
-
-	void SetEncountSymbolInfo_State(const struct FString& actorId, EEncountSymbolState InState);
-	void SetEncountSymbolInfo_Rare(const struct FString& actorId, bool bEnable);
-	bool SetEncountSymbolInfo(const struct FString& SymbolName, const struct FEncoutSymbolInfo& SymbolInfo);
-	void SetEncountLock(bool bEnable);
-	void ResumeSpawnedSymbol();
-	void ResetBattleBonus();
-	void RemoveSpawnedSymbol(class AActor* InActor);
-	void RemoveSpawnedGroups(class AEncountGroup* InGroup);
-	void RemoveEncountSymbolByInvalidLevel();
-	void RemoveEncountGroup(const struct FName& Name);
-	void PrintRareGroupLog();
-	void PlayNotifySound(float ReactDistance);
-	void PauseSpawnedSymbol();
-	void OnResetEncountGauge();
-	void OnPlayEvent();
-	bool OnGetSurroundEncountMAPOBJNames(class AActor* InMAPOBJ, struct FBtlEncountGroupParam* Param);
-	bool OnGetSurroundEncountGroupNames(TArray<struct FString> EncountGroupNames, class AEncountGroup* InGroup, struct FBtlEncountGroupParam* Param, struct FString* EncountGroupName);
-	void OnGetInteractionProhibitedRange(float* ReactHorizontalDistance, float* ReactVerticalDistance);
-	bool OnGetEncountGroupNames(const struct FString& AutoSymbolName, class AEncountGroup* InGroup, struct FBtlEncountGroupParam* Param, struct FString* EncountGroupName);
-	void OnGetEncountGaugeSubParams(float* EnableHighSpeedRange, float* LowSpeed, float* HighSpeed);
-	void OnGetEncountGaugeAddParams(float* GaugeMagnify, float* DistanceAdjust, float* ReactDistance);
-	void OnChangeState(EAriseGameState ChangedState, bool NewState);
-	void OnChangeDisplayScene(unsigned char ChangedScene, unsigned char OldScene);
-	void MaketEncountGroupParam(const struct FString& AutoSymbolName, class AActor* Encounting, float ReactDistance, float ReactHeight, TArray<struct FBtlEncountGroupParam>* OutParams);
-	bool IsValidEncountGroup(const struct FName& Name);
-	bool IsInCautionRangeCheck(class AActor* Symbol, float Range, float Height);
-	bool IsFollowing();
-	bool IsFever();
-	bool IsDistanceSymbolGroupPC(float ReactDistance);
-	bool IsCaution();
-	float GetViewDistanceMagnify();
-	float GetViewAngleMagnify();
-	void GetSymbolsWithinCautionRange(TArray<class AActor*>* OutSymbols);
-	int GetSymbolsNumWithinCautionRange();
-	void GetSpawendSymbolDistance(TArray<struct FString>* NearSymbols);
-	float GetSearchRangeMagnify();
-	int GetRiskValue(int Value, int HighRisk, int LowRisk, int GEq, int A, int B);
-	class AEncountGroup* GetNearSymbolGroup();
-	class APFEncountSymbol* GetNearSymbol(TArray<class AActor*> Symbols);
-	class APFEncountSymbol* GetNearSpawnedSymbol();
-	bool GetMaxSymbolLevel(TArray<class AEncountGroup*> Groups, int* Level);
-	void GetFollowingSymbols(TArray<class AActor*>* FollowingSymbols);
-	EEncountSymbolState GetEncountSymbolInfo_State(const struct FString& actorId);
-	bool GetEncountSymbolInfo_Rare(const struct FString& actorId);
-	bool GetEncountSymbolInfo_3(const struct FString& actorId, struct FEncoutSymbolInfo* Info);
-	bool GetEncountSymbolInfo(const struct FString& SymbolName, struct FEncoutSymbolInfo* SymbolInfo);
-	void GetEncountGroup(TArray<struct FName>* Group);
-	void GetDistanceSymbolGroupSurround(class AActor* Sender, float ReactDistance, float ReactHeight, TArray<class AEncountGroup*>* OutGroups);
-	void GetDistanceEncountMAPOBJSurround(class AActor* Sender, float ReactDistance, float ReactHeight, TArray<class AActor*>* OutMapObjs);
-	void EncountLink(class APFEncountSymbol* SenderSymbol);
-	void ClearEncountSymbolInfo();
-	void ClearEncountGroup();
-	void CheckWaitSymbolAssetsLoadedForMapJump(bool* bOutWait);
-	void BPE_OutCamp();
-	void BPE_OnChangeDisplayScene(EAriseGameScene ChangedScene, EAriseGameScene OldScene);
-	bool BPE_IsLoadedSymbolAssets();
-	void BPE_GetMinimapRange(float* OutRange, float* OutHeight);
-	int BPE_GetLevelDiffValue();
-	float BPE_GetEncountSurroundHeight();
-	float BPE_GetEncountSurroundDistance();
-	float BPE_GetBattleBonusEndValue();
-	float BPE_GetBattleBonusDeduction();
-	void AddSpawnedSymbol(class AActor* InActor);
-	void AddSpawnedGroups(class AEncountGroup* InGroup);
-	bool AddEncountSymbol_3(const struct FString& actorId);
-	void AddEncountSymbol(const struct FString& SymbolName, const struct FName& OwnerLevelName);
-	void AddEncountGroup(const struct FName& Name);
 };
 
 
@@ -15755,26 +15655,103 @@ public:
 };
 
 
-// Class Arise.GameFunctionMounter
-// 0x0028 (0x0350 - 0x0328)
-class AGameFunctionMounter : public AActor
+// Class Arise.EncountManager
+// 0x00C8 (0x03F0 - 0x0328)
+class AEncountManager : public AActor
 {
 public:
-	EFunctionMountState                                MountState;                                               // 0x0328(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0329(0x0007) MISSED OFFSET
-	struct FScriptMulticastDelegate                    OnMounted;                                                // 0x0330(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnUnMounted;                                              // 0x0340(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	TArray<struct FEncoutSymbolInfo>                   EncountSymbolInfos;                                       // 0x0328(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	class UEncountAssetManager*                        AssetManager;                                             // 0x0338(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData)
+	TArray<class AEncountGroup*>                       SpawnedGroups;                                            // 0x0340(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient)
+	TArray<class AActor*>                              SpawnedSymbols;                                           // 0x0350(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient)
+	TArray<class AActor*>                              SpawnedMAPOBJ;                                            // 0x0360(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient)
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0370(0x0010) MISSED OFFSET
+	struct FScriptMulticastDelegate                    BattleBonusFeverEvent;                                    // 0x0380(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	float                                              EncountGauge;                                             // 0x0390(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	bool                                               bLockEncount;                                             // 0x0394(0x0001) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x2];                                       // 0x0395(0x0002) MISSED OFFSET
+	bool                                               bLockUnloadBattleAsset;                                   // 0x0397(0x0001) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	bool                                               bLockEntry;                                               // 0x0398(0x0001) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x7];                                       // 0x0399(0x0007) MISSED OFFSET
+	TArray<TEnumAsByte<EObjectTypeQuery>>              ObjectTypeQueries;                                        // 0x03A0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnInstance)
+	unsigned char                                      UnknownData03[0x10];                                      // 0x03B0(0x0010) MISSED OFFSET
+	TArray<struct FString>                             MakeEncountGroupNames;                                    // 0x03C0(0x0010) (BlueprintVisible, ZeroConstructor, Transient)
+	unsigned char                                      UnknownData04[0x20];                                      // 0x03D0(0x0020) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.GameFunctionMounter");
+		static auto ptr = UObject::FindClass("Class Arise.EncountManager");
 		return ptr;
 	}
 
 
-	EFunctionMountState GetState();
-	void DoUnMount();
-	void DoMount();
+	void SetEncountSymbolInfo_State(const struct FString& actorId, EEncountSymbolState InState);
+	void SetEncountSymbolInfo_Rare(const struct FString& actorId, bool bEnable);
+	bool SetEncountSymbolInfo(const struct FString& SymbolName, const struct FEncoutSymbolInfo& SymbolInfo);
+	void SetEncountLock(bool bEnable);
+	void ResumeSpawnedSymbol();
+	void ResetBattleBonus();
+	void RemoveSpawnedSymbol(class AActor* InActor);
+	void RemoveSpawnedGroups(class AEncountGroup* InGroup);
+	void RemoveEncountSymbolByInvalidLevel();
+	void RemoveEncountGroup(const struct FName& Name);
+	void PrintRareGroupLog();
+	void PlayNotifySound(float ReactDistance);
+	void PauseSpawnedSymbol();
+	void OnResetEncountGauge();
+	void OnPlayEvent();
+	bool OnGetSurroundEncountMAPOBJNames(class AActor* InMAPOBJ, struct FBtlEncountGroupParam* Param);
+	bool OnGetSurroundEncountGroupNames(TArray<struct FString> EncountGroupNames, class AEncountGroup* InGroup, struct FBtlEncountGroupParam* Param, struct FString* EncountGroupName);
+	void OnGetInteractionProhibitedRange(float* ReactHorizontalDistance, float* ReactVerticalDistance);
+	bool OnGetEncountGroupNames(const struct FString& AutoSymbolName, class AEncountGroup* InGroup, struct FBtlEncountGroupParam* Param, struct FString* EncountGroupName);
+	void OnGetEncountGaugeSubParams(float* EnableHighSpeedRange, float* LowSpeed, float* HighSpeed);
+	void OnGetEncountGaugeAddParams(float* GaugeMagnify, float* DistanceAdjust, float* ReactDistance);
+	void OnChangeState(EAriseGameState ChangedState, bool NewState);
+	void OnChangeDisplayScene(unsigned char ChangedScene, unsigned char OldScene);
+	void MaketEncountGroupParam(const struct FString& AutoSymbolName, class AActor* Encounting, float ReactDistance, float ReactHeight, TArray<struct FBtlEncountGroupParam>* OutParams);
+	bool IsValidEncountGroup(const struct FName& Name);
+	bool IsInCautionRangeCheck(class AActor* Symbol, float Range, float Height);
+	bool IsFollowing();
+	bool IsFever();
+	bool IsDistanceSymbolGroupPC(float ReactDistance);
+	bool IsCaution();
+	float GetViewDistanceMagnify();
+	float GetViewAngleMagnify();
+	void GetSymbolsWithinCautionRange(TArray<class AActor*>* OutSymbols);
+	int GetSymbolsNumWithinCautionRange();
+	void GetSpawendSymbolDistance(TArray<struct FString>* NearSymbols);
+	float GetSearchRangeMagnify();
+	int GetRiskValue(int Value, int HighRisk, int LowRisk, int GEq, int A, int B);
+	class AEncountGroup* GetNearSymbolGroup();
+	class APFEncountSymbol* GetNearSymbol(TArray<class AActor*> Symbols);
+	class APFEncountSymbol* GetNearSpawnedSymbol();
+	bool GetMaxSymbolLevel(TArray<class AEncountGroup*> Groups, int* Level);
+	void GetFollowingSymbols(TArray<class AActor*>* FollowingSymbols);
+	EEncountSymbolState GetEncountSymbolInfo_State(const struct FString& actorId);
+	bool GetEncountSymbolInfo_Rare(const struct FString& actorId);
+	bool GetEncountSymbolInfo_3(const struct FString& actorId, struct FEncoutSymbolInfo* Info);
+	bool GetEncountSymbolInfo(const struct FString& SymbolName, struct FEncoutSymbolInfo* SymbolInfo);
+	void GetEncountGroup(TArray<struct FName>* Group);
+	void GetDistanceSymbolGroupSurround(class AActor* Sender, float ReactDistance, float ReactHeight, TArray<class AEncountGroup*>* OutGroups);
+	void GetDistanceEncountMAPOBJSurround(class AActor* Sender, float ReactDistance, float ReactHeight, TArray<class AActor*>* OutMapObjs);
+	void EncountLink(class APFEncountSymbol* SenderSymbol);
+	void ClearEncountSymbolInfo();
+	void ClearEncountGroup();
+	void CheckWaitSymbolAssetsLoadedForMapJump(bool* bOutWait);
+	void BPE_OutCamp();
+	void BPE_OnChangeDisplayScene(EAriseGameScene ChangedScene, EAriseGameScene OldScene);
+	bool BPE_IsLoadedSymbolAssets();
+	void BPE_GetMinimapRange(float* OutRange, float* OutHeight);
+	int BPE_GetLevelDiffValue();
+	float BPE_GetEncountSurroundHeight();
+	float BPE_GetEncountSurroundDistance();
+	float BPE_GetBattleBonusEndValue();
+	float BPE_GetBattleBonusDeduction();
+	void AddSpawnedSymbol(class AActor* InActor);
+	void AddSpawnedGroups(class AEncountGroup* InGroup);
+	bool AddEncountSymbol_3(const struct FString& actorId);
+	void AddEncountSymbol(const struct FString& SymbolName, const struct FName& OwnerLevelName);
+	void AddEncountGroup(const struct FName& Name);
 };
 
 
@@ -15826,6 +15803,29 @@ public:
 };
 
 
+// Class Arise.GameFunctionMounter
+// 0x0028 (0x0350 - 0x0328)
+class AGameFunctionMounter : public AActor
+{
+public:
+	EFunctionMountState                                MountState;                                               // 0x0328(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0329(0x0007) MISSED OFFSET
+	struct FScriptMulticastDelegate                    OnMounted;                                                // 0x0330(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnUnMounted;                                              // 0x0340(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Arise.GameFunctionMounter");
+		return ptr;
+	}
+
+
+	EFunctionMountState GetState();
+	void DoUnMount();
+	void DoMount();
+};
+
+
 // Class Arise.GenericAnimationFunctionLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UGenericAnimationFunctionLibrary : public UBlueprintFunctionLibrary
@@ -15843,25 +15843,6 @@ public:
 	void STATIC_SetAnimationTimeArrayFloat(float baseTick, int repeat, struct FGenericAnimationArrayFloat* animBase);
 	bool STATIC_AnimateFloat(float Tick, struct FGenericAnimationFloat* animF);
 	bool STATIC_AnimateArrayFloat(float Tick, struct FGenericAnimationArrayFloat* animAF);
-};
-
-
-// Class Arise.HttpTestActor
-// 0x0028 (0x0350 - 0x0328)
-class AHttpTestActor : public AActor
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0328(0x0010) MISSED OFFSET
-	int                                                dbgid;                                                    // 0x0338(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x033C(0x0004) MISSED OFFSET
-	struct FString                                     puid;                                                     // 0x0340(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Arise.HttpTestActor");
-		return ptr;
-	}
-
 };
 
 
@@ -16205,23 +16186,22 @@ public:
 };
 
 
-// Class Arise.ListBoxItemInterface
-// 0x0000 (0x0028 - 0x0028)
-class UListBoxItemInterface : public UInterface
+// Class Arise.HttpTestActor
+// 0x0028 (0x0350 - 0x0328)
+class AHttpTestActor : public AActor
 {
 public:
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0328(0x0010) MISSED OFFSET
+	int                                                dbgid;                                                    // 0x0338(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x033C(0x0004) MISSED OFFSET
+	struct FString                                     puid;                                                     // 0x0340(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.ListBoxItemInterface");
+		static auto ptr = UObject::FindClass("Class Arise.HttpTestActor");
 		return ptr;
 	}
 
-
-	bool SetCursorFocus(bool IsFocusable);
-	bool OnMouseFocus();
-	bool OnMouseCursor();
-	int GetSortValue();
 };
 
 
@@ -16322,6 +16302,26 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class Arise.ListBoxItemInterface
+// 0x0000 (0x0028 - 0x0028)
+class UListBoxItemInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Arise.ListBoxItemInterface");
+		return ptr;
+	}
+
+
+	bool SetCursorFocus(bool IsFocusable);
+	bool OnMouseFocus();
+	bool OnMouseCursor();
+	int GetSortValue();
 };
 
 
@@ -16518,35 +16518,6 @@ public:
 };
 
 
-// Class Arise.LongChatFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
-class ULongChatFunctionLibrary : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Arise.LongChatFunctionLibrary");
-		return ptr;
-	}
-
-
-	void STATIC_UpdateLongChatPlayQue(const struct FString& LocationName, TArray<struct FString>* HitList);
-	void STATIC_PostPlayLongChat(const struct FString& LongchatName);
-	void STATIC_OpenLongChatDatabaseEditor();
-	void STATIC_MargePostDofSettings(const struct FPostProcessSettings& baseSetting, const struct FPostProcessSettings& addSetting, struct FPostProcessSettings* dstSetting);
-	bool STATIC_IsSatisfyLongChatPlayCondition(const struct FString& InLongChatName);
-	float STATIC_GetMaxVoiceTime(class UDataTable* Table, const struct FString& VoiceID);
-	int STATIC_GetMaxPlayableLongchatCount();
-	bool STATIC_GetLongChatScripts(const struct FSoftObjectPath& refAsset, TArray<struct FLongChatScript>* loadedArray);
-	bool STATIC_GetLongChatNamesByRegex(const struct FString& iPattern, TArray<struct FString>* chatNameNames);
-	bool STATIC_GetLongChatNames(TArray<struct FString>* chatNameNames);
-	class UTexture* STATIC_GetLongChatBGTexture(const struct FSoftObjectPath& ObjectPath);
-	void STATIC_GetLongChatAnimList(const struct FSoftObjectPath& basePath, const struct FString& charcterID, TArray<struct FString>* AnimList);
-	void STATIC_CopyPostProcessSettings(const struct FPostProcessSettings& srcSetting, struct FPostProcessSettings* dstSetting);
-};
-
-
 // Class Arise.LongChatLauncher
 // 0x0000 (0x0328 - 0x0328)
 class ALongChatLauncher : public AActor
@@ -16633,28 +16604,32 @@ public:
 };
 
 
-// Class Arise.LureNote
-// 0x0030 (0x0358 - 0x0328)
-class ALureNote : public AActor
+// Class Arise.LongChatFunctionLibrary
+// 0x0000 (0x0028 - 0x0028)
+class ULongChatFunctionLibrary : public UBlueprintFunctionLibrary
 {
 public:
-	TArray<struct FStrLureNote>                        LureNote;                                                 // 0x0328(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient)
-	TArray<struct FStrLureNoteTimer>                   NoteTimeLine;                                             // 0x0338(0x0010) (BlueprintVisible, ZeroConstructor, Transient)
-	float                                              StartWaitTime;                                            // 0x0348(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	float                                              TimelineLength;                                           // 0x034C(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	float                                              CurrentTimelineLength;                                    // 0x0350(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
-	int                                                CurrentNoteId;                                            // 0x0354(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.LureNote");
+		static auto ptr = UObject::FindClass("Class Arise.LongChatFunctionLibrary");
 		return ptr;
 	}
 
 
-	void UpdateTimline(float Tick);
-	void RestartTimline();
-	bool CreateLureNote(const struct FString& LureNoteDatatable, float inStartWaitTime, float inTimelineLength);
+	void STATIC_UpdateLongChatPlayQue(const struct FString& LocationName, TArray<struct FString>* HitList);
+	void STATIC_PostPlayLongChat(const struct FString& LongchatName);
+	void STATIC_OpenLongChatDatabaseEditor();
+	void STATIC_MargePostDofSettings(const struct FPostProcessSettings& baseSetting, const struct FPostProcessSettings& addSetting, struct FPostProcessSettings* dstSetting);
+	bool STATIC_IsSatisfyLongChatPlayCondition(const struct FString& InLongChatName);
+	float STATIC_GetMaxVoiceTime(class UDataTable* Table, const struct FString& VoiceID);
+	int STATIC_GetMaxPlayableLongchatCount();
+	bool STATIC_GetLongChatScripts(const struct FSoftObjectPath& refAsset, TArray<struct FLongChatScript>* loadedArray);
+	bool STATIC_GetLongChatNamesByRegex(const struct FString& iPattern, TArray<struct FString>* chatNameNames);
+	bool STATIC_GetLongChatNames(TArray<struct FString>* chatNameNames);
+	class UTexture* STATIC_GetLongChatBGTexture(const struct FSoftObjectPath& ObjectPath);
+	void STATIC_GetLongChatAnimList(const struct FSoftObjectPath& basePath, const struct FString& charcterID, TArray<struct FString>* AnimList);
+	void STATIC_CopyPostProcessSettings(const struct FPostProcessSettings& srcSetting, struct FPostProcessSettings* dstSetting);
 };
 
 
@@ -16904,43 +16879,28 @@ public:
 };
 
 
-// Class Arise.MapPointHelper
-// 0x00C8 (0x00F0 - 0x0028)
-class UMapPointHelper : public UObject
+// Class Arise.LureNote
+// 0x0030 (0x0358 - 0x0328)
+class ALureNote : public AActor
 {
 public:
-	TMap<int, struct FMapPoinWidgetData>               PointWidgetArray;                                         // 0x0028(0x0050) (BlueprintVisible, ZeroConstructor)
-	TArray<class UUserWidget*>                         LineWidgetArray;                                          // 0x0078(0x0010) (BlueprintVisible, ExportObject, ZeroConstructor)
-	int                                                SelectedID;                                               // 0x0088(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               IsActive;                                                 // 0x008C(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x008D(0x0003) MISSED OFFSET
-	struct FScriptMulticastDelegate                    ActivateDelegate;                                         // 0x0090(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    SelectedProcedure;                                        // 0x00A0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    ShowAnimationDelegate;                                    // 0x00B0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    HideAnimationDelegate;                                    // 0x00C0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    RefreshWidgetsDelegate;                                   // 0x00D0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FString                                     debugStr;                                                 // 0x00E0(0x0010) (BlueprintVisible, ZeroConstructor)
+	TArray<struct FStrLureNote>                        LureNote;                                                 // 0x0328(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient)
+	TArray<struct FStrLureNoteTimer>                   NoteTimeLine;                                             // 0x0338(0x0010) (BlueprintVisible, ZeroConstructor, Transient)
+	float                                              StartWaitTime;                                            // 0x0348(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	float                                              TimelineLength;                                           // 0x034C(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	float                                              CurrentTimelineLength;                                    // 0x0350(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
+	int                                                CurrentNoteId;                                            // 0x0354(0x0004) (BlueprintVisible, ZeroConstructor, Transient, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.MapPointHelper");
+		static auto ptr = UObject::FindClass("Class Arise.LureNote");
 		return ptr;
 	}
 
 
-	void ShowWidgets(bool bWithAnimation);
-	bool SelectValid();
-	void Select(int iNewIndex);
-	void RegistPointWidget(class UClickableWidgetBase* iWidget, int UniqueId);
-	void RegistLineWidget(class UUserWidget* iWidget, int UniqueId);
-	void RefreshWidgets();
-	void Refresh();
-	void Initialize();
-	void HideWidgets(bool bWithAnimation);
-	bool DefaultPadControl(class AMenuPadProcess* PadProcess, float AxisX, float AxisY, float Margin, float Weight);
-	class UMapPointHelper* STATIC_CreateInstance();
-	void Clear();
-	void Activate(bool sw);
+	void UpdateTimline(float Tick);
+	void RestartTimline();
+	bool CreateLureNote(const struct FString& LureNoteDatatable, float inStartWaitTime, float inTimelineLength);
 };
 
 
@@ -17439,19 +17399,43 @@ public:
 };
 
 
-// Class Arise.MenuCursorNameDatabase
-// 0x0010 (0x01C8 - 0x01B8)
-class UMenuCursorNameDatabase : public UXmlDatabaseBase
+// Class Arise.MapPointHelper
+// 0x00C8 (0x00F0 - 0x0028)
+class UMapPointHelper : public UObject
 {
 public:
-	struct FCursorDataCollection                       Database;                                                 // 0x01B8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
+	TMap<int, struct FMapPoinWidgetData>               PointWidgetArray;                                         // 0x0028(0x0050) (BlueprintVisible, ZeroConstructor)
+	TArray<class UUserWidget*>                         LineWidgetArray;                                          // 0x0078(0x0010) (BlueprintVisible, ExportObject, ZeroConstructor)
+	int                                                SelectedID;                                               // 0x0088(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               IsActive;                                                 // 0x008C(0x0001) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x008D(0x0003) MISSED OFFSET
+	struct FScriptMulticastDelegate                    ActivateDelegate;                                         // 0x0090(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    SelectedProcedure;                                        // 0x00A0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    ShowAnimationDelegate;                                    // 0x00B0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    HideAnimationDelegate;                                    // 0x00C0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    RefreshWidgetsDelegate;                                   // 0x00D0(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FString                                     debugStr;                                                 // 0x00E0(0x0010) (BlueprintVisible, ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.MenuCursorNameDatabase");
+		static auto ptr = UObject::FindClass("Class Arise.MapPointHelper");
 		return ptr;
 	}
 
+
+	void ShowWidgets(bool bWithAnimation);
+	bool SelectValid();
+	void Select(int iNewIndex);
+	void RegistPointWidget(class UClickableWidgetBase* iWidget, int UniqueId);
+	void RegistLineWidget(class UUserWidget* iWidget, int UniqueId);
+	void RefreshWidgets();
+	void Refresh();
+	void Initialize();
+	void HideWidgets(bool bWithAnimation);
+	bool DefaultPadControl(class AMenuPadProcess* PadProcess, float AxisX, float AxisY, float Margin, float Weight);
+	class UMapPointHelper* STATIC_CreateInstance();
+	void Clear();
+	void Activate(bool sw);
 };
 
 
@@ -17641,16 +17625,16 @@ public:
 };
 
 
-// Class Arise.FarmDatabase
-// 0x0070 (0x0228 - 0x01B8)
-class UFarmDatabase : public UXmlDatabaseBase
+// Class Arise.MenuCursorNameDatabase
+// 0x0010 (0x01C8 - 0x01B8)
+class UMenuCursorNameDatabase : public UXmlDatabaseBase
 {
 public:
-	struct FFarmData                                   Database;                                                 // 0x01B8(0x0070) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
+	struct FCursorDataCollection                       Database;                                                 // 0x01B8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.FarmDatabase");
+		static auto ptr = UObject::FindClass("Class Arise.MenuCursorNameDatabase");
 		return ptr;
 	}
 
@@ -20381,30 +20365,19 @@ public:
 };
 
 
-// Class Arise.PFNpcAnimInstance
-// 0x0060 (0x05F0 - 0x0590)
-class UPFNpcAnimInstance : public UPFAnimInstance
+// Class Arise.FarmDatabase
+// 0x0070 (0x0228 - 0x01B8)
+class UFarmDatabase : public UXmlDatabaseBase
 {
 public:
-	class UASAnimationSet*                             AnimSet;                                                  // 0x0590(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	struct FName                                       ActionKey;                                                // 0x0598(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	struct FName                                       DeriveActionKey;                                          // 0x05A0(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	int                                                LoopCount;                                                // 0x05A8(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x05AC(0x0004) MISSED OFFSET
-	struct FPFNpcAnimPlayActionCommand                 PlayActionOnce;                                           // 0x05B0(0x0010) (BlueprintVisible, Transient)
-	TArray<struct FPFNpcAnimPlayActionCommand>         PlayActionQueue;                                          // 0x05C0(0x0010) (BlueprintVisible, ZeroConstructor, Transient)
-	unsigned char                                      UnknownData01[0x20];                                      // 0x05D0(0x0020) MISSED OFFSET
+	struct FFarmData                                   Database;                                                 // 0x01B8(0x0070) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.PFNpcAnimInstance");
+		static auto ptr = UObject::FindClass("Class Arise.FarmDatabase");
 		return ptr;
 	}
 
-
-	bool GetNextTransitionList(class UASTransition_Base* ThisTransition, TArray<class UASTransition_Base*>* NextTransitionList);
-	bool GetCurrentElapsedTime(float* ElapsedTime);
-	bool GetCurrentAnimTime(float* CurrentTime, float* TotalTime);
 };
 
 
@@ -21075,6 +21048,33 @@ public:
 };
 
 
+// Class Arise.PFNpcAnimInstance
+// 0x0060 (0x05F0 - 0x0590)
+class UPFNpcAnimInstance : public UPFAnimInstance
+{
+public:
+	class UASAnimationSet*                             AnimSet;                                                  // 0x0590(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	struct FName                                       ActionKey;                                                // 0x0598(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	struct FName                                       DeriveActionKey;                                          // 0x05A0(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	int                                                LoopCount;                                                // 0x05A8(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x05AC(0x0004) MISSED OFFSET
+	struct FPFNpcAnimPlayActionCommand                 PlayActionOnce;                                           // 0x05B0(0x0010) (BlueprintVisible, Transient)
+	TArray<struct FPFNpcAnimPlayActionCommand>         PlayActionQueue;                                          // 0x05C0(0x0010) (BlueprintVisible, ZeroConstructor, Transient)
+	unsigned char                                      UnknownData01[0x20];                                      // 0x05D0(0x0020) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Arise.PFNpcAnimInstance");
+		return ptr;
+	}
+
+
+	bool GetNextTransitionList(class UASTransition_Base* ThisTransition, TArray<class UASTransition_Base*>* NextTransitionList);
+	bool GetCurrentElapsedTime(float* ElapsedTime);
+	bool GetCurrentAnimTime(float* CurrentTime, float* TotalTime);
+};
+
+
 // Class Arise.PFNpcSettingsBase
 // 0x0040 (0x0138 - 0x00F8)
 class UPFNpcSettingsBase : public UActorComponent
@@ -21217,66 +21217,6 @@ public:
 		return ptr;
 	}
 
-};
-
-
-// Class Arise.PFOneTopComponent
-// 0x02A0 (0x0398 - 0x00F8)
-class UPFOneTopComponent : public UActorComponent
-{
-public:
-	struct FPFOneTopID                                 GroupID;                                                  // 0x00F8(0x0010) (Edit, BlueprintVisible, Transient)
-	struct FString                                     SelectionTalkNo;                                          // 0x0108(0x0010) (Edit, BlueprintVisible, ZeroConstructor, Transient)
-	struct FString                                     MergeTalkNo;                                              // 0x0118(0x0010) (Edit, BlueprintVisible, ZeroConstructor, Transient)
-	int                                                TalkCount;                                                // 0x0128(0x0004) (Edit, BlueprintVisible, ZeroConstructor, Transient, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x012C(0x0004) MISSED OFFSET
-	struct FScriptMulticastDelegate                    OnSelectNotify;                                           // 0x0130(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FPFOneTopRecord                             CachedCurrentRecord;                                      // 0x0140(0x0090) (Edit, BlueprintVisible, BlueprintReadOnly, Transient, EditConst)
-	unsigned char                                      UnknownData01[0x1C8];                                     // 0x01D0(0x01C8) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Arise.PFOneTopComponent");
-		return ptr;
-	}
-
-
-	void K2_SetTalkTextNo(int TextNo);
-	void K2_SetTalkSkipNo(int TextNo);
-	void K2_SetTalkSelectNo(int SelectNo, int* SelectTextNo);
-	void K2_SetTalkPostEvent();
-	void K2_SetTalkNext();
-	void K2_SetTalkMessageReplaceString(int TextNo, const struct FString& Key, const struct FModifiedText& Value);
-	void K2_SetTalkMessageReplaceInt(int TextNo, const struct FString& Key, int Value);
-	void K2_SetPlayVoiceEvent(const struct FScriptDelegate& Signature);
-	void K2_SetMetaEvent(const struct FScriptDelegate& Signature);
-	void K2_SetId(const struct FPFOneTopID& OneTopID);
-	void K2_SetCharacterEvent(const struct FScriptDelegate& Signature);
-	void K2_ResetTalkSkipNo();
-	void K2_ResetTalkMessageReplace();
-	void K2_PlayVoice(const struct FString& VoiceLabel, class AActor* Speaker, bool bHasLipSync);
-	bool K2_MakeSelection(TArray<struct FModifiedText>* Select, TArray<bool>* Readed, bool* bUseCancel, bool* bSelectLastFocus);
-	bool K2_IsTalkSelect();
-	bool K2_IsTalkEnd();
-	bool K2_IsTalkable();
-	bool K2_IsLipSyncVoice();
-	void K2_GetTalkWords(TArray<struct FPFOneTopWord>* Words);
-	void K2_GetTalkSelect(TArray<struct FModifiedText>* Select);
-	int K2_GetTalkMessageStrLen();
-	bool K2_GetTalkMessage(struct FModifiedText* Message, struct FModifiedText* Name);
-	struct FString K2_GetSelectionID();
-	bool K2_GetLipAnimEnable();
-	int K2_GetLastTalkSelectTextNo();
-	int K2_GetLastTalkSelectIndex();
-	float K2_GetFakeLipSyncTime();
-	int K2_GetCurrentRecord(struct FPFOneTopRecord* Record);
-	unsigned char K2_GetCharacterReaction(const struct FString& CharacterID);
-	struct FString K2_GetCharacterAction(const struct FString& CharacterID);
-	struct FString K2_GetCaptionID();
-	bool K2_GetAlreadyReadSkip(int TextNo, int* SkipNo);
-	bool K2_EndTalk();
-	bool K2_BeginTalk();
-	void K2_AddAlreadyReadSkip(int TextNo, int SkipNo);
 };
 
 
@@ -21502,6 +21442,66 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class Arise.PFOneTopComponent
+// 0x02A0 (0x0398 - 0x00F8)
+class UPFOneTopComponent : public UActorComponent
+{
+public:
+	struct FPFOneTopID                                 GroupID;                                                  // 0x00F8(0x0010) (Edit, BlueprintVisible, Transient)
+	struct FString                                     SelectionTalkNo;                                          // 0x0108(0x0010) (Edit, BlueprintVisible, ZeroConstructor, Transient)
+	struct FString                                     MergeTalkNo;                                              // 0x0118(0x0010) (Edit, BlueprintVisible, ZeroConstructor, Transient)
+	int                                                TalkCount;                                                // 0x0128(0x0004) (Edit, BlueprintVisible, ZeroConstructor, Transient, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x012C(0x0004) MISSED OFFSET
+	struct FScriptMulticastDelegate                    OnSelectNotify;                                           // 0x0130(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FPFOneTopRecord                             CachedCurrentRecord;                                      // 0x0140(0x0090) (Edit, BlueprintVisible, BlueprintReadOnly, Transient, EditConst)
+	unsigned char                                      UnknownData01[0x1C8];                                     // 0x01D0(0x01C8) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Arise.PFOneTopComponent");
+		return ptr;
+	}
+
+
+	void K2_SetTalkTextNo(int TextNo);
+	void K2_SetTalkSkipNo(int TextNo);
+	void K2_SetTalkSelectNo(int SelectNo, int* SelectTextNo);
+	void K2_SetTalkPostEvent();
+	void K2_SetTalkNext();
+	void K2_SetTalkMessageReplaceString(int TextNo, const struct FString& Key, const struct FModifiedText& Value);
+	void K2_SetTalkMessageReplaceInt(int TextNo, const struct FString& Key, int Value);
+	void K2_SetPlayVoiceEvent(const struct FScriptDelegate& Signature);
+	void K2_SetMetaEvent(const struct FScriptDelegate& Signature);
+	void K2_SetId(const struct FPFOneTopID& OneTopID);
+	void K2_SetCharacterEvent(const struct FScriptDelegate& Signature);
+	void K2_ResetTalkSkipNo();
+	void K2_ResetTalkMessageReplace();
+	void K2_PlayVoice(const struct FString& VoiceLabel, class AActor* Speaker, bool bHasLipSync);
+	bool K2_MakeSelection(TArray<struct FModifiedText>* Select, TArray<bool>* Readed, bool* bUseCancel, bool* bSelectLastFocus);
+	bool K2_IsTalkSelect();
+	bool K2_IsTalkEnd();
+	bool K2_IsTalkable();
+	bool K2_IsLipSyncVoice();
+	void K2_GetTalkWords(TArray<struct FPFOneTopWord>* Words);
+	void K2_GetTalkSelect(TArray<struct FModifiedText>* Select);
+	int K2_GetTalkMessageStrLen();
+	bool K2_GetTalkMessage(struct FModifiedText* Message, struct FModifiedText* Name);
+	struct FString K2_GetSelectionID();
+	bool K2_GetLipAnimEnable();
+	int K2_GetLastTalkSelectTextNo();
+	int K2_GetLastTalkSelectIndex();
+	float K2_GetFakeLipSyncTime();
+	int K2_GetCurrentRecord(struct FPFOneTopRecord* Record);
+	unsigned char K2_GetCharacterReaction(const struct FString& CharacterID);
+	struct FString K2_GetCharacterAction(const struct FString& CharacterID);
+	struct FString K2_GetCaptionID();
+	bool K2_GetAlreadyReadSkip(int TextNo, int* SkipNo);
+	bool K2_EndTalk();
+	bool K2_BeginTalk();
+	void K2_AddAlreadyReadSkip(int TextNo, int SkipNo);
 };
 
 
@@ -21907,22 +21907,6 @@ public:
 };
 
 
-// Class Arise.PFPlacementRecoveryPointDatabaseObject
-// 0x0010 (0x01C8 - 0x01B8)
-class UPFPlacementRecoveryPointDatabaseObject : public UXmlDatabaseBase
-{
-public:
-	struct FPFPlacementRecoveryPointDatabase           Database;                                                 // 0x01B8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Arise.PFPlacementRecoveryPointDatabaseObject");
-		return ptr;
-	}
-
-};
-
-
 // Class Arise.PFPlacementSearch
 // 0x00D0 (0x03F8 - 0x0328)
 class APFPlacementSearch : public APFPlacementObject
@@ -22030,16 +22014,16 @@ public:
 };
 
 
-// Class Arise.PFPlacementTreasurePointDatabaseObject
+// Class Arise.PFPlacementRecoveryPointDatabaseObject
 // 0x0010 (0x01C8 - 0x01B8)
-class UPFPlacementTreasurePointDatabaseObject : public UXmlDatabaseBase
+class UPFPlacementRecoveryPointDatabaseObject : public UXmlDatabaseBase
 {
 public:
-	struct FPFPlacementTreasurePointDatabase           Database;                                                 // 0x01B8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
+	struct FPFPlacementRecoveryPointDatabase           Database;                                                 // 0x01B8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.PFPlacementTreasurePointDatabaseObject");
+		static auto ptr = UObject::FindClass("Class Arise.PFPlacementRecoveryPointDatabaseObject");
 		return ptr;
 	}
 
@@ -22104,20 +22088,19 @@ public:
 };
 
 
-// Class Arise.PFRecoveryPointSerializeInterface
-// 0x0000 (0x0028 - 0x0028)
-class UPFRecoveryPointSerializeInterface : public UInterface
+// Class Arise.PFPlacementTreasurePointDatabaseObject
+// 0x0010 (0x01C8 - 0x01B8)
+class UPFPlacementTreasurePointDatabaseObject : public UXmlDatabaseBase
 {
 public:
+	struct FPFPlacementTreasurePointDatabase           Database;                                                 // 0x01B8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.PFRecoveryPointSerializeInterface");
+		static auto ptr = UObject::FindClass("Class Arise.PFPlacementTreasurePointDatabaseObject");
 		return ptr;
 	}
 
-
-	void ReceiveSerializeRecoveryPointParameter(struct FPFPlacementRecoveryPointDatabaseRow* DestinationParameter);
 };
 
 
@@ -22668,21 +22651,20 @@ public:
 };
 
 
-// Class Arise.QuestDatabase
-// 0x0010 (0x01C8 - 0x01B8)
-class UQuestDatabase : public UXmlDatabaseBase
+// Class Arise.PFRecoveryPointSerializeInterface
+// 0x0000 (0x0028 - 0x0028)
+class UPFRecoveryPointSerializeInterface : public UInterface
 {
 public:
-	struct FQuestDatabaseRow                           Database;                                                 // 0x01B8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.QuestDatabase");
+		static auto ptr = UObject::FindClass("Class Arise.PFRecoveryPointSerializeInterface");
 		return ptr;
 	}
 
 
-	bool IsEnableIndex_Data(int Index);
+	void ReceiveSerializeRecoveryPointParameter(struct FPFPlacementRecoveryPointDatabaseRow* DestinationParameter);
 };
 
 
@@ -22949,29 +22931,21 @@ public:
 };
 
 
-// Class Arise.SaveImageConv
-// 0x0000 (0x0028 - 0x0028)
-class USaveImageConv : public UBlueprintFunctionLibrary
+// Class Arise.QuestDatabase
+// 0x0010 (0x01C8 - 0x01B8)
+class UQuestDatabase : public UXmlDatabaseBase
 {
 public:
+	struct FQuestDatabaseRow                           Database;                                                 // 0x01B8(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, EditConst)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Arise.SaveImageConv");
+		static auto ptr = UObject::FindClass("Class Arise.QuestDatabase");
 		return ptr;
 	}
 
 
-	void OnGetThumbneilDataBuffer__DelegateSignature(TArray<unsigned char> OutBuffer, bool ReturnValue);
-	void STATIC_ImageResizeWork(int srcWidth, int srcHeight, int dstWidth, int dstHeight, TArray<struct FColor>* srcBuffer, TArray<struct FColor>* dstBuffer);
-	void STATIC_GetThumbneilDataBufferAsync(int Width, int Height, const struct FScriptDelegate& OnComplete);
-	bool STATIC_GetThumbneilDataBuffer(int Width, int Height, TArray<unsigned char>* OutBuffer);
-	bool STATIC_GetThumbneilData(int Width, int Height, class UTexture2DDynamic** OutTexture);
-	bool STATIC_GetTextureBuffer(class UTexture2D* InTexture, int Width, int Height, TArray<unsigned char>* OutBuffer);
-	void STATIC_GetImageBufferData(class UTextureRenderTarget2D* InRenderTarget, TArray<struct FColor>* OutColor, int* OutWidth, int* OutHeight);
-	bool STATIC_CreateThumbneilTextureDynamic(int Width, int Height, TArray<unsigned char>* InBuffer, class UTexture2DDynamic** OutTexture);
-	bool STATIC_CreateThumbneilTexture(int Width, int Height, TArray<unsigned char>* InBuffer, class UTexture2D** OutTexture);
-	class UTexture2D* STATIC_CreateImageTexture(int Width, int Height, TArray<struct FColor>* srcBuffer);
+	bool IsEnableIndex_Data(int Index);
 };
 
 
@@ -24467,6 +24441,32 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class Arise.SaveImageConv
+// 0x0000 (0x0028 - 0x0028)
+class USaveImageConv : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Arise.SaveImageConv");
+		return ptr;
+	}
+
+
+	void OnGetThumbneilDataBuffer__DelegateSignature(TArray<unsigned char> OutBuffer, bool ReturnValue);
+	void STATIC_ImageResizeWork(int srcWidth, int srcHeight, int dstWidth, int dstHeight, TArray<struct FColor>* srcBuffer, TArray<struct FColor>* dstBuffer);
+	void STATIC_GetThumbneilDataBufferAsync(int Width, int Height, const struct FScriptDelegate& OnComplete);
+	bool STATIC_GetThumbneilDataBuffer(int Width, int Height, TArray<unsigned char>* OutBuffer);
+	bool STATIC_GetThumbneilData(int Width, int Height, class UTexture2DDynamic** OutTexture);
+	bool STATIC_GetTextureBuffer(class UTexture2D* InTexture, int Width, int Height, TArray<unsigned char>* OutBuffer);
+	void STATIC_GetImageBufferData(class UTextureRenderTarget2D* InRenderTarget, TArray<struct FColor>* OutColor, int* OutWidth, int* OutHeight);
+	bool STATIC_CreateThumbneilTextureDynamic(int Width, int Height, TArray<unsigned char>* InBuffer, class UTexture2DDynamic** OutTexture);
+	bool STATIC_CreateThumbneilTexture(int Width, int Height, TArray<unsigned char>* InBuffer, class UTexture2D** OutTexture);
+	class UTexture2D* STATIC_CreateImageTexture(int Width, int Height, TArray<struct FColor>* srcBuffer);
 };
 
 

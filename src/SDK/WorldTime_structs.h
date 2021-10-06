@@ -15,11 +15,11 @@ namespace SDK
 // Enum WorldTime.EWorldTimeZone
 enum class EWorldTimeZone : uint8_t
 {
-	EWorldTimeZone__Morning        = 0,
-	EWorldTimeZone__Daytime        = 1,
-	EWorldTimeZone__Evening        = 2,
-	EWorldTimeZone__Night          = 3,
-	EWorldTimeZone__Max            = 4
+	Morning                        = 0,
+	Daytime                        = 1,
+	Evening                        = 2,
+	Night                          = 3,
+	Max                            = 4
 };
 
 

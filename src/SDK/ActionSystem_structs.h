@@ -15,12 +15,12 @@ namespace SDK
 // Enum ActionSystem.EASSMStateType
 enum class EASSMStateType : uint8_t
 {
-	EASSMStateType__Sequence       = 0,
-	EASSMStateType__BlendSpace     = 1,
-	EASSMStateType__AimOffset      = 2,
-	EASSMStateType__StateMachine   = 3,
-	EASSMStateType__Slot           = 4,
-	EASSMStateType__EASSMStateType_MAX = 5
+	Sequence                       = 0,
+	BlendSpace                     = 1,
+	AimOffset                      = 2,
+	StateMachine                   = 3,
+	Slot                           = 4,
+	EASSMStateType_MAX             = 5
 };
 
 
@@ -37,23 +37,23 @@ enum class EAnimCommandState : uint8_t
 // Enum ActionSystem.EASAlphaBlendOption
 enum class EASAlphaBlendOption : uint8_t
 {
-	EASAlphaBlendOption__Linear    = 0,
-	EASAlphaBlendOption__Cubic     = 1,
-	EASAlphaBlendOption__HermiteCubic = 2,
-	EASAlphaBlendOption__Sinusoidal = 3,
-	EASAlphaBlendOption__QuadraticInOut = 4,
-	EASAlphaBlendOption__CubicInOut = 5,
-	EASAlphaBlendOption__QuarticInOut = 6,
-	EASAlphaBlendOption__QuinticInOut = 7,
-	EASAlphaBlendOption__CircularIn = 8,
-	EASAlphaBlendOption__CircularOut = 9,
-	EASAlphaBlendOption__CircularInOut = 10,
-	EASAlphaBlendOption__ExpIn     = 11,
-	EASAlphaBlendOption__ExpOut    = 12,
-	EASAlphaBlendOption__ExpInOut  = 13,
-	EASAlphaBlendOption__Custom    = 14,
-	EASAlphaBlendOption__Inertial  = 15,
-	EASAlphaBlendOption__EASAlphaBlendOption_MAX = 16
+	Linear                         = 0,
+	Cubic                          = 1,
+	HermiteCubic                   = 2,
+	Sinusoidal                     = 3,
+	QuadraticInOut                 = 4,
+	CubicInOut                     = 5,
+	QuarticInOut                   = 6,
+	QuinticInOut                   = 7,
+	CircularIn                     = 8,
+	CircularOut                    = 9,
+	CircularInOut                  = 10,
+	ExpIn                          = 11,
+	ExpOut                         = 12,
+	ExpInOut                       = 13,
+	Custom                         = 14,
+	Inertial                       = 15,
+	EASAlphaBlendOption_MAX        = 16
 };
 
 

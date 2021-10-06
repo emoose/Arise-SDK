@@ -15,13 +15,13 @@ namespace SDK
 // UserDefinedEnum ENM_MapShowState.ENM_MapShowState
 enum class ENM_MapShowState : uint8_t
 {
-	ENM_MapShowState__NewEnumerator4 = 0,
-	ENM_MapShowState__NewEnumerator2 = 1,
-	ENM_MapShowState__NewEnumerator0 = 2,
-	ENM_MapShowState__NewEnumerator1 = 3,
-	ENM_MapShowState__NewEnumerator5 = 4,
-	ENM_MapShowState__NewEnumerator3 = 5,
-	ENM_MapShowState__ENM_MAX      = 6
+	NewEnumerator4                 = 0,
+	NewEnumerator2                 = 1,
+	NewEnumerator0                 = 2,
+	NewEnumerator1                 = 3,
+	NewEnumerator5                 = 4,
+	NewEnumerator3                 = 5,
+	ENM_MAX                        = 6
 };
 
 

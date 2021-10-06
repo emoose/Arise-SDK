@@ -15,10 +15,10 @@ namespace SDK
 // Enum ActorSequence.EActorSequenceObjectReferenceType
 enum class EActorSequenceObjectReferenceType : uint8_t
 {
-	EActorSequenceObjectReferenceType__ContextActor = 0,
-	EActorSequenceObjectReferenceType__ExternalActor = 1,
-	EActorSequenceObjectReferenceType__Component = 2,
-	EActorSequenceObjectReferenceType__EActorSequenceObjectReferenceType_MAX = 3
+	ContextActor                   = 0,
+	ExternalActor                  = 1,
+	Component                      = 2,
+	EActorSequenceObjectReferenceType_MAX = 3
 };
 
 

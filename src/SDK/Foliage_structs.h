@@ -15,24 +15,24 @@ namespace SDK
 // Enum Foliage.EFoliageScaling
 enum class EFoliageScaling : uint8_t
 {
-	EFoliageScaling__Uniform       = 0,
-	EFoliageScaling__Free          = 1,
-	EFoliageScaling__LockXY        = 2,
-	EFoliageScaling__LockXZ        = 3,
-	EFoliageScaling__LockYZ        = 4,
-	EFoliageScaling__EFoliageScaling_MAX = 5
+	Uniform                        = 0,
+	Free                           = 1,
+	LockXY                         = 2,
+	LockXZ                         = 3,
+	LockYZ                         = 4,
+	EFoliageScaling_MAX            = 5
 };
 
 
 // Enum Foliage.EVertexColorMaskChannel
 enum class EVertexColorMaskChannel : uint8_t
 {
-	EVertexColorMaskChannel__Red   = 0,
-	EVertexColorMaskChannel__Green = 1,
-	EVertexColorMaskChannel__Blue  = 2,
-	EVertexColorMaskChannel__Alpha = 3,
-	EVertexColorMaskChannel__MAX_None = 4,
-	EVertexColorMaskChannel__EVertexColorMaskChannel_MAX = 5
+	Red                            = 0,
+	Green                          = 1,
+	Blue                           = 2,
+	Alpha                          = 3,
+	MAX_None                       = 4,
+	EVertexColorMaskChannel_MAX    = 5
 };
 
 
@@ -51,20 +51,20 @@ enum class EFoliageVertexColorMask : uint8_t
 // Enum Foliage.ESimulationQuery
 enum class ESimulationQuery : uint8_t
 {
-	ESimulationQuery__CollisionOverlap = 0,
-	ESimulationQuery__ShadeOverlap = 1,
-	ESimulationQuery__AnyOverlap   = 2,
-	ESimulationQuery__ESimulationQuery_MAX = 3
+	CollisionOverlap               = 0,
+	ShadeOverlap                   = 1,
+	AnyOverlap                     = 2,
+	ESimulationQuery_MAX           = 3
 };
 
 
 // Enum Foliage.ESimulationOverlap
 enum class ESimulationOverlap : uint8_t
 {
-	ESimulationOverlap__CollisionOverlap = 0,
-	ESimulationOverlap__ShadeOverlap = 1,
-	ESimulationOverlap__None       = 2,
-	ESimulationOverlap__ESimulationOverlap_MAX = 3
+	CollisionOverlap               = 0,
+	ShadeOverlap                   = 1,
+	None                           = 2,
+	ESimulationOverlap_MAX         = 3
 };
 
 

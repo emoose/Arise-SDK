@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum EPFPlayerCollisionPreset.EPFPlayerCollisionPreset
 enum class EPFPlayerCollisionPreset : uint8_t
 {
-	EPFPlayerCollisionPreset__NewEnumerator2 = 0,
-	EPFPlayerCollisionPreset__NewEnumerator1 = 1,
-	EPFPlayerCollisionPreset__NewEnumerator0 = 2,
-	EPFPlayerCollisionPreset__EPFPlayerCollisionPreset_MAX = 3
+	NewEnumerator2                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator0                 = 2,
+	EPFPlayerCollisionPreset_MAX   = 3
 };
 
 

@@ -15,11 +15,11 @@ namespace SDK
 // Enum TrophyRuntime.ETrophyRank
 enum class ETrophyRank : uint8_t
 {
-	ETrophyRank__Platinum          = 0,
-	ETrophyRank__Gold              = 1,
-	ETrophyRank__Silver            = 2,
-	ETrophyRank__Bronze            = 3,
-	ETrophyRank__ETrophyRank_MAX   = 4
+	Platinum                       = 0,
+	Gold                           = 1,
+	Silver                         = 2,
+	Bronze                         = 3,
+	ETrophyRank_MAX                = 4
 };
 
 

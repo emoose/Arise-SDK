@@ -64,10 +64,10 @@ public:
 	void DrawBox(class AHUD* MasterHUD, float X, float Y, float W, float H, const struct FLinearColor& LineColor);
 	void OnMouseMove(float Cx, float cy, float ViewW, float ViewH);
 	void DrawWindowFrame(class AHUD* MasterHUD);
-	void InWindowCorner_(float Cx, float cy, bool* bin);
+	void InWindowCorner_(float Cx, float cy, bool* bIn);
 	void OnMouseUp(float Cx, float cy);
 	void OnMouseDown(float Cx, float cy);
-	void InWindow_(float Cx, float cy, bool* bin);
+	void InWindow_(float Cx, float cy, bool* bIn);
 	void Render(class AHUD* MasterHUD);
 };
 

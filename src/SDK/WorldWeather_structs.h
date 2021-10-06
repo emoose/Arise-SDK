@@ -15,12 +15,12 @@ namespace SDK
 // Enum WorldWeather.EWorldWeatherType
 enum class EWorldWeatherType : uint8_t
 {
-	EWorldWeatherType__Default     = 0,
-	EWorldWeatherType__Sunny       = 1,
-	EWorldWeatherType__Cloudy      = 2,
-	EWorldWeatherType__Rainy       = 3,
-	EWorldWeatherType__Snowy       = 4,
-	EWorldWeatherType__EWorldWeatherType_MAX = 5
+	Default                        = 0,
+	Sunny                          = 1,
+	Cloudy                         = 2,
+	Rainy                          = 3,
+	Snowy                          = 4,
+	EWorldWeatherType_MAX          = 5
 };
 
 

@@ -15,9 +15,9 @@ namespace SDK
 // UserDefinedEnum DE_PF_QuestSideType.DE_PF_QuestSideType
 enum class EDE_PF_QuestSideType : uint8_t
 {
-	DE_PF_QuestSideType__NewEnumerator0 = 0,
-	DE_PF_QuestSideType__NewEnumerator1 = 1,
-	DE_PF_QuestSideType__DE_PF_MAX = 2
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	DE_PF_MAX                      = 2
 };
 
 

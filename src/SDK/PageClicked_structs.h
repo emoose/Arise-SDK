@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum PageClicked.PageClicked
 enum class EPageClicked : uint8_t
 {
-	PageClicked__NewEnumerator0    = 0,
-	PageClicked__NewEnumerator1    = 1,
-	PageClicked__NewEnumerator2    = 2,
-	PageClicked__PageClicked_MAX   = 3
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	PageClicked_MAX                = 3
 };
 
 

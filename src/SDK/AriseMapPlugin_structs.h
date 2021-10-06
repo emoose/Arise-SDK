@@ -15,172 +15,172 @@ namespace SDK
 // Enum AriseMapPlugin.EAriseMapEffectSettingsSlot
 enum class EAriseMapEffectSettingsSlot : uint8_t
 {
-	EAriseMapEffectSettingsSlot__None = 0,
-	EAriseMapEffectSettingsSlot__Slot1 = 1,
-	EAriseMapEffectSettingsSlot__Slot2 = 2,
-	EAriseMapEffectSettingsSlot__Slot3 = 3,
-	EAriseMapEffectSettingsSlot__Slot4 = 4,
-	EAriseMapEffectSettingsSlot__EAriseMapEffectSettingsSlot_MAX = 5
+	None                           = 0,
+	Slot1                          = 1,
+	Slot2                          = 2,
+	Slot3                          = 3,
+	Slot4                          = 4,
+	EAriseMapEffectSettingsSlot_MAX = 5
 };
 
 
 // Enum AriseMapPlugin.EInDoorType
 enum class EInDoorType : uint8_t
 {
-	EInDoorType__OutDoor           = 0,
-	EInDoorType__InDoor1           = 1,
-	EInDoorType__InDoor2           = 2,
-	EInDoorType__InDoor3           = 3,
-	EInDoorType__InDoor4           = 4,
-	EInDoorType__InDoor5           = 5,
-	EInDoorType__InDoor6           = 6,
-	EInDoorType__InDoor7           = 7,
-	EInDoorType__InDoor8           = 8,
-	EInDoorType__InDoorAll         = 9,
-	EInDoorType__EInDoorType_MAX   = 10
+	OutDoor                        = 0,
+	InDoor1                        = 1,
+	InDoor2                        = 2,
+	InDoor3                        = 3,
+	InDoor4                        = 4,
+	InDoor5                        = 5,
+	InDoor6                        = 6,
+	InDoor7                        = 7,
+	InDoor8                        = 8,
+	InDoorAll                      = 9,
+	EInDoorType_MAX                = 10
 };
 
 
 // Enum AriseMapPlugin.ELevelRequiredSetting
 enum class ELevelRequiredSetting : uint8_t
 {
-	ELevelRequiredSetting__Required = 0,
-	ELevelRequiredSetting__NoRequired = 1,
-	ELevelRequiredSetting__ELevelRequiredSetting_MAX = 2
+	Required                       = 0,
+	NoRequired                     = 1,
+	ELevelRequiredSetting_MAX      = 2
 };
 
 
 // Enum AriseMapPlugin.ELevelShowSetting
 enum class ELevelShowSetting : uint8_t
 {
-	ELevelShowSetting__Show        = 0,
-	ELevelShowSetting__Hide        = 1,
-	ELevelShowSetting__ELevelShowSetting_MAX = 2
-};
-
-
-// Enum AriseMapPlugin.ELevelLoadSetting
-enum class ELevelLoadSetting : uint8_t
-{
-	ELevelLoadSetting__Always      = 0,
-	ELevelLoadSetting__Manual      = 1,
-	ELevelLoadSetting__ELevelLoadSetting_MAX = 2
+	Show                           = 0,
+	Hide                           = 1,
+	ELevelShowSetting_MAX          = 2
 };
 
 
 // Enum AriseMapPlugin.EMapOrderType
 enum class EMapOrderType : uint8_t
 {
-	EMapOrderType__Default         = 0,
-	EMapOrderType__BackGround      = 1,
-	EMapOrderType__Light           = 2,
-	EMapOrderType__Effect          = 3,
-	EMapOrderType__WhiteBox        = 4,
-	EMapOrderType__Enemy           = 5,
-	EMapOrderType__GeneralObject   = 6,
-	EMapOrderType__PickupItem      = 7,
-	EMapOrderType__CollectItem     = 8,
-	EMapOrderType__Collision       = 9,
-	EMapOrderType__System          = 10,
-	EMapOrderType__Gimmick         = 11,
-	EMapOrderType__Npc             = 12,
-	EMapOrderType__Navi            = 13,
-	EMapOrderType__MapLink         = 14,
-	EMapOrderType__Event           = 15,
-	EMapOrderType__Sound           = 16,
-	EMapOrderType__Environment     = 17,
-	EMapOrderType__GameFlags       = 18,
-	EMapOrderType__Battle          = 19,
-	EMapOrderType__Chat            = 20,
-	EMapOrderType__Quest           = 21,
-	EMapOrderType__Sequencer       = 22,
-	EMapOrderType__BasePoint       = 23,
-	EMapOrderType__Test            = 24,
-	EMapOrderType__EMapOrderType_MAX = 25
+	Default                        = 0,
+	BackGround                     = 1,
+	Light                          = 2,
+	Effect                         = 3,
+	WhiteBox                       = 4,
+	Enemy                          = 5,
+	GeneralObject                  = 6,
+	PickupItem                     = 7,
+	CollectItem                    = 8,
+	Collision                      = 9,
+	System                         = 10,
+	Gimmick                        = 11,
+	Npc                            = 12,
+	Navi                           = 13,
+	MapLink                        = 14,
+	Event                          = 15,
+	Sound                          = 16,
+	Environment                    = 17,
+	GameFlags                      = 18,
+	Battle                         = 19,
+	Chat                           = 20,
+	Quest                          = 21,
+	Sequencer                      = 22,
+	BasePoint                      = 23,
+	Test                           = 24,
+	EMapOrderType_MAX              = 25
 };
 
 
 // Enum AriseMapPlugin.EMapEnvWetEffect
 enum class EMapEnvWetEffect : uint8_t
 {
-	EMapEnvWetEffect__Top          = 0,
-	EMapEnvWetEffect__Bottom       = 1,
-	EMapEnvWetEffect__Leg          = 2,
-	EMapEnvWetEffect__EMapEnvWetEffect_MAX = 3
+	Top                            = 0,
+	Bottom                         = 1,
+	Leg                            = 2,
+	EMapEnvWetEffect_MAX           = 3
 };
 
 
 // Enum AriseMapPlugin.ENamePlatePositionType
 enum class ENamePlatePositionType : uint8_t
 {
-	ENamePlatePositionType__MAP_LINK_NAME_PLATE_RIGHT_TOP = 0,
-	ENamePlatePositionType__MAP_LINK_NAME_PLATE_RIGHT_BOTTOM = 1,
-	ENamePlatePositionType__MAP_LINK_NAME_PLATE_LEFT_TOP = 2,
-	ENamePlatePositionType__MAP_LINK_NAME_PLATE_LEFT_BOTTOM = 3,
-	ENamePlatePositionType__MAP_LINK_NAME_PLATE_NONE = 4,
-	ENamePlatePositionType__MAP_LINK_NAME_PLATE_MAX = 5
+	MAP_LINK_NAME_PLATE_RIGHT_TOP  = 0,
+	MAP_LINK_NAME_PLATE_RIGHT_BOTTOM = 1,
+	MAP_LINK_NAME_PLATE_LEFT_TOP   = 2,
+	MAP_LINK_NAME_PLATE_LEFT_BOTTOM = 3,
+	MAP_LINK_NAME_PLATE_NONE       = 4,
+	MAP_LINK_NAME_PLATE_MAX        = 5
 };
 
 
 // Enum AriseMapPlugin.EMinimapIconType
 enum class EMinimapIconType : uint8_t
 {
-	EMinimapIconType__MAP_LINK_MINIMAP_ICON_NONE = 0,
-	EMinimapIconType__MAP_LINK_MINIMAP_ICON_DEFAULT = 1,
-	EMinimapIconType__MAP_LINK_MINIMAP_ICON_SHOP = 2,
-	EMinimapIconType__MAP_LINK_MINIMAP_ICON_INN = 3,
-	EMinimapIconType__MAP_LINK_MINIMAP_ICON_BAR = 4,
-	EMinimapIconType__MAP_LINK_MINIMAP_ICON_IGNORE = 5,
-	EMinimapIconType__MAP_LINK_MINIMAP_ICON_MAX = 6
+	MAP_LINK_MINIMAP_ICON_NONE     = 0,
+	MAP_LINK_MINIMAP_ICON_DEFAULT  = 1,
+	MAP_LINK_MINIMAP_ICON_SHOP     = 2,
+	MAP_LINK_MINIMAP_ICON_INN      = 3,
+	MAP_LINK_MINIMAP_ICON_BAR      = 4,
+	MAP_LINK_MINIMAP_ICON_IGNORE   = 5,
+	MAP_LINK_MINIMAP_ICON_MAX      = 6
 };
 
 
 // Enum AriseMapPlugin.EGuideNameType
 enum class EGuideNameType : uint8_t
 {
-	EGuideNameType__MAP_LINK_GUIDE_AUTO = 0,
-	EGuideNameType__MAP_LINK_GUIDE_LINE = 1,
-	EGuideNameType__MAP_LINK_GUIDE_ARC = 2,
-	EGuideNameType__MAP_LINK_GUIDE_CIRCLE = 3,
-	EGuideNameType__MAP_LINK_GUIDE_NONE = 4,
-	EGuideNameType__MAP_LINK_GUIDE_MAX = 5
+	MAP_LINK_GUIDE_AUTO            = 0,
+	MAP_LINK_GUIDE_LINE            = 1,
+	MAP_LINK_GUIDE_ARC             = 2,
+	MAP_LINK_GUIDE_CIRCLE          = 3,
+	MAP_LINK_GUIDE_NONE            = 4,
+	MAP_LINK_GUIDE_MAX             = 5
 };
 
 
 // Enum AriseMapPlugin.EMapLinkExecType
 enum class EMapLinkExecType : uint8_t
 {
-	EMapLinkExecType__MAP_LINK_TYPE_AUTO = 0,
-	EMapLinkExecType__MAP_LINK_TYPE_INPUT = 1,
-	EMapLinkExecType__MAP_LINK_TYPE_CLOSED = 2,
-	EMapLinkExecType__MAP_LINK_TYPE_SCRIPT = 3,
-	EMapLinkExecType__MAP_LINK_TYPE_INVALID = 4,
-	EMapLinkExecType__MAP_LINK_TYPE_MAX = 5
+	MAP_LINK_TYPE_AUTO             = 0,
+	MAP_LINK_TYPE_INPUT            = 1,
+	MAP_LINK_TYPE_CLOSED           = 2,
+	MAP_LINK_TYPE_SCRIPT           = 3,
+	MAP_LINK_TYPE_INVALID          = 4,
+	MAP_LINK_TYPE_MAX              = 5
 };
 
 
 // Enum AriseMapPlugin.EMapLinkPriority
 enum class EMapLinkPriority : uint8_t
 {
-	EMapLinkPriority__MAP_LINK_PRIORITY_HIGH = 0,
-	EMapLinkPriority__MAP_LINK_PRIORITY_MIDDLE = 1,
-	EMapLinkPriority__MAP_LINK_PRIORITY_LOW = 2,
-	EMapLinkPriority__MAP_LINK_PRIORITY_MAX = 3
+	MAP_LINK_PRIORITY_HIGH         = 0,
+	MAP_LINK_PRIORITY_MIDDLE       = 1,
+	MAP_LINK_PRIORITY_LOW          = 2,
+	MAP_LINK_PRIORITY_MAX          = 3
 };
 
 
 // Enum AriseMapPlugin.EMapLocatorType
 enum class EMapLocatorType : uint8_t
 {
-	EMapLocatorType__MAP_LOCATOR_TYPE_FREE = 0,
-	EMapLocatorType__MAP_LOCATOR_TYPE_MAPLINK = 1,
-	EMapLocatorType__MAP_LOCATOR_TYPE_PLAYERDEF = 2,
-	EMapLocatorType__MAP_LOCATOR_TYPE_EVENT = 3,
-	EMapLocatorType__MAP_LOCATOR_TYPE_LONGCHAT = 4,
-	EMapLocatorType__MAP_LOCATOR_TYPE_FASTTRAVEL = 5,
-	EMapLocatorType__MAP_LOCATOR_TYPE_DIRECTION = 6,
-	EMapLocatorType__MAP_LOCATOR_TYPE_RES3 = 7,
-	EMapLocatorType__MAP_LOCATOR_TYPE_MAX = 8
+	MAP_LOCATOR_TYPE_FREE          = 0,
+	MAP_LOCATOR_TYPE_MAPLINK       = 1,
+	MAP_LOCATOR_TYPE_PLAYERDEF     = 2,
+	MAP_LOCATOR_TYPE_EVENT         = 3,
+	MAP_LOCATOR_TYPE_LONGCHAT      = 4,
+	MAP_LOCATOR_TYPE_FASTTRAVEL    = 5,
+	MAP_LOCATOR_TYPE_DIRECTION     = 6,
+	MAP_LOCATOR_TYPE_RES3          = 7,
+	MAP_LOCATOR_TYPE_MAX           = 8
+};
+
+
+// Enum AriseMapPlugin.ELevelLoadSetting
+enum class ELevelLoadSetting : uint8_t
+{
+	Always                         = 0,
+	Manual                         = 1,
+	ELevelLoadSetting_MAX          = 2
 };
 
 

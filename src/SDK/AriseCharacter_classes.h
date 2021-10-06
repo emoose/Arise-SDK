@@ -184,7 +184,7 @@ public:
 	struct FScriptMulticastDelegate                    OnBuildCharacter;                                         // 0x01A8(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 	unsigned char                                      UnknownData01[0x40];                                      // 0x01B8(0x0040) MISSED OFFSET
 	EAchGameScene                                      GameScene;                                                // 0x01F8(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x01B8(0x0003) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
+	unsigned char                                      UnknownData02[0x3];                                       // 0x01F9(0x0003) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
 	EAchCharacterBuildCullHandling                     CullHandling;                                             // 0x01FC(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	bool                                               bEnableCulling;                                           // 0x01FD(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData03[0x2];                                       // 0x01FE(0x0002) MISSED OFFSET

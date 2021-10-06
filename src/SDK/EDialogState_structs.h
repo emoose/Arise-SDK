@@ -15,10 +15,10 @@ namespace SDK
 // UserDefinedEnum EDialogState.EDialogState
 enum class EDialogState : uint8_t
 {
-	EDialogState__NewEnumerator0   = 0,
-	EDialogState__NewEnumerator1   = 1,
-	EDialogState__NewEnumerator2   = 2,
-	EDialogState__EDialogState_MAX = 3
+	NewEnumerator0                 = 0,
+	NewEnumerator1                 = 1,
+	NewEnumerator2                 = 2,
+	EDialogState_MAX               = 3
 };
 
 

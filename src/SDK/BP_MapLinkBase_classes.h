@@ -159,7 +159,7 @@ public:
 	struct FString RefreshText();
 	void Finalizing();
 	void Finalize();
-	void InFanCharacter(class ACharacter* Charcter, const struct FVector& FanCenter, float FanRadius, float FanAngle, const struct FVector& FanVector, bool* bin);
+	void InFanCharacter(class ACharacter* Charcter, const struct FVector& FanCenter, float FanRadius, float FanAngle, const struct FVector& FanVector, bool* bIn);
 	void DebugDrawFanLine(const struct FVector& Center, float Radius, float Angle, const struct FLinearColor& Color, int Divs, struct FVector* OuterPos);
 	void DrawDebugInfo();
 	void CollisionDebug(bool bDrawDebugInfo);

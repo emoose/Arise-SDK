@@ -4070,153 +4070,6 @@ class UAsyncTaskDownloadImage* UAsyncTaskDownloadImage::STATIC_DownloadImage(con
 }
 
 
-// Function UMG.BackgroundBlur.SetVerticalAlignment
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// TEnumAsByte<EVerticalAlignment> InVerticalAlignment            (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBackgroundBlur::SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetVerticalAlignment");
-
-	UBackgroundBlur_SetVerticalAlignment_Params params;
-	params.InVerticalAlignment = InVerticalAlignment;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.BackgroundBlur.SetPadding
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FMargin                 InPadding                      (Parm, IsPlainOldData)
-
-void UBackgroundBlur::SetPadding(const struct FMargin& InPadding)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetPadding");
-
-	UBackgroundBlur_SetPadding_Params params;
-	params.InPadding = InPadding;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.BackgroundBlur.SetLowQualityFallbackBrush
-// (Final, Native, Public, HasOutParms, BlueprintCallable)
-// Parameters:
-// struct FSlateBrush             InBrush                        (ConstParm, Parm, OutParm, ReferenceParm)
-
-void UBackgroundBlur::SetLowQualityFallbackBrush(const struct FSlateBrush& InBrush)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetLowQualityFallbackBrush");
-
-	UBackgroundBlur_SetLowQualityFallbackBrush_Params params;
-	params.InBrush = InBrush;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.BackgroundBlur.SetHorizontalAlignment
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment          (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBackgroundBlur::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetHorizontalAlignment");
-
-	UBackgroundBlur_SetHorizontalAlignment_Params params;
-	params.InHorizontalAlignment = InHorizontalAlignment;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.BackgroundBlur.SetBlurStrength
-// (Native, Public, BlueprintCallable)
-// Parameters:
-// float                          InStrength                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBackgroundBlur::SetBlurStrength(float InStrength)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetBlurStrength");
-
-	UBackgroundBlur_SetBlurStrength_Params params;
-	params.InStrength = InStrength;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.BackgroundBlur.SetBlurRadius
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int                            InBlurRadius                   (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBackgroundBlur::SetBlurRadius(int InBlurRadius)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetBlurRadius");
-
-	UBackgroundBlur_SetBlurRadius_Params params;
-	params.InBlurRadius = InBlurRadius;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.BackgroundBlur.SetApplyAlphaToBlur
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           bInApplyAlphaToBlur            (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBackgroundBlur::SetApplyAlphaToBlur(bool bInApplyAlphaToBlur)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetApplyAlphaToBlur");
-
-	UBackgroundBlur_SetApplyAlphaToBlur_Params params;
-	params.bInApplyAlphaToBlur = bInApplyAlphaToBlur;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function UMG.BackgroundBlurSlot.SetVerticalAlignment
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -6253,17 +6106,17 @@ void UEditableTextBox::ClearError()
 }
 
 
-// Function UMG.ExpandableArea.SetIsExpanded_Animated
+// Function UMG.BackgroundBlur.SetVerticalAlignment
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// bool                           IsExpanded                     (Parm, ZeroConstructor, IsPlainOldData)
+// TEnumAsByte<EVerticalAlignment> InVerticalAlignment            (Parm, ZeroConstructor, IsPlainOldData)
 
-void UExpandableArea::SetIsExpanded_Animated(bool IsExpanded)
+void UBackgroundBlur::SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ExpandableArea.SetIsExpanded_Animated");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetVerticalAlignment");
 
-	UExpandableArea_SetIsExpanded_Animated_Params params;
-	params.IsExpanded = IsExpanded;
+	UBackgroundBlur_SetVerticalAlignment_Params params;
+	params.InVerticalAlignment = InVerticalAlignment;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6274,17 +6127,17 @@ void UExpandableArea::SetIsExpanded_Animated(bool IsExpanded)
 }
 
 
-// Function UMG.ExpandableArea.SetIsExpanded
+// Function UMG.BackgroundBlur.SetPadding
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// bool                           IsExpanded                     (Parm, ZeroConstructor, IsPlainOldData)
+// struct FMargin                 InPadding                      (Parm, IsPlainOldData)
 
-void UExpandableArea::SetIsExpanded(bool IsExpanded)
+void UBackgroundBlur::SetPadding(const struct FMargin& InPadding)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ExpandableArea.SetIsExpanded");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetPadding");
 
-	UExpandableArea_SetIsExpanded_Params params;
-	params.IsExpanded = IsExpanded;
+	UBackgroundBlur_SetPadding_Params params;
+	params.InPadding = InPadding;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6295,16 +6148,17 @@ void UExpandableArea::SetIsExpanded(bool IsExpanded)
 }
 
 
-// Function UMG.ExpandableArea.GetIsExpanded
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function UMG.BackgroundBlur.SetLowQualityFallbackBrush
+// (Final, Native, Public, HasOutParms, BlueprintCallable)
 // Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+// struct FSlateBrush             InBrush                        (ConstParm, Parm, OutParm, ReferenceParm)
 
-bool UExpandableArea::GetIsExpanded()
+void UBackgroundBlur::SetLowQualityFallbackBrush(const struct FSlateBrush& InBrush)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ExpandableArea.GetIsExpanded");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetLowQualityFallbackBrush");
 
-	UExpandableArea_GetIsExpanded_Params params;
+	UBackgroundBlur_SetLowQualityFallbackBrush_Params params;
+	params.InBrush = InBrush;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6312,8 +6166,90 @@ bool UExpandableArea::GetIsExpanded()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+}
 
-	return params.ReturnValue;
+
+// Function UMG.BackgroundBlur.SetHorizontalAlignment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment          (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBackgroundBlur::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetHorizontalAlignment");
+
+	UBackgroundBlur_SetHorizontalAlignment_Params params;
+	params.InHorizontalAlignment = InHorizontalAlignment;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.BackgroundBlur.SetBlurStrength
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// float                          InStrength                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBackgroundBlur::SetBlurStrength(float InStrength)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetBlurStrength");
+
+	UBackgroundBlur_SetBlurStrength_Params params;
+	params.InStrength = InStrength;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.BackgroundBlur.SetBlurRadius
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int                            InBlurRadius                   (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBackgroundBlur::SetBlurRadius(int InBlurRadius)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetBlurRadius");
+
+	UBackgroundBlur_SetBlurRadius_Params params;
+	params.InBlurRadius = InBlurRadius;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.BackgroundBlur.SetApplyAlphaToBlur
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           bInApplyAlphaToBlur            (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBackgroundBlur::SetApplyAlphaToBlur(bool bInApplyAlphaToBlur)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.BackgroundBlur.SetApplyAlphaToBlur");
+
+	UBackgroundBlur_SetApplyAlphaToBlur_Params params;
+	params.bInApplyAlphaToBlur = bInApplyAlphaToBlur;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 
@@ -7943,6 +7879,94 @@ struct FText UMultiLineEditableText::GetText()
 }
 
 
+// Function UMG.ExpandableArea.SetIsExpanded_Animated
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           IsExpanded                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void UExpandableArea::SetIsExpanded_Animated(bool IsExpanded)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ExpandableArea.SetIsExpanded_Animated");
+
+	UExpandableArea_SetIsExpanded_Animated_Params params;
+	params.IsExpanded = IsExpanded;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ExpandableArea.SetIsExpanded
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           IsExpanded                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void UExpandableArea::SetIsExpanded(bool IsExpanded)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ExpandableArea.SetIsExpanded");
+
+	UExpandableArea_SetIsExpanded_Params params;
+	params.IsExpanded = IsExpanded;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ExpandableArea.GetIsExpanded
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UExpandableArea::GetIsExpanded()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ExpandableArea.GetIsExpanded");
+
+	UExpandableArea_GetIsExpanded_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.Overlay.AddChildToOverlay
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UWidget*                 Content                        (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// class UOverlaySlot*            ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+
+class UOverlaySlot* UOverlay::AddChildToOverlay(class UWidget* Content)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Overlay.AddChildToOverlay");
+
+	UOverlay_AddChildToOverlay_Params params;
+	params.Content = Content;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function UMG.MultiLineEditableTextBox.SetText
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -8058,30 +8082,6 @@ struct FText UMultiLineEditableTextBox::GetText()
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.MultiLineEditableTextBox.GetText");
 
 	UMultiLineEditableTextBox_GetText_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.Overlay.AddChildToOverlay
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UWidget*                 Content                        (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// class UOverlaySlot*            ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-
-class UOverlaySlot* UOverlay::AddChildToOverlay(class UWidget* Content)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Overlay.AddChildToOverlay");
-
-	UOverlay_AddChildToOverlay_Params params;
-	params.Content = Content;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

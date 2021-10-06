@@ -15,35 +15,35 @@ namespace SDK
 // Enum Engine.ETextGender
 enum class ETextGender : uint8_t
 {
-	ETextGender__Masculine         = 0,
-	ETextGender__Feminine          = 1,
-	ETextGender__Neuter            = 2,
-	ETextGender__ETextGender_MAX   = 3
+	Masculine                      = 0,
+	Feminine                       = 1,
+	Neuter                         = 2,
+	ETextGender_MAX                = 3
 };
 
 
 // Enum Engine.EFormatArgumentType
 enum class EFormatArgumentType : uint8_t
 {
-	EFormatArgumentType__Int       = 0,
-	EFormatArgumentType__UInt      = 1,
-	EFormatArgumentType__Float     = 2,
-	EFormatArgumentType__Double    = 3,
-	EFormatArgumentType__Text      = 4,
-	EFormatArgumentType__Gender    = 5,
-	EFormatArgumentType__EFormatArgumentType_MAX = 6
+	Int                            = 0,
+	UInt                           = 1,
+	Float                          = 2,
+	Double                         = 3,
+	Text                           = 4,
+	Gender                         = 5,
+	EFormatArgumentType_MAX        = 6
 };
 
 
 // Enum Engine.EEndPlayReason
 enum class EEndPlayReason : uint8_t
 {
-	EEndPlayReason__Destroyed      = 0,
-	EEndPlayReason__LevelTransition = 1,
-	EEndPlayReason__EndPlayInEditor = 2,
-	EEndPlayReason__RemovedFromWorld = 3,
-	EEndPlayReason__Quit           = 4,
-	EEndPlayReason__EEndPlayReason_MAX = 5
+	Destroyed                      = 0,
+	LevelTransition                = 1,
+	EndPlayInEditor                = 2,
+	RemovedFromWorld               = 3,
+	Quit                           = 4,
+	EEndPlayReason_MAX             = 5
 };
 
 
@@ -65,47 +65,47 @@ enum class ETickingGroup : uint8_t
 // Enum Engine.EComponentCreationMethod
 enum class EComponentCreationMethod : uint8_t
 {
-	EComponentCreationMethod__Native = 0,
-	EComponentCreationMethod__SimpleConstructionScript = 1,
-	EComponentCreationMethod__UserConstructionScript = 2,
-	EComponentCreationMethod__Instance = 3,
-	EComponentCreationMethod__EComponentCreationMethod_MAX = 4
+	Native                         = 0,
+	SimpleConstructionScript       = 1,
+	UserConstructionScript         = 2,
+	Instance                       = 3,
+	EComponentCreationMethod_MAX   = 4
 };
 
 
 // Enum Engine.ETemperatureSeverityType
 enum class ETemperatureSeverityType : uint8_t
 {
-	ETemperatureSeverityType__Unknown = 0,
-	ETemperatureSeverityType__Good = 1,
-	ETemperatureSeverityType__Bad  = 2,
-	ETemperatureSeverityType__Serious = 3,
-	ETemperatureSeverityType__Critical = 4,
-	ETemperatureSeverityType__NumSeverities = 5,
-	ETemperatureSeverityType__ETemperatureSeverityType_MAX = 6
+	Unknown                        = 0,
+	Good                           = 1,
+	Bad                            = 2,
+	Serious                        = 3,
+	Critical                       = 4,
+	NumSeverities                  = 5,
+	ETemperatureSeverityType_MAX   = 6
 };
 
 
 // Enum Engine.EPlaneConstraintAxisSetting
 enum class EPlaneConstraintAxisSetting : uint8_t
 {
-	EPlaneConstraintAxisSetting__Custom = 0,
-	EPlaneConstraintAxisSetting__X = 1,
-	EPlaneConstraintAxisSetting__Y = 2,
-	EPlaneConstraintAxisSetting__Z = 3,
-	EPlaneConstraintAxisSetting__UseGlobalPhysicsSetting = 4,
-	EPlaneConstraintAxisSetting__EPlaneConstraintAxisSetting_MAX = 5
+	Custom                         = 0,
+	X                              = 1,
+	Y                              = 2,
+	Z                              = 3,
+	UseGlobalPhysicsSetting        = 4,
+	EPlaneConstraintAxisSetting_MAX = 5
 };
 
 
 // Enum Engine.EInterpToBehaviourType
 enum class EInterpToBehaviourType : uint8_t
 {
-	EInterpToBehaviourType__OneShot = 0,
-	EInterpToBehaviourType__OneShot_Reverse = 1,
-	EInterpToBehaviourType__Loop_Reset = 2,
-	EInterpToBehaviourType__PingPong = 3,
-	EInterpToBehaviourType__EInterpToBehaviourType_MAX = 4
+	OneShot                        = 0,
+	OneShot_Reverse                = 1,
+	Loop_Reset                     = 2,
+	PingPong                       = 3,
+	EInterpToBehaviourType_MAX     = 4
 };
 
 
@@ -136,65 +136,65 @@ enum class EMovementMode : uint8_t
 };
 
 
-// Enum Engine.ENetworkFailure
-enum class ENetworkFailure : uint8_t
-{
-	ENetworkFailure__NetDriverAlreadyExists = 0,
-	ENetworkFailure__NetDriverCreateFailure = 1,
-	ENetworkFailure__NetDriverListenFailure = 2,
-	ENetworkFailure__ConnectionLost = 3,
-	ENetworkFailure__ConnectionTimeout = 4,
-	ENetworkFailure__FailureReceived = 5,
-	ENetworkFailure__OutdatedClient = 6,
-	ENetworkFailure__OutdatedServer = 7,
-	ENetworkFailure__PendingConnectionFailure = 8,
-	ENetworkFailure__NetGuidMismatch = 9,
-	ENetworkFailure__NetChecksumMismatch = 10,
-	ENetworkFailure__ENetworkFailure_MAX = 11
-};
-
-
 // Enum Engine.ETravelFailure
 enum class ETravelFailure : uint8_t
 {
-	ETravelFailure__NoLevel        = 0,
-	ETravelFailure__LoadMapFailure = 1,
-	ETravelFailure__InvalidURL     = 2,
-	ETravelFailure__PackageMissing = 3,
-	ETravelFailure__PackageVersion = 4,
-	ETravelFailure__NoDownload     = 5,
-	ETravelFailure__TravelFailure  = 6,
-	ETravelFailure__CheatCommands  = 7,
-	ETravelFailure__PendingNetGameCreateFailure = 8,
-	ETravelFailure__CloudSaveFailure = 9,
-	ETravelFailure__ServerTravelFailure = 10,
-	ETravelFailure__ClientTravelFailure = 11,
-	ETravelFailure__ETravelFailure_MAX = 12
+	NoLevel                        = 0,
+	LoadMapFailure                 = 1,
+	InvalidURL                     = 2,
+	PackageMissing                 = 3,
+	PackageVersion                 = 4,
+	NoDownload                     = 5,
+	TravelFailure                  = 6,
+	CheatCommands                  = 7,
+	PendingNetGameCreateFailure    = 8,
+	CloudSaveFailure               = 9,
+	ServerTravelFailure            = 10,
+	ClientTravelFailure            = 11,
+	ETravelFailure_MAX             = 12
 };
 
 
 // Enum Engine.EScreenOrientation
 enum class EScreenOrientation : uint8_t
 {
-	EScreenOrientation__Unknown    = 0,
-	EScreenOrientation__Portrait   = 1,
-	EScreenOrientation__PortraitUpsideDown = 2,
-	EScreenOrientation__LandscapeLeft = 3,
-	EScreenOrientation__LandscapeRight = 4,
-	EScreenOrientation__FaceUp     = 5,
-	EScreenOrientation__FaceDown   = 6,
-	EScreenOrientation__EScreenOrientation_MAX = 7
+	Unknown                        = 0,
+	Portrait                       = 1,
+	PortraitUpsideDown             = 2,
+	LandscapeLeft                  = 3,
+	LandscapeRight                 = 4,
+	FaceUp                         = 5,
+	FaceDown                       = 6,
+	EScreenOrientation_MAX         = 7
+};
+
+
+// Enum Engine.ENetworkFailure
+enum class ENetworkFailure : uint8_t
+{
+	NetDriverAlreadyExists         = 0,
+	NetDriverCreateFailure         = 1,
+	NetDriverListenFailure         = 2,
+	ConnectionLost                 = 3,
+	ConnectionTimeout              = 4,
+	FailureReceived                = 5,
+	OutdatedClient                 = 6,
+	OutdatedServer                 = 7,
+	PendingConnectionFailure       = 8,
+	NetGuidMismatch                = 9,
+	NetChecksumMismatch            = 10,
+	ENetworkFailure_MAX            = 11
 };
 
 
 // Enum Engine.EApplicationState
 enum class EApplicationState : uint8_t
 {
-	EApplicationState__Unknown     = 0,
-	EApplicationState__Inactive    = 1,
-	EApplicationState__Background  = 2,
-	EApplicationState__Active      = 3,
-	EApplicationState__EApplicationState_MAX = 4
+	Unknown                        = 0,
+	Inactive                       = 1,
+	Background                     = 2,
+	Active                         = 3,
+	EApplicationState_MAX          = 4
 };
 
 
@@ -241,11 +241,11 @@ enum class EObjectTypeQuery : uint8_t
 // Enum Engine.EDrawDebugTrace
 enum class EDrawDebugTrace : uint8_t
 {
-	EDrawDebugTrace__None          = 0,
-	EDrawDebugTrace__ForOneFrame   = 1,
-	EDrawDebugTrace__ForDuration   = 2,
-	EDrawDebugTrace__Persistent    = 3,
-	EDrawDebugTrace__EDrawDebugTrace_MAX = 4
+	None                           = 0,
+	ForOneFrame                    = 1,
+	ForDuration                    = 2,
+	Persistent                     = 3,
+	EDrawDebugTrace_MAX            = 4
 };
 
 
@@ -292,38 +292,38 @@ enum class ETraceTypeQuery : uint8_t
 // Enum Engine.EMoveComponentAction
 enum class EMoveComponentAction : uint8_t
 {
-	EMoveComponentAction__Move     = 0,
-	EMoveComponentAction__Stop     = 1,
-	EMoveComponentAction__Return   = 2,
-	EMoveComponentAction__EMoveComponentAction_MAX = 3
+	Move                           = 0,
+	Stop                           = 1,
+	Return                         = 2,
+	EMoveComponentAction_MAX       = 3
 };
 
 
 // Enum Engine.EQuitPreference
 enum class EQuitPreference : uint8_t
 {
-	EQuitPreference__Quit          = 0,
-	EQuitPreference__Background    = 1,
-	EQuitPreference__EQuitPreference_MAX = 2
+	Quit                           = 0,
+	Background                     = 1,
+	EQuitPreference_MAX            = 2
 };
 
 
 // Enum Engine.EMouseLockMode
 enum class EMouseLockMode : uint8_t
 {
-	EMouseLockMode__DoNotLock      = 0,
-	EMouseLockMode__LockOnCapture  = 1,
-	EMouseLockMode__LockAlways     = 2,
-	EMouseLockMode__EMouseLockMode_MAX = 3
+	DoNotLock                      = 0,
+	LockOnCapture                  = 1,
+	LockAlways                     = 2,
+	EMouseLockMode_MAX             = 3
 };
 
 
 // Enum Engine.EWindowTitleBarMode
 enum class EWindowTitleBarMode : uint8_t
 {
-	EWindowTitleBarMode__Overlay   = 0,
-	EWindowTitleBarMode__VerticalBox = 1,
-	EWindowTitleBarMode__EWindowTitleBarMode_MAX = 2
+	Overlay                        = 0,
+	VerticalBox                    = 1,
+	EWindowTitleBarMode_MAX        = 2
 };
 
 
@@ -341,30 +341,21 @@ enum class ERelativeTransformSpace : uint8_t
 // Enum Engine.EAttachLocation
 enum class EAttachLocation : uint8_t
 {
-	EAttachLocation__KeepRelativeOffset = 0,
-	EAttachLocation__KeepWorldPosition = 1,
-	EAttachLocation__SnapToTarget  = 2,
-	EAttachLocation__SnapToTargetIncludingScale = 3,
-	EAttachLocation__EAttachLocation_MAX = 4
+	KeepRelativeOffset             = 0,
+	KeepWorldPosition              = 1,
+	SnapToTarget                   = 2,
+	SnapToTargetIncludingScale     = 3,
+	EAttachLocation_MAX            = 4
 };
 
 
 // Enum Engine.EAttachmentRule
 enum class EAttachmentRule : uint8_t
 {
-	EAttachmentRule__KeepRelative  = 0,
-	EAttachmentRule__KeepWorld     = 1,
-	EAttachmentRule__SnapToTarget  = 2,
-	EAttachmentRule__EAttachmentRule_MAX = 3
-};
-
-
-// Enum Engine.EDetachmentRule
-enum class EDetachmentRule : uint8_t
-{
-	EDetachmentRule__KeepRelative  = 0,
-	EDetachmentRule__KeepWorld     = 1,
-	EDetachmentRule__EDetachmentRule_MAX = 2
+	KeepRelative                   = 0,
+	KeepWorld                      = 1,
+	SnapToTarget                   = 2,
+	EAttachmentRule_MAX            = 3
 };
 
 
@@ -381,10 +372,19 @@ enum class EDetailMode : uint8_t
 // Enum Engine.EComponentMobility
 enum class EComponentMobility : uint8_t
 {
-	EComponentMobility__Static     = 0,
-	EComponentMobility__Stationary = 1,
-	EComponentMobility__Movable    = 2,
-	EComponentMobility__EComponentMobility_MAX = 3
+	Static                         = 0,
+	Stationary                     = 1,
+	Movable                        = 2,
+	EComponentMobility_MAX         = 3
+};
+
+
+// Enum Engine.EDetachmentRule
+enum class EDetachmentRule : uint8_t
+{
+	KeepRelative                   = 0,
+	KeepWorld                      = 1,
+	EDetachmentRule_MAX            = 2
 };
 
 
@@ -437,34 +437,34 @@ enum class ERichCurveExtrapolation : uint8_t
 // Enum Engine.EAttenuationShape
 enum class EAttenuationShape : uint8_t
 {
-	EAttenuationShape__Sphere      = 0,
-	EAttenuationShape__Capsule     = 1,
-	EAttenuationShape__Box         = 2,
-	EAttenuationShape__Cone        = 3,
-	EAttenuationShape__EAttenuationShape_MAX = 4
+	Sphere                         = 0,
+	Capsule                        = 1,
+	Box                            = 2,
+	Cone                           = 3,
+	EAttenuationShape_MAX          = 4
 };
 
 
 // Enum Engine.EAttenuationDistanceModel
 enum class EAttenuationDistanceModel : uint8_t
 {
-	EAttenuationDistanceModel__Linear = 0,
-	EAttenuationDistanceModel__Logarithmic = 1,
-	EAttenuationDistanceModel__Inverse = 2,
-	EAttenuationDistanceModel__LogReverse = 3,
-	EAttenuationDistanceModel__NaturalSound = 4,
-	EAttenuationDistanceModel__Custom = 5,
-	EAttenuationDistanceModel__EAttenuationDistanceModel_MAX = 6
+	Linear                         = 0,
+	Logarithmic                    = 1,
+	Inverse                        = 2,
+	LogReverse                     = 3,
+	NaturalSound                   = 4,
+	Custom                         = 5,
+	EAttenuationDistanceModel_MAX  = 6
 };
 
 
 // Enum Engine.EReverbSendMethod
 enum class EReverbSendMethod : uint8_t
 {
-	EReverbSendMethod__Linear      = 0,
-	EReverbSendMethod__CustomCurve = 1,
-	EReverbSendMethod__Manual      = 2,
-	EReverbSendMethod__EReverbSendMethod_MAX = 3
+	Linear                         = 0,
+	CustomCurve                    = 1,
+	Manual                         = 2,
+	EReverbSendMethod_MAX          = 3
 };
 
 
@@ -511,9 +511,9 @@ enum class ECollisionChannel : uint8_t
 // Enum Engine.EAirAbsorptionMethod
 enum class EAirAbsorptionMethod : uint8_t
 {
-	EAirAbsorptionMethod__Linear   = 0,
-	EAirAbsorptionMethod__CustomCurve = 1,
-	EAirAbsorptionMethod__EAirAbsorptionMethod_MAX = 2
+	Linear                         = 0,
+	CustomCurve                    = 1,
+	EAirAbsorptionMethod_MAX       = 2
 };
 
 
@@ -552,58 +552,58 @@ enum class ENetDormancy : uint8_t
 // Enum Engine.EAutoReceiveInput
 enum class EAutoReceiveInput : uint8_t
 {
-	EAutoReceiveInput__Disabled    = 0,
-	EAutoReceiveInput__Player0     = 1,
-	EAutoReceiveInput__Player1     = 2,
-	EAutoReceiveInput__Player2     = 3,
-	EAutoReceiveInput__Player3     = 4,
-	EAutoReceiveInput__Player4     = 5,
-	EAutoReceiveInput__Player5     = 6,
-	EAutoReceiveInput__Player6     = 7,
-	EAutoReceiveInput__Player7     = 8,
-	EAutoReceiveInput__EAutoReceiveInput_MAX = 9
+	Disabled                       = 0,
+	Player0                        = 1,
+	Player1                        = 2,
+	Player2                        = 3,
+	Player3                        = 4,
+	Player4                        = 5,
+	Player5                        = 6,
+	Player6                        = 7,
+	Player7                        = 8,
+	EAutoReceiveInput_MAX          = 9
 };
 
 
 // Enum Engine.ESpawnActorCollisionHandlingMethod
 enum class ESpawnActorCollisionHandlingMethod : uint8_t
 {
-	ESpawnActorCollisionHandlingMethod__Undefined = 0,
-	ESpawnActorCollisionHandlingMethod__AlwaysSpawn = 1,
-	ESpawnActorCollisionHandlingMethod__AdjustIfPossibleButAlwaysSpawn = 2,
-	ESpawnActorCollisionHandlingMethod__AdjustIfPossibleButDontSpawnIfColliding = 3,
-	ESpawnActorCollisionHandlingMethod__DontSpawnIfColliding = 4,
-	ESpawnActorCollisionHandlingMethod__ESpawnActorCollisionHandlingMethod_MAX = 5
+	Undefined                      = 0,
+	AlwaysSpawn                    = 1,
+	AdjustIfPossibleButAlwaysSpawn = 2,
+	AdjustIfPossibleButDontSpawnIfColliding = 3,
+	DontSpawnIfColliding           = 4,
+	ESpawnActorCollisionHandlingMethod_MAX = 5
 };
 
 
 // Enum Engine.ERotatorQuantization
 enum class ERotatorQuantization : uint8_t
 {
-	ERotatorQuantization__ByteComponents = 0,
-	ERotatorQuantization__ShortComponents = 1,
-	ERotatorQuantization__ERotatorQuantization_MAX = 2
+	ByteComponents                 = 0,
+	ShortComponents                = 1,
+	ERotatorQuantization_MAX       = 2
 };
 
 
 // Enum Engine.EVectorQuantization
 enum class EVectorQuantization : uint8_t
 {
-	EVectorQuantization__RoundWholeNumber = 0,
-	EVectorQuantization__RoundOneDecimal = 1,
-	EVectorQuantization__RoundTwoDecimals = 2,
-	EVectorQuantization__EVectorQuantization_MAX = 3
+	RoundWholeNumber               = 0,
+	RoundOneDecimal                = 1,
+	RoundTwoDecimals               = 2,
+	EVectorQuantization_MAX        = 3
 };
 
 
 // Enum Engine.EAutoPossessAI
 enum class EAutoPossessAI : uint8_t
 {
-	EAutoPossessAI__Disabled       = 0,
-	EAutoPossessAI__PlacedInWorld  = 1,
-	EAutoPossessAI__Spawned        = 2,
-	EAutoPossessAI__PlacedInWorldOrSpawned = 3,
-	EAutoPossessAI__EAutoPossessAI_MAX = 4
+	Disabled                       = 0,
+	PlacedInWorld                  = 1,
+	Spawned                        = 2,
+	PlacedInWorldOrSpawned         = 3,
+	EAutoPossessAI_MAX             = 4
 };
 
 
@@ -638,9 +638,9 @@ enum class EBloomMethod : uint8_t
 // Enum Engine.ECameraProjectionMode
 enum class ECameraProjectionMode : uint8_t
 {
-	ECameraProjectionMode__Perspective = 0,
-	ECameraProjectionMode__Orthographic = 1,
-	ECameraProjectionMode__ECameraProjectionMode_MAX = 2
+	Perspective                    = 0,
+	Orthographic                   = 1,
+	ECameraProjectionMode_MAX      = 2
 };
 
 
@@ -708,44 +708,44 @@ enum class EVisibilityAggressiveness : uint8_t
 // Enum Engine.EAlphaBlendOption
 enum class EAlphaBlendOption : uint8_t
 {
-	EAlphaBlendOption__Linear      = 0,
-	EAlphaBlendOption__Cubic       = 1,
-	EAlphaBlendOption__HermiteCubic = 2,
-	EAlphaBlendOption__Sinusoidal  = 3,
-	EAlphaBlendOption__QuadraticInOut = 4,
-	EAlphaBlendOption__CubicInOut  = 5,
-	EAlphaBlendOption__QuarticInOut = 6,
-	EAlphaBlendOption__QuinticInOut = 7,
-	EAlphaBlendOption__CircularIn  = 8,
-	EAlphaBlendOption__CircularOut = 9,
-	EAlphaBlendOption__CircularInOut = 10,
-	EAlphaBlendOption__ExpIn       = 11,
-	EAlphaBlendOption__ExpOut      = 12,
-	EAlphaBlendOption__ExpInOut    = 13,
-	EAlphaBlendOption__Custom      = 14,
-	EAlphaBlendOption__EAlphaBlendOption_MAX = 15
+	Linear                         = 0,
+	Cubic                          = 1,
+	HermiteCubic                   = 2,
+	Sinusoidal                     = 3,
+	QuadraticInOut                 = 4,
+	CubicInOut                     = 5,
+	QuarticInOut                   = 6,
+	QuinticInOut                   = 7,
+	CircularIn                     = 8,
+	CircularOut                    = 9,
+	CircularInOut                  = 10,
+	ExpIn                          = 11,
+	ExpOut                         = 12,
+	ExpInOut                       = 13,
+	Custom                         = 14,
+	EAlphaBlendOption_MAX          = 15
 };
 
 
 // Enum Engine.EAnimGroupRole
 enum class EAnimGroupRole : uint8_t
 {
-	EAnimGroupRole__CanBeLeader    = 0,
-	EAnimGroupRole__AlwaysFollower = 1,
-	EAnimGroupRole__AlwaysLeader   = 2,
-	EAnimGroupRole__TransitionLeader = 3,
-	EAnimGroupRole__TransitionFollower = 4,
-	EAnimGroupRole__EAnimGroupRole_MAX = 5
+	CanBeLeader                    = 0,
+	AlwaysFollower                 = 1,
+	AlwaysLeader                   = 2,
+	TransitionLeader               = 3,
+	TransitionFollower             = 4,
+	EAnimGroupRole_MAX             = 5
 };
 
 
 // Enum Engine.ERawCurveTrackTypes
 enum class ERawCurveTrackTypes : uint8_t
 {
-	ERawCurveTrackTypes__RCT_Float = 0,
-	ERawCurveTrackTypes__RCT_Vector = 1,
-	ERawCurveTrackTypes__RCT_Transform = 2,
-	ERawCurveTrackTypes__RCT_MAX   = 3
+	RCT_Float                      = 0,
+	RCT_Vector                     = 1,
+	RCT_Transform                  = 2,
+	RCT_MAX                        = 3
 };
 
 
@@ -791,154 +791,154 @@ enum class EAdditiveBasePoseType : uint8_t
 // Enum Engine.ERootMotionMode
 enum class ERootMotionMode : uint8_t
 {
-	ERootMotionMode__NoRootMotionExtraction = 0,
-	ERootMotionMode__IgnoreRootMotion = 1,
-	ERootMotionMode__RootMotionFromEverything = 2,
-	ERootMotionMode__RootMotionFromMontagesOnly = 3,
-	ERootMotionMode__ERootMotionMode_MAX = 4
+	NoRootMotionExtraction         = 0,
+	IgnoreRootMotion               = 1,
+	RootMotionFromEverything       = 2,
+	RootMotionFromMontagesOnly     = 3,
+	ERootMotionMode_MAX            = 4
 };
 
 
 // Enum Engine.ERootMotionRootLock
 enum class ERootMotionRootLock : uint8_t
 {
-	ERootMotionRootLock__RefPose   = 0,
-	ERootMotionRootLock__AnimFirstFrame = 1,
-	ERootMotionRootLock__Zero      = 2,
-	ERootMotionRootLock__ERootMotionRootLock_MAX = 3
+	RefPose                        = 0,
+	AnimFirstFrame                 = 1,
+	Zero                           = 2,
+	ERootMotionRootLock_MAX        = 3
 };
 
 
 // Enum Engine.EMontagePlayReturnType
 enum class EMontagePlayReturnType : uint8_t
 {
-	EMontagePlayReturnType__MontageLength = 0,
-	EMontagePlayReturnType__Duration = 1,
-	EMontagePlayReturnType__EMontagePlayReturnType_MAX = 2
+	MontageLength                  = 0,
+	Duration                       = 1,
+	EMontagePlayReturnType_MAX     = 2
 };
 
 
 // Enum Engine.EAnimCurveType
 enum class EAnimCurveType : uint8_t
 {
-	EAnimCurveType__AttributeCurve = 0,
-	EAnimCurveType__MaterialCurve  = 1,
-	EAnimCurveType__MorphTargetCurve = 2,
-	EAnimCurveType__MaxAnimCurveType = 3,
-	EAnimCurveType__EAnimCurveType_MAX = 4
+	AttributeCurve                 = 0,
+	MaterialCurve                  = 1,
+	MorphTargetCurve               = 2,
+	MaxAnimCurveType               = 3,
+	EAnimCurveType_MAX             = 4
 };
 
 
 // Enum Engine.EDrawDebugItemType
 enum class EDrawDebugItemType : uint8_t
 {
-	EDrawDebugItemType__DirectionalArrow = 0,
-	EDrawDebugItemType__Sphere     = 1,
-	EDrawDebugItemType__Line       = 2,
-	EDrawDebugItemType__OnScreenMessage = 3,
-	EDrawDebugItemType__CoordinateSystem = 4,
-	EDrawDebugItemType__EDrawDebugItemType_MAX = 5
+	DirectionalArrow               = 0,
+	Sphere                         = 1,
+	Line                           = 2,
+	OnScreenMessage                = 3,
+	CoordinateSystem               = 4,
+	EDrawDebugItemType_MAX         = 5
 };
 
 
 // Enum Engine.EAnimLinkMethod
 enum class EAnimLinkMethod : uint8_t
 {
-	EAnimLinkMethod__Absolute      = 0,
-	EAnimLinkMethod__Relative      = 1,
-	EAnimLinkMethod__Proportional  = 2,
-	EAnimLinkMethod__EAnimLinkMethod_MAX = 3
+	Absolute                       = 0,
+	Relative                       = 1,
+	Proportional                   = 2,
+	EAnimLinkMethod_MAX            = 3
 };
 
 
 // Enum Engine.EMontageSubStepResult
 enum class EMontageSubStepResult : uint8_t
 {
-	EMontageSubStepResult__Moved   = 0,
-	EMontageSubStepResult__NotMoved = 1,
-	EMontageSubStepResult__InvalidSection = 2,
-	EMontageSubStepResult__InvalidMontage = 3,
-	EMontageSubStepResult__EMontageSubStepResult_MAX = 4
+	Moved                          = 0,
+	NotMoved                       = 1,
+	InvalidSection                 = 2,
+	InvalidMontage                 = 3,
+	EMontageSubStepResult_MAX      = 4
 };
 
 
 // Enum Engine.EAnimNotifyEventType
 enum class EAnimNotifyEventType : uint8_t
 {
-	EAnimNotifyEventType__Begin    = 0,
-	EAnimNotifyEventType__End      = 1,
-	EAnimNotifyEventType__EAnimNotifyEventType_MAX = 2
+	Begin                          = 0,
+	End                            = 1,
+	EAnimNotifyEventType_MAX       = 2
 };
 
 
 // Enum Engine.ECopyType
 enum class ECopyType : uint8_t
 {
-	ECopyType__MemCopy             = 0,
-	ECopyType__BoolProperty        = 1,
-	ECopyType__StructProperty      = 2,
-	ECopyType__ObjectProperty      = 3,
-	ECopyType__ECopyType_MAX       = 4
+	MemCopy                        = 0,
+	BoolProperty                   = 1,
+	StructProperty                 = 2,
+	ObjectProperty                 = 3,
+	ECopyType_MAX                  = 4
 };
 
 
 // Enum Engine.EPostCopyOperation
 enum class EPostCopyOperation : uint8_t
 {
-	EPostCopyOperation__None       = 0,
-	EPostCopyOperation__LogicalNegateBool = 1,
-	EPostCopyOperation__EPostCopyOperation_MAX = 2
+	None                           = 0,
+	LogicalNegateBool              = 1,
+	EPostCopyOperation_MAX         = 2
 };
 
 
 // Enum Engine.EPinHidingMode
 enum class EPinHidingMode : uint8_t
 {
-	EPinHidingMode__NeverAsPin     = 0,
-	EPinHidingMode__PinHiddenByDefault = 1,
-	EPinHidingMode__PinShownByDefault = 2,
-	EPinHidingMode__AlwaysAsPin    = 3,
-	EPinHidingMode__EPinHidingMode_MAX = 4
+	NeverAsPin                     = 0,
+	PinHiddenByDefault             = 1,
+	PinShownByDefault              = 2,
+	AlwaysAsPin                    = 3,
+	EPinHidingMode_MAX             = 4
 };
 
 
 // Enum Engine.EEvaluatorMode
 enum class EEvaluatorMode : uint8_t
 {
-	EEvaluatorMode__EM_Standard    = 0,
-	EEvaluatorMode__EM_Freeze      = 1,
-	EEvaluatorMode__EM_DelayedFreeze = 2,
-	EEvaluatorMode__EM_MAX         = 3
+	EM_Standard                    = 0,
+	EM_Freeze                      = 1,
+	EM_DelayedFreeze               = 2,
+	EM_MAX                         = 3
 };
 
 
 // Enum Engine.EEvaluatorDataSource
 enum class EEvaluatorDataSource : uint8_t
 {
-	EEvaluatorDataSource__EDS_SourcePose = 0,
-	EEvaluatorDataSource__EDS_DestinationPose = 1,
-	EEvaluatorDataSource__EDS_MAX  = 2
+	EDS_SourcePose                 = 0,
+	EDS_DestinationPose            = 1,
+	EDS_MAX                        = 2
 };
 
 
 // Enum Engine.AnimPhysCollisionType
 enum class EAnimPhysCollisionType : uint8_t
 {
-	AnimPhysCollisionType__CoM     = 0,
-	AnimPhysCollisionType__CustomSphere = 1,
-	AnimPhysCollisionType__InnerSphere = 2,
-	AnimPhysCollisionType__OuterSphere = 3,
-	AnimPhysCollisionType__AnimPhysCollisionType_MAX = 4
+	CoM                            = 0,
+	CustomSphere                   = 1,
+	InnerSphere                    = 2,
+	OuterSphere                    = 3,
+	AnimPhysCollisionType_MAX      = 4
 };
 
 
 // Enum Engine.AnimPhysTwistAxis
 enum class EAnimPhysTwistAxis : uint8_t
 {
-	AnimPhysTwistAxis__AxisX       = 0,
-	AnimPhysTwistAxis__AxisY       = 1,
-	AnimPhysTwistAxis__AxisZ       = 2,
-	AnimPhysTwistAxis__AnimPhysTwistAxis_MAX = 3
+	AxisX                          = 0,
+	AxisY                          = 1,
+	AxisZ                          = 2,
+	AnimPhysTwistAxis_MAX          = 3
 };
 
 
@@ -965,94 +965,94 @@ enum class ETypeAdvanceAnim : uint8_t
 // Enum Engine.ETransitionLogicType
 enum class ETransitionLogicType : uint8_t
 {
-	ETransitionLogicType__TLT_StandardBlend = 0,
-	ETransitionLogicType__TLT_Custom = 1,
-	ETransitionLogicType__TLT_MAX  = 2
+	TLT_StandardBlend              = 0,
+	TLT_Custom                     = 1,
+	TLT_MAX                        = 2
 };
 
 
 // Enum Engine.ETransitionBlendMode
 enum class ETransitionBlendMode : uint8_t
 {
-	ETransitionBlendMode__TBM_Linear = 0,
-	ETransitionBlendMode__TBM_Cubic = 1,
-	ETransitionBlendMode__TBM_MAX  = 2
+	TBM_Linear                     = 0,
+	TBM_Cubic                      = 1,
+	TBM_MAX                        = 2
 };
 
 
 // Enum Engine.EComponentType
 enum class EComponentType : uint8_t
 {
-	EComponentType__None           = 0,
-	EComponentType__TranslationX   = 1,
-	EComponentType__TranslationY   = 2,
-	EComponentType__TranslationZ   = 3,
-	EComponentType__RotationX      = 4,
-	EComponentType__RotationY      = 5,
-	EComponentType__RotationZ      = 6,
-	EComponentType__Scale          = 7,
-	EComponentType__ScaleX         = 8,
-	EComponentType__ScaleY         = 9,
-	EComponentType__ScaleZ         = 10,
-	EComponentType__EComponentType_MAX = 11
+	None                           = 0,
+	TranslationX                   = 1,
+	TranslationY                   = 2,
+	TranslationZ                   = 3,
+	RotationX                      = 4,
+	RotationY                      = 5,
+	RotationZ                      = 6,
+	Scale                          = 7,
+	ScaleX                         = 8,
+	ScaleY                         = 9,
+	ScaleZ                         = 10,
+	EComponentType_MAX             = 11
 };
 
 
 // Enum Engine.EAxisOption
 enum class EAxisOption : uint8_t
 {
-	EAxisOption__X                 = 0,
-	EAxisOption__Y                 = 1,
-	EAxisOption__Z                 = 2,
-	EAxisOption__X_Neg             = 3,
-	EAxisOption__Y_Neg             = 4,
-	EAxisOption__Z_Neg             = 5,
-	EAxisOption__Custom            = 6,
-	EAxisOption__EAxisOption_MAX   = 7
+	X                              = 0,
+	Y                              = 1,
+	Z                              = 2,
+	X_Neg                          = 3,
+	Y_Neg                          = 4,
+	Z_Neg                          = 5,
+	Custom                         = 6,
+	EAxisOption_MAX                = 7
 };
 
 
 // Enum Engine.EAnimInterpolationType
 enum class EAnimInterpolationType : uint8_t
 {
-	EAnimInterpolationType__Linear = 0,
-	EAnimInterpolationType__Step   = 1,
-	EAnimInterpolationType__EAnimInterpolationType_MAX = 2
+	Linear                         = 0,
+	Step                           = 1,
+	EAnimInterpolationType_MAX     = 2
 };
 
 
 // Enum Engine.ECurveBlendOption
 enum class ECurveBlendOption : uint8_t
 {
-	ECurveBlendOption__MaxWeight   = 0,
-	ECurveBlendOption__NormalizeByWeight = 1,
-	ECurveBlendOption__BlendByWeight = 2,
-	ECurveBlendOption__ECurveBlendOption_MAX = 3
+	MaxWeight                      = 0,
+	NormalizeByWeight              = 1,
+	BlendByWeight                  = 2,
+	ECurveBlendOption_MAX          = 3
 };
 
 
 // Enum Engine.EAnimationOperationType
 enum class EAnimationOperationType : uint8_t
 {
-	EAnimationOperationType__None  = 0,
-	EAnimationOperationType__Eye   = 1,
-	EAnimationOperationType__Eyelid = 2,
-	EAnimationOperationType__LookAt = 3,
-	EAnimationOperationType__Iris  = 4,
-	EAnimationOperationType__Eye_Highlight = 5,
-	EAnimationOperationType__Mouth = 6,
-	EAnimationOperationType__Lip   = 7,
-	EAnimationOperationType__Face  = 8,
-	EAnimationOperationType__Hand  = 9,
-	EAnimationOperationType__Hand_L = 10,
-	EAnimationOperationType__Hand_R = 11,
-	EAnimationOperationType__Help  = 12,
-	EAnimationOperationType__Emotion0 = 13,
-	EAnimationOperationType__Emotion1 = 14,
-	EAnimationOperationType__Wrinkle0 = 15,
-	EAnimationOperationType__Wrinkle1 = 16,
-	EAnimationOperationType__Iris_Size = 17,
-	EAnimationOperationType__EAnimationOperationType_MAX = 18
+	None                           = 0,
+	Eye                            = 1,
+	Eyelid                         = 2,
+	LookAt                         = 3,
+	Iris                           = 4,
+	Eye_Highlight                  = 5,
+	Mouth                          = 6,
+	Lip                            = 7,
+	Face                           = 8,
+	Hand                           = 9,
+	Hand_L                         = 10,
+	Hand_R                         = 11,
+	Help                           = 12,
+	Emotion0                       = 13,
+	Emotion1                       = 14,
+	Wrinkle0                       = 15,
+	Wrinkle1                       = 16,
+	Iris_Size                      = 17,
+	EAnimationOperationType_MAX    = 18
 };
 
 
@@ -1069,18 +1069,18 @@ enum class EAdditiveAnimationType : uint8_t
 // Enum Engine.ENotifyFilterType
 enum class ENotifyFilterType : uint8_t
 {
-	ENotifyFilterType__NoFiltering = 0,
-	ENotifyFilterType__LOD         = 1,
-	ENotifyFilterType__ENotifyFilterType_MAX = 2
+	NoFiltering                    = 0,
+	LOD                            = 1,
+	ENotifyFilterType_MAX          = 2
 };
 
 
 // Enum Engine.EMontageNotifyTickType
 enum class EMontageNotifyTickType : uint8_t
 {
-	EMontageNotifyTickType__Queued = 0,
-	EMontageNotifyTickType__BranchingPoint = 1,
-	EMontageNotifyTickType__EMontageNotifyTickType_MAX = 2
+	Queued                         = 0,
+	BranchingPoint                 = 1,
+	EMontageNotifyTickType_MAX     = 2
 };
 
 
@@ -1118,40 +1118,40 @@ enum class EBoneAxis : uint8_t
 // Enum Engine.EPrimaryAssetCookRule
 enum class EPrimaryAssetCookRule : uint8_t
 {
-	EPrimaryAssetCookRule__Unknown = 0,
-	EPrimaryAssetCookRule__NeverCook = 1,
-	EPrimaryAssetCookRule__DevelopmentCook = 2,
-	EPrimaryAssetCookRule__DevelopmentAlwaysCook = 3,
-	EPrimaryAssetCookRule__AlwaysCook = 4,
-	EPrimaryAssetCookRule__EPrimaryAssetCookRule_MAX = 5
+	Unknown                        = 0,
+	NeverCook                      = 1,
+	DevelopmentCook                = 2,
+	DevelopmentAlwaysCook          = 3,
+	AlwaysCook                     = 4,
+	EPrimaryAssetCookRule_MAX      = 5
 };
 
 
 // Enum Engine.EMonoChannelUpmixMethod
 enum class EMonoChannelUpmixMethod : uint8_t
 {
-	EMonoChannelUpmixMethod__Linear = 0,
-	EMonoChannelUpmixMethod__EqualPower = 1,
-	EMonoChannelUpmixMethod__FullVolume = 2,
-	EMonoChannelUpmixMethod__EMonoChannelUpmixMethod_MAX = 3
+	Linear                         = 0,
+	EqualPower                     = 1,
+	FullVolume                     = 2,
+	EMonoChannelUpmixMethod_MAX    = 3
 };
 
 
 // Enum Engine.EPanningMethod
 enum class EPanningMethod : uint8_t
 {
-	EPanningMethod__Linear         = 0,
-	EPanningMethod__EqualPower     = 1,
-	EPanningMethod__EPanningMethod_MAX = 2
+	Linear                         = 0,
+	EqualPower                     = 1,
+	EPanningMethod_MAX             = 2
 };
 
 
 // Enum Engine.EVoiceSampleRate
 enum class EVoiceSampleRate : uint8_t
 {
-	EVoiceSampleRate__Low16000Hz   = 0,
-	EVoiceSampleRate__Normal24000Hz = 1,
-	EVoiceSampleRate__EVoiceSampleRate_MAX = 2
+	Low16000Hz                     = 0,
+	Normal24000Hz                  = 1,
+	EVoiceSampleRate_MAX           = 2
 };
 
 
@@ -1170,10 +1170,10 @@ enum class EBlendableLocation : uint8_t
 // Enum Engine.ENotifyTriggerMode
 enum class ENotifyTriggerMode : uint8_t
 {
-	ENotifyTriggerMode__AllAnimations = 0,
-	ENotifyTriggerMode__HighestWeightedAnimation = 1,
-	ENotifyTriggerMode__None       = 2,
-	ENotifyTriggerMode__ENotifyTriggerMode_MAX = 3
+	AllAnimations                  = 0,
+	HighestWeightedAnimation       = 1,
+	None                           = 2,
+	ENotifyTriggerMode_MAX         = 3
 };
 
 
@@ -1190,20 +1190,20 @@ enum class EBlendSpaceAxis : uint8_t
 // Enum Engine.EBlueprintNativizationFlag
 enum class EBlueprintNativizationFlag : uint8_t
 {
-	EBlueprintNativizationFlag__Disabled = 0,
-	EBlueprintNativizationFlag__Dependency = 1,
-	EBlueprintNativizationFlag__ExplicitlyEnabled = 2,
-	EBlueprintNativizationFlag__EBlueprintNativizationFlag_MAX = 3
+	Disabled                       = 0,
+	Dependency                     = 1,
+	ExplicitlyEnabled              = 2,
+	EBlueprintNativizationFlag_MAX = 3
 };
 
 
 // Enum Engine.EBlueprintCompileMode
 enum class EBlueprintCompileMode : uint8_t
 {
-	EBlueprintCompileMode__Default = 0,
-	EBlueprintCompileMode__Development = 1,
-	EBlueprintCompileMode__FinalRelease = 2,
-	EBlueprintCompileMode__EBlueprintCompileMode_MAX = 3
+	Default                        = 0,
+	Development                    = 1,
+	FinalRelease                   = 2,
+	EBlueprintCompileMode_MAX      = 3
 };
 
 
@@ -1236,33 +1236,33 @@ enum class EBlueprintStatus : uint8_t
 // Enum Engine.EDynamicActorScene
 enum class EDynamicActorScene : uint8_t
 {
-	EDynamicActorScene__Default    = 0,
-	EDynamicActorScene__UseSyncScene = 1,
-	EDynamicActorScene__UseAsyncScene = 2,
-	EDynamicActorScene__EDynamicActorScene_MAX = 3
+	Default                        = 0,
+	UseSyncScene                   = 1,
+	UseAsyncScene                  = 2,
+	EDynamicActorScene_MAX         = 3
 };
 
 
 // Enum Engine.EDOFMode
 enum class EDOFMode : uint8_t
 {
-	EDOFMode__Default              = 0,
-	EDOFMode__SixDOF               = 1,
-	EDOFMode__YZPlane              = 2,
-	EDOFMode__XZPlane              = 3,
-	EDOFMode__XYPlane              = 4,
-	EDOFMode__CustomPlane          = 5,
-	EDOFMode__None                 = 6,
-	EDOFMode__EDOFMode_MAX         = 7
+	Default                        = 0,
+	SixDOF                         = 1,
+	YZPlane                        = 2,
+	XZPlane                        = 3,
+	XYPlane                        = 4,
+	CustomPlane                    = 5,
+	None                           = 6,
+	EDOFMode_MAX                   = 7
 };
 
 
 // Enum Engine.EBodyCollisionResponse
 enum class EBodyCollisionResponse : uint8_t
 {
-	EBodyCollisionResponse__BodyCollision_Enabled = 0,
-	EBodyCollisionResponse__BodyCollision_Disabled = 1,
-	EBodyCollisionResponse__BodyCollision_MAX = 2
+	BodyCollision_Enabled          = 0,
+	BodyCollision_Disabled         = 1,
+	BodyCollision_MAX              = 2
 };
 
 
@@ -1322,19 +1322,19 @@ enum class EInitialOscillatorOffset : uint8_t
 // Enum Engine.ECameraAlphaBlendMode
 enum class ECameraAlphaBlendMode : uint8_t
 {
-	ECameraAlphaBlendMode__CABM_Linear = 0,
-	ECameraAlphaBlendMode__CABM_Cubic = 1,
-	ECameraAlphaBlendMode__CABM_MAX = 2
+	CABM_Linear                    = 0,
+	CABM_Cubic                     = 1,
+	CABM_MAX                       = 2
 };
 
 
 // Enum Engine.ECameraAnimPlaySpace
 enum class ECameraAnimPlaySpace : uint8_t
 {
-	ECameraAnimPlaySpace__CameraLocal = 0,
-	ECameraAnimPlaySpace__World    = 1,
-	ECameraAnimPlaySpace__UserDefined = 2,
-	ECameraAnimPlaySpace__ECameraAnimPlaySpace_MAX = 3
+	CameraLocal                    = 0,
+	World                          = 1,
+	UserDefined                    = 2,
+	ECameraAnimPlaySpace_MAX       = 3
 };
 
 
@@ -1355,9 +1355,9 @@ enum class ECloudStorageDelegate : uint8_t
 // Enum Engine.EAngularDriveMode
 enum class EAngularDriveMode : uint8_t
 {
-	EAngularDriveMode__SLERP       = 0,
-	EAngularDriveMode__TwistAndSwing = 1,
-	EAngularDriveMode__EAngularDriveMode_MAX = 2
+	SLERP                          = 0,
+	TwistAndSwing                  = 1,
+	EAngularDriveMode_MAX          = 2
 };
 
 
@@ -1374,29 +1374,29 @@ enum class ELinearConstraintMotion : uint8_t
 // Enum Engine.EEvaluateCurveTableResult
 enum class EEvaluateCurveTableResult : uint8_t
 {
-	EEvaluateCurveTableResult__RowFound = 0,
-	EEvaluateCurveTableResult__RowNotFound = 1,
-	EEvaluateCurveTableResult__EEvaluateCurveTableResult_MAX = 2
+	RowFound                       = 0,
+	RowNotFound                    = 1,
+	EEvaluateCurveTableResult_MAX  = 2
 };
 
 
 // Enum Engine.EGrammaticalNumber
 enum class EGrammaticalNumber : uint8_t
 {
-	EGrammaticalNumber__Singular   = 0,
-	EGrammaticalNumber__Plural     = 1,
-	EGrammaticalNumber__EGrammaticalNumber_MAX = 2
+	Singular                       = 0,
+	Plural                         = 1,
+	EGrammaticalNumber_MAX         = 2
 };
 
 
 // Enum Engine.EGrammaticalGender
 enum class EGrammaticalGender : uint8_t
 {
-	EGrammaticalGender__Neuter     = 0,
-	EGrammaticalGender__Masculine  = 1,
-	EGrammaticalGender__Feminine   = 2,
-	EGrammaticalGender__Mixed      = 3,
-	EGrammaticalGender__EGrammaticalGender_MAX = 4
+	Neuter                         = 0,
+	Masculine                      = 1,
+	Feminine                       = 2,
+	Mixed                          = 3,
+	EGrammaticalGender_MAX         = 4
 };
 
 
@@ -1435,43 +1435,43 @@ enum class EDistributionVectorLockFlags : uint8_t
 // Enum Engine.ENodeEnabledState
 enum class ENodeEnabledState : uint8_t
 {
-	ENodeEnabledState__Enabled     = 0,
-	ENodeEnabledState__Disabled    = 1,
-	ENodeEnabledState__DevelopmentOnly = 2,
-	ENodeEnabledState__ENodeEnabledState_MAX = 3
+	Enabled                        = 0,
+	Disabled                       = 1,
+	DevelopmentOnly                = 2,
+	ENodeEnabledState_MAX          = 3
 };
 
 
 // Enum Engine.ENodeAdvancedPins
 enum class ENodeAdvancedPins : uint8_t
 {
-	ENodeAdvancedPins__NoPins      = 0,
-	ENodeAdvancedPins__Shown       = 1,
-	ENodeAdvancedPins__Hidden      = 2,
-	ENodeAdvancedPins__ENodeAdvancedPins_MAX = 3
+	NoPins                         = 0,
+	Shown                          = 1,
+	Hidden                         = 2,
+	ENodeAdvancedPins_MAX          = 3
 };
 
 
 // Enum Engine.ENodeTitleType
 enum class ENodeTitleType : uint8_t
 {
-	ENodeTitleType__FullTitle      = 0,
-	ENodeTitleType__ListView       = 1,
-	ENodeTitleType__EditableTitle  = 2,
-	ENodeTitleType__MenuTitle      = 3,
-	ENodeTitleType__MAX_TitleTypes = 4,
-	ENodeTitleType__ENodeTitleType_MAX = 5
+	FullTitle                      = 0,
+	ListView                       = 1,
+	EditableTitle                  = 2,
+	MenuTitle                      = 3,
+	MAX_TitleTypes                 = 4,
+	ENodeTitleType_MAX             = 5
 };
 
 
 // Enum Engine.EPinContainerType
 enum class EPinContainerType : uint8_t
 {
-	EPinContainerType__None        = 0,
-	EPinContainerType__Array       = 1,
-	EPinContainerType__Set         = 2,
-	EPinContainerType__Map         = 3,
-	EPinContainerType__EPinContainerType_MAX = 4
+	None                           = 0,
+	Array                          = 1,
+	Set                            = 2,
+	Map                            = 3,
+	EPinContainerType_MAX          = 4
 };
 
 
@@ -1588,11 +1588,11 @@ enum class EViewModeIndex : uint8_t
 // Enum Engine.EDemoPlayFailure
 enum class EDemoPlayFailure : uint8_t
 {
-	EDemoPlayFailure__Generic      = 0,
-	EDemoPlayFailure__DemoNotFound = 1,
-	EDemoPlayFailure__Corrupt      = 2,
-	EDemoPlayFailure__InvalidVersion = 3,
-	EDemoPlayFailure__EDemoPlayFailure_MAX = 4
+	Generic                        = 0,
+	DemoNotFound                   = 1,
+	Corrupt                        = 2,
+	InvalidVersion                 = 3,
+	EDemoPlayFailure_MAX           = 4
 };
 
 
@@ -1609,50 +1609,50 @@ enum class ETravelType : uint8_t
 // Enum Engine.ENetworkLagState
 enum class ENetworkLagState : uint8_t
 {
-	ENetworkLagState__NotLagging   = 0,
-	ENetworkLagState__Lagging      = 1,
-	ENetworkLagState__ENetworkLagState_MAX = 2
+	NotLagging                     = 0,
+	Lagging                        = 1,
+	ENetworkLagState_MAX           = 2
 };
 
 
 // Enum Engine.EMouseCaptureMode
 enum class EMouseCaptureMode : uint8_t
 {
-	EMouseCaptureMode__NoCapture   = 0,
-	EMouseCaptureMode__CapturePermanently = 1,
-	EMouseCaptureMode__CapturePermanently_IncludingInitialMouseDown = 2,
-	EMouseCaptureMode__CaptureDuringMouseDown = 3,
-	EMouseCaptureMode__CaptureDuringRightMouseDown = 4,
-	EMouseCaptureMode__EMouseCaptureMode_MAX = 5
+	NoCapture                      = 0,
+	CapturePermanently             = 1,
+	CapturePermanently_IncludingInitialMouseDown = 2,
+	CaptureDuringMouseDown         = 3,
+	CaptureDuringRightMouseDown    = 4,
+	EMouseCaptureMode_MAX          = 5
 };
 
 
 // Enum Engine.ECustomTimeStepSynchronizationState
 enum class ECustomTimeStepSynchronizationState : uint8_t
 {
-	ECustomTimeStepSynchronizationState__Closed = 0,
-	ECustomTimeStepSynchronizationState__Error = 1,
-	ECustomTimeStepSynchronizationState__Synchronized = 2,
-	ECustomTimeStepSynchronizationState__Synchronizing = 3,
-	ECustomTimeStepSynchronizationState__ECustomTimeStepSynchronizationState_MAX = 4
+	Closed                         = 0,
+	Error                          = 1,
+	Synchronized                   = 2,
+	Synchronizing                  = 3,
+	ECustomTimeStepSynchronizationState_MAX = 4
 };
 
 
 // Enum Engine.EMeshBufferAccess
 enum class EMeshBufferAccess : uint8_t
 {
-	EMeshBufferAccess__Default     = 0,
-	EMeshBufferAccess__ForceCPUAndGPU = 1,
-	EMeshBufferAccess__EMeshBufferAccess_MAX = 2
+	Default                        = 0,
+	ForceCPUAndGPU                 = 1,
+	EMeshBufferAccess_MAX          = 2
 };
 
 
 // Enum Engine.EConstraintFrame
 enum class EConstraintFrame : uint8_t
 {
-	EConstraintFrame__Frame1       = 0,
-	EConstraintFrame__Frame2       = 1,
-	EConstraintFrame__EConstraintFrame_MAX = 2
+	Frame1                         = 0,
+	Frame2                         = 1,
+	EConstraintFrame_MAX           = 2
 };
 
 
@@ -1669,10 +1669,10 @@ enum class EAngularConstraintMotion : uint8_t
 // Enum Engine.EComponentSocketType
 enum class EComponentSocketType : uint8_t
 {
-	EComponentSocketType__Invalid  = 0,
-	EComponentSocketType__Bone     = 1,
-	EComponentSocketType__Socket   = 2,
-	EComponentSocketType__EComponentSocketType_MAX = 3
+	Invalid                        = 0,
+	Bone                           = 1,
+	Socket                         = 2,
+	EComponentSocketType_MAX       = 3
 };
 
 
@@ -1761,24 +1761,24 @@ enum class EWalkableSlopeBehavior : uint8_t
 // Enum Engine.EUpdateRateShiftBucket
 enum class EUpdateRateShiftBucket : uint8_t
 {
-	EUpdateRateShiftBucket__ShiftBucket0 = 0,
-	EUpdateRateShiftBucket__ShiftBucket1 = 1,
-	EUpdateRateShiftBucket__ShiftBucket2 = 2,
-	EUpdateRateShiftBucket__ShiftBucket3 = 3,
-	EUpdateRateShiftBucket__ShiftBucket4 = 4,
-	EUpdateRateShiftBucket__ShiftBucket5 = 5,
-	EUpdateRateShiftBucket__ShiftBucketMax = 6,
-	EUpdateRateShiftBucket__EUpdateRateShiftBucket_MAX = 7
+	ShiftBucket0                   = 0,
+	ShiftBucket1                   = 1,
+	ShiftBucket2                   = 2,
+	ShiftBucket3                   = 3,
+	ShiftBucket4                   = 4,
+	ShiftBucket5                   = 5,
+	ShiftBucketMax                 = 6,
+	EUpdateRateShiftBucket_MAX     = 7
 };
 
 
 // Enum Engine.ETeleportType
 enum class ETeleportType : uint8_t
 {
-	ETeleportType__None            = 0,
-	ETeleportType__TeleportPhysics = 1,
-	ETeleportType__ResetPhysics    = 2,
-	ETeleportType__ETeleportType_MAX = 3
+	None                           = 0,
+	TeleportPhysics                = 1,
+	ResetPhysics                   = 2,
+	ETeleportType_MAX              = 3
 };
 
 
@@ -1804,11 +1804,11 @@ enum class ELightMapPaddingType : uint8_t
 // Enum Engine.ECollisionEnabled
 enum class ECollisionEnabled : uint8_t
 {
-	ECollisionEnabled__NoCollision = 0,
-	ECollisionEnabled__QueryOnly   = 1,
-	ECollisionEnabled__PhysicsOnly = 2,
-	ECollisionEnabled__QueryAndPhysics = 3,
-	ECollisionEnabled__ECollisionEnabled_MAX = 4
+	NoCollision                    = 0,
+	QueryOnly                      = 1,
+	PhysicsOnly                    = 2,
+	QueryAndPhysics                = 3,
+	ECollisionEnabled_MAX          = 4
 };
 
 
@@ -1827,10 +1827,10 @@ enum class ETimelineSigType : uint8_t
 // Enum Engine.ESleepFamily
 enum class ESleepFamily : uint8_t
 {
-	ESleepFamily__Normal           = 0,
-	ESleepFamily__Sensitive        = 1,
-	ESleepFamily__Custom           = 2,
-	ESleepFamily__ESleepFamily_MAX = 3
+	Normal                         = 0,
+	Sensitive                      = 1,
+	Custom                         = 2,
+	ESleepFamily_MAX               = 3
 };
 
 
@@ -1896,11 +1896,11 @@ enum class EOverlapFilterOption : uint8_t
 // Enum Engine.ENetworkSmoothingMode
 enum class ENetworkSmoothingMode : uint8_t
 {
-	ENetworkSmoothingMode__Disabled = 0,
-	ENetworkSmoothingMode__Linear  = 1,
-	ENetworkSmoothingMode__Exponential = 2,
-	ENetworkSmoothingMode__Replay  = 3,
-	ENetworkSmoothingMode__ENetworkSmoothingMode_MAX = 4
+	Disabled                       = 0,
+	Linear                         = 1,
+	Exponential                    = 2,
+	Replay                         = 3,
+	ENetworkSmoothingMode_MAX      = 4
 };
 
 
@@ -1973,9 +1973,9 @@ enum class EMaterialShadingModel : uint8_t
 // Enum Engine.EParticleCollisionMode
 enum class EParticleCollisionMode : uint8_t
 {
-	EParticleCollisionMode__SceneDepth = 0,
-	EParticleCollisionMode__DistanceField = 1,
-	EParticleCollisionMode__EParticleCollisionMode_MAX = 2
+	SceneDepth                     = 0,
+	DistanceField                  = 1,
+	EParticleCollisionMode_MAX     = 2
 };
 
 
@@ -1992,11 +1992,11 @@ enum class ETrailWidthMode : uint8_t
 // Enum Engine.EGBufferFormat
 enum class EGBufferFormat : uint8_t
 {
-	EGBufferFormat__Force8BitsPerChannel = 0,
-	EGBufferFormat__Default        = 1,
-	EGBufferFormat__HighPrecisionNormals = 2,
-	EGBufferFormat__Force16BitsPerChannel = 3,
-	EGBufferFormat__EGBufferFormat_MAX = 4
+	Force8BitsPerChannel           = 0,
+	Default                        = 1,
+	HighPrecisionNormals           = 2,
+	Force16BitsPerChannel          = 3,
+	EGBufferFormat_MAX             = 4
 };
 
 
@@ -2028,10 +2028,10 @@ enum class ESceneCaptureSource : uint8_t
 // Enum Engine.ETranslucentSortPolicy
 enum class ETranslucentSortPolicy : uint8_t
 {
-	ETranslucentSortPolicy__SortByDistance = 0,
-	ETranslucentSortPolicy__SortByProjectedZ = 1,
-	ETranslucentSortPolicy__SortAlongAxis = 2,
-	ETranslucentSortPolicy__ETranslucentSortPolicy_MAX = 3
+	SortByDistance                 = 0,
+	SortByProjectedZ               = 1,
+	SortAlongAxis                  = 2,
+	ETranslucentSortPolicy_MAX     = 3
 };
 
 
@@ -2054,16 +2054,6 @@ enum class ETranslucencyLightingMode : uint8_t
 	TLM_Surface                    = 4,
 	TLM_SurfacePerPixelLighting    = 5,
 	TLM_MAX                        = 6
-};
-
-
-// Enum Engine.ESamplerSourceMode
-enum class ESamplerSourceMode : uint8_t
-{
-	SSM_FromTextureAsset           = 0,
-	SSM_Wrap_WorldGroupSettings    = 1,
-	SSM_Clamp_WorldGroupSettings   = 2,
-	SSM_MAX                        = 3
 };
 
 
@@ -2092,10 +2082,10 @@ enum class EOcclusionCombineMode : uint8_t
 // Enum Engine.ELightmapType
 enum class ELightmapType : uint8_t
 {
-	ELightmapType__Default         = 0,
-	ELightmapType__ForceSurface    = 1,
-	ELightmapType__ForceVolumetric = 2,
-	ELightmapType__ELightmapType_MAX = 3
+	Default                        = 0,
+	ForceSurface                   = 1,
+	ForceVolumetric                = 2,
+	ELightmapType_MAX              = 3
 };
 
 
@@ -2109,12 +2099,13 @@ enum class EIndirectLightingCacheQuality : uint8_t
 };
 
 
-// Enum Engine.ESceneDepthPriorityGroup
-enum class ESceneDepthPriorityGroup : uint8_t
+// Enum Engine.ESamplerSourceMode
+enum class ESamplerSourceMode : uint8_t
 {
-	SDPG_World                     = 0,
-	SDPG_Foreground                = 1,
-	SDPG_MAX                       = 2
+	SSM_FromTextureAsset           = 0,
+	SSM_Wrap_WorldGroupSettings    = 1,
+	SSM_Clamp_WorldGroupSettings   = 2,
+	SSM_MAX                        = 3
 };
 
 
@@ -2141,19 +2132,18 @@ enum class EAspectRatioAxisConstraint : uint8_t
 // Enum Engine.EFontCacheType
 enum class EFontCacheType : uint8_t
 {
-	EFontCacheType__Offline        = 0,
-	EFontCacheType__Runtime        = 1,
-	EFontCacheType__EFontCacheType_MAX = 2
+	Offline                        = 0,
+	Runtime                        = 1,
+	EFontCacheType_MAX             = 2
 };
 
 
-// Enum Engine.EFontImportCharacterSet
-enum class EFontImportCharacterSet : uint8_t
+// Enum Engine.ESceneDepthPriorityGroup
+enum class ESceneDepthPriorityGroup : uint8_t
 {
-	FontICS_Default                = 0,
-	FontICS_Ansi                   = 1,
-	FontICS_Symbol                 = 2,
-	FontICS_MAX                    = 3
+	SDPG_World                     = 0,
+	SDPG_Foreground                = 1,
+	SDPG_MAX                       = 2
 };
 
 
@@ -2170,32 +2160,32 @@ enum class EStandbyType : uint8_t
 // Enum Engine.ESuggestProjVelocityTraceOption
 enum class ESuggestProjVelocityTraceOption : uint8_t
 {
-	ESuggestProjVelocityTraceOption__DoNotTrace = 0,
-	ESuggestProjVelocityTraceOption__TraceFullPath = 1,
-	ESuggestProjVelocityTraceOption__OnlyTraceWhileAscending = 2,
-	ESuggestProjVelocityTraceOption__ESuggestProjVelocityTraceOption_MAX = 3
+	DoNotTrace                     = 0,
+	TraceFullPath                  = 1,
+	OnlyTraceWhileAscending        = 2,
+	ESuggestProjVelocityTraceOption_MAX = 3
 };
 
 
 // Enum Engine.EWindowMode
 enum class EWindowMode : uint8_t
 {
-	EWindowMode__Fullscreen        = 0,
-	EWindowMode__WindowedFullscreen = 1,
-	EWindowMode__Windowed          = 2,
-	EWindowMode__EWindowMode_MAX   = 3
+	Fullscreen                     = 0,
+	WindowedFullscreen             = 1,
+	Windowed                       = 2,
+	EWindowMode_MAX                = 3
 };
 
 
 // Enum Engine.EImportanceWeight
 enum class EImportanceWeight : uint8_t
 {
-	EImportanceWeight__Luminance   = 0,
-	EImportanceWeight__Red         = 1,
-	EImportanceWeight__Green       = 2,
-	EImportanceWeight__Blue        = 3,
-	EImportanceWeight__Alpha       = 4,
-	EImportanceWeight__EImportanceWeight_MAX = 5
+	Luminance                      = 0,
+	Red                            = 1,
+	Green                          = 2,
+	Blue                           = 3,
+	Alpha                          = 4,
+	EImportanceWeight_MAX          = 5
 };
 
 
@@ -2211,19 +2201,19 @@ enum class EAdManagerDelegate : uint8_t
 // Enum Engine.EControllerAnalogStick
 enum class EControllerAnalogStick : uint8_t
 {
-	EControllerAnalogStick__CAS_LeftStick = 0,
-	EControllerAnalogStick__CAS_RightStick = 1,
-	EControllerAnalogStick__CAS_MAX = 2
+	CAS_LeftStick                  = 0,
+	CAS_RightStick                 = 1,
+	CAS_MAX                        = 2
 };
 
 
 // Enum Engine.EAnimAlphaInputType
 enum class EAnimAlphaInputType : uint8_t
 {
-	EAnimAlphaInputType__Float     = 0,
-	EAnimAlphaInputType__Bool      = 1,
-	EAnimAlphaInputType__Curve     = 2,
-	EAnimAlphaInputType__EAnimAlphaInputType_MAX = 3
+	Float                          = 0,
+	Bool                           = 1,
+	Curve                          = 2,
+	EAnimAlphaInputType_MAX        = 3
 };
 
 
@@ -2271,6 +2261,16 @@ enum class ETrackToggleAction : uint8_t
 };
 
 
+// Enum Engine.EFontImportCharacterSet
+enum class EFontImportCharacterSet : uint8_t
+{
+	FontICS_Default                = 0,
+	FontICS_Ansi                   = 1,
+	FontICS_Symbol                 = 2,
+	FontICS_MAX                    = 3
+};
+
+
 // Enum Engine.EVisibilityTrackCondition
 enum class EVisibilityTrackCondition : uint8_t
 {
@@ -2294,44 +2294,44 @@ enum class EVisibilityTrackAction : uint8_t
 // Enum Engine.ESlateGesture
 enum class ESlateGesture : uint8_t
 {
-	ESlateGesture__None            = 0,
-	ESlateGesture__Scroll          = 1,
-	ESlateGesture__Magnify         = 2,
-	ESlateGesture__Swipe           = 3,
-	ESlateGesture__Rotate          = 4,
-	ESlateGesture__LongPress       = 5,
-	ESlateGesture__ESlateGesture_MAX = 6
+	None                           = 0,
+	Scroll                         = 1,
+	Magnify                        = 2,
+	Swipe                          = 3,
+	Rotate                         = 4,
+	LongPress                      = 5,
+	ESlateGesture_MAX              = 6
 };
 
 
 // Enum Engine.ELerpInterpolationMode
 enum class ELerpInterpolationMode : uint8_t
 {
-	ELerpInterpolationMode__QuatInterp = 0,
-	ELerpInterpolationMode__EulerInterp = 1,
-	ELerpInterpolationMode__DualQuatInterp = 2,
-	ELerpInterpolationMode__ELerpInterpolationMode_MAX = 3
+	QuatInterp                     = 0,
+	EulerInterp                    = 1,
+	DualQuatInterp                 = 2,
+	ELerpInterpolationMode_MAX     = 3
 };
 
 
 // Enum Engine.EEasingFunc
 enum class EEasingFunc : uint8_t
 {
-	EEasingFunc__Linear            = 0,
-	EEasingFunc__Step              = 1,
-	EEasingFunc__SinusoidalIn      = 2,
-	EEasingFunc__SinusoidalOut     = 3,
-	EEasingFunc__SinusoidalInOut   = 4,
-	EEasingFunc__EaseIn            = 5,
-	EEasingFunc__EaseOut           = 6,
-	EEasingFunc__EaseInOut         = 7,
-	EEasingFunc__ExpoIn            = 8,
-	EEasingFunc__ExpoOut           = 9,
-	EEasingFunc__ExpoInOut         = 10,
-	EEasingFunc__CircularIn        = 11,
-	EEasingFunc__CircularOut       = 12,
-	EEasingFunc__CircularInOut     = 13,
-	EEasingFunc__EEasingFunc_MAX   = 14
+	Linear                         = 0,
+	Step                           = 1,
+	SinusoidalIn                   = 2,
+	SinusoidalOut                  = 3,
+	SinusoidalInOut                = 4,
+	EaseIn                         = 5,
+	EaseOut                        = 6,
+	EaseInOut                      = 7,
+	ExpoIn                         = 8,
+	ExpoOut                        = 9,
+	ExpoInOut                      = 10,
+	CircularIn                     = 11,
+	CircularOut                    = 12,
+	CircularInOut                  = 13,
+	EEasingFunc_MAX                = 14
 };
 
 
@@ -2352,10 +2352,10 @@ enum class ERoundingMode : uint8_t
 // Enum Engine.ELevelLandscapeCullingPrecision
 enum class ELevelLandscapeCullingPrecision : uint8_t
 {
-	ELevelLandscapeCullingPrecision__High = 0,
-	ELevelLandscapeCullingPrecision__Medium = 1,
-	ELevelLandscapeCullingPrecision__Low = 2,
-	ELevelLandscapeCullingPrecision__ELevelLandscapeCullingPrecision_MAX = 3
+	High                           = 0,
+	Medium                         = 1,
+	Low                            = 2,
+	ELevelLandscapeCullingPrecision_MAX = 3
 };
 
 
@@ -2423,21 +2423,21 @@ enum class ETextureColorChannel : uint8_t
 // Enum Engine.EMaterialAttributeBlend
 enum class EMaterialAttributeBlend : uint8_t
 {
-	EMaterialAttributeBlend__Blend = 0,
-	EMaterialAttributeBlend__UseA  = 1,
-	EMaterialAttributeBlend__UseB  = 2,
-	EMaterialAttributeBlend__EMaterialAttributeBlend_MAX = 3
+	Blend                          = 0,
+	UseA                           = 1,
+	UseB                           = 2,
+	EMaterialAttributeBlend_MAX    = 3
 };
 
 
 // Enum Engine.EChannelMaskParameterColor
 enum class EChannelMaskParameterColor : uint8_t
 {
-	EChannelMaskParameterColor__Red = 0,
-	EChannelMaskParameterColor__Green = 1,
-	EChannelMaskParameterColor__Blue = 2,
-	EChannelMaskParameterColor__Alpha = 3,
-	EChannelMaskParameterColor__EChannelMaskParameterColor_MAX = 4
+	Red                            = 0,
+	Green                          = 1,
+	Blue                           = 2,
+	Alpha                          = 3,
+	EChannelMaskParameterColor_MAX = 4
 };
 
 
@@ -2506,9 +2506,9 @@ enum class ENoiseFunction : uint8_t
 // Enum Engine.EMaterialSceneAttributeInputMode
 enum class EMaterialSceneAttributeInputMode : uint8_t
 {
-	EMaterialSceneAttributeInputMode__Coordinates = 0,
-	EMaterialSceneAttributeInputMode__OffsetFraction = 1,
-	EMaterialSceneAttributeInputMode__EMaterialSceneAttributeInputMode_MAX = 2
+	Coordinates                    = 0,
+	OffsetFraction                 = 1,
+	EMaterialSceneAttributeInputMode_MAX = 2
 };
 
 
@@ -2720,132 +2720,132 @@ enum class EMaterialParameterAssociation : uint8_t
 // Enum Engine.ESimplygonMaterialChannel
 enum class ESimplygonMaterialChannel : uint8_t
 {
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_AMBIENT = 0,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_DIFFUSE = 1,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_SPECULAR = 2,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_OPACITY = 3,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_EMISSIVE = 4,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_NORMALS = 5,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_DISPLACEMENT = 6,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_BASECOLOR = 7,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_ROUGHNESS = 8,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_METALLIC = 9,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_AO = 10,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_SUBSURFACE = 11,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_OPACITYMASK = 12,
-	ESimplygonMaterialChannel__SG_MATERIAL_CHANNEL_MAX = 13
+	SG_MATERIAL_CHANNEL_AMBIENT    = 0,
+	SG_MATERIAL_CHANNEL_DIFFUSE    = 1,
+	SG_MATERIAL_CHANNEL_SPECULAR   = 2,
+	SG_MATERIAL_CHANNEL_OPACITY    = 3,
+	SG_MATERIAL_CHANNEL_EMISSIVE   = 4,
+	SG_MATERIAL_CHANNEL_NORMALS    = 5,
+	SG_MATERIAL_CHANNEL_DISPLACEMENT = 6,
+	SG_MATERIAL_CHANNEL_BASECOLOR  = 7,
+	SG_MATERIAL_CHANNEL_ROUGHNESS  = 8,
+	SG_MATERIAL_CHANNEL_METALLIC   = 9,
+	SG_MATERIAL_CHANNEL_AO         = 10,
+	SG_MATERIAL_CHANNEL_SUBSURFACE = 11,
+	SG_MATERIAL_CHANNEL_OPACITYMASK = 12,
+	SG_MATERIAL_CHANNEL_MAX        = 13
 };
 
 
 // Enum Engine.ESimplygonTextureResolution
 enum class ESimplygonTextureResolution : uint8_t
 {
-	ESimplygonTextureResolution__TextureResolution = 0,
-	ESimplygonTextureResolution__TextureResolution01 = 1,
-	ESimplygonTextureResolution__TextureResolution02 = 2,
-	ESimplygonTextureResolution__TextureResolution03 = 3,
-	ESimplygonTextureResolution__TextureResolution04 = 4,
-	ESimplygonTextureResolution__TextureResolution05 = 5,
-	ESimplygonTextureResolution__TextureResolution06 = 6,
-	ESimplygonTextureResolution__TextureResolution07 = 7,
-	ESimplygonTextureResolution__TextureResolution_MAX = 8
+	TextureResolution              = 0,
+	TextureResolution01            = 1,
+	TextureResolution02            = 2,
+	TextureResolution03            = 3,
+	TextureResolution04            = 4,
+	TextureResolution05            = 5,
+	TextureResolution06            = 6,
+	TextureResolution07            = 7,
+	TextureResolution_MAX          = 8
 };
 
 
 // Enum Engine.ESimplygonColorChannels
 enum class ESimplygonColorChannels : uint8_t
 {
-	ESimplygonColorChannels__RGBA  = 0,
-	ESimplygonColorChannels__RGB   = 1,
-	ESimplygonColorChannels__L     = 2,
-	ESimplygonColorChannels__ESimplygonColorChannels_MAX = 3
+	RGBA                           = 0,
+	RGB                            = 1,
+	L                              = 2,
+	ESimplygonColorChannels_MAX    = 3
 };
 
 
 // Enum Engine.ESimplygonTextureSamplingQuality
 enum class ESimplygonTextureSamplingQuality : uint8_t
 {
-	ESimplygonTextureSamplingQuality__Poor = 0,
-	ESimplygonTextureSamplingQuality__Low = 1,
-	ESimplygonTextureSamplingQuality__Medium = 2,
-	ESimplygonTextureSamplingQuality__High = 3,
-	ESimplygonTextureSamplingQuality__ESimplygonTextureSamplingQuality_MAX = 4
+	Poor                           = 0,
+	Low                            = 1,
+	Medium                         = 2,
+	High                           = 3,
+	ESimplygonTextureSamplingQuality_MAX = 4
 };
 
 
 // Enum Engine.ESimplygonCasterType
 enum class ESimplygonCasterType : uint8_t
 {
-	ESimplygonCasterType__None     = 0,
-	ESimplygonCasterType__Color    = 1,
-	ESimplygonCasterType__Normals  = 2,
-	ESimplygonCasterType__Opacity  = 3,
-	ESimplygonCasterType__ESimplygonCasterType_MAX = 4
+	None                           = 0,
+	Color                          = 1,
+	Normals                        = 2,
+	Opacity                        = 3,
+	ESimplygonCasterType_MAX       = 4
 };
 
 
 // Enum Engine.ESimplygonTextureStrech
 enum class ESimplygonTextureStrech : uint8_t
 {
-	ESimplygonTextureStrech__None  = 0,
-	ESimplygonTextureStrech__VerySmall = 1,
-	ESimplygonTextureStrech__Small = 2,
-	ESimplygonTextureStrech__Medium = 3,
-	ESimplygonTextureStrech__Large = 4,
-	ESimplygonTextureStrech__VeryLarge = 5,
-	ESimplygonTextureStrech__ESimplygonTextureStrech_MAX = 6
+	None                           = 0,
+	VerySmall                      = 1,
+	Small                          = 2,
+	Medium                         = 3,
+	Large                          = 4,
+	VeryLarge                      = 5,
+	ESimplygonTextureStrech_MAX    = 6
 };
 
 
 // Enum Engine.EMaterialLODType
 enum class EMaterialLODType : uint8_t
 {
-	EMaterialLODType__Off          = 0,
-	EMaterialLODType__BakeTexture  = 1,
-	EMaterialLODType__BakeVertexColor = 2,
-	EMaterialLODType__Replace      = 3,
-	EMaterialLODType__EMaterialLODType_MAX = 4
+	Off                            = 0,
+	BakeTexture                    = 1,
+	BakeVertexColor                = 2,
+	Replace                        = 3,
+	EMaterialLODType_MAX           = 4
 };
 
 
 // Enum Engine.ESimplygonLODType
 enum class ESimplygonLODType : uint8_t
 {
-	ESimplygonLODType__Reduction   = 0,
-	ESimplygonLODType__Remeshing   = 1,
-	ESimplygonLODType__ESimplygonLODType_MAX = 2
+	Reduction                      = 0,
+	Remeshing                      = 1,
+	ESimplygonLODType_MAX          = 2
 };
 
 
 // Enum Engine.EOptimizationMetric
 enum class EOptimizationMetric : uint8_t
 {
-	EOptimizationMetric__TrianglePercentage = 0,
-	EOptimizationMetric__OnScreenSize = 1,
-	EOptimizationMetric__MaxDeviation = 2,
-	EOptimizationMetric__EOptimizationMetric_MAX = 3
+	TrianglePercentage             = 0,
+	OnScreenSize                   = 1,
+	MaxDeviation                   = 2,
+	EOptimizationMetric_MAX        = 3
 };
 
 
 // Enum Engine.EMaterialProxySmaplingQuality
 enum class EMaterialProxySmaplingQuality : uint8_t
 {
-	EMaterialProxySmaplingQuality__Poor = 0,
-	EMaterialProxySmaplingQuality__Low = 1,
-	EMaterialProxySmaplingQuality__Medium = 2,
-	EMaterialProxySmaplingQuality__High = 3,
-	EMaterialProxySmaplingQuality__EMaterialProxySmaplingQuality_MAX = 4
+	Poor                           = 0,
+	Low                            = 1,
+	Medium                         = 2,
+	High                           = 3,
+	EMaterialProxySmaplingQuality_MAX = 4
 };
 
 
 // Enum Engine.EUVStrech
 enum class EUVStrech : uint8_t
 {
-	EUVStrech__Small               = 0,
-	EUVStrech__Medium              = 1,
-	EUVStrech__Large               = 2,
-	EUVStrech__VeryLarge           = 3,
-	EUVStrech__EUVStrech_MAX       = 4
+	Small                          = 0,
+	Medium                         = 1,
+	Large                          = 2,
+	VeryLarge                      = 3,
+	EUVStrech_MAX                  = 4
 };
 
 
@@ -2885,92 +2885,92 @@ enum class EMaterialDomain : uint8_t
 // Enum Engine.EMeshInstancingReplacementMethod
 enum class EMeshInstancingReplacementMethod : uint8_t
 {
-	EMeshInstancingReplacementMethod__RemoveOriginalActors = 0,
-	EMeshInstancingReplacementMethod__KeepOriginalActorsAsEditorOnly = 1,
-	EMeshInstancingReplacementMethod__EMeshInstancingReplacementMethod_MAX = 2
+	RemoveOriginalActors           = 0,
+	KeepOriginalActorsAsEditorOnly = 1,
+	EMeshInstancingReplacementMethod_MAX = 2
 };
 
 
 // Enum Engine.EUVOutput
 enum class EUVOutput : uint8_t
 {
-	EUVOutput__DoNotOutputChannel  = 0,
-	EUVOutput__OutputChannel       = 1,
-	EUVOutput__EUVOutput_MAX       = 2
+	DoNotOutputChannel             = 0,
+	OutputChannel                  = 1,
+	EUVOutput_MAX                  = 2
 };
 
 
 // Enum Engine.EMeshMergeType
 enum class EMeshMergeType : uint8_t
 {
-	EMeshMergeType__MeshMergeType_Default = 0,
-	EMeshMergeType__MeshMergeType_MergeActor = 1,
-	EMeshMergeType__MeshMergeType_MAX = 2
+	MeshMergeType_Default          = 0,
+	MeshMergeType_MergeActor       = 1,
+	MeshMergeType_MAX              = 2
 };
 
 
 // Enum Engine.EMeshLODSelectionType
 enum class EMeshLODSelectionType : uint8_t
 {
-	EMeshLODSelectionType__AllLODs = 0,
-	EMeshLODSelectionType__SpecificLOD = 1,
-	EMeshLODSelectionType__CalculateLOD = 2,
-	EMeshLODSelectionType__LowestDetailLOD = 3,
-	EMeshLODSelectionType__EMeshLODSelectionType_MAX = 4
+	AllLODs                        = 0,
+	SpecificLOD                    = 1,
+	CalculateLOD                   = 2,
+	LowestDetailLOD                = 3,
+	EMeshLODSelectionType_MAX      = 4
 };
 
 
 // Enum Engine.EProxyNormalComputationMethod
 enum class EProxyNormalComputationMethod : uint8_t
 {
-	EProxyNormalComputationMethod__AngleWeighted = 0,
-	EProxyNormalComputationMethod__AreaWeighted = 1,
-	EProxyNormalComputationMethod__EqualWeighted = 2,
-	EProxyNormalComputationMethod__EProxyNormalComputationMethod_MAX = 3
+	AngleWeighted                  = 0,
+	AreaWeighted                   = 1,
+	EqualWeighted                  = 2,
+	EProxyNormalComputationMethod_MAX = 3
 };
 
 
 // Enum Engine.ELandscapeCullingPrecision
 enum class ELandscapeCullingPrecision : uint8_t
 {
-	ELandscapeCullingPrecision__High = 0,
-	ELandscapeCullingPrecision__Medium = 1,
-	ELandscapeCullingPrecision__Low = 2,
-	ELandscapeCullingPrecision__ELandscapeCullingPrecision_MAX = 3
+	High                           = 0,
+	Medium                         = 1,
+	Low                            = 2,
+	ELandscapeCullingPrecision_MAX = 3
 };
 
 
 // Enum Engine.EChartAggregationMode
 enum class EChartAggregationMode : uint8_t
 {
-	EChartAggregationMode__TextureSize = 0,
-	EChartAggregationMode__SurfaceArea = 1,
-	EChartAggregationMode__PixelDensity = 2,
-	EChartAggregationMode__UVSize  = 3,
-	EChartAggregationMode__EChartAggregationMode_MAX = 4
+	TextureSize                    = 0,
+	SurfaceArea                    = 1,
+	PixelDensity                   = 2,
+	UVSize                         = 3,
+	EChartAggregationMode_MAX      = 4
 };
 
 
 // Enum Engine.EMeshFeatureImportance
 enum class EMeshFeatureImportance : uint8_t
 {
-	EMeshFeatureImportance__Off    = 0,
-	EMeshFeatureImportance__Lowest = 1,
-	EMeshFeatureImportance__Low    = 2,
-	EMeshFeatureImportance__Normal = 3,
-	EMeshFeatureImportance__High   = 4,
-	EMeshFeatureImportance__Highest = 5,
-	EMeshFeatureImportance__EMeshFeatureImportance_MAX = 6
+	Off                            = 0,
+	Lowest                         = 1,
+	Low                            = 2,
+	Normal                         = 3,
+	High                           = 4,
+	Highest                        = 5,
+	EMeshFeatureImportance_MAX     = 6
 };
 
 
 // Enum Engine.EVertexPaintAxis
 enum class EVertexPaintAxis : uint8_t
 {
-	EVertexPaintAxis__X            = 0,
-	EVertexPaintAxis__Y            = 1,
-	EVertexPaintAxis__Z            = 2,
-	EVertexPaintAxis__EVertexPaintAxis_MAX = 3
+	X                              = 0,
+	Y                              = 1,
+	Z                              = 2,
+	EVertexPaintAxis_MAX           = 3
 };
 
 
@@ -2997,78 +2997,78 @@ enum class EMicroTransactionDelegate : uint8_t
 // Enum Engine.FNavigationSystemRunMode
 enum class EFNavigationSystemRunMode : uint8_t
 {
-	FNavigationSystemRunMode__InvalidMode = 0,
-	FNavigationSystemRunMode__GameMode = 1,
-	FNavigationSystemRunMode__EditorMode = 2,
-	FNavigationSystemRunMode__SimulationMode = 3,
-	FNavigationSystemRunMode__PIEMode = 4,
-	FNavigationSystemRunMode__FNavigationSystemRunMode_MAX = 5
+	InvalidMode                    = 0,
+	GameMode                       = 1,
+	EditorMode                     = 2,
+	SimulationMode                 = 3,
+	PIEMode                        = 4,
+	FNavigationSystemRunMode_MAX   = 5
 };
 
 
 // Enum Engine.ENavigationQueryResult
 enum class ENavigationQueryResult : uint8_t
 {
-	ENavigationQueryResult__Invalid = 0,
-	ENavigationQueryResult__Error  = 1,
-	ENavigationQueryResult__Fail   = 2,
-	ENavigationQueryResult__Success = 3,
-	ENavigationQueryResult__ENavigationQueryResult_MAX = 4
+	Invalid                        = 0,
+	Error                          = 1,
+	Fail                           = 2,
+	Success                        = 3,
+	ENavigationQueryResult_MAX     = 4
 };
 
 
 // Enum Engine.ENavPathEvent
 enum class ENavPathEvent : uint8_t
 {
-	ENavPathEvent__Cleared         = 0,
-	ENavPathEvent__NewPath         = 1,
-	ENavPathEvent__UpdatedDueToGoalMoved = 2,
-	ENavPathEvent__UpdatedDueToNavigationChanged = 3,
-	ENavPathEvent__Invalidated     = 4,
-	ENavPathEvent__RePathFailed    = 5,
-	ENavPathEvent__MetaPathUpdate  = 6,
-	ENavPathEvent__Custom          = 7,
-	ENavPathEvent__ENavPathEvent_MAX = 8
+	Cleared                        = 0,
+	NewPath                        = 1,
+	UpdatedDueToGoalMoved          = 2,
+	UpdatedDueToNavigationChanged  = 3,
+	Invalidated                    = 4,
+	RePathFailed                   = 5,
+	MetaPathUpdate                 = 6,
+	Custom                         = 7,
+	ENavPathEvent_MAX              = 8
 };
 
 
 // Enum Engine.ENavDataGatheringModeConfig
 enum class ENavDataGatheringModeConfig : uint8_t
 {
-	ENavDataGatheringModeConfig__Invalid = 0,
-	ENavDataGatheringModeConfig__Instant = 1,
-	ENavDataGatheringModeConfig__Lazy = 2,
-	ENavDataGatheringModeConfig__ENavDataGatheringModeConfig_MAX = 3
+	Invalid                        = 0,
+	Instant                        = 1,
+	Lazy                           = 2,
+	ENavDataGatheringModeConfig_MAX = 3
 };
 
 
 // Enum Engine.ENavDataGatheringMode
 enum class ENavDataGatheringMode : uint8_t
 {
-	ENavDataGatheringMode__Default = 0,
-	ENavDataGatheringMode__Instant = 1,
-	ENavDataGatheringMode__Lazy    = 2,
-	ENavDataGatheringMode__ENavDataGatheringMode_MAX = 3
+	Default                        = 0,
+	Instant                        = 1,
+	Lazy                           = 2,
+	ENavDataGatheringMode_MAX      = 3
 };
 
 
 // Enum Engine.ENavigationOptionFlag
 enum class ENavigationOptionFlag : uint8_t
 {
-	ENavigationOptionFlag__Default = 0,
-	ENavigationOptionFlag__Enable  = 1,
-	ENavigationOptionFlag__Disable = 2,
-	ENavigationOptionFlag__MAX     = 3
+	Default                        = 0,
+	Enable                         = 1,
+	Disable                        = 2,
+	MAX                            = 3
 };
 
 
 // Enum Engine.ENavLinkDirection
 enum class ENavLinkDirection : uint8_t
 {
-	ENavLinkDirection__BothWays    = 0,
-	ENavLinkDirection__LeftToRight = 1,
-	ENavLinkDirection__RightToLeft = 2,
-	ENavLinkDirection__ENavLinkDirection_MAX = 3
+	BothWays                       = 0,
+	LeftToRight                    = 1,
+	RightToLeft                    = 2,
+	ENavLinkDirection_MAX          = 3
 };
 
 
@@ -3108,24 +3108,24 @@ enum class EParticleBurstMethod : uint8_t
 // Enum Engine.EParticleSystemInsignificanceReaction
 enum class EParticleSystemInsignificanceReaction : uint8_t
 {
-	EParticleSystemInsignificanceReaction__Auto = 0,
-	EParticleSystemInsignificanceReaction__Complete = 1,
-	EParticleSystemInsignificanceReaction__DisableTick = 2,
-	EParticleSystemInsignificanceReaction__DisableTickAndKill = 3,
-	EParticleSystemInsignificanceReaction__Num = 4,
-	EParticleSystemInsignificanceReaction__EParticleSystemInsignificanceReaction_MAX = 5
+	Auto                           = 0,
+	Complete                       = 1,
+	DisableTick                    = 2,
+	DisableTickAndKill             = 3,
+	Num                            = 4,
+	EParticleSystemInsignificanceReaction_MAX = 5
 };
 
 
 // Enum Engine.EParticleSignificanceLevel
 enum class EParticleSignificanceLevel : uint8_t
 {
-	EParticleSignificanceLevel__Low = 0,
-	EParticleSignificanceLevel__Medium = 1,
-	EParticleSignificanceLevel__High = 2,
-	EParticleSignificanceLevel__Critical = 3,
-	EParticleSignificanceLevel__Num = 4,
-	EParticleSignificanceLevel__EParticleSignificanceLevel_MAX = 5
+	Low                            = 0,
+	Medium                         = 1,
+	High                           = 2,
+	Critical                       = 3,
+	Num                            = 4,
+	EParticleSignificanceLevel_MAX = 5
 };
 
 
@@ -3233,10 +3233,10 @@ enum class EParticleCollisionComplete : uint8_t
 // Enum Engine.EParticleCollisionResponse
 enum class EParticleCollisionResponse : uint8_t
 {
-	EParticleCollisionResponse__Bounce = 0,
-	EParticleCollisionResponse__Stop = 1,
-	EParticleCollisionResponse__Kill = 2,
-	EParticleCollisionResponse__EParticleCollisionResponse_MAX = 3
+	Bounce                         = 0,
+	Stop                           = 1,
+	Kill                           = 2,
+	EParticleCollisionResponse_MAX = 3
 };
 
 
@@ -3351,15 +3351,15 @@ enum class EParticleSortMode : uint8_t
 // Enum Engine.EParticleUVFlipMode
 enum class EParticleUVFlipMode : uint8_t
 {
-	EParticleUVFlipMode__None      = 0,
-	EParticleUVFlipMode__FlipUV    = 1,
-	EParticleUVFlipMode__FlipUOnly = 2,
-	EParticleUVFlipMode__FlipVOnly = 3,
-	EParticleUVFlipMode__RandomFlipUV = 4,
-	EParticleUVFlipMode__RandomFlipUOnly = 5,
-	EParticleUVFlipMode__RandomFlipVOnly = 6,
-	EParticleUVFlipMode__RandomFlipUVIndependent = 7,
-	EParticleUVFlipMode__EParticleUVFlipMode_MAX = 8
+	None                           = 0,
+	FlipUV                         = 1,
+	FlipUOnly                      = 2,
+	FlipVOnly                      = 3,
+	RandomFlipUV                   = 4,
+	RandomFlipUOnly                = 5,
+	RandomFlipVOnly                = 6,
+	RandomFlipUVIndependent        = 7,
+	EParticleUVFlipMode_MAX        = 8
 };
 
 
@@ -3529,33 +3529,33 @@ enum class EParticleSysParamType : uint8_t
 // Enum Engine.ESettingsLockedAxis
 enum class ESettingsLockedAxis : uint8_t
 {
-	ESettingsLockedAxis__None      = 0,
-	ESettingsLockedAxis__X         = 1,
-	ESettingsLockedAxis__Y         = 2,
-	ESettingsLockedAxis__Z         = 3,
-	ESettingsLockedAxis__Invalid   = 4,
-	ESettingsLockedAxis__ESettingsLockedAxis_MAX = 5
+	None                           = 0,
+	X                              = 1,
+	Y                              = 2,
+	Z                              = 3,
+	Invalid                        = 4,
+	ESettingsLockedAxis_MAX        = 5
 };
 
 
 // Enum Engine.ESettingsDOF
 enum class ESettingsDOF : uint8_t
 {
-	ESettingsDOF__Full3D           = 0,
-	ESettingsDOF__YZPlane          = 1,
-	ESettingsDOF__XZPlane          = 2,
-	ESettingsDOF__XYPlane          = 3,
-	ESettingsDOF__ESettingsDOF_MAX = 4
+	Full3D                         = 0,
+	YZPlane                        = 1,
+	XZPlane                        = 2,
+	XYPlane                        = 3,
+	ESettingsDOF_MAX               = 4
 };
 
 
 // Enum Engine.EFrictionCombineMode
 enum class EFrictionCombineMode : uint8_t
 {
-	EFrictionCombineMode__Average  = 0,
-	EFrictionCombineMode__Min      = 1,
-	EFrictionCombineMode__Multiply = 2,
-	EFrictionCombineMode__Max      = 3
+	Average                        = 0,
+	Min                            = 1,
+	Multiply                       = 2,
+	Max                            = 3
 };
 
 
@@ -3574,38 +3574,38 @@ enum class EViewTargetBlendFunction : uint8_t
 // Enum Engine.EDynamicForceFeedbackAction
 enum class EDynamicForceFeedbackAction : uint8_t
 {
-	EDynamicForceFeedbackAction__Start = 0,
-	EDynamicForceFeedbackAction__Update = 1,
-	EDynamicForceFeedbackAction__Stop = 2,
-	EDynamicForceFeedbackAction__EDynamicForceFeedbackAction_MAX = 3
+	Start                          = 0,
+	Update                         = 1,
+	Stop                           = 2,
+	EDynamicForceFeedbackAction_MAX = 3
 };
 
 
 // Enum Engine.ERendererStencilMask
 enum class ERendererStencilMask : uint8_t
 {
-	ERendererStencilMask__ERSM_Default = 0,
-	ERendererStencilMask__ERSM     = 1,
-	ERendererStencilMask__ERSM01   = 2,
-	ERendererStencilMask__ERSM02   = 3,
-	ERendererStencilMask__ERSM03   = 4,
-	ERendererStencilMask__ERSM04   = 5,
-	ERendererStencilMask__ERSM05   = 6,
-	ERendererStencilMask__ERSM06   = 7,
-	ERendererStencilMask__ERSM07   = 8,
-	ERendererStencilMask__ERSM08   = 9,
-	ERendererStencilMask__ERSM_MAX = 10
+	ERSM_Default                   = 0,
+	ERSM                           = 1,
+	ERSM01                         = 2,
+	ERSM02                         = 3,
+	ERSM03                         = 4,
+	ERSM04                         = 5,
+	ERSM05                         = 6,
+	ERSM06                         = 7,
+	ERSM07                         = 8,
+	ERSM08                         = 9,
+	ERSM_MAX                       = 10
 };
 
 
 // Enum Engine.EHasCustomNavigableGeometry
 enum class EHasCustomNavigableGeometry : uint8_t
 {
-	EHasCustomNavigableGeometry__No = 0,
-	EHasCustomNavigableGeometry__Yes = 1,
-	EHasCustomNavigableGeometry__EvenIfNotCollidable = 2,
-	EHasCustomNavigableGeometry__DontExport = 3,
-	EHasCustomNavigableGeometry__EHasCustomNavigableGeometry_MAX = 4
+	No                             = 0,
+	Yes                            = 1,
+	EvenIfNotCollidable            = 2,
+	DontExport                     = 3,
+	EHasCustomNavigableGeometry_MAX = 4
 };
 
 
@@ -3622,198 +3622,198 @@ enum class ECanBeCharacterBase : uint8_t
 // Enum Engine.EReflectionSourceType
 enum class EReflectionSourceType : uint8_t
 {
-	EReflectionSourceType__CapturedScene = 0,
-	EReflectionSourceType__SpecifiedCubemap = 1,
-	EReflectionSourceType__EReflectionSourceType_MAX = 2
+	CapturedScene                  = 0,
+	SpecifiedCubemap               = 1,
+	EReflectionSourceType_MAX      = 2
 };
 
 
 // Enum Engine.EDefaultBackBufferPixelFormat
 enum class EDefaultBackBufferPixelFormat : uint8_t
 {
-	EDefaultBackBufferPixelFormat__DBBPF_B8G8R8A8 = 0,
-	EDefaultBackBufferPixelFormat__DBBPF_A16B16G16R16 = 1,
-	EDefaultBackBufferPixelFormat__DBBPF_FloatRGB = 2,
-	EDefaultBackBufferPixelFormat__DBBPF_FloatRGBA = 3,
-	EDefaultBackBufferPixelFormat__DBBPF_A2B10G10R10 = 4,
-	EDefaultBackBufferPixelFormat__DBBPF_MAX = 5
+	DBBPF_B8G8R8A8                 = 0,
+	DBBPF_A16B16G16R16             = 1,
+	DBBPF_FloatRGB                 = 2,
+	DBBPF_FloatRGBA                = 3,
+	DBBPF_A2B10G10R10              = 4,
+	DBBPF_MAX                      = 5
 };
 
 
 // Enum Engine.EAutoExposureMethodUI
 enum class EAutoExposureMethodUI : uint8_t
 {
-	EAutoExposureMethodUI__AEM_Histogram = 0,
-	EAutoExposureMethodUI__AEM_Basic = 1,
-	EAutoExposureMethodUI__AEM_Manual = 2,
-	EAutoExposureMethodUI__AEM_MAX = 3
+	AEM_Histogram                  = 0,
+	AEM_Basic                      = 1,
+	AEM_Manual                     = 2,
+	AEM_MAX                        = 3
 };
 
 
 // Enum Engine.EAlphaChannelMode
 enum class EAlphaChannelMode : uint8_t
 {
-	EAlphaChannelMode__Disabled    = 0,
-	EAlphaChannelMode__LinearColorSpaceOnly = 1,
-	EAlphaChannelMode__AllowThroughTonemapper = 2,
-	EAlphaChannelMode__EAlphaChannelMode_MAX = 3
+	Disabled                       = 0,
+	LinearColorSpaceOnly           = 1,
+	AllowThroughTonemapper         = 2,
+	EAlphaChannelMode_MAX          = 3
 };
 
 
 // Enum Engine.EEarlyZPass
 enum class EEarlyZPass : uint8_t
 {
-	EEarlyZPass__None              = 0,
-	EEarlyZPass__OpaqueOnly        = 1,
-	EEarlyZPass__OpaqueAndMasked   = 2,
-	EEarlyZPass__Auto              = 3,
-	EEarlyZPass__EEarlyZPass_MAX   = 4
+	None                           = 0,
+	OpaqueOnly                     = 1,
+	OpaqueAndMasked                = 2,
+	Auto                           = 3,
+	EEarlyZPass_MAX                = 4
 };
 
 
 // Enum Engine.ECustomDepthStencil
 enum class ECustomDepthStencil : uint8_t
 {
-	ECustomDepthStencil__Disabled  = 0,
-	ECustomDepthStencil__Enabled   = 1,
-	ECustomDepthStencil__EnabledOnDemand = 2,
-	ECustomDepthStencil__EnabledWithStencil = 3,
-	ECustomDepthStencil__ECustomDepthStencil_MAX = 4
+	Disabled                       = 0,
+	Enabled                        = 1,
+	EnabledOnDemand                = 2,
+	EnabledWithStencil             = 3,
+	ECustomDepthStencil_MAX        = 4
 };
 
 
 // Enum Engine.EMobileMSAASampleCount
 enum class EMobileMSAASampleCount : uint8_t
 {
-	EMobileMSAASampleCount__One    = 0,
-	EMobileMSAASampleCount__Two    = 1,
-	EMobileMSAASampleCount__Four   = 2,
-	EMobileMSAASampleCount__Eight  = 3,
-	EMobileMSAASampleCount__EMobileMSAASampleCount_MAX = 4
+	One                            = 0,
+	Two                            = 1,
+	Four                           = 2,
+	Eight                          = 3,
+	EMobileMSAASampleCount_MAX     = 4
 };
 
 
 // Enum Engine.ECompositingSampleCount
 enum class ECompositingSampleCount : uint8_t
 {
-	ECompositingSampleCount__One   = 0,
-	ECompositingSampleCount__Two   = 1,
-	ECompositingSampleCount__Four  = 2,
-	ECompositingSampleCount__Eight = 3,
-	ECompositingSampleCount__ECompositingSampleCount_MAX = 4
+	One                            = 0,
+	Two                            = 1,
+	Four                           = 2,
+	Eight                          = 3,
+	ECompositingSampleCount_MAX    = 4
 };
 
 
 // Enum Engine.EClearSceneOptions
 enum class EClearSceneOptions : uint8_t
 {
-	EClearSceneOptions__NoClear    = 0,
-	EClearSceneOptions__HardwareClear = 1,
-	EClearSceneOptions__QuadAtMaxZ = 2,
-	EClearSceneOptions__EClearSceneOptions_MAX = 3
+	NoClear                        = 0,
+	HardwareClear                  = 1,
+	QuadAtMaxZ                     = 2,
+	EClearSceneOptions_MAX         = 3
 };
 
 
 // Enum Engine.EReporterLineStyle
 enum class EReporterLineStyle : uint8_t
 {
-	EReporterLineStyle__Line       = 0,
-	EReporterLineStyle__Dash       = 1,
-	EReporterLineStyle__EReporterLineStyle_MAX = 2
+	Line                           = 0,
+	Dash                           = 1,
+	EReporterLineStyle_MAX         = 2
 };
 
 
 // Enum Engine.ELegendPosition
 enum class ELegendPosition : uint8_t
 {
-	ELegendPosition__Outside       = 0,
-	ELegendPosition__Inside        = 1,
-	ELegendPosition__ELegendPosition_MAX = 2
+	Outside                        = 0,
+	Inside                         = 1,
+	ELegendPosition_MAX            = 2
 };
 
 
 // Enum Engine.EGraphDataStyle
 enum class EGraphDataStyle : uint8_t
 {
-	EGraphDataStyle__Lines         = 0,
-	EGraphDataStyle__Filled        = 1,
-	EGraphDataStyle__EGraphDataStyle_MAX = 2
+	Lines                          = 0,
+	Filled                         = 1,
+	EGraphDataStyle_MAX            = 2
 };
 
 
 // Enum Engine.EGraphAxisStyle
 enum class EGraphAxisStyle : uint8_t
 {
-	EGraphAxisStyle__Lines         = 0,
-	EGraphAxisStyle__Notches       = 1,
-	EGraphAxisStyle__Grid          = 2,
-	EGraphAxisStyle__EGraphAxisStyle_MAX = 3
+	Lines                          = 0,
+	Notches                        = 1,
+	Grid                           = 2,
+	EGraphAxisStyle_MAX            = 3
 };
 
 
 // Enum Engine.EConstraintTransform
 enum class EConstraintTransform : uint8_t
 {
-	EConstraintTransform__Absolute = 0,
-	EConstraintTransform__Relative = 1,
-	EConstraintTransform__EConstraintTransform_MAX = 2
+	Absolute                       = 0,
+	Relative                       = 1,
+	EConstraintTransform_MAX       = 2
 };
 
 
 // Enum Engine.EControlConstraint
 enum class EControlConstraint : uint8_t
 {
-	EControlConstraint__Orientation = 0,
-	EControlConstraint__Translation = 1,
-	EControlConstraint__MAX        = 2
+	Orientation                    = 0,
+	Translation                    = 1,
+	MAX                            = 2
 };
 
 
 // Enum Engine.ERootMotionFinishVelocityMode
 enum class ERootMotionFinishVelocityMode : uint8_t
 {
-	ERootMotionFinishVelocityMode__MaintainLastRootMotionVelocity = 0,
-	ERootMotionFinishVelocityMode__SetVelocity = 1,
-	ERootMotionFinishVelocityMode__ClampVelocity = 2,
-	ERootMotionFinishVelocityMode__ERootMotionFinishVelocityMode_MAX = 3
+	MaintainLastRootMotionVelocity = 0,
+	SetVelocity                    = 1,
+	ClampVelocity                  = 2,
+	ERootMotionFinishVelocityMode_MAX = 3
 };
 
 
 // Enum Engine.ERootMotionSourceSettingsFlags
 enum class ERootMotionSourceSettingsFlags : uint8_t
 {
-	ERootMotionSourceSettingsFlags__UseSensitiveLiftoffCheck = 0,
-	ERootMotionSourceSettingsFlags__DisablePartialEndTick = 1,
-	ERootMotionSourceSettingsFlags__ERootMotionSourceSettingsFlags_MAX = 2
+	UseSensitiveLiftoffCheck       = 0,
+	DisablePartialEndTick          = 1,
+	ERootMotionSourceSettingsFlags_MAX = 2
 };
 
 
 // Enum Engine.ERootMotionSourceStatusFlags
 enum class ERootMotionSourceStatusFlags : uint8_t
 {
-	ERootMotionSourceStatusFlags__Prepared = 0,
-	ERootMotionSourceStatusFlags__Finished = 1,
-	ERootMotionSourceStatusFlags__MarkedForRemoval = 2,
-	ERootMotionSourceStatusFlags__ERootMotionSourceStatusFlags_MAX = 3
+	Prepared                       = 0,
+	Finished                       = 1,
+	MarkedForRemoval               = 2,
+	ERootMotionSourceStatusFlags_MAX = 3
 };
 
 
 // Enum Engine.ERootMotionAccumulateMode
 enum class ERootMotionAccumulateMode : uint8_t
 {
-	ERootMotionAccumulateMode__Override = 0,
-	ERootMotionAccumulateMode__Additive = 1,
-	ERootMotionAccumulateMode__ERootMotionAccumulateMode_MAX = 2
+	Override                       = 0,
+	Additive                       = 1,
+	ERootMotionAccumulateMode_MAX  = 2
 };
 
 
 // Enum Engine.ELightUnits
 enum class ELightUnits : uint8_t
 {
-	ELightUnits__Unitless          = 0,
-	ELightUnits__Candelas          = 1,
-	ELightUnits__Lumens            = 2,
-	ELightUnits__ELightUnits_MAX   = 3
+	Unitless                       = 0,
+	Candelas                       = 1,
+	Lumens                         = 2,
+	ELightUnits_MAX                = 3
 };
 
 
@@ -3833,10 +3833,10 @@ enum class EAntiAliasingMethod : uint8_t
 // Enum Engine.ESceneCapturePrimitiveRenderMode
 enum class ESceneCapturePrimitiveRenderMode : uint8_t
 {
-	ESceneCapturePrimitiveRenderMode__PRM_LegacySceneCapture = 0,
-	ESceneCapturePrimitiveRenderMode__PRM_RenderScenePrimitives = 1,
-	ESceneCapturePrimitiveRenderMode__PRM_UseShowOnlyList = 2,
-	ESceneCapturePrimitiveRenderMode__PRM_MAX = 3
+	PRM_LegacySceneCapture         = 0,
+	PRM_RenderScenePrimitives      = 1,
+	PRM_UseShowOnlyList            = 2,
+	PRM_MAX                        = 3
 };
 
 
@@ -3881,47 +3881,47 @@ enum class EMaterialProperty : uint8_t
 // Enum Engine.ESkeletalMeshLODType
 enum class ESkeletalMeshLODType : uint8_t
 {
-	ESkeletalMeshLODType__Reduction = 0,
-	ESkeletalMeshLODType__Proxy    = 1,
-	ESkeletalMeshLODType__ESkeletalMeshLODType_MAX = 2
+	Reduction                      = 0,
+	Proxy                          = 1,
+	ESkeletalMeshLODType_MAX       = 2
 };
 
 
 // Enum Engine.EPhysicsTransformUpdateMode
 enum class EPhysicsTransformUpdateMode : uint8_t
 {
-	EPhysicsTransformUpdateMode__SimulationUpatesComponentTransform = 0,
-	EPhysicsTransformUpdateMode__ComponentTransformIsKinematic = 1,
-	EPhysicsTransformUpdateMode__EPhysicsTransformUpdateMode_MAX = 2
+	SimulationUpatesComponentTransform = 0,
+	ComponentTransformIsKinematic  = 1,
+	EPhysicsTransformUpdateMode_MAX = 2
 };
 
 
 // Enum Engine.EAnimationMode
 enum class EAnimationMode : uint8_t
 {
-	EAnimationMode__AnimationBlueprint = 0,
-	EAnimationMode__AnimationSingleNode = 1,
-	EAnimationMode__AnimationCustomMode = 2,
-	EAnimationMode__EAnimationMode_MAX = 3
+	AnimationBlueprint             = 0,
+	AnimationSingleNode            = 1,
+	AnimationCustomMode            = 2,
+	EAnimationMode_MAX             = 3
 };
 
 
 // Enum Engine.EKinematicBonesUpdateToPhysics
 enum class EKinematicBonesUpdateToPhysics : uint8_t
 {
-	EKinematicBonesUpdateToPhysics__SkipSimulatingBones = 0,
-	EKinematicBonesUpdateToPhysics__SkipAllBones = 1,
-	EKinematicBonesUpdateToPhysics__EKinematicBonesUpdateToPhysics_MAX = 2
+	SkipSimulatingBones            = 0,
+	SkipAllBones                   = 1,
+	EKinematicBonesUpdateToPhysics_MAX = 2
 };
 
 
 // Enum Engine.EBoneFilterActionOption
 enum class EBoneFilterActionOption : uint8_t
 {
-	EBoneFilterActionOption__Remove = 0,
-	EBoneFilterActionOption__Keep  = 1,
-	EBoneFilterActionOption__Invalid = 2,
-	EBoneFilterActionOption__EBoneFilterActionOption_MAX = 3
+	Remove                         = 0,
+	Keep                           = 1,
+	Invalid                        = 2,
+	EBoneFilterActionOption_MAX    = 3
 };
 
 
@@ -3952,32 +3952,32 @@ enum class ESkeletalMeshOptimizationType : uint8_t
 // Enum Engine.EBoneTranslationRetargetingMode
 enum class EBoneTranslationRetargetingMode : uint8_t
 {
-	EBoneTranslationRetargetingMode__Animation = 0,
-	EBoneTranslationRetargetingMode__Skeleton = 1,
-	EBoneTranslationRetargetingMode__AnimationScaled = 2,
-	EBoneTranslationRetargetingMode__AnimationRelative = 3,
-	EBoneTranslationRetargetingMode__OrientAndScale = 4,
-	EBoneTranslationRetargetingMode__EBoneTranslationRetargetingMode_MAX = 5
+	Animation                      = 0,
+	Skeleton                       = 1,
+	AnimationScaled                = 2,
+	AnimationRelative              = 3,
+	OrientAndScale                 = 4,
+	EBoneTranslationRetargetingMode_MAX = 5
 };
 
 
 // Enum Engine.EBoneSpaces
 enum class EBoneSpaces : uint8_t
 {
-	EBoneSpaces__WorldSpace        = 0,
-	EBoneSpaces__ComponentSpace    = 1,
-	EBoneSpaces__EBoneSpaces_MAX   = 2
+	WorldSpace                     = 0,
+	ComponentSpace                 = 1,
+	EBoneSpaces_MAX                = 2
 };
 
 
 // Enum Engine.EMeshComponentUpdateFlag
 enum class EMeshComponentUpdateFlag : uint8_t
 {
-	EMeshComponentUpdateFlag__AlwaysTickPoseAndRefreshBones = 0,
-	EMeshComponentUpdateFlag__AlwaysTickPose = 1,
-	EMeshComponentUpdateFlag__OnlyTickMontagesWhenNotRendered = 2,
-	EMeshComponentUpdateFlag__OnlyTickPoseWhenRendered = 3,
-	EMeshComponentUpdateFlag__EMeshComponentUpdateFlag_MAX = 4
+	AlwaysTickPoseAndRefreshBones  = 0,
+	AlwaysTickPose                 = 1,
+	OnlyTickMontagesWhenNotRendered = 2,
+	OnlyTickPoseWhenRendered       = 3,
+	EMeshComponentUpdateFlag_MAX   = 4
 };
 
 
@@ -4023,24 +4023,24 @@ enum class ESoundDistanceCalc : uint8_t
 // Enum Engine.EAudioOutputTarget
 enum class EAudioOutputTarget : uint8_t
 {
-	EAudioOutputTarget__Speaker    = 0,
-	EAudioOutputTarget__Controller = 1,
-	EAudioOutputTarget__ControllerFallbackToSpeaker = 2,
-	EAudioOutputTarget__EAudioOutputTarget_MAX = 3
+	Speaker                        = 0,
+	Controller                     = 1,
+	ControllerFallbackToSpeaker    = 2,
+	EAudioOutputTarget_MAX         = 3
 };
 
 
 // Enum Engine.EMaxConcurrentResolutionRule
 enum class EMaxConcurrentResolutionRule : uint8_t
 {
-	EMaxConcurrentResolutionRule__PreventNew = 0,
-	EMaxConcurrentResolutionRule__StopOldest = 1,
-	EMaxConcurrentResolutionRule__StopFarthestThenPreventNew = 2,
-	EMaxConcurrentResolutionRule__StopFarthestThenOldest = 3,
-	EMaxConcurrentResolutionRule__StopLowestPriority = 4,
-	EMaxConcurrentResolutionRule__StopQuietest = 5,
-	EMaxConcurrentResolutionRule__StopLowestPriorityThenPreventNew = 6,
-	EMaxConcurrentResolutionRule__EMaxConcurrentResolutionRule_MAX = 7
+	PreventNew                     = 0,
+	StopOldest                     = 1,
+	StopFarthestThenPreventNew     = 2,
+	StopFarthestThenOldest         = 3,
+	StopLowestPriority             = 4,
+	StopQuietest                   = 5,
+	StopLowestPriorityThenPreventNew = 6,
+	EMaxConcurrentResolutionRule_MAX = 7
 };
 
 
@@ -4089,32 +4089,32 @@ enum class EModulationParamMode : uint8_t
 // Enum Engine.ESourceBusChannels
 enum class ESourceBusChannels : uint8_t
 {
-	ESourceBusChannels__Mono       = 0,
-	ESourceBusChannels__Stereo     = 1,
-	ESourceBusChannels__ESourceBusChannels_MAX = 2
+	Mono                           = 0,
+	Stereo                         = 1,
+	ESourceBusChannels_MAX         = 2
 };
 
 
 // Enum Engine.EAudioRecordingExportType
 enum class EAudioRecordingExportType : uint8_t
 {
-	EAudioRecordingExportType__SoundWave = 0,
-	EAudioRecordingExportType__WavFile = 1,
-	EAudioRecordingExportType__EAudioRecordingExportType_MAX = 2
+	SoundWave                      = 0,
+	WavFile                        = 1,
+	EAudioRecordingExportType_MAX  = 2
 };
 
 
 // Enum Engine.ESubmixChannelFormat
 enum class ESubmixChannelFormat : uint8_t
 {
-	ESubmixChannelFormat__Device   = 0,
-	ESubmixChannelFormat__Stereo   = 1,
-	ESubmixChannelFormat__Quad     = 2,
-	ESubmixChannelFormat__FiveDotOne = 3,
-	ESubmixChannelFormat__SevenDotOne = 4,
-	ESubmixChannelFormat__Ambisonics = 5,
-	ESubmixChannelFormat__Count    = 6,
-	ESubmixChannelFormat__ESubmixChannelFormat_MAX = 7
+	Device                         = 0,
+	Stereo                         = 1,
+	Quad                           = 2,
+	FiveDotOne                     = 3,
+	SevenDotOne                    = 4,
+	Ambisonics                     = 5,
+	Count                          = 6,
+	ESubmixChannelFormat_MAX       = 7
 };
 
 
@@ -4136,40 +4136,40 @@ enum class EDecompressionType : uint8_t
 // Enum Engine.ESplineCoordinateSpace
 enum class ESplineCoordinateSpace : uint8_t
 {
-	ESplineCoordinateSpace__Local  = 0,
-	ESplineCoordinateSpace__World  = 1,
-	ESplineCoordinateSpace__ESplineCoordinateSpace_MAX = 2
+	Local                          = 0,
+	World                          = 1,
+	ESplineCoordinateSpace_MAX     = 2
 };
 
 
 // Enum Engine.ESplinePointType
 enum class ESplinePointType : uint8_t
 {
-	ESplinePointType__Linear       = 0,
-	ESplinePointType__Curve        = 1,
-	ESplinePointType__Constant     = 2,
-	ESplinePointType__CurveClamped = 3,
-	ESplinePointType__CurveCustomTangent = 4,
-	ESplinePointType__ESplinePointType_MAX = 5
+	Linear                         = 0,
+	Curve                          = 1,
+	Constant                       = 2,
+	CurveClamped                   = 3,
+	CurveCustomTangent             = 4,
+	ESplinePointType_MAX           = 5
 };
 
 
 // Enum Engine.ESplineMeshAxis
 enum class ESplineMeshAxis : uint8_t
 {
-	ESplineMeshAxis__X             = 0,
-	ESplineMeshAxis__Y             = 1,
-	ESplineMeshAxis__Z             = 2,
-	ESplineMeshAxis__ESplineMeshAxis_MAX = 3
+	X                              = 0,
+	Y                              = 1,
+	Z                              = 2,
+	ESplineMeshAxis_MAX            = 3
 };
 
 
 // Enum Engine.EStaticMeshLODType
 enum class EStaticMeshLODType : uint8_t
 {
-	EStaticMeshLODType__Reduction  = 0,
-	EStaticMeshLODType__Proxy      = 1,
-	EStaticMeshLODType__EStaticMeshLODType_MAX = 2
+	Reduction                      = 0,
+	Proxy                          = 1,
+	EStaticMeshLODType_MAX         = 2
 };
 
 
@@ -4373,22 +4373,22 @@ enum class ETextureCompressionSettings : uint8_t
 // Enum Engine.ETextureSamplerFilter
 enum class ETextureSamplerFilter : uint8_t
 {
-	ETextureSamplerFilter__Point   = 0,
-	ETextureSamplerFilter__Bilinear = 1,
-	ETextureSamplerFilter__Trilinear = 2,
-	ETextureSamplerFilter__AnisotropicPoint = 3,
-	ETextureSamplerFilter__AnisotropicLinear = 4,
-	ETextureSamplerFilter__ETextureSamplerFilter_MAX = 5
+	Point                          = 0,
+	Bilinear                       = 1,
+	Trilinear                      = 2,
+	AnisotropicPoint               = 3,
+	AnisotropicLinear              = 4,
+	ETextureSamplerFilter_MAX      = 5
 };
 
 
 // Enum Engine.ETexturePowerOfTwoSetting
 enum class ETexturePowerOfTwoSetting : uint8_t
 {
-	ETexturePowerOfTwoSetting__None = 0,
-	ETexturePowerOfTwoSetting__PadToPowerOfTwo = 1,
-	ETexturePowerOfTwoSetting__PadToSquarePowerOfTwo = 2,
-	ETexturePowerOfTwoSetting__ETexturePowerOfTwoSetting_MAX = 3
+	None                           = 0,
+	PadToPowerOfTwo                = 1,
+	PadToSquarePowerOfTwo          = 2,
+	ETexturePowerOfTwoSetting_MAX  = 3
 };
 
 
@@ -4490,20 +4490,20 @@ enum class ETextureRenderTargetFormat : uint8_t
 // Enum Engine.ETimecodeProviderSynchronizationState
 enum class ETimecodeProviderSynchronizationState : uint8_t
 {
-	ETimecodeProviderSynchronizationState__Closed = 0,
-	ETimecodeProviderSynchronizationState__Error = 1,
-	ETimecodeProviderSynchronizationState__Synchronized = 2,
-	ETimecodeProviderSynchronizationState__Synchronizing = 3,
-	ETimecodeProviderSynchronizationState__ETimecodeProviderSynchronizationState_MAX = 4
+	Closed                         = 0,
+	Error                          = 1,
+	Synchronized                   = 2,
+	Synchronizing                  = 3,
+	ETimecodeProviderSynchronizationState_MAX = 4
 };
 
 
 // Enum Engine.ETimelineDirection
 enum class ETimelineDirection : uint8_t
 {
-	ETimelineDirection__Forward    = 0,
-	ETimelineDirection__Backward   = 1,
-	ETimelineDirection__ETimelineDirection_MAX = 2
+	Forward                        = 0,
+	Backward                       = 1,
+	ETimelineDirection_MAX         = 2
 };
 
 
@@ -4519,10 +4519,10 @@ enum class ETimelineLengthMode : uint8_t
 // Enum Engine.ETimeStretchCurveMapping
 enum class ETimeStretchCurveMapping : uint8_t
 {
-	ETimeStretchCurveMapping__T_Original = 0,
-	ETimeStretchCurveMapping__T_TargetMin = 1,
-	ETimeStretchCurveMapping__T_TargetMax = 2,
-	ETimeStretchCurveMapping__MAX  = 3
+	T_Original                     = 0,
+	T_TargetMin                    = 1,
+	T_TargetMax                    = 2,
+	MAX                            = 3
 };
 
 
@@ -4560,23 +4560,23 @@ enum class EUserDefinedStructureStatus : uint8_t
 // Enum Engine.EUIScalingRule
 enum class EUIScalingRule : uint8_t
 {
-	EUIScalingRule__ShortestSide   = 0,
-	EUIScalingRule__LongestSide    = 1,
-	EUIScalingRule__Horizontal     = 2,
-	EUIScalingRule__Vertical       = 3,
-	EUIScalingRule__Custom         = 4,
-	EUIScalingRule__EUIScalingRule_MAX = 5
+	ShortestSide                   = 0,
+	LongestSide                    = 1,
+	Horizontal                     = 2,
+	Vertical                       = 3,
+	Custom                         = 4,
+	EUIScalingRule_MAX             = 5
 };
 
 
 // Enum Engine.ERenderFocusRule
 enum class ERenderFocusRule : uint8_t
 {
-	ERenderFocusRule__Always       = 0,
-	ERenderFocusRule__NonPointer   = 1,
-	ERenderFocusRule__NavigationOnly = 2,
-	ERenderFocusRule__Never        = 3,
-	ERenderFocusRule__ERenderFocusRule_MAX = 4
+	Always                         = 0,
+	NonPointer                     = 1,
+	NavigationOnly                 = 2,
+	Never                          = 3,
+	ERenderFocusRule_MAX           = 4
 };
 
 
@@ -4592,20 +4592,20 @@ enum class EVectorFieldConstructionOp : uint8_t
 // Enum Engine.EWindSourceType
 enum class EWindSourceType : uint8_t
 {
-	EWindSourceType__Directional   = 0,
-	EWindSourceType__Point         = 1,
-	EWindSourceType__EWindSourceType_MAX = 2
+	Directional                    = 0,
+	Point                          = 1,
+	EWindSourceType_MAX            = 2
 };
 
 
 // Enum Engine.EPSCPoolMethod
 enum class EPSCPoolMethod : uint8_t
 {
-	EPSCPoolMethod__None           = 0,
-	EPSCPoolMethod__AutoRelease    = 1,
-	EPSCPoolMethod__ManualRelease  = 2,
-	EPSCPoolMethod__ManualRelease_OnComplete = 3,
-	EPSCPoolMethod__EPSCPoolMethod_MAX = 4
+	None                           = 0,
+	AutoRelease                    = 1,
+	ManualRelease                  = 2,
+	ManualRelease_OnComplete       = 3,
+	EPSCPoolMethod_MAX             = 4
 };
 
 
