@@ -4,6 +4,7 @@
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
+const uint32_t Value_Timestamp_patch1 = 1629818287; // 2021/08/24 15:18:07 (no code changes?)
 
 const uint32_t Addr_ProcessEvent = 0x14CBA50;
 const uint32_t Addr_GUObjectArray = 0x44DC350;
@@ -179,7 +180,7 @@ bool InitGame()
 
   // Check that this is the EXE we were built against...
   uint32_t timestamp = *reinterpret_cast<uint32_t*>(mBaseAddress + Addr_Timestamp);
-  if (timestamp != Value_Timestamp)
+  if (timestamp != Value_Timestamp && timestamp != Value_Timestamp_patch1)
   {
     MessageBoxA(0, "Unsupported 'Tales of Arise.exe' version, aborting Arise-SDK load...", "Arise-SDK", 0);
     return false;
@@ -467,7 +468,7 @@ void FEngineLoop__Tick_Hook(void* thisptr)
   {
     bleh->MaxLODLevel = 0;
     bleh->LODDistanceFactor = 10;
-    bleh->LODFalloff = ELandscapeLODFalloff::ELandscapeLODFalloff__SquareRoot;
+    bleh->LODFalloff = ELandscapeLODFalloff::SquareRoot;
     bleh->LOD0DistributionSetting = bleh->LODDistributionSetting = 3;
     bleh->StreamingDistanceMultiplier = 10;
   }
