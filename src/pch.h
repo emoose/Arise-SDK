@@ -47,6 +47,7 @@ extern uintptr_t mBaseAddress;
 void InitPlugin();
 
 // proxy.cpp
+void* ModuleGetSection(void* Module, const char* SectionName, int* OutSectionSize);
 void Proxy_InitSteamStub();
 
 // UE4Hook.cpp
@@ -60,6 +61,7 @@ bool DirExists(const WCHAR* DirPath);
 HWND FindMainWindow(DWORD process_id);
 bool INI_GetBool(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key, bool DefaultValue);
 float INI_GetFloat(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key, float DefaultValue);
+uint32_t rc_crc32(uint32_t crc, const char* buf, size_t len);
 
 // PostProcOverrides.cpp
 void PostProc_AddCVars(IConsoleManager* ConsoleManager);

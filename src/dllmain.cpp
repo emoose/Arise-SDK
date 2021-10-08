@@ -1,10 +1,12 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.26"
+#define SDK_VERSION "0.1.26a"
 
 const uint32_t Addr_Timestamp = 0x1E0;
 const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
 const uint32_t Value_Timestamp_patch1 = 1629818287; // 2021/08/24 15:18:07 (no code changes?)
+
+const uint32_t Game_TextSectionChecksum = 0x13ce422f; // patch0 & patch1 share this
 
 const uint32_t Addr_ProcessEvent = 0x14CBA50;
 const uint32_t Addr_GUObjectArray = 0x44DC350;
@@ -165,6 +167,8 @@ void UAchCharacterBuildComponent__SetCulling_Hook(UAchCharacterBuildComponent* t
   UAchCharacterBuildComponent__SetCulling_Orig(thisptr, Options.CharaDisableCull ? false : bCulling);
 }
 
+// Ran by DllMain, before the games code itself has ran (or any wrappers like SteamStub etc)
+// Not recommended to put anything that writes to game EXE here, since it might be writing over still-encrypted data
 bool InitGame()
 {
   printf("\nArise-SDK " SDK_VERSION " - https://github.com/emoose/Arise-SDK\n");
@@ -177,14 +181,6 @@ bool InitGame()
     return false;
   }
   mBaseAddress = reinterpret_cast<uintptr_t>(GameHModule);
-
-  // Check that this is the EXE we were built against...
-  uint32_t timestamp = *reinterpret_cast<uint32_t*>(mBaseAddress + Addr_Timestamp);
-  if (timestamp != Value_Timestamp && timestamp != Value_Timestamp_patch1)
-  {
-    MessageBoxA(0, "Unsupported 'Tales of Arise.exe' version, aborting Arise-SDK load...", "Arise-SDK", 0);
-    return false;
-  }
 
   // Get folder path of currently running EXE
   GetModuleFileName(GameHModule, IniPath, 4096);
@@ -551,10 +547,34 @@ void RefreshEngineSettings_Hook()
     RefreshEngineSettings_Orig();
 }
 
-
+// InitPlugin is ran sometime after steamstub decrypted the exe - usually within the first frame or so of the game
+// Some parts of the game might already be inited by this time though, requiring a different method of handling them
 void InitPlugin()
 {
   inited = false;
+
+  // Check that this is the EXE we were built against...
+  uint32_t timestamp = *reinterpret_cast<uint32_t*>(mBaseAddress + Addr_Timestamp);
+  if (timestamp != Value_Timestamp && timestamp != Value_Timestamp_patch1)
+  {
+    // Not a known EXE timestamp, we'll checksum the .text section since some patches are known to just update timestamps...
+    bool isKnown = false;
+    int textSize = 0;
+    void* textSection = ModuleGetSection((void*)mBaseAddress, ".text", &textSize);
+    if (textSection)
+    {
+      auto checksum = rc_crc32(0, (char*)textSection, textSize);
+      isKnown = checksum == Game_TextSectionChecksum;
+    }
+
+    if (!isKnown)
+    {
+      MessageBoxA(0, "Unsupported 'Tales of Arise.exe' version, aborting Arise-SDK load...", "Arise-SDK", 0);
+      return;
+    }
+  }
+
+
   PostProc_Init();
 
   UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(mBaseAddress + Addr_ProcessEvent);

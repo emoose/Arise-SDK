@@ -222,6 +222,39 @@ void* ModuleDirectoryEntryData(void* Module, int DirectoryEntry, int* EntrySize 
   return base + entryAddr;
 }
 
+void* ModuleGetSection(void* Module, const char* SectionName, int* OutSectionSize)
+{
+  BYTE* base = reinterpret_cast<BYTE*>(Module);
+  IMAGE_DOS_HEADER* dosHeader = reinterpret_cast<IMAGE_DOS_HEADER*>(base);
+  if (dosHeader->e_magic != IMAGE_DOS_SIGNATURE)
+    return nullptr; // invalid header :(
+
+  IMAGE_NT_HEADERS* ntHeader = reinterpret_cast<IMAGE_NT_HEADERS*>(base + dosHeader->e_lfanew);
+  if (ntHeader->Signature != IMAGE_NT_SIGNATURE)
+    return nullptr;
+
+  IMAGE_SECTION_HEADER* sections = reinterpret_cast<IMAGE_SECTION_HEADER*>(&ntHeader[1]);
+
+  IMAGE_SECTION_HEADER* foundSection = nullptr;
+  for (int i = 0; i < ntHeader->FileHeader.NumberOfSections; i++)
+  {
+    IMAGE_SECTION_HEADER* section = &sections[i];
+    if (!strncmp((const char*)section->Name, SectionName, 8))
+    {
+      foundSection = section;
+      break;
+    }
+  }
+
+  if (!foundSection)
+    return nullptr;
+
+  if (OutSectionSize)
+    *OutSectionSize = foundSection->Misc.VirtualSize;
+
+  return base + foundSection->VirtualAddress;
+}
+
 FARPROC* GetIATPointer(void* Module, const char* LibraryName, const char* ImportName)
 {
   auto* base = (BYTE*)Module;
