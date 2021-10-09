@@ -248,6 +248,7 @@
     <ClInclude Include="SDK\Engine_classes.h" />
     <ClInclude Include="SDK\Engine_parameters.h" />
     <ClInclude Include="SDK\Engine_structs.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />

@@ -1,8 +1,8 @@
 #pragma once
 
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-// Windows Header Files
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#include <algorithm>
 
 #include "MinHook/MinHook.h"
 
@@ -56,12 +56,7 @@ extern StaticConstructObject_InternalFn StaticConstructObject_Internal;
 void Init_UE4Hook();
 
 // Utility.cpp
-bool FileExists(const WCHAR* Filename);
-bool DirExists(const WCHAR* DirPath);
-HWND FindMainWindow(DWORD process_id);
-bool INI_GetBool(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key, bool DefaultValue);
-float INI_GetFloat(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key, float DefaultValue);
-uint32_t rc_crc32(uint32_t crc, const char* buf, size_t len);
+#include "Utility.h"
 
 // PostProcOverrides.cpp
 void PostProc_AddCVars(IConsoleManager* ConsoleManager);
@@ -69,7 +64,7 @@ void PostProc_Init();
 void PostProc_DoOverrides(bool CopyValuesToCVars, FPostProcessSettings* FinalPostProcessSettings);
 
 template <typename T>
-void SafeWrite(uintptr_t address, T value)
+void SafeWrite(void* address, T value)
 {
   DWORD oldProtect = 0;
   VirtualProtect((LPVOID)address, sizeof(T), PAGE_READWRITE, &oldProtect);
@@ -78,23 +73,52 @@ void SafeWrite(uintptr_t address, T value)
 }
 
 template <typename T>
-void SafeWrite(uintptr_t address, T value, int count)
+void SafeWrite(void* address, T value, int count)
 {
   DWORD oldProtect = 0;
   VirtualProtect((LPVOID)address, sizeof(T) * count, PAGE_READWRITE, &oldProtect);
   for(int i = 0; i < count; i++)
-    *reinterpret_cast<T*>(address + (sizeof(T) * i)) = value;
+    *reinterpret_cast<T*>((uint8_t*)address + (sizeof(T) * i)) = value;
   VirtualProtect((LPVOID)address, sizeof(T) * count, oldProtect, &oldProtect);
+}
+
+template <typename T>
+void SafeWrite(void* address, T* value, int count)
+{
+  DWORD oldProtect = 0;
+  VirtualProtect((LPVOID)address, sizeof(T) * count, PAGE_READWRITE, &oldProtect);
+  for (int i = 0; i < count; i++)
+    *reinterpret_cast<T*>((uint8_t*)address + (sizeof(T) * i)) = value[i];
+  VirtualProtect((LPVOID)address, sizeof(T) * count, oldProtect, &oldProtect);
+}
+
+template <typename T>
+void SafeWrite(uintptr_t address, T value)
+{
+	DWORD oldProtect = 0;
+	VirtualProtect((LPVOID)address, sizeof(T), PAGE_READWRITE, &oldProtect);
+	*reinterpret_cast<T*>(address) = value;
+	VirtualProtect((LPVOID)address, sizeof(T), oldProtect, &oldProtect);
+}
+
+template <typename T>
+void SafeWrite(uintptr_t address, T value, int count)
+{
+	DWORD oldProtect = 0;
+	VirtualProtect((LPVOID)address, sizeof(T) * count, PAGE_READWRITE, &oldProtect);
+	for (int i = 0; i < count; i++)
+		*reinterpret_cast<T*>(address + (sizeof(T) * i)) = value;
+	VirtualProtect((LPVOID)address, sizeof(T) * count, oldProtect, &oldProtect);
 }
 
 template <typename T>
 void SafeWrite(uintptr_t address, T* value, int count)
 {
-  DWORD oldProtect = 0;
-  VirtualProtect((LPVOID)address, sizeof(T) * count, PAGE_READWRITE, &oldProtect);
-  for (int i = 0; i < count; i++)
-    *reinterpret_cast<T*>(address + (sizeof(T) * i)) = value[i];
-  VirtualProtect((LPVOID)address, sizeof(T) * count, oldProtect, &oldProtect);
+	DWORD oldProtect = 0;
+	VirtualProtect((LPVOID)address, sizeof(T) * count, PAGE_READWRITE, &oldProtect);
+	for (int i = 0; i < count; i++)
+		*reinterpret_cast<T*>(address + (sizeof(T) * i)) = value[i];
+	VirtualProtect((LPVOID)address, sizeof(T) * count, oldProtect, &oldProtect);
 }
 
 template <typename T>
@@ -122,8 +146,11 @@ inline void UnsafeWriteModule(uintptr_t offset, T value)
   *reinterpret_cast<T*>(mBaseAddress + offset) = value;
 }
 
-inline void PatchCall(uintptr_t callAddr, uintptr_t callDest)
+inline void PatchCall(void* CallAddr, void* CallDest)
 {
+	uint8_t* callAddr = (uint8_t*)CallAddr;
+	uint8_t* callDest = (uint8_t*)CallDest;
+
   uint8_t callBuf[] = { 0xE8, 0x00, 0x00, 0x00, 0x00 };
   uint32_t diff = uint32_t(callDest - (callAddr + 5));
   *(uint32_t*)&callBuf[1] = diff;

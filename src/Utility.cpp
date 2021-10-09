@@ -103,3 +103,54 @@ rc_crc32(uint32_t crc, const char* buf, size_t len)
   }
   return ~crc;
 }
+
+
+uint8_t* SearchSignature(uint8_t* Base, size_t BaseLength, const std::vector<uint8_t>& Signature)
+{
+  for (size_t i = 0; i < BaseLength; i++)
+  {
+    bool match = true;
+    for (size_t j = 0; j < Signature.size(); j++)
+    {
+      if (Signature[j] == 0)
+        continue;
+      if (Signature[j] != Base[i + j])
+      {
+        match = false;
+        break;
+      }
+    }
+
+    if (match)
+      return &Base[i];
+  }
+  return nullptr;
+}
+
+// Returns whether all addresses were found
+// Count of addresses that were found can be found with .NumValid()
+bool AddressManager::SearchAddresses(uint8_t* Base, size_t BaseLength)
+{
+  _numValid = 0;
+  for (GameAddress& address : _addresses)
+  {
+    uint8_t* StartAddr = Base;
+    size_t AddrLength = BaseLength;
+    if (!address.SignatureStartAddr.empty())
+    {
+      // Addr wants our search to start from another addrs position
+      auto addr = (*this)[address.SignatureStartAddr];
+      StartAddr = addr.Address;
+      AddrLength = BaseLength - (StartAddr - Base);
+    }
+
+    uint8_t* foundAddr = SearchSignature(StartAddr, AddrLength, address.Signature);
+    if (!foundAddr)
+      return false;
+
+    address.Address = foundAddr + address.Offset;
+    _numValid++;
+  }
+
+  return true;
+}
