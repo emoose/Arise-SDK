@@ -171,6 +171,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Fixes_Distance.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="MinHook\buffer.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -210,6 +211,7 @@
     </ClCompile>
     <ClCompile Include="PostProcOverrides.cpp" />
     <ClCompile Include="proxy.cpp" />
+    <ClCompile Include="Fixes_Resolution.cpp" />
     <ClCompile Include="SDK\Basic.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../pch.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../pch.h</PrecompiledHeaderFile>
@@ -238,6 +240,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SDK.h" />
+    <ClInclude Include="SDKPrivate.h" />
     <ClInclude Include="SDK\Arise_classes.h" />
     <ClInclude Include="SDK\Arise_parameters.h" />
     <ClInclude Include="SDK\Arise_structs.h" />

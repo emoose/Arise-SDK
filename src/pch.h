@@ -11,44 +11,48 @@ extern uintptr_t mBaseAddress;
 
 #include "SDK.h"
 using namespace SDK;
+#include "SDKPrivate.h"
 #include "IConsoleManager.h"
-
-struct __declspec(align(8)) FOutputDevice
-{
-  void* __vftable; /*VFT*/
-  bool bSuppressEventTag;
-  bool bAutoEmitLineTerminator;
-};
-
-struct __declspec(align(8)) FFrame : public FOutputDevice
-{
-  UFunction* Node;
-  UObject* Object;
-  unsigned __int8* Code;
-  unsigned __int8* Locals;
-  UProperty* MostRecentProperty;
-  unsigned __int8* MostRecentPropertyAddress;
-  TArray<unsigned int> FlowStack;
-  FFrame* PreviousFrame;
-  void* OutParms; /* FOutParmRec* */
-  UField* PropertyChainForCompiledIn;
-  UFunction* CurrentNativeFunction;
-  bool bArrayContextFailed;
-};
-
-#define MH_Hook(addr, hook, orig) MH_CreateHook((LPVOID)(mBaseAddress + addr), hook, (LPVOID*)orig)
-
-// Creates a hook for function, requires Addr_ defined, _Hook function & _Orig variable
-#define MH_GameHookOld(func) MH_Hook(Addr_##func, func##_Hook, &func##_Orig)
 
 // Creates a hook for function, requires Addr_ AutoGameAddress, _Hook function & _Orig variable
 #define MH_GameHook(func) MH_CreateHook((LPVOID)Addr_##func##.Get(), func##_Hook, (LPVOID*)&func##_Orig)
+
+struct SDKOptions
+{
+	float MinNPCDistance = 50000;
+	float MonsterDistanceMultiplier = 1;
+	bool SkipIntroLogos = true;
+	bool DisableCutsceneCA = false;
+	bool EnableResolutionFix = true;
+	float OverrideCharaSharpenFilterStrength = -1;
+	float OverrideStageSharpenFilterStrength = -1;
+	float MinStageEdgeBaseDistance = 0;
+	int32_t ForcedLODLevel = -1;
+	bool CutsceneRenderFix = false;
+	float CutsceneScreenPercentage = 100;
+	bool CutsceneForceUpscaleFiltering = false;
+	float OverrideTemporalAAJitterScale = -1;
+	float OverrideTemporalAASharpness = -1;
+	bool UseUE4TAA = false;
+	float CharaLODMultiplier = 1;
+	bool CharaDisableCull = false;
+	bool DisableUpdateRateOptimization = false;
+};
 
 // dllmain.cpp
 extern HMODULE DllHModule;
 extern HMODULE GameHModule;
 extern uintptr_t mBaseAddress;
+extern SDKOptions Options;
+extern bool inited;
 void InitPlugin();
+
+// Fixes_Distance.cpp
+void Fixes_Distance_Init();
+void Fixes_Distance_Refresh();
+
+// Fixes_Resolution.cpp
+void Fixes_Resolution_Init();
 
 // proxy.cpp
 void* ModuleGetSection(void* Module, const char* SectionName, int* OutSectionSize);

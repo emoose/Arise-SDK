@@ -43,6 +43,12 @@ public:
   {
     return _matches[MatchIndex];
   }
+
+  template<typename T>
+  T* Get(int MatchIndex = 0)
+  {
+    return (T*)_matches[MatchIndex];
+  }
 };
 
 class AddressManager

@@ -10,14 +10,6 @@
 
 #include "SDK/Basic.h"
 
-struct FSystemResolution
-{
-  int ResX;
-  int ResY;
-  int WindowMode;
-  bool bForceRefresh;
-};
-
 #include "SDK/CoreUObject_structs.h"
 #include "SDK/CoreUObject_classes.h"
 #include "SDK/CoreUObject_parameters.h"
