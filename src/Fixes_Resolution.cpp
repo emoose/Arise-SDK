@@ -10,7 +10,7 @@ GameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Trampoline( /
   { 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC },
   0,
   GameAddressType::Pointer,
-  & Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Hook // searches for 12 0xCC bytes after wherever we found ::execCreateRenderTarget2D_Hook
+  &Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Hook // searches for 12 0xCC bytes after wherever we found ::execCreateRenderTarget2D_Hook
 );
 GameAddress Addr_USceneCaptureComponent2D__USceneCaptureComponent2D_Patch( // patch0: 0x14279200F
   "USceneCaptureComponent2D::USceneCaptureComponent2D_Patch",
@@ -37,10 +37,10 @@ GameAddress Addr_GRHISupportsDynamicResolution( // patch0: 0x141FF83FA
   { 0x0F, 0xB6, 0x05, 0x00, 0x00, 0x00, 0x00 },
   +0x3,
   GameAddressType::Offset4,
-  & Addr_FDefaultDynamicResolutionState__IsSupported_NearBeginning
+  &Addr_FDefaultDynamicResolutionState__IsSupported_NearBeginning
 );
 
-AutoGameAddress<FSystemResolution*> Addr_GSystemResolution(
+AutoGameAddress<FSystemResolution*> Addr_GSystemResolution( // patch0: 0x14455A4F0
   "GSystemResolution",
   { 0x83, 0x3D, 0x00, 0x00, 0x00, 0x00, 0x02, 0x75, 0x00, 0x8B, 0x15, 0x00, 0x00, 0x00, 0x00, 0x44, 0x8B, 0x05, 0x00, 0x00, 0x00, 0x00 },
   +0xB,

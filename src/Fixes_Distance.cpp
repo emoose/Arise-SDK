@@ -13,7 +13,7 @@ GameAddress Addr_FAchCharacterLODData__ReadsData_Trampoline( // patch0: 0x1406D4
   { 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC },
   0,
   GameAddressType::Pointer,
-  & Addr_FAchCharacterLODData__ReadsData_Hook // searches for 12 0xCC bytes after wherever we found ::ReadsData_Hook
+  &Addr_FAchCharacterLODData__ReadsData_Hook // searches for 12 0xCC bytes after wherever we found ::ReadsData_Hook
 );
 GameAddress Addr_GetCSMMaxDistance_Patch( // patch0: 0x142382021
   "GetCSMMaxDistance_Patch",
