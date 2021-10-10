@@ -126,9 +126,13 @@ uint8_t* SearchSignature(uint8_t* Base, size_t BaseLength, const std::vector<uin
   return nullptr;
 }
 
-AutoGameAddress::AutoGameAddress(std::string_view Name, std::initializer_list<uint8_t> Signature, int Offset, std::string_view SignatureStartAddr, bool MultipleMatches)
-  : Name(Name), Signature(Signature), Offset(Offset), SignatureStartAddr(SignatureStartAddr), MultipleMatches(MultipleMatches)
+AutoGameAddress::AutoGameAddress(std::string_view Name, std::initializer_list<uint8_t> Signature, int Offset, AutoGameAddressType Type, AutoGameAddress* SignatureStartAddr, bool MultipleMatches)
+: Name(Name), Signature(Signature), Offset(Offset), Type(Type), SignatureStartAddr(SignatureStartAddr), MultipleMatches(MultipleMatches)
 {
+  // If we're using a SignatureStartAddr, make sure it's added before us
+  if (SignatureStartAddr)
+    AddressManager::Instance().Add(SignatureStartAddr);
+
   AddressManager::Instance().Add(this);
 }
 
@@ -144,18 +148,26 @@ bool AddressManager::SearchAddresses(void* Base, size_t BaseLength)
   {
     uint8_t* StartAddr = base;
     size_t AddrLength = BaseLength;
-    if (!address->SignatureStartAddr.empty())
+    if (address->SignatureStartAddr)
     {
       // Addr wants our search to start from another addrs position
-      auto addr = (*this)[address->SignatureStartAddr];
-      StartAddr = addr.Get(0);
+      StartAddr = address->SignatureStartAddr->Get(0);
       AddrLength = BaseLength - (StartAddr - base);
     }
 
     uint8_t* foundAddr = SearchSignature(StartAddr, AddrLength, address->Signature);
     while (foundAddr)
     {
-      address->_matches.push_back(foundAddr + address->Offset);
+      if(address->Type == AutoGameAddressType::Pointer)
+        address->_matches.push_back(foundAddr + address->Offset);
+      else
+      {
+        // Offset, calculate as addr + N + offsetValue
+        auto* addr = foundAddr + address->Offset;
+        int addrSize = int(address->Type);
+        int offset = *(int32_t*)addr;
+        address->_matches.push_back(addr + addrSize + offset);
+      }
 
       if (!address->MultipleMatches)
         break;

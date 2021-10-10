@@ -11,18 +11,20 @@ HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
-#define SDK_VERSION "0.1.27a"
+#define SDK_VERSION "0.1.27b"
 
 // UE4 stuff
 AutoGameAddress Addr_GNames( // patch0: 0x14132000D
   "GNames",
   { 0xC7, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC8, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC3, 0x48, 0x89, 0x1D, 0x00, 0x00, 0x00, 0x00 },
-  +0x18
+  +0x18,
+  AutoGameAddressType::Offset4
 );
 AutoGameAddress Addr_GObjects( // patch0: 0x14031627A
   "GObjects",
   { 0x48, 0x8D, 0x05, 0x00, 0x00, 0x00, 0x00, 0xC7, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8D, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x48, 0x89, 0x05 },
-  +3
+  +3,
+  AutoGameAddressType::Offset4
 );
 AutoGameAddress Addr_UObject__ProcessEvent( // patch0: 0x1414CBA50
   "UObject::ProcessEvent",
@@ -55,7 +57,8 @@ AutoGameAddress Addr_FAchCharacterLODData__ReadsData_Trampoline( // patch0: 0x14
   "FAchCharacterLODData::ReadsData_Trampoline",
   { 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC },
   0,
-  "FAchCharacterLODData::ReadsData_Hook" // searches for 12 0xCC bytes after wherever we found ::ReadsData_Hook
+  AutoGameAddressType::Pointer,
+  &Addr_FAchCharacterLODData__ReadsData_Hook // searches for 12 0xCC bytes after wherever we found ::ReadsData_Hook
 );
 AutoGameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Hook( // patch0: 0x142699D98
   "UKismetRenderingLibrary::execCreateRenderTarget2D_Hook",
@@ -66,7 +69,8 @@ AutoGameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Trampolin
   "UKismetRenderingLibrary::execCreateRenderTarget2D_Trampoline",
   { 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC },
   0,
-  "UKismetRenderingLibrary::execCreateRenderTarget2D_Hook" // searches for 12 0xCC bytes after wherever we found ::execCreateRenderTarget2D_Hook
+  AutoGameAddressType::Pointer,
+  &Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Hook // searches for 12 0xCC bytes after wherever we found ::execCreateRenderTarget2D_Hook
 );
 AutoGameAddress Addr_USceneCaptureComponent2D__USceneCaptureComponent2D_Patch( // patch0: 0x14279200F
   "USceneCaptureComponent2D::USceneCaptureComponent2D_Patch",
@@ -98,11 +102,12 @@ AutoGameAddress Addr_FDefaultDynamicResolutionState__IsSupported_NearBeginning( 
   { 0x48, 0x8B, 0x88, 0x68, 0x0C, 0x00, 0x00, 0x48, 0x85, 0xC9, 0x74, 0x10, 0x48, 0x8B, 0x01 },
   +0
 );
-AutoGameAddress Addr_FDefaultDynamicResolutionState__IsSupported_GRHISupportsDynamicResolution( // patch0: 0x141FF83FA
-  "FDefaultDynamicResolutionState::IsSupported_GRHISupportsDynamicResolution_Addr",
+AutoGameAddress Addr_GRHISupportsDynamicResolution( // patch0: 0x141FF83FA
+  "GRHISupportsDynamicResolution",
   { 0x0F, 0xB6, 0x05, 0x00, 0x00, 0x00, 0x00 },
   +0x3,
-  "FDefaultDynamicResolutionState::IsSupported_NearBeginning"
+  AutoGameAddressType::Offset4,
+  &Addr_FDefaultDynamicResolutionState__IsSupported_NearBeginning
 );
 AutoGameAddress Addr_BootSceneController__execStart_NearBeginning( // patch0: 0x140F4B1FB
   "BootSceneController::execStart_NearBeginning",
@@ -113,7 +118,8 @@ AutoGameAddress Addr_BootSceneController__execStart_JmpPatch( // patch0: 0x140F4
   "BootSceneController::execStart_JmpPatch",
   { 0x75, 0x00, 0x48, 0x8B, 0x15 },
   +0,
-  "BootSceneController::execStart_NearBeginning"
+  AutoGameAddressType::Pointer,
+  &Addr_BootSceneController__execStart_NearBeginning
 );
 AutoGameAddress Addr_GetCSMMaxDistance_Patch( // patch0: 0x142382021
   "GetCSMMaxDistance_Patch",
@@ -180,10 +186,11 @@ AutoGameAddress Addr_FPFNpcCameraSettingsData__ICppStructOps__Construct_CameraFa
   { 0xC7, 0x42, 0x24, 0x00, 0x40, 0x35, 0x45 },
   +0x3
 );
-AutoGameAddress Addr_CVarUROEnable_Offset( // patch0: 0x1408ECD26
-  "CVarUROEnable_Offset",
+AutoGameAddress Addr_CVarUROEnable( // patch0: 0x1408ECD26
+  "CVarUROEnable",
   { 0x48, 0x8B, 0x05, 0x00, 0x00, 0x00, 0x00, 0x83, 0x38, 0x00, 0x0F },
-  +0x3
+  +0x3,
+  AutoGameAddressType::Offset4
 );
 
 // How much difference between the FadeOut & the FadeIn variables
@@ -419,21 +426,19 @@ void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
 
 std::vector<IConsoleVariable*> CVarPointers;
 
-AutoGameAddress Addr_IConsoleManager__Singleton_Offset( // patch0: 0x140143667
-  "IConsoleManager::Singleton_Offset",
+AutoGameAddress Addr_IConsoleManager__Singleton( // patch0: 0x140143667
+  "IConsoleManager::Singleton",
   { 0x48, 0x83, 0xEC, 0x38, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x48, 0x85, 0xC9, 0x75 },
-  +0x7
+  +0x7,
+  AutoGameAddressType::Offset4
 );
 
 IConsoleManager* ConsoleManager = nullptr;
 IConsoleManager* GetConsoleManager()
 {
   if (!ConsoleManager)
-  {
-    uint8_t* consoleManagerPtr = Addr_IConsoleManager__Singleton_Offset.Get();
-    int offset = *(int32_t*)consoleManagerPtr;
-    ConsoleManager = *(IConsoleManager**)(consoleManagerPtr + sizeof(int32_t) + offset);
-  }
+    ConsoleManager = *(IConsoleManager**)Addr_IConsoleManager__Singleton.Get();
+
   return ConsoleManager;
 }
 
@@ -470,11 +475,18 @@ void CVars_Create()
   PostProc_AddCVars(ConsoleManager);
 }
 
-AutoGameAddress Addr_IConsoleManager__Singleton_User_Dtor_Offset( // patch0: 0x1401436A9
-  "IConsoleManager::Singleton_User_Dtor_Offset",
+AutoGameAddress Addr_IConsoleManager__Singleton_Offset( // patch0: 0x140143667
+  "IConsoleManager::Singleton_Offset",
+  { 0x48, 0x83, 0xEC, 0x38, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x48, 0x85, 0xC9, 0x75 },
+  +0x7,
+  AutoGameAddressType::Pointer
+);
+AutoGameAddress Addr_CVar_dtor( // patch0: 0x1401436A9
+  "CVar_dtor",
   { 0x48, 0x8D, 0x0D },
   +0x3,
-  "IConsoleManager::Singleton_Offset"
+  AutoGameAddressType::Offset4,
+  &Addr_IConsoleManager__Singleton_Offset
 );
 typedef void(*CVar_dtor_Fn)();
 CVar_dtor_Fn CVar_dtor_Orig;
@@ -535,18 +547,11 @@ void FRelevancePacket__FRelevancePacket_Hook(
     InMarkMasks, InPrimitiveCustomDataMemStack, InOutHasViewCustomDataMasks);
 }
 
-struct FSystemResolution
-{
-  int ResX;
-  int ResY;
-  int WindowMode;
-  bool bForceRefresh;
-};
-
-AutoGameAddress Addr_GSystemResolution_Offset(
-  "GSystemResolution_Offset",
+AutoGameAddress Addr_GSystemResolution(
+  "GSystemResolution",
   { 0x83, 0x3D, 0x00, 0x00, 0x00, 0x00, 0x02, 0x75, 0x00, 0x8B, 0x15, 0x00, 0x00, 0x00, 0x00, 0x44, 0x8B, 0x05, 0x00, 0x00, 0x00, 0x00 },
-  +0xB
+  +0xB,
+  AutoGameAddressType::Offset4
 );
 FSystemResolution* GSystemResolution = nullptr;
 
@@ -556,11 +561,7 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
   if (Options.CutsceneRenderFix)
   {
     if (!GSystemResolution)
-    {
-      uint8_t* GSystemResolution_ptr = Addr_GSystemResolution_Offset.Get();
-      GSystemResolution_ptr = GSystemResolution_ptr + sizeof(int32_t) + *(int32_t*)GSystemResolution_ptr;
-      GSystemResolution = (FSystemResolution*)GSystemResolution_ptr;
-    }
+      GSystemResolution = (FSystemResolution*)Addr_GSystemResolution.Get();
 
     double ScreenSizeX = double(GSystemResolution->ResX);
     double ScreenSizeY = double(GSystemResolution->ResY);
@@ -643,7 +644,6 @@ void FAchCharacterLODData_Reader_Hook(void* Dst, void* Src, size_t Size)
     float NewLOD0 = OrigLOD0 * Options.CharaLODMultiplier;
     for (uint32_t i = 0; i < NumLods; i++)
     {
-      float cur = DstFloats[i];
       DstFloats[i] = (DstFloats[i] + NewLOD0) - OrigLOD0;
     }
   }
@@ -780,11 +780,7 @@ void RefreshEngineSettings_Hook()
     // TODO: change this to use IConsoleManager, instead of finding a.URO.Enable pointer directly?
 
     // Update a.URO.Enable value if CVar has already been created
-    uint8_t* CVarUROEnable_ptr = Addr_CVarUROEnable_Offset.Get();
-    int offset = *(int32_t*)CVarUROEnable_ptr;
-    CVarUROEnable_ptr = CVarUROEnable_ptr + sizeof(int32_t) + offset;
-
-    uint32_t* CVarUROEnable = *(uint32_t**)CVarUROEnable_ptr;
+    uint32_t* CVarUROEnable = *(uint32_t**)Addr_CVarUROEnable.Get();
     if (CVarUROEnable)
     {
       CVarUROEnable[0] = CVarUROEnable[1] = 0;
@@ -811,8 +807,8 @@ void InitPlugin()
   {
     auto failedAddrs = AddressManager::Instance().GetInvalid();
     std::stringstream msgText;
-    msgText << "Failed to locate all game-addresses for patching, aborting Arise-SDK load!\r\n\r\n";
-    msgText << "Failed to locate " << failedAddrs.size() << " addresses: (code checksum: 0x" << std::hex << checksum << std::dec << ", CTRL+C to copy this text)";
+    msgText << "Failed to locate " << failedAddrs.size() << " game-addresses for patching, aborting Arise-SDK load!\r\n\r\n";
+    msgText << "Failed addresses: (code checksum: 0x" << std::hex << checksum << std::dec << ", CTRL+C to copy this text)";
     for (AutoGameAddress* addr : failedAddrs)
       msgText << "\r\n" + addr->Name;
 
@@ -822,13 +818,8 @@ void InitPlugin()
 
   PostProc_Init();
 
-  auto GNames = Addr_GNames.Get();
-  int offset = *(int32_t*)GNames;
-  FName::GNames = reinterpret_cast<TNameEntryArray*>(GNames + sizeof(int32_t) + offset);
-
-  auto GObjects = Addr_GObjects.Get();
-  offset = *(int32_t*)GObjects - 0x10; // value is +0x10 into FUObjectArray struct
-  UObject::GObjects = reinterpret_cast<FUObjectArray*>(GObjects + sizeof(int32_t) + offset);
+  FName::GNames = reinterpret_cast<TNameEntryArray*>(Addr_GNames.Get());
+  UObject::GObjects = reinterpret_cast<FUObjectArray*>(Addr_GObjects.Get() - 0x10); // Addr_GObjects is +0x10 into FUObjectArray struct
 
   UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(Addr_UObject__ProcessEvent.Get());
   StaticConstructObject_Internal = reinterpret_cast<StaticConstructObject_InternalFn>(Addr_StaticConstructObject_Internal.Get());
@@ -846,17 +837,14 @@ void InitPlugin()
   MH_GameHook(FSceneView__EndFinalPostprocessSettings);
 
   // Add hook so we can destruct our added Cvars (added by RefreshEngineSettings_Hook)
-  uint8_t* cvar_dtor = Addr_IConsoleManager__Singleton_User_Dtor_Offset.Get();
-  cvar_dtor = cvar_dtor + sizeof(int32_t) + *(int32_t*)cvar_dtor;
-  MH_CreateHook(cvar_dtor, CVar_dtor_Hook, (LPVOID*)&CVar_dtor_Orig);
-
-  MH_GameHook(RefreshEngineSettings);
+  MH_GameHook(CVar_dtor);
 
   // Add support for r.ForceLOD
   MH_GameHook(FRelevancePacket__FRelevancePacket);
 
   // Apply any patches requested by cvars
   // (inited must be false before calling this!)
+  MH_GameHook(RefreshEngineSettings);
   RefreshEngineSettings_Hook();
 
   if (true)
@@ -937,10 +925,7 @@ void InitPlugin()
   SafeWrite(Addr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck.Get(), uint16_t(0xC031)); // xor eax, eax
 
   // Flip GRHISupportsDynamicResolution to true, so r.DynamicRes.* can work
-  auto* addrPtr = Addr_FDefaultDynamicResolutionState__IsSupported_GRHISupportsDynamicResolution.Get();
-  offset = *(int32_t*)addrPtr;
-  uint8_t* GRHISupportsDynamicResolution = reinterpret_cast<uint8_t*>(addrPtr + sizeof(int32_t) + offset);
-  SafeWrite(GRHISupportsDynamicResolution, uint8_t(1));
+  SafeWrite(Addr_GRHISupportsDynamicResolution.Get(), uint8_t(1));
 
 #if 0
   // Set GSupportsTimestampRenderQueries to true

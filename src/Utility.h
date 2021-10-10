@@ -7,6 +7,16 @@ bool INI_GetBool(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key, b
 float INI_GetFloat(const WCHAR* IniPath, const WCHAR* Section, const WCHAR* Key, float DefaultValue);
 uint32_t rc_crc32(uint32_t crc, const char* buf, size_t len);
 
+enum class AutoGameAddressType
+{
+  // Pointer: This addr just points to anything that matches our signature
+  Pointer = 0,
+  // OffsetN - This addr should be taken as an offset, resulting in addr + N + offset
+  Offset4 = 4,
+  Offset6 = 6,
+  Offset8 = 8
+};
+
 class AutoGameAddress
 {
   friend class AddressManager;
@@ -20,12 +30,14 @@ public:
   std::vector<uint8_t> Signature;
   // Offset from the signature to where this address is found
   int Offset;
-  // Which GameAddress to use to start signature search from
-  std::string SignatureStartAddr;
+  // Type of AutoGameAddress
+  AutoGameAddressType Type;
+  // Which AutoGameAddress to use to start signature search from
+  AutoGameAddress* SignatureStartAddr;
   // If we should try searching for more than 1 match
   bool MultipleMatches;
 
-  AutoGameAddress(std::string_view Name, std::initializer_list<uint8_t> Signature, int Offset, std::string_view SignatureStartAddr = "", bool MultipleMatches = false);
+  AutoGameAddress(std::string_view Name, std::initializer_list<uint8_t> Signature, int Offset, AutoGameAddressType Type = AutoGameAddressType::Pointer, AutoGameAddress* SignatureStartAddr = nullptr, bool MultipleMatches = false);
 
   uint8_t* Get(int MatchIndex = 0)
   {
@@ -41,9 +53,14 @@ class AddressManager
 public:
   AddressManager() {}
 
+  bool Contains(AutoGameAddress* Address)
+  {
+    return std::find(_addresses.begin(), _addresses.end(), Address) != _addresses.end();
+  }
+
   void Add(AutoGameAddress* Address)
   {
-    if (std::find(_addresses.begin(), _addresses.end(), Address) == _addresses.end())
+    if (!Contains(Address))
       _addresses.push_back(Address);
   }
 
