@@ -60,6 +60,14 @@ public:
   {
     return _numValid;
   }
+  std::vector<AutoGameAddress*> GetInvalid()
+  {
+    std::vector<AutoGameAddress*> invalid;
+    for (AutoGameAddress* addr : _addresses)
+      if (addr->_matches.size() <= 0)
+        invalid.push_back(addr);
+    return invalid;
+  }
 
   inline AutoGameAddress& operator[](std::string_view Name)
   {

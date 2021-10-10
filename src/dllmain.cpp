@@ -13,12 +13,6 @@ uintptr_t mBaseAddress;
 
 #define SDK_VERSION "0.1.27"
 
-const uint32_t Addr_Timestamp = 0x1E0;
-const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
-const uint32_t Value_Timestamp_patch1 = 1629818287; // 2021/08/24 15:18:07 (no code changes?)
-
-const uint32_t Game_TextSectionChecksum = 0x13ce422f; // patch0 & patch1 share this
-
 // UE4 stuff
 AutoGameAddress Addr_GNames( // patch0: 0x14132000D
   "GNames",
@@ -787,27 +781,20 @@ void InitPlugin()
 
   int textSize = 0;
   void* textSection = ModuleGetSection((void*)mBaseAddress, ".text", &textSize);
+  auto checksum = rc_crc32(0, (char*)textSection, textSize);
 
   bool foundAllAddrs = AddressManager::Instance().SearchAddresses(textSection, textSize);
-  int numFound = AddressManager::Instance().NumValid();
-
-  // Check that this is the EXE we were built against...
-  uint32_t timestamp = *reinterpret_cast<uint32_t*>(mBaseAddress + Addr_Timestamp);
-  if (timestamp != Value_Timestamp && timestamp != Value_Timestamp_patch1)
+  if (!foundAllAddrs)
   {
-    // Not a known EXE timestamp, we'll checksum the .text section since some patches are known to just update timestamps...
-    bool isKnown = false;
-    if (textSection)
-    {
-      auto checksum = rc_crc32(0, (char*)textSection, textSize);
-      isKnown = checksum == Game_TextSectionChecksum;
-    }
+    auto failedAddrs = AddressManager::Instance().GetInvalid();
+    std::stringstream msgText;
+    msgText << "Failed to locate all game-addresses for patching, aborting Arise-SDK load!\r\n\r\n";
+    msgText << "Failed to locate " << failedAddrs.size() << " addresses: (code checksum: 0x" << std::hex << checksum << std::dec << ", CTRL+C to copy this text)";
+    for (AutoGameAddress* addr : failedAddrs)
+      msgText << "\r\n" + addr->Name;
 
-    if (!isKnown)
-    {
-      MessageBoxA(0, "Unsupported 'Tales of Arise.exe' version, aborting Arise-SDK load...", "Arise-SDK", 0);
-      return;
-    }
+    MessageBoxA(0, msgText.str().c_str(), "Arise-SDK", 0);
+    return;
   }
 
   PostProc_Init();

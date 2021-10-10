@@ -139,6 +139,7 @@ bool AddressManager::SearchAddresses(void* Base, size_t BaseLength)
   uint8_t* base = (uint8_t*)Base;
   _numValid = 0;
 
+  bool foundAll = true;
   for (AutoGameAddress* address : _addresses)
   {
     uint8_t* StartAddr = base;
@@ -165,10 +166,10 @@ bool AddressManager::SearchAddresses(void* Base, size_t BaseLength)
     }
 
     if (address->_matches.size() <= 0)
-      return false;
-
-    _numValid++;
+      foundAll = false;
+    else
+      _numValid++;
   }
 
-  return true;
+  return foundAll;
 }
