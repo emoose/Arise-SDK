@@ -15,7 +15,7 @@ using namespace SDK;
 #include "IConsoleManager.h"
 
 // Creates a hook for function, requires Addr_ AutoGameAddress, _Hook function & _Orig variable
-#define MH_GameHook(func) MH_CreateHook((LPVOID)Addr_##func##.Get(), func##_Hook, (LPVOID*)&func##_Orig)
+#define MH_GameHook(func) MH_CreateHook((LPVOID)Addr_##func.Get(), func##_Hook, (LPVOID*)&func##_Orig)
 
 struct SDKOptions
 {
@@ -55,6 +55,8 @@ void Fixes_Distance_Refresh();
 void Fixes_Resolution_Init();
 
 // proxy.cpp
+bool Proxy_Attach();
+void Proxy_Detach();
 void* ModuleGetSection(void* Module, const char* SectionName, int* OutSectionSize);
 void Proxy_InitSteamStub();
 

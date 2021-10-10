@@ -499,9 +499,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     case DLL_PROCESS_ATTACH:
       DllHModule = hModule;
 
-      bool Proxy_Attach(); // proxy.cpp
       Proxy_Attach();
-
       if (InitGame())
         Proxy_InitSteamStub();
 
@@ -510,7 +508,6 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     case DLL_THREAD_DETACH:
       break;
     case DLL_PROCESS_DETACH:
-      void Proxy_Detach();
       Proxy_Detach();
       break;
     }

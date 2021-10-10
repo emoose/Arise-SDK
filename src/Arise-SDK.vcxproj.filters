@@ -146,4 +146,9 @@
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="proxy.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

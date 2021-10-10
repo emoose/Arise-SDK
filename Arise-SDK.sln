@@ -7,12 +7,24 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arise-SDK", "src\Arise-SDK.
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Clang-Debug|x64 = Clang-Debug|x64
+		Clang-Debug|x86 = Clang-Debug|x86
+		Clang-Release|x64 = Clang-Release|x64
+		Clang-Release|x86 = Clang-Release|x86
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Clang-Debug|x64.ActiveCfg = Clang-Debug|x64
+		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Clang-Debug|x64.Build.0 = Clang-Debug|x64
+		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Clang-Debug|x86.ActiveCfg = Clang-Debug|Win32
+		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Clang-Debug|x86.Build.0 = Clang-Debug|Win32
+		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Clang-Release|x64.ActiveCfg = Clang-Release|x64
+		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Clang-Release|x64.Build.0 = Clang-Release|x64
+		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Clang-Release|x86.ActiveCfg = Clang-Release|Win32
+		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Clang-Release|x86.Build.0 = Clang-Release|Win32
 		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Debug|x64.ActiveCfg = Debug|x64
 		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Debug|x64.Build.0 = Debug|x64
 		{82058E10-B519-40A5-B098-4A2DD61D4E21}.Debug|x86.ActiveCfg = Debug|Win32

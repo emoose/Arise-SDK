@@ -405,7 +405,7 @@ public:
 	bool DoesSocketExist(const struct FName& InSocketName);
 	void DetachFromParent(bool bMaintainWorldPosition, bool bCallModify);
 };
-
+static_assert(sizeof(USceneComponent) == 0x250, "USceneComponent");
 
 // Class Engine.PrimitiveComponent
 // 0x0330 (0x0580 - 0x0250)
@@ -622,6 +622,7 @@ public:
 	void AddAngularImpulseInDegrees(const struct FVector& Impulse, const struct FName& BoneName, bool bVelChange);
 	void AddAngularImpulse(const struct FVector& Impulse, const struct FName& BoneName, bool bVelChange);
 };
+static_assert(sizeof(UPrimitiveComponent) == 0x580, "UPrimitiveComponent");
 
 
 // Class Engine.BlueprintFunctionLibrary

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define PLUGIN_API extern "C" __declspec(dllexport)
+#define PLUGIN_API extern "C"
 
 // X3DAudio1_7
 typedef DWORD(WINAPI* X3DAudioInitialize_ptr)(UINT32 SpeakerChannelMask, float SpeedOfSound, void* Instance);
