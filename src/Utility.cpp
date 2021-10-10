@@ -106,14 +106,17 @@ rc_crc32(uint32_t crc, const char* buf, size_t len)
 
 uint8_t* SearchSignature(uint8_t* Base, size_t BaseLength, const std::vector<uint8_t>& Signature)
 {
+  const uint8_t* signature = Signature.data();
+  size_t signatureLength = Signature.size();
+
   for (size_t i = 0; i < BaseLength; i++)
   {
     bool match = true;
-    for (size_t j = 0; j < Signature.size(); j++)
+    for (size_t j = 0; j < signatureLength; j++)
     {
-      if (Signature[j] == 0)
+      if (signature[j] == 0)
         continue;
-      if (Signature[j] != Base[i + j])
+      if (signature[j] != Base[i + j])
       {
         match = false;
         break;
