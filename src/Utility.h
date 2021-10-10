@@ -45,9 +45,9 @@ public:
   }
 
   template<typename T>
-  T* Get(int MatchIndex = 0)
+  T Get(int MatchIndex = 0)
   {
-    return (T*)_matches[MatchIndex];
+    return (T)_matches[MatchIndex];
   }
 };
 

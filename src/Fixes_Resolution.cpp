@@ -54,7 +54,7 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
   if (Options.CutsceneRenderFix)
   {
     if (!GSystemResolution)
-      GSystemResolution = Addr_GSystemResolution.Get<FSystemResolution>();
+      GSystemResolution = Addr_GSystemResolution.Get<FSystemResolution*>();
 
     double ScreenSizeX = 1920;
     double ScreenSizeY = 1080;
@@ -160,7 +160,7 @@ void Fixes_Resolution_Init()
     SafeWrite(Addr_UGameUserSettings__PreloadResolutionSettings_CallerPatch.Get(), uint8_t(0xEB));
 
     // Disable r.setres being changed by game code to 1280x720
-    auto addr = Addr_SetRes_720p_CallerPatch.Get();
+    uint8_t* addr = Addr_SetRes_720p_CallerPatch.Get();
     SafeWrite(addr, uint8_t(0x90), 4);
   }
 

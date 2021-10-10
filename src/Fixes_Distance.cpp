@@ -222,7 +222,7 @@ void Fixes_Distance_Refresh()
     // TODO: change this to use IConsoleManager, instead of finding a.URO.Enable pointer directly?
 
     // Update a.URO.Enable value if CVar has already been created
-    uint32_t* CVarUROEnable = *Addr_CVarUROEnable.Get<uint32_t*>();
+    uint32_t* CVarUROEnable = *Addr_CVarUROEnable.Get<uint32_t**>();
     if (CVarUROEnable)
     {
       CVarUROEnable[0] = CVarUROEnable[1] = 0;

@@ -234,7 +234,7 @@ IConsoleManager* ConsoleManager = nullptr;
 IConsoleManager* GetConsoleManager()
 {
   if (!ConsoleManager)
-    ConsoleManager = *Addr_IConsoleManager__Singleton.Get<IConsoleManager*>();
+    ConsoleManager = *Addr_IConsoleManager__Singleton.Get<IConsoleManager**>();
 
   return ConsoleManager;
 }
@@ -438,14 +438,14 @@ void InitPlugin()
 
   PostProc_Init();
 
-  FName::GNames = reinterpret_cast<TNameEntryArray*>(Addr_GNames.Get());
+  FName::GNames = Addr_GNames.Get<TNameEntryArray*>();
   UObject::GObjects = reinterpret_cast<FUObjectArray*>(Addr_GObjects.Get() - 0x10); // Addr_GObjects is +0x10 into FUObjectArray struct
 
-  UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(Addr_UObject__ProcessEvent.Get());
-  StaticConstructObject_Internal = reinterpret_cast<StaticConstructObject_InternalFn>(Addr_StaticConstructObject_Internal.Get());
+  UObject::ProcessEventPtr = Addr_UObject__ProcessEvent.Get<ProcessEventFn>();
+  StaticConstructObject_Internal = Addr_StaticConstructObject_Internal.Get<StaticConstructObject_InternalFn>();
   
-  FConsoleVariable__GetFloat = reinterpret_cast<FConsoleVariable__GetFloat_Fn>(Addr_FConsoleVariable_float___GetFloat.Get());
-  FConsoleVariableRef_bool__Set = reinterpret_cast<FConsoleVariableRef_bool__Set_Fn>(Addr_FConsoleVariableRef_bool___Set.Get());
+  FConsoleVariable__GetFloat = Addr_FConsoleVariable_float___GetFloat.Get<FConsoleVariable__GetFloat_Fn>();
+  FConsoleVariableRef_bool__Set = Addr_FConsoleVariableRef_bool___Set.Get<FConsoleVariableRef_bool__Set_Fn>();
 
   MH_Initialize();
 
