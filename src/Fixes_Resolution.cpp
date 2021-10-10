@@ -1,50 +1,50 @@
 #include "pch.h"
 
-AutoGameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Hook( // patch0: 0x142699D98
+GameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Hook( // patch0: 0x142699D98
   "UKismetRenderingLibrary::execCreateRenderTarget2D_Hook",
   { 0xFF, 0x92, 0x48, 0x02, 0x00, 0x00, 0xB2, 0x01 },
   +0
 );
-AutoGameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Trampoline( // patch0: 0x142699E12
+GameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Trampoline( // patch0: 0x142699E12
   "UKismetRenderingLibrary::execCreateRenderTarget2D_Trampoline",
   { 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC },
   0,
-  AutoGameAddressType::Pointer,
+  GameAddressType::Pointer,
   & Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Hook // searches for 12 0xCC bytes after wherever we found ::execCreateRenderTarget2D_Hook
 );
-AutoGameAddress Addr_USceneCaptureComponent2D__USceneCaptureComponent2D_Patch( // patch0: 0x14279200F
+GameAddress Addr_USceneCaptureComponent2D__USceneCaptureComponent2D_Patch( // patch0: 0x14279200F
   "USceneCaptureComponent2D::USceneCaptureComponent2D_Patch",
   { 0x81, 0xA3, 0xB8, 0x02, 0x00, 0x00, 0xF7, 0xDF, 0xFF, 0xFF, 0x0F },
   +0
 );
-AutoGameAddress Addr_UGameUserSettings__PreloadResolutionSettings_CallerPatch( // patch0: 0x1405CB303
+GameAddress Addr_UGameUserSettings__PreloadResolutionSettings_CallerPatch( // patch0: 0x1405CB303
   "UGameUserSettings::PreloadResolutionSettings_CallerPatch",
   { 0xE8, 0x00, 0x00, 0x00, 0x00, 0x40, 0x38, 0x35, 0x00, 0x00, 0x00, 0x00, 0x75, 0x05, 0xE8, 0x00, 0x00, 0x00, 0x00 },
   +0xC
 );
-AutoGameAddress Addr_SetRes_720p_CallerPatch( // patch0: 0x141200730
+GameAddress Addr_SetRes_720p_CallerPatch( // patch0: 0x141200730
   "SetRes_720p_CallerPatch",
   { 0x25, 0x00, 0x00, 0x00, 0xFF, 0x48, 0x8B, 0xCB, 0x44, 0x8B, 0xC0, 0x41, 0xFF, 0x51, 0x60, 0x48, 0x83, 0x7C, 0x24 },
   +0xB
 );
-AutoGameAddress Addr_FDefaultDynamicResolutionState__IsSupported_NearBeginning( // patch0: 0x141FF83DB
+GameAddress Addr_FDefaultDynamicResolutionState__IsSupported_NearBeginning( // patch0: 0x141FF83DB
   "FDefaultDynamicResolutionState::IsSupported_NearBeginning",
   { 0x48, 0x8B, 0x88, 0x68, 0x0C, 0x00, 0x00, 0x48, 0x85, 0xC9, 0x74, 0x10, 0x48, 0x8B, 0x01 },
   +0
 );
-AutoGameAddress Addr_GRHISupportsDynamicResolution( // patch0: 0x141FF83FA
+GameAddress Addr_GRHISupportsDynamicResolution( // patch0: 0x141FF83FA
   "GRHISupportsDynamicResolution",
   { 0x0F, 0xB6, 0x05, 0x00, 0x00, 0x00, 0x00 },
   +0x3,
-  AutoGameAddressType::Offset4,
+  GameAddressType::Offset4,
   & Addr_FDefaultDynamicResolutionState__IsSupported_NearBeginning
 );
 
-AutoGameAddress Addr_GSystemResolution(
+AutoGameAddress<FSystemResolution*> Addr_GSystemResolution(
   "GSystemResolution",
   { 0x83, 0x3D, 0x00, 0x00, 0x00, 0x00, 0x02, 0x75, 0x00, 0x8B, 0x15, 0x00, 0x00, 0x00, 0x00, 0x44, 0x8B, 0x05, 0x00, 0x00, 0x00, 0x00 },
   +0xB,
-  AutoGameAddressType::Offset4
+  GameAddressType::Offset4
 );
 FSystemResolution* GSystemResolution = nullptr;
 
@@ -54,7 +54,7 @@ void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
   if (Options.CutsceneRenderFix)
   {
     if (!GSystemResolution)
-      GSystemResolution = Addr_GSystemResolution.Get<FSystemResolution*>();
+      GSystemResolution = Addr_GSystemResolution.Get();
 
     double ScreenSizeX = 1920;
     double ScreenSizeY = 1080;

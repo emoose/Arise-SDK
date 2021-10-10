@@ -14,83 +14,83 @@ uintptr_t mBaseAddress;
 #define SDK_VERSION "0.1.27b"
 
 // UE4 stuff
-AutoGameAddress Addr_GNames( // patch0: 0x14132000D
+AutoGameAddress<TNameEntryArray*> Addr_GNames( // patch0: 0x14132000D
   "GNames",
   { 0xC7, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC8, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC3, 0x48, 0x89, 0x1D, 0x00, 0x00, 0x00, 0x00 },
   +0x18,
-  AutoGameAddressType::Offset4
+  GameAddressType::Offset4
 );
-AutoGameAddress Addr_GObjects( // patch0: 0x14031627A
+GameAddress Addr_GObjects( // patch0: 0x14031627A
   "GObjects",
   { 0x48, 0x8D, 0x05, 0x00, 0x00, 0x00, 0x00, 0xC7, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8D, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x48, 0x89, 0x05 },
   +3,
-  AutoGameAddressType::Offset4
+  GameAddressType::Offset4
 );
-AutoGameAddress Addr_UObject__ProcessEvent( // patch0: 0x1414CBA50
+AutoGameAddress<ProcessEventFn> Addr_UObject__ProcessEvent( // patch0: 0x1414CBA50
   "UObject::ProcessEvent",
   { 0x4C, 0x8B, 0xF9, 0x45, 0x33, 0xF6, 0x8B, 0x49, 0x0C },
   -0x30
 );
-AutoGameAddress Addr_StaticConstructObject_Internal( // patch0: 0x1414EA190
+AutoGameAddress<StaticConstructObject_InternalFn> Addr_StaticConstructObject_Internal( // patch0: 0x1414EA190
   "StaticConstructObject_Internal",
   { 0xF7, 0x81, 0xB4, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x10, 0x45 },
   -0x29
 );
-AutoGameAddress Addr_FConsoleVariable_float___GetFloat( // patch0: 0x14124A690
+AutoGameAddress<FConsoleVariable__GetFloat_Fn> Addr_FConsoleVariable_float___GetFloat( // patch0: 0x14124A690
   "FConsoleVariable<float>::GetFloat",
   { 0x0F, 0x95, 0xC2, 0xF3, 0x0F, 0x10, 0x44, 0x93, 0x38 },
   -0x20
 );
-AutoGameAddress Addr_FConsoleVariableRef_bool___Set( // patch0: 0x14124E640
+AutoGameAddress<FConsoleVariableRef_bool__Set_Fn> Addr_FConsoleVariableRef_bool___Set( // patch0: 0x14124E640
   "FConsoleVariableRef<bool>::Set",
   { 0x8B, 0xD5, 0x88, 0x43, 0x40, 0x48, 0x8B, 0xCB },
   -0x30
 );
 
 // ToA patches/hooks
-AutoGameAddress Addr_FConsoleManager__ProcessUserConsoleInput_CheatCheck( // patch0: 0x14124D3A2
+GameAddress Addr_FConsoleManager__ProcessUserConsoleInput_CheatCheck( // patch0: 0x14124D3A2
   "FConsoleManager::ProcessUserConsoleInput_CheatCheck",
   { 0x48, 0x8B, 0x10, 0x48, 0x8B, 0xC8, 0xFF, 0x52, 0x18, 0xA8, 0x01 },
   +0xB
 );
-AutoGameAddress Addr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck( // patch0: 0x14124D6F9
+GameAddress Addr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck( // patch0: 0x14124D6F9
   "FConsoleManager::ProcessUserConsoleInput_ReadOnlyCheck",
   { 0xFF, 0x50, 0x18, 0xC1, 0xE8, 0x02, 0x24, 0x01 },
   +0x6
 );
-AutoGameAddress Addr_BootSceneController__execStart_NearBeginning( // patch0: 0x140F4B1FB
+GameAddress Addr_BootSceneController__execStart_NearBeginning( // patch0: 0x140F4B1FB
   "BootSceneController::execStart_NearBeginning",
   { 0x4C, 0x03, 0xC0, 0x80, 0x3D, 0xCF },
   +0
 );
-AutoGameAddress Addr_BootSceneController__execStart_JmpPatch( // patch0: 0x140F4B213
+GameAddress Addr_BootSceneController__execStart_JmpPatch( // patch0: 0x140F4B213
   "BootSceneController::execStart_JmpPatch",
   { 0x75, 0x00, 0x48, 0x8B, 0x15 },
   +0,
-  AutoGameAddressType::Pointer,
+  GameAddressType::Pointer,
   &Addr_BootSceneController__execStart_NearBeginning
 );
-AutoGameAddress Addr_ScreenPercentage_SetBy_Patch( // patch0: 0x140E52F76
+GameAddress Addr_ScreenPercentage_SetBy_Patch( // patch0: 0x140E52F76
   "ScreenPercentage_SetBy_Patch",
   { 0xBA, 0x00, 0x10, 0x00, 0x00, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x41, 0xB8, 0x00, 0x00, 0x00, 0x08 },
   +0xE
 );
-AutoGameAddress Addr_MaxCSMResolution_SetBy_Patch( // patch0: 0x140E52ED9
+GameAddress Addr_MaxCSMResolution_SetBy_Patch( // patch0: 0x140E52ED9
   "MaxCSMResolution_SetBy_Patch",
   { 0xBA, 0xC8, 0x00, 0x00, 0x00, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x41, 0xB8, 0x00, 0x00, 0x00, 0x08 },
   +0xE
 );
-AutoGameAddress Addr_FSceneView__SetupAntiAliasingMethod_DefaultMethod_Patch( // patch0: 0x142175D90
+GameAddress Addr_FSceneView__SetupAntiAliasingMethod_DefaultMethod_Patch( // patch0: 0x142175D90
   "FSceneView::SetupAntiAliasingMethod_DefaultMethod_Patch",
   { 0xC7, 0x83, 0xE0, 0x1B, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00 },
   +0x6
 );
-AutoGameAddress Addr_FSceneView__FSceneView_AAMethodCheck_Patch( // patch0: 0x142175824
+GameAddress Addr_FSceneView__FSceneView_AAMethodCheck_Patch( // patch0: 0x142175824
   "FSceneView::FSceneView_AAMethodCheck_Patch",
   { 0x83, 0xBB, 0xE0, 0x1B, 0x00, 0x00, 0x02, 0x75, 0x00, 0xC7 },
   +0x6
 );
-AutoGameAddress Addr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck_Patch( // patch0: 0x141A30117
+GameAddress Addr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck_Patch( // patch0: 0x141A30117
   "FSceneRenderer::PrepareViewRectsForRendering_AAMethodCheck_Patch",
   { 0x83, 0xB8, 0xE0, 0x1B, 0x00, 0x00, 0x02, 0x75, 0x00, 0x48, 0x8B },
   +0x6
@@ -184,7 +184,7 @@ FConsoleVariableRef<bool>* CVarCopyValuesToCVars;
 
 const uint32_t Offset_FSceneView__FinalPostProcessSettings = 0xD60;
 
-AutoGameAddress Addr_FSceneView__EndFinalPostprocessSettings( // patch0: 0x14217F490
+GameAddress Addr_FSceneView__EndFinalPostprocessSettings( // patch0: 0x14217F490
   "FSceneView::EndFinalPostprocessSettings",
   { 0x48, 0x8B, 0xC8, 0x0F, 0x2F, 0x40, 0x20, 0x76 },
   -0x38
@@ -223,18 +223,18 @@ void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
 
 std::vector<IConsoleVariable*> CVarPointers;
 
-AutoGameAddress Addr_IConsoleManager__Singleton( // patch0: 0x140143667
+AutoGameAddress<IConsoleManager**> Addr_IConsoleManager__Singleton( // patch0: 0x140143667
   "IConsoleManager::Singleton",
   { 0x48, 0x83, 0xEC, 0x38, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x48, 0x85, 0xC9, 0x75 },
   +0x7,
-  AutoGameAddressType::Offset4
+  GameAddressType::Offset4
 );
 
 IConsoleManager* ConsoleManager = nullptr;
 IConsoleManager* GetConsoleManager()
 {
   if (!ConsoleManager)
-    ConsoleManager = *Addr_IConsoleManager__Singleton.Get<IConsoleManager**>();
+    ConsoleManager = *Addr_IConsoleManager__Singleton.Get();
 
   return ConsoleManager;
 }
@@ -272,18 +272,18 @@ void CVars_Create()
   PostProc_AddCVars(ConsoleManager);
 }
 
-AutoGameAddress Addr_IConsoleManager__Singleton_Offset( // patch0: 0x140143667
+GameAddress Addr_IConsoleManager__Singleton_Offset( // patch0: 0x140143667
   "IConsoleManager::Singleton_Offset",
   { 0x48, 0x83, 0xEC, 0x38, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x48, 0x85, 0xC9, 0x75 },
   +0x7,
-  AutoGameAddressType::Pointer
+  GameAddressType::Pointer
 );
-AutoGameAddress Addr_CVar_dtor( // patch0: 0x1401436A9
+GameAddress Addr_CVar_dtor( // patch0: 0x1401436A9
   "CVar_dtor",
   { 0x48, 0x8D, 0x0D },
   +0x3,
-  AutoGameAddressType::Offset4,
-  &Addr_IConsoleManager__Singleton_Offset
+  GameAddressType::Offset4,
+  &Addr_IConsoleManager__Singleton_Offset // find first lea rcx, XXX after where we found IConsoleManager::Singleton
 );
 typedef void(*CVar_dtor_Fn)();
 CVar_dtor_Fn CVar_dtor_Orig;
@@ -306,7 +306,7 @@ void CVar_dtor_Hook()
 // previously was a seperate thread, but that wasn't in sync with the game engine that well
 // hooking engine loop should solve that though :)
 
-AutoGameAddress Addr_FEngineLoop__Tick( // patch0: 0x1405CF1F0
+GameAddress Addr_FEngineLoop__Tick( // patch0: 0x1405CF1F0
   "FEngineLoop::Tick",
   { 0xE8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC8, 0xB2, 0x01, 0xE8, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x80, 0x3D, 0x00 },
   -0x2C
@@ -371,7 +371,7 @@ void FEngineLoop__Tick_Hook(void* thisptr)
 
 bool inited = false;
 
-AutoGameAddress Addr_RefreshEngineSettings( // patch0: 0x142280550
+GameAddress Addr_RefreshEngineSettings( // patch0: 0x142280550
   "RefreshEngineSettings",
   { 0x48, 0x83, 0xEC, 0x00, 0xE8, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x83, 0xC4, 0x00, 0xE9, 0x00, 0x00, 0x00, 0x00 },
   +0
@@ -429,7 +429,7 @@ void InitPlugin()
     std::stringstream msgText;
     msgText << "Failed to locate " << failedAddrs.size() << " game-addresses for patching, aborting Arise-SDK load!\r\n\r\n";
     msgText << "Failed addresses: (code checksum: 0x" << std::hex << checksum << std::dec << ", CTRL+C to copy this text)";
-    for (AutoGameAddress* addr : failedAddrs)
+    for (GameAddress* addr : failedAddrs)
       msgText << "\r\n" + addr->Name;
 
     MessageBoxA(0, msgText.str().c_str(), "Arise-SDK", 0);
@@ -438,14 +438,14 @@ void InitPlugin()
 
   PostProc_Init();
 
-  FName::GNames = Addr_GNames.Get<TNameEntryArray*>();
+  FName::GNames = Addr_GNames.Get();
   UObject::GObjects = reinterpret_cast<FUObjectArray*>(Addr_GObjects.Get() - 0x10); // Addr_GObjects is +0x10 into FUObjectArray struct
 
-  UObject::ProcessEventPtr = Addr_UObject__ProcessEvent.Get<ProcessEventFn>();
-  StaticConstructObject_Internal = Addr_StaticConstructObject_Internal.Get<StaticConstructObject_InternalFn>();
+  UObject::ProcessEventPtr = Addr_UObject__ProcessEvent.Get();
+  StaticConstructObject_Internal = Addr_StaticConstructObject_Internal.Get();
   
-  FConsoleVariable__GetFloat = Addr_FConsoleVariable_float___GetFloat.Get<FConsoleVariable__GetFloat_Fn>();
-  FConsoleVariableRef_bool__Set = Addr_FConsoleVariableRef_bool___Set.Get<FConsoleVariableRef_bool__Set_Fn>();
+  FConsoleVariable__GetFloat = Addr_FConsoleVariable_float___GetFloat.Get();
+  FConsoleVariableRef_bool__Set = Addr_FConsoleVariableRef_bool___Set.Get();
 
   MH_Initialize();
 

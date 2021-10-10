@@ -65,6 +65,7 @@ void Init_UE4Hook();
 
 // Utility.cpp
 #include "Utility.h"
+#include "GameAddress.h"
 
 // PostProcOverrides.cpp
 void PostProc_AddCVars(IConsoleManager* ConsoleManager);

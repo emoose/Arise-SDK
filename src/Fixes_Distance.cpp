@@ -3,63 +3,63 @@
 // How much difference between the FadeOut & the FadeIn variables
 extern const int FadeInDelta = 500;
 
-AutoGameAddress Addr_FAchCharacterLODData__ReadsData_Hook( // patch0: 0x1406D46A7
+GameAddress Addr_FAchCharacterLODData__ReadsData_Hook( // patch0: 0x1406D46A7
   "FAchCharacterLODData::ReadsData_Hook",
   { 0x4C, 0x8B, 0xC7, 0x49, 0xC1, 0xE0, 0x02, 0x48, 0x8B, 0xD5, 0x48, 0x8B, 0xCE },
   +0xD
 );
-AutoGameAddress Addr_FAchCharacterLODData__ReadsData_Trampoline( // patch0: 0x1406D4963
+GameAddress Addr_FAchCharacterLODData__ReadsData_Trampoline( // patch0: 0x1406D4963
   "FAchCharacterLODData::ReadsData_Trampoline",
   { 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC },
   0,
-  AutoGameAddressType::Pointer,
+  GameAddressType::Pointer,
   & Addr_FAchCharacterLODData__ReadsData_Hook // searches for 12 0xCC bytes after wherever we found ::ReadsData_Hook
 );
-AutoGameAddress Addr_GetCSMMaxDistance_Patch( // patch0: 0x142382021
+GameAddress Addr_GetCSMMaxDistance_Patch( // patch0: 0x142382021
   "GetCSMMaxDistance_Patch",
   { 0xF3, 0x0F, 0x10, 0x40, 0x04, 0x0F, 0x2F, 0xC6, 0x72, 0x0B, 0x0F, 0x28, 0xF0, 0xF3, 0x0F, 0x5D, 0x35 },
   +0xD
 );
-AutoGameAddress Addr_CharacterSkipLODs_Patch( // patch0: 0x1406D46C1
+GameAddress Addr_CharacterSkipLODs_Patch( // patch0: 0x1406D46C1
   "CharacterSkipLODs_Patch",
   { 0x7E, 0x27, 0x48, 0x8B, 0xC6, 0x66, 0x66, 0x0F, 0x1F, 0x84, 0x00, 0x00, 0x00, 0x00, 0x00 },
   +0
 );
-AutoGameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_CameraFarFadeInDistance( // patch0: 0x14116BD4D
+GameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_CameraFarFadeInDistance( // patch0: 0x14116BD4D
   "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_CameraFarFadeInDistance",
   { 0xC7, 0x83, 0x18, 0x02, 0x00, 0x00, 0x00, 0x00, 0x2F, 0x45 },
   +0x6
 );
-AutoGameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_CameraFarFadeOutDistance( // patch0: 0x14116BD57
+GameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_CameraFarFadeOutDistance( // patch0: 0x14116BD57
   "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_CameraFarFadeOutDistance",
   { 0xC7, 0x83, 0x20, 0x02, 0x00, 0x00, 0x00, 0x00, 0x35, 0x45 },
   +0x6
 );
-AutoGameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_FarFadeInDistance( // patch0: 0x14116BD89
+GameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_FarFadeInDistance( // patch0: 0x14116BD89
   "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_FarFadeInDistance",
   { 0xC7, 0x83, 0x38, 0x02, 0x00, 0x00, 0x00, 0x00, 0x61, 0x45 },
   +0x6
 );
-AutoGameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_FarFadeOutDistance( // patch0: 0x14116BD93
+GameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_FarFadeOutDistance( // patch0: 0x14116BD93
   "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_FarFadeOutDistance",
   { 0xC7, 0x83, 0x3C, 0x02, 0x00, 0x00, 0x00, 0x00, 0x6D, 0x45 },
   +0x6
 );
-AutoGameAddress Addr_FPFNpcCameraSettingsData__ICppStructOps__Construct_CameraFarFadeInDistance( // patch0: 0x141180598
+GameAddress Addr_FPFNpcCameraSettingsData__ICppStructOps__Construct_CameraFarFadeInDistance( // patch0: 0x141180598
   "FPFNpcCameraSettingsData::ICppStructOps::Construct_CameraFarFadeInDistance",
   { 0xC7, 0x42, 0x1C, 0x00, 0x00, 0x2F, 0x45 },
   +0x3
 );
-AutoGameAddress Addr_FPFNpcCameraSettingsData__ICppStructOps__Construct_CameraFarFadeOutDistance( // patch0: 0x14118059F
+GameAddress Addr_FPFNpcCameraSettingsData__ICppStructOps__Construct_CameraFarFadeOutDistance( // patch0: 0x14118059F
   "FPFNpcCameraSettingsData::ICppStructOps::Construct_CameraFarFadeOutDistance",
   { 0xC7, 0x42, 0x24, 0x00, 0x40, 0x35, 0x45 },
   +0x3
 );
-AutoGameAddress Addr_CVarUROEnable( // patch0: 0x1408ECD26
+AutoGameAddress<uint32_t**> Addr_CVarUROEnable( // patch0: 0x1408ECD26
   "CVarUROEnable",
   { 0x48, 0x8B, 0x05, 0x00, 0x00, 0x00, 0x00, 0x83, 0x38, 0x00, 0x0F },
   +0x3,
-  AutoGameAddressType::Offset4
+  GameAddressType::Offset4
 );
 
 void FAchCharacterLODData_Reader_Hook(void* Dst, void* Src, size_t Size)
@@ -90,7 +90,7 @@ void FAchCharacterLODData_Reader_Hook(void* Dst, void* Src, size_t Size)
   // 141253C47 - 48 89 03  - mov [rbx],rax <<
   // 141253B2E - 48 8B 06  - mov rax,[rsi] <<
 }
-AutoGameAddress Addr_APFNpcManager__InitsDistances( // patch0: 0x140E1C860
+GameAddress Addr_APFNpcManager__InitsDistances( // patch0: 0x140E1C860
   "APFNpcManager::InitsDistances",
   { 0xC7, 0x45, 0x00, 0x00, 0x80, 0x3B, 0x45, 0xC7, 0x45, 0x00, 0x00, 0xC0, 0x41, 0x45, 0xC7, 0x45, 0x00, 0x00, 0x00, 0xF0, 0x41 },
   -0x31
@@ -124,7 +124,7 @@ void APFNpcManager__InitsDistances_Hook(APFNpcManager* a1, bool a2)
 }
 
 // APFNpcWalkSystem::CreateSpawnData handles spawn/despawn of walking NPCs
-AutoGameAddress Addr_APFNpcWalkSystem__CreateSpawnData( // patch0: 0x140E2B980
+GameAddress Addr_APFNpcWalkSystem__CreateSpawnData( // patch0: 0x140E2B980
   "APFNpcWalkSystem::CreateSpawnData",
   { 0x4C, 0x8D, 0xA9, 0xA0, 0x03, 0x00, 0x00, 0xF2, 0x0F, 0x11, 0x81, 0x80, 0x03, 0x00, 0x00 },
   -0x22
@@ -140,7 +140,7 @@ void APFNpcWalkSystem__CreateSpawnData_Hook(APFNpcWalkSystem* thisptr, const str
   // which is then checked at 0x140E2AC96 to see if NPC should be deleted or not
 }
 
-AutoGameAddress Addr_AEncountGroup__IsSpawnRangePlayer( // patch0: 0x140DE6AE0
+GameAddress Addr_AEncountGroup__IsSpawnRangePlayer( // patch0: 0x140DE6AE0
   "AEncountGroup::IsSpawnRangePlayer",
   { 0x48, 0x8B, 0x83, 0x58, 0x01, 0x00, 0x00, 0x0F, 0x28, 0xE8 },
   -0x46
@@ -160,7 +160,7 @@ bool AEncountGroup__IsSpawnRangePlayer_Hook(AEncountGroup* thisptr, struct FEnco
   return AEncountGroup__IsSpawnRangePlayer_Orig(thisptr, &NewAreaInfo);
 }
 
-AutoGameAddress Addr_UAchCharacterBuildComponent__SetCulling( // patch0: 0x1406B11B0
+GameAddress Addr_UAchCharacterBuildComponent__SetCulling( // patch0: 0x1406B11B0
   "UAchCharacterBuildComponent::SetCulling",
   { 0x49, 0x8B, 0x9D, 0xE0, 0x00, 0x00, 0x00, 0x44, 0x0F, 0x44, 0xF1 },
   -0x2F
@@ -176,7 +176,7 @@ void UAchCharacterBuildComponent__SetCulling_Hook(UAchCharacterBuildComponent* t
   UAchCharacterBuildComponent__SetCulling_Orig(thisptr, Options.CharaDisableCull ? false : bCulling);
 }
 
-AutoGameAddress Addr_FRelevancePacket__FRelevancePacket( // patch0: 0x141A3F7F0
+GameAddress Addr_FRelevancePacket__FRelevancePacket( // patch0: 0x141A3F7F0
   "FRelevancePacket::FRelevancePacket",
   { 0x44, 0x89, 0x81, 0x48, 0x04, 0x00, 0x00, 0x44, 0x89, 0x81, 0x48, 0x06, 0x00, 0x00 },
   -0x67
@@ -222,7 +222,7 @@ void Fixes_Distance_Refresh()
     // TODO: change this to use IConsoleManager, instead of finding a.URO.Enable pointer directly?
 
     // Update a.URO.Enable value if CVar has already been created
-    uint32_t* CVarUROEnable = *Addr_CVarUROEnable.Get<uint32_t**>();
+    uint32_t* CVarUROEnable = *Addr_CVarUROEnable.Get();
     if (CVarUROEnable)
     {
       CVarUROEnable[0] = CVarUROEnable[1] = 0;
