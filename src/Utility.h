@@ -43,8 +43,8 @@ public:
 
   void Add(AutoGameAddress* Address)
   {
-    std::replace(Address->Name.begin(), Address->Name.end(), ':', '_');
-    _addresses.push_back(Address);
+    if (std::find(_addresses.begin(), _addresses.end(), Address) == _addresses.end())
+      _addresses.push_back(Address);
   }
 
   static auto& Instance() {
@@ -66,16 +66,14 @@ public:
     for (AutoGameAddress* addr : _addresses)
       if (addr->_matches.size() <= 0)
         invalid.push_back(addr);
+
     return invalid;
   }
 
   inline AutoGameAddress& operator[](std::string_view Name)
   {
-    std::string name = std::string(Name);
-    std::replace(name.begin(), name.end(), ':', '_');
-
     for (auto& address : _addresses)
-      if (address->Name == name)
+      if (address->Name == Name)
         return *address;
 
     throw std::out_of_range("GameAddress not found?");
@@ -88,11 +86,8 @@ public:
 
   inline const AutoGameAddress& operator[](std::string_view Name) const
   {
-    std::string name = std::string(Name);
-    std::replace(name.begin(), name.end(), ':', '_');
-
     for (auto& address : _addresses)
-      if (address->Name == name)
+      if (address->Name == Name)
         return *address;
 
     throw std::out_of_range("GameAddress not found?");

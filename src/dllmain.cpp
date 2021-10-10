@@ -11,7 +11,7 @@ HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
-#define SDK_VERSION "0.1.27"
+#define SDK_VERSION "0.1.27a"
 
 // UE4 stuff
 AutoGameAddress Addr_GNames( // patch0: 0x14132000D
@@ -769,7 +769,7 @@ void RefreshEngineSettings_Hook()
     }
   }
 
-  if(inited)
+  if (inited)
     RefreshEngineSettings_Orig();
 }
 
@@ -895,7 +895,7 @@ void InitPlugin()
   // Prevent resolution change on game launch
   // (requires r.SetRes = 2560x1440f line inside Engine.ini to work properly, change with your desired resolution)
   // TODO: find a way so setres isn't required
-  if(Options.EnableResolutionFix)
+  if (Options.EnableResolutionFix)
   {
     // Disable UGameUserSettings::PreloadResolutionSettings
     // (seems to read from an unused settings file, making game switch to 1280x720 briefly)

@@ -50,8 +50,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,1,27,0
- PRODUCTVERSION 0,1,27,0
+ FILEVERSION 0,1,27,1
+ PRODUCTVERSION 0,1,27,1
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -68,12 +68,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "emoose"
             VALUE "FileDescription", "Arise-SDK - improvement extension for Tales of Arise"
-            VALUE "FileVersion", "0.1.27.0"
+            VALUE "FileVersion", "0.1.27.1"
             VALUE "InternalName", "Arise-SDK.dll"
             VALUE "LegalCopyright", "emoose - 2021"
             VALUE "OriginalFilename", "Arise-SDK.dll"
             VALUE "ProductName", "Arise-SDK"
-            VALUE "ProductVersion", "0.1.27.0"
+            VALUE "ProductVersion", "0.1.27.1"
         END
     END
     BLOCK "VarFileInfo"
