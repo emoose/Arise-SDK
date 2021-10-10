@@ -37,8 +37,11 @@ struct __declspec(align(8)) FFrame : public FOutputDevice
 
 #define MH_Hook(addr, hook, orig) MH_CreateHook((LPVOID)(mBaseAddress + addr), hook, (LPVOID*)orig)
 
-// Creates a hook for function defined in GameAddresses, requires _Hook function & _Orig variable
-#define MH_GameHook(func) MH_Hook(Addr_##func, func##_Hook, &func##_Orig)
+// Creates a hook for function, requires Addr_ defined, _Hook function & _Orig variable
+#define MH_GameHookOld(func) MH_Hook(Addr_##func, func##_Hook, &func##_Orig)
+
+// Creates a hook for function, requires Addr_ AutoGameAddress, _Hook function & _Orig variable
+#define MH_GameHook(func) MH_CreateHook((LPVOID)Addr_##func##.Get(), func##_Hook, (LPVOID*)&func##_Orig)
 
 // dllmain.cpp
 extern HMODULE DllHModule;

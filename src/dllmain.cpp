@@ -1,18 +1,5 @@
 ﻿#include "pch.h"
 
-#define SDK_VERSION "0.1.27"
-
-const uint32_t Addr_Timestamp = 0x1E0;
-const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
-const uint32_t Value_Timestamp_patch1 = 1629818287; // 2021/08/24 15:18:07 (no code changes?)
-
-const uint32_t Game_TextSectionChecksum = 0x13ce422f; // patch0 & patch1 share this
-
-// Addresses for UE4Hook.cpp
-extern const uint32_t Addr_UGameViewportClient__SetupInitialLocalPlayer = 0x2034460; // requires extern for it to be visible outside of dllmain...
-extern const uint32_t Addr_FPakPlatformFile__FindFileInPakFiles = 0x27E93C0;
-extern const uint32_t Addr_FPakPlatformFile__IsNonPakFilenameAllowed = 0x27F4130;
-
 // TODO: move this to IConsoleManager.h/.cpp
 typedef float(*FConsoleVariable__GetFloat_Fn)(IConsoleVariable* thisptr);
 FConsoleVariable__GetFloat_Fn FConsoleVariable__GetFloat;
@@ -24,178 +11,185 @@ HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
-AddressManager GameAddrs(
-  {
-    { 
-      "GNames", 
-      {0xC7, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC8, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC3, 0x48, 0x89, 0x1D, 0x00, 0x00, 0x00, 0x00},
-      +0x18 
-    },
-    { 
-      "GObjects",
-      {0x48, 0x8D, 0x05, 0x00, 0x00, 0x00, 0x00, 0xC7, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8D, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x48, 0x89, 0x05},
-      +3 
-    },
-    {
-      "UObject::ProcessEvent",
-      {0x4C, 0x8B, 0xF9, 0x45, 0x33, 0xF6, 0x8B, 0x49, 0x0C},
-      -0x30
-    },
-    {
-      "StaticConstructObject_Internal",
-      {0xF7, 0x81, 0xB4, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x10, 0x45},
-      -0x29
-    },
-    {
-      "FConsoleVariable<float>::GetFloat",
-      {0x0F, 0x95, 0xC2, 0xF3, 0x0F, 0x10, 0x44, 0x93, 0x38},
-      -0x20
-    },
-    {
-      "FConsoleVariableRef<bool>::Set",
-      {0x8B, 0xD5, 0x88, 0x43, 0x40, 0x48, 0x8B, 0xCB},
-      -0x30
-    },
-    {
-      "FAchCharacterLODData::ReadsData_Hook",
-      {0x4C, 0x8B, 0xC7, 0x49, 0xC1, 0xE0, 0x02, 0x48, 0x8B, 0xD5, 0x48, 0x8B, 0xCE},
-      +0xD
-    },
-    {
-      "FAchCharacterLODData::ReadsData_Trampoline",
-      {0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC},
-      0,
-      "FAchCharacterLODData::ReadsData_Hook" // searches for 12 0xCC bytes after wherever we found ::ReadsData_Hook
-    },
-    {
-      "UKismetRenderingLibrary::execCreateRenderTarget2D_Hook",
-      {0xFF, 0x92, 0x48, 0x02, 0x00, 0x00, 0xB2, 0x01},
-      +0
-    },
-    {
-      "UKismetRenderingLibrary::execCreateRenderTarget2D_Trampoline",
-      {0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC},
-      0,
-      "UKismetRenderingLibrary::execCreateRenderTarget2D_Hook" // searches for 12 0xCC bytes after wherever we found ::execCreateRenderTarget2D_Hook
-    },
-    {
-      "USceneCaptureComponent2D::USceneCaptureComponent2D_Patch",
-      {0x81, 0xA3, 0xB8, 0x02, 0x00, 0x00, 0xF7, 0xDF, 0xFF, 0xFF, 0x0F},
-      +0
-    },
-    {
-      "UGameUserSettings::PreloadResolutionSettings_CallerPatch",
-      {0xE8, 0x00, 0x00, 0x00, 0x00, 0x40, 0x38, 0x35, 0x00, 0x00, 0x00, 0x00, 0x75, 0x05, 0xE8, 0x00, 0x00, 0x00, 0x00},
-      +0xC
-    },
-    {
-      "SetRes_720p_CallerPatch",
-      {0x25, 0x00, 0x00, 0x00, 0xFF, 0x48, 0x8B, 0xCB, 0x44, 0x8B, 0xC0, 0x41, 0xFF, 0x51, 0x60, 0x48, 0x83, 0x7C, 0x24},
-      +0xB
-    },
-    {
-      "FConsoleManager::ProcessUserConsoleInput_CheatCheck",
-      {0x48, 0x8B, 0x10, 0x48, 0x8B, 0xC8, 0xFF, 0x52, 0x18, 0xA8, 0x01},
-      +0xB
-    },
-    {
-      "FConsoleManager::ProcessUserConsoleInput_ReadOnlyCheck",
-      {0xFF, 0x50, 0x18, 0xC1, 0xE8, 0x02, 0x24, 0x01},
-      +0x6
-    },
-    {
-      "FDefaultDynamicResolutionState::IsSupported_NearBeginning",
-      {0x48, 0x8B, 0x88, 0x68, 0x0C, 0x00, 0x00, 0x48, 0x85, 0xC9, 0x74, 0x10, 0x48, 0x8B, 0x01},
-      +0
-    },
-    {
-      "FDefaultDynamicResolutionState::IsSupported_GRHISupportsDynamicResolution_Addr",
-      {0x0F, 0xB6, 0x05, 0x00, 0x00, 0x00, 0x00},
-      +0x3,
-      "FDefaultDynamicResolutionState::IsSupported_NearBeginning",
-    },
-    {
-      "BootSceneController::execStart_NearBeginning",
-      {0x4C, 0x03, 0xC0, 0x80, 0x3D, 0xCF},
-      +0
-    },
-    {
-      "BootSceneController::execStart_JmpPatch",
-      {0x75, 0x00, 0x48, 0x8B, 0x15},
-      +0,
-      "BootSceneController::execStart_NearBeginning"
-    },
-    {
-      "GetCSMMaxDistance_Patch",
-      {0xF3, 0x0F, 0x10, 0x40, 0x04, 0x0F, 0x2F, 0xC6, 0x72, 0x0B, 0x0F, 0x28, 0xF0, 0xF3, 0x0F, 0x5D, 0x35},
-      +0xD,
-    },
-    {
-      "ScreenPercentage_SetBy_Patch",
-      {0xBA, 0x00, 0x10, 0x00, 0x00, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x41, 0xB8, 0x00, 0x00, 0x00, 0x08},
-      +0xE
-    },
-    {
-      "MaxCSMResolution_SetBy_Patch",
-      {0xBA, 0xC8, 0x00, 0x00, 0x00, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x41, 0xB8, 0x00, 0x00, 0x00, 0x08},
-      +0xE
-    },
-    {
-      "CharacterSkipLODs_Patch",
-      {0x7E, 0x27, 0x48, 0x8B, 0xC6, 0x66, 0x66, 0x0F, 0x1F, 0x84, 0x00, 0x00, 0x00, 0x00, 0x00},
-      +0
-    },
-    {
-      "FSceneView::SetupAntiAliasingMethod_DefaultMethod_Patch",
-      {0xC7, 0x83, 0xE0, 0x1B, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00},
-      +0x6
-    },
-    {
-      "FSceneView::FSceneView_AAMethodCheck_Patch",
-      {0x83, 0xBB, 0xE0, 0x1B, 0x00, 0x00, 0x02, 0x75, 0x00, 0xC7},
-      +0x6
-    },
-    {
-      "FSceneRenderer::PrepareViewRectsForRendering_AAMethodCheck_Patch",
-      {0x83, 0xB8, 0xE0, 0x1B, 0x00, 0x00, 0x02, 0x75, 0x00, 0x48, 0x8B},
-      +0x6
-    },
-    { 
-      "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_CameraFarFadeInDistance",
-      { 0xC7, 0x83, 0x18, 0x02, 0x00, 0x00, 0x00, 0x00, 0x2F, 0x45 },
-      +0x6
-    },
-    {
-      "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_CameraFarFadeOutDistance",
-      { 0xC7, 0x83, 0x20, 0x02, 0x00, 0x00, 0x00, 0x00, 0x35, 0x45 },
-      +0x6
-    },
-    {
-      "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_FarFadeInDistance",
-      { 0xC7, 0x83, 0x38, 0x02, 0x00, 0x00, 0x00, 0x00, 0x61, 0x45 },
-      +0x6
-    },
-    {
-      "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_FarFadeOutDistance",
-      { 0xC7, 0x83, 0x3C, 0x02, 0x00, 0x00, 0x00, 0x00, 0x6D, 0x45 },
-      +0x6
-    },
-    {
-      "FPFNpcCameraSettingsData::ICppStructOps::Construct_CameraFarFadeInDistance",
-      { 0xC7, 0x42, 0x1C, 0x00, 0x00, 0x2F, 0x45 },
-      +0x3
-    },
-    {
-      "FPFNpcCameraSettingsData::ICppStructOps::Construct_CameraFarFadeOutDistance",
-      { 0xC7, 0x42, 0x24, 0x00, 0x40, 0x35, 0x45 },
-      +0x3
-    },
-    {
-      "CVarUROEnable_Offset",
-      { 0x48, 0x8B, 0x05, 0x00, 0x00, 0x00, 0x00, 0x83, 0x38, 0x00, 0x0F },
-      +0x3
-    }
-  }
+#define SDK_VERSION "0.1.27"
+
+const uint32_t Addr_Timestamp = 0x1E0;
+const uint32_t Value_Timestamp = 1626315361; // 2021/07/15 02:16:01
+const uint32_t Value_Timestamp_patch1 = 1629818287; // 2021/08/24 15:18:07 (no code changes?)
+
+const uint32_t Game_TextSectionChecksum = 0x13ce422f; // patch0 & patch1 share this
+
+// UE4 stuff
+AutoGameAddress Addr_GNames(
+  "GNames",
+  { 0xC7, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC8, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC3, 0x48, 0x89, 0x1D, 0x00, 0x00, 0x00, 0x00 },
+  +0x18
+);
+AutoGameAddress Addr_GObjects(
+  "GObjects",
+  { 0x48, 0x8D, 0x05, 0x00, 0x00, 0x00, 0x00, 0xC7, 0x05, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8D, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x48, 0x89, 0x05 },
+  +3
+);
+AutoGameAddress Addr_UObject__ProcessEvent(
+  "UObject::ProcessEvent",
+  { 0x4C, 0x8B, 0xF9, 0x45, 0x33, 0xF6, 0x8B, 0x49, 0x0C },
+  -0x30
+);
+AutoGameAddress Addr_StaticConstructObject_Internal(
+  "StaticConstructObject_Internal",
+  { 0xF7, 0x81, 0xB4, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x10, 0x45 },
+  -0x29
+);
+AutoGameAddress Addr_FConsoleVariable_float___GetFloat(
+  "FConsoleVariable<float>::GetFloat",
+  { 0x0F, 0x95, 0xC2, 0xF3, 0x0F, 0x10, 0x44, 0x93, 0x38 },
+  -0x20
+);
+AutoGameAddress Addr_FConsoleVariableRef_bool___Set(
+  "FConsoleVariableRef<bool>::Set",
+  { 0x8B, 0xD5, 0x88, 0x43, 0x40, 0x48, 0x8B, 0xCB },
+  -0x30
+);
+
+// ToA patches/hooks
+AutoGameAddress Addr_FAchCharacterLODData__ReadsData_Hook(
+  "FAchCharacterLODData::ReadsData_Hook",
+  { 0x4C, 0x8B, 0xC7, 0x49, 0xC1, 0xE0, 0x02, 0x48, 0x8B, 0xD5, 0x48, 0x8B, 0xCE },
+  +0xD
+);
+AutoGameAddress Addr_FAchCharacterLODData__ReadsData_Trampoline(
+  "FAchCharacterLODData::ReadsData_Trampoline",
+  { 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC },
+  0,
+  "FAchCharacterLODData::ReadsData_Hook" // searches for 12 0xCC bytes after wherever we found ::ReadsData_Hook
+);
+AutoGameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Hook(
+  "UKismetRenderingLibrary::execCreateRenderTarget2D_Hook",
+  { 0xFF, 0x92, 0x48, 0x02, 0x00, 0x00, 0xB2, 0x01 },
+  +0
+);
+AutoGameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Trampoline(
+  "UKismetRenderingLibrary::execCreateRenderTarget2D_Trampoline",
+  { 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC, 0xCC },
+  0,
+  "UKismetRenderingLibrary::execCreateRenderTarget2D_Hook" // searches for 12 0xCC bytes after wherever we found ::execCreateRenderTarget2D_Hook
+);
+AutoGameAddress Addr_USceneCaptureComponent2D__USceneCaptureComponent2D_Patch(
+  "USceneCaptureComponent2D::USceneCaptureComponent2D_Patch",
+  { 0x81, 0xA3, 0xB8, 0x02, 0x00, 0x00, 0xF7, 0xDF, 0xFF, 0xFF, 0x0F },
+  +0
+);
+AutoGameAddress Addr_UGameUserSettings__PreloadResolutionSettings_CallerPatch(
+  "UGameUserSettings::PreloadResolutionSettings_CallerPatch",
+  { 0xE8, 0x00, 0x00, 0x00, 0x00, 0x40, 0x38, 0x35, 0x00, 0x00, 0x00, 0x00, 0x75, 0x05, 0xE8, 0x00, 0x00, 0x00, 0x00 },
+  +0xC
+);
+AutoGameAddress Addr_SetRes_720p_CallerPatch(
+  "SetRes_720p_CallerPatch",
+  { 0x25, 0x00, 0x00, 0x00, 0xFF, 0x48, 0x8B, 0xCB, 0x44, 0x8B, 0xC0, 0x41, 0xFF, 0x51, 0x60, 0x48, 0x83, 0x7C, 0x24 },
+  +0xB
+);
+AutoGameAddress Addr_FConsoleManager__ProcessUserConsoleInput_CheatCheck(
+  "FConsoleManager::ProcessUserConsoleInput_CheatCheck",
+  { 0x48, 0x8B, 0x10, 0x48, 0x8B, 0xC8, 0xFF, 0x52, 0x18, 0xA8, 0x01 },
+  +0xB
+);
+AutoGameAddress Addr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck(
+  "FConsoleManager::ProcessUserConsoleInput_ReadOnlyCheck",
+  { 0xFF, 0x50, 0x18, 0xC1, 0xE8, 0x02, 0x24, 0x01 },
+  +0x6
+);
+AutoGameAddress Addr_FDefaultDynamicResolutionState__IsSupported_NearBeginning(
+  "FDefaultDynamicResolutionState::IsSupported_NearBeginning",
+  { 0x48, 0x8B, 0x88, 0x68, 0x0C, 0x00, 0x00, 0x48, 0x85, 0xC9, 0x74, 0x10, 0x48, 0x8B, 0x01 },
+  +0
+);
+AutoGameAddress Addr_FDefaultDynamicResolutionState__IsSupported_GRHISupportsDynamicResolution(
+  "FDefaultDynamicResolutionState::IsSupported_GRHISupportsDynamicResolution_Addr",
+  { 0x0F, 0xB6, 0x05, 0x00, 0x00, 0x00, 0x00 },
+  +0x3,
+  "FDefaultDynamicResolutionState::IsSupported_NearBeginning"
+);
+AutoGameAddress Addr_BootSceneController__execStart_NearBeginning(
+  "BootSceneController::execStart_NearBeginning",
+  { 0x4C, 0x03, 0xC0, 0x80, 0x3D, 0xCF },
+  +0
+);
+AutoGameAddress Addr_BootSceneController__execStart_JmpPatch(
+  "BootSceneController::execStart_JmpPatch",
+  { 0x75, 0x00, 0x48, 0x8B, 0x15 },
+  +0,
+  "BootSceneController::execStart_NearBeginning"
+);
+AutoGameAddress Addr_GetCSMMaxDistance_Patch(
+  "GetCSMMaxDistance_Patch",
+  { 0xF3, 0x0F, 0x10, 0x40, 0x04, 0x0F, 0x2F, 0xC6, 0x72, 0x0B, 0x0F, 0x28, 0xF0, 0xF3, 0x0F, 0x5D, 0x35 },
+  +0xD
+);
+AutoGameAddress Addr_ScreenPercentage_SetBy_Patch(
+  "ScreenPercentage_SetBy_Patch",
+  { 0xBA, 0x00, 0x10, 0x00, 0x00, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x41, 0xB8, 0x00, 0x00, 0x00, 0x08 },
+  +0xE
+);
+AutoGameAddress Addr_MaxCSMResolution_SetBy_Patch(
+  "MaxCSMResolution_SetBy_Patch",
+  { 0xBA, 0xC8, 0x00, 0x00, 0x00, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x41, 0xB8, 0x00, 0x00, 0x00, 0x08 },
+  +0xE
+);
+AutoGameAddress Addr_CharacterSkipLODs_Patch(
+  "CharacterSkipLODs_Patch",
+  { 0x7E, 0x27, 0x48, 0x8B, 0xC6, 0x66, 0x66, 0x0F, 0x1F, 0x84, 0x00, 0x00, 0x00, 0x00, 0x00 },
+  +0
+);
+AutoGameAddress Addr_FSceneView__SetupAntiAliasingMethod_DefaultMethod_Patch(
+  "FSceneView::SetupAntiAliasingMethod_DefaultMethod_Patch",
+  { 0xC7, 0x83, 0xE0, 0x1B, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00 },
+  +0x6
+);
+AutoGameAddress Addr_FSceneView__FSceneView_AAMethodCheck_Patch(
+  "FSceneView::FSceneView_AAMethodCheck_Patch",
+  { 0x83, 0xBB, 0xE0, 0x1B, 0x00, 0x00, 0x02, 0x75, 0x00, 0xC7 },
+  +0x6
+);
+AutoGameAddress Addr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck_Patch(
+  "FSceneRenderer::PrepareViewRectsForRendering_AAMethodCheck_Patch",
+  { 0x83, 0xB8, 0xE0, 0x1B, 0x00, 0x00, 0x02, 0x75, 0x00, 0x48, 0x8B },
+  +0x6
+);
+AutoGameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_CameraFarFadeInDistance(
+  "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_CameraFarFadeInDistance",
+  { 0xC7, 0x83, 0x18, 0x02, 0x00, 0x00, 0x00, 0x00, 0x2F, 0x45 },
+  +0x6
+);
+AutoGameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_CameraFarFadeOutDistance(
+  "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_CameraFarFadeOutDistance",
+  { 0xC7, 0x83, 0x20, 0x02, 0x00, 0x00, 0x00, 0x00, 0x35, 0x45 },
+  +0x6
+);
+AutoGameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_FarFadeInDistance(
+  "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_FarFadeInDistance",
+  { 0xC7, 0x83, 0x38, 0x02, 0x00, 0x00, 0x00, 0x00, 0x61, 0x45 },
+  +0x6
+);
+AutoGameAddress Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_FarFadeOutDistance(
+  "UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_FarFadeOutDistance",
+  { 0xC7, 0x83, 0x3C, 0x02, 0x00, 0x00, 0x00, 0x00, 0x6D, 0x45 },
+  +0x6
+);
+AutoGameAddress Addr_FPFNpcCameraSettingsData__ICppStructOps__Construct_CameraFarFadeInDistance(
+  "FPFNpcCameraSettingsData::ICppStructOps::Construct_CameraFarFadeInDistance",
+  { 0xC7, 0x42, 0x1C, 0x00, 0x00, 0x2F, 0x45 },
+  +0x3
+);
+AutoGameAddress Addr_FPFNpcCameraSettingsData__ICppStructOps__Construct_CameraFarFadeOutDistance(
+  "FPFNpcCameraSettingsData::ICppStructOps::Construct_CameraFarFadeOutDistance",
+  { 0xC7, 0x42, 0x24, 0x00, 0x40, 0x35, 0x45 },
+  +0x3
+);
+AutoGameAddress Addr_CVarUROEnable_Offset(
+  "CVarUROEnable_Offset",
+  { 0x48, 0x8B, 0x05, 0x00, 0x00, 0x00, 0x00, 0x83, 0x38, 0x00, 0x0F },
+  +0x3
 );
 
 // How much difference between the FadeOut & the FadeIn variables
@@ -259,7 +253,11 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   return true;
 }
 
-const uint32_t Addr_APFNpcManager__InitsDistances = 0xE1C860;
+AutoGameAddress Addr_APFNpcManager__InitsDistances(
+  "APFNpcManager::InitsDistances",
+  { 0xC7, 0x45, 0x00, 0x00, 0x80, 0x3B, 0x45, 0xC7, 0x45, 0x00, 0x00, 0xC0, 0x41, 0x45, 0xC7, 0x45, 0x00, 0x00, 0x00, 0xF0, 0x41 },
+  -0x31
+);
 typedef void(*APFNpcManager__InitsDistances_Fn)(APFNpcManager* a1, bool a2);
 APFNpcManager__InitsDistances_Fn APFNpcManager__InitsDistances_Orig;
 void APFNpcManager__InitsDistances_Hook(APFNpcManager* a1, bool a2)
@@ -288,7 +286,11 @@ void APFNpcManager__InitsDistances_Hook(APFNpcManager* a1, bool a2)
   }
 }
 
-const uint32_t Addr_BP_PF_NPC_Walk_AIController__InitNPCDistance = 0xE2B980;
+AutoGameAddress Addr_BP_PF_NPC_Walk_AIController__InitNPCDistance(
+  "BP_PF_NPC_Walk_AIController::InitNPCDistance", // maybe PFNpcWalkSystem::CreateSpawnData
+  { 0x4C, 0x8D, 0xA9, 0xA0, 0x03, 0x00, 0x00, 0xF2, 0x0F, 0x11, 0x81, 0x80, 0x03, 0x00, 0x00 },
+  -0x22
+);
 typedef void(*BP_PF_NPC_Walk_AIController__InitNPCDistance_Fn)(void* a1, void* a2, float* a3);
 BP_PF_NPC_Walk_AIController__InitNPCDistance_Fn BP_PF_NPC_Walk_AIController__InitNPCDistance_Orig;
 void BP_PF_NPC_Walk_AIController__InitNPCDistance_Hook(void* a1, void* a2, float* a3)
@@ -300,23 +302,31 @@ void BP_PF_NPC_Walk_AIController__InitNPCDistance_Hook(void* a1, void* a2, float
   // which is then checked at 0x140E2AC96 to see if NPC should be deleted or not
 }
 
-const uint32_t Addr_AEncountGroup__IsWithinRange = 0xDE6AE0;
-typedef bool(*AEncountGroup__IsWithinRange_Fn)(AEncountGroup* thisptr, struct FEncountAreaInfo* AreaInfo);
-AEncountGroup__IsWithinRange_Fn AEncountGroup__IsWithinRange_Orig;
-bool AEncountGroup__IsWithinRange_Hook(AEncountGroup* thisptr, struct FEncountAreaInfo* AreaInfo)
+AutoGameAddress Addr_AEncountGroup__IsSpawnRangePlayer(
+  "AEncountGroup::IsSpawnRangePlayer",
+  { 0x48, 0x8B, 0x83, 0x58, 0x01, 0x00, 0x00, 0x0F, 0x28, 0xE8 },
+  -0x46
+);
+typedef bool(*AEncountGroup__IsSpawnRangePlayer_Fn)(AEncountGroup* thisptr, struct FEncountAreaInfo* AreaInfo);
+AEncountGroup__IsSpawnRangePlayer_Fn AEncountGroup__IsSpawnRangePlayer_Orig;
+bool AEncountGroup__IsSpawnRangePlayer_Hook(AEncountGroup* thisptr, struct FEncountAreaInfo* AreaInfo)
 {
   // Only mess with SpawnAreaInfo - seems BattleAreaInfo also goes through this func
   if (AreaInfo != &thisptr->SpawnAreaInfo)
-    return AEncountGroup__IsWithinRange_Orig(thisptr, AreaInfo);
+    return AEncountGroup__IsSpawnRangePlayer_Orig(thisptr, AreaInfo);
 
   FEncountAreaInfo NewAreaInfo;
   NewAreaInfo.Range = AreaInfo->Range * Options.MonsterDistanceMultiplier;
   NewAreaInfo.HalfHeight = AreaInfo->HalfHeight * Options.MonsterDistanceMultiplier;
 
-  return AEncountGroup__IsWithinRange_Orig(thisptr, &NewAreaInfo);
+  return AEncountGroup__IsSpawnRangePlayer_Orig(thisptr, &NewAreaInfo);
 }
 
-const uint32_t Addr_UAchCharacterBuildComponent__SetCulling = 0x6B11B0;
+AutoGameAddress Addr_UAchCharacterBuildComponent__SetCulling(
+  "UAchCharacterBuildComponent::SetCulling",
+  { 0x49, 0x8B, 0x9D, 0xE0, 0x00, 0x00, 0x00, 0x44, 0x0F, 0x44, 0xF1 },
+  -0x2F
+);
 typedef void(*UAchCharacterBuildComponent__SetCulling_Fn)(UAchCharacterBuildComponent* thisptr, bool bCulling);
 UAchCharacterBuildComponent__SetCulling_Fn UAchCharacterBuildComponent__SetCulling_Orig;
 void UAchCharacterBuildComponent__SetCulling_Hook(UAchCharacterBuildComponent* thisptr, bool bCulling)
@@ -375,7 +385,11 @@ FConsoleVariableRef<bool>* CVarCopyValuesToCVars;
 
 const uint32_t Offset_FSceneView__FinalPostProcessSettings = 0xD60;
 
-const uint32_t Addr_FSceneView__EndFinalPostprocessSettings = 0x217F490;
+AutoGameAddress Addr_FSceneView__EndFinalPostprocessSettings(
+  "FSceneView::EndFinalPostprocessSettings",
+  { 0x48, 0x8B, 0xC8, 0x0F, 0x2F, 0x40, 0x20, 0x76 },
+  -0x38
+);
 typedef void*(*FSceneView__EndFinalPostprocessSettings_Fn)(uint8_t* thisptr, void* a2);
 FSceneView__EndFinalPostprocessSettings_Fn FSceneView__EndFinalPostprocessSettings_Orig;
 void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
@@ -410,56 +424,85 @@ void* FSceneView__EndFinalPostprocessSettings_Hook(uint8_t* thisptr, void* a2)
 
 std::vector<IConsoleVariable*> CVarPointers;
 
-const uint32_t Addr_IConsoleManager__Singleton = 0x4A97AC8;
+AutoGameAddress Addr_IConsoleManager__Singleton_Offset(
+  "IConsoleManager::Singleton_Offset",
+  { 0x48, 0x83, 0xEC, 0x38, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x48, 0x85, 0xC9, 0x75 },
+  +0x7
+);
+IConsoleManager* ConsoleManager = nullptr;
+IConsoleManager* GetConsoleManager()
+{
+  if (!ConsoleManager)
+  {
+    uint8_t* consoleManagerPtr = Addr_IConsoleManager__Singleton_Offset.Get();
+    int offset = *(int32_t*)consoleManagerPtr;
+    ConsoleManager = *(IConsoleManager**)(consoleManagerPtr + sizeof(int32_t) + offset);
+  }
+  return ConsoleManager;
+}
 
+AutoGameAddress NewAddr_CVarSystemResolution_ctor(
+  "CVarSystemResolution_ctor",
+  { 0 },
+  0x0
+);
 const uint32_t Addr_CVarSystemResolution_ctor = 0x4F46C0;
 typedef void(*CVarSystemResolution_ctor_Fn)();
 CVarSystemResolution_ctor_Fn CVarSystemResolution_ctor_Orig;
 void CVarSystemResolution_ctor_Hook()
 {
   CVarSystemResolution_ctor_Orig();
-  auto consoleManager = *(IConsoleManager**)(mBaseAddress + Addr_IConsoleManager__Singleton);
 
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.MonsterDistanceMultiplier", Options.MonsterDistanceMultiplier, L"MonsterDistanceMultiplier", 0));
+  if (!GetConsoleManager())
+    return;
 
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength, L"Adjust sharpen filter applied to characters", 0));
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.StageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength, L"Adjust sharpen filter applied to the game world", 0));
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance, L"Allows increasing the distance that cel-shading is applied for", 0));
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.DisableCutsceneCA", Options.DisableCutsceneCA, L"Whether to prevent chromatic aberration from being applied (this setting affects the whole game, not just cutscenes)", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.MonsterDistanceMultiplier", Options.MonsterDistanceMultiplier, L"MonsterDistanceMultiplier", 0));
 
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFix", Options.CutsceneRenderFix, L"Enable/disable skit cutscene resolution scaling", 0));
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneScreenPercentage", Options.CutsceneScreenPercentage, L"ScreenPercentage to apply to skit cutscenes", 0));
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneForceUpscaleFiltering", Options.CutsceneForceUpscaleFiltering, L"CutsceneForceUpscaleFiltering", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.CharaSharpenFilterStrength", Options.OverrideCharaSharpenFilterStrength, L"Adjust sharpen filter applied to characters", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.StageSharpenFilterStrength", Options.OverrideStageSharpenFilterStrength, L"Adjust sharpen filter applied to the game world", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.MinStageEdgeBaseDistance", Options.MinStageEdgeBaseDistance, L"Allows increasing the distance that cel-shading is applied for", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.DisableCutsceneCA", Options.DisableCutsceneCA, L"Whether to prevent chromatic aberration from being applied (this setting affects the whole game, not just cutscenes)", 0));
+
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFix", Options.CutsceneRenderFix, L"Enable/disable skit cutscene resolution scaling", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneScreenPercentage", Options.CutsceneScreenPercentage, L"ScreenPercentage to apply to skit cutscenes", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneForceUpscaleFiltering", Options.CutsceneForceUpscaleFiltering, L"CutsceneForceUpscaleFiltering", 0));
   
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAAJitterScale", Options.OverrideTemporalAAJitterScale, L"Adjust jittering applied to the games TAA (game default has this set to 0, doesn't really seem to work that well, was probably disabled for a reason...)", 0));
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.TAASharpness", Options.OverrideTemporalAASharpness, L"Adjust sharpening effect applied to TAA", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.TAAJitterScale", Options.OverrideTemporalAAJitterScale, L"Adjust jittering applied to the games TAA (game default has this set to 0, doesn't really seem to work that well, was probably disabled for a reason...)", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.TAASharpness", Options.OverrideTemporalAASharpness, L"Adjust sharpening effect applied to TAA", 0));
 
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.UseUE4TAA", Options.UseUE4TAA, L"Use UE4's TAA method instead of TO14 custom one", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.UseUE4TAA", Options.UseUE4TAA, L"Use UE4's TAA method instead of TO14 custom one", 0));
 
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CharaLODMultiplier", Options.CharaLODMultiplier, L"Multiplier of Chara LODs", 0));
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"sdk.CharaDisableCull", Options.CharaDisableCull, L"CharaDisableCull", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.CharaLODMultiplier", Options.CharaLODMultiplier, L"Multiplier of Chara LODs", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.CharaDisableCull", Options.CharaDisableCull, L"CharaDisableCull", 0));
 
   // usually created by UE4 inside EXPOSE_FORCE_LOD builds, which shipping builds sadly aren't
   // not too hard to reimpl though
-  CVarPointers.push_back(consoleManager->RegisterConsoleVariableRef(L"r.ForceLOD", Options.ForcedLODLevel, L"LOD level to force, -1 is off.", ECVF_Scalability | ECVF_Default | ECVF_RenderThreadSafe));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"r.ForceLOD", Options.ForcedLODLevel, L"LOD level to force, -1 is off.", ECVF_Scalability | ECVF_Default | ECVF_RenderThreadSafe));
 
-  CVarCopyValuesToCVars = consoleManager->RegisterConsoleVariableRef(L"pp.CopyValuesToCVars", PostProc_CopyValuesToCVars, L"If set, will copy values from FPostProcessSettings into cvars for viewing", 0);
+  CVarCopyValuesToCVars = ConsoleManager->RegisterConsoleVariableRef(L"pp.CopyValuesToCVars", PostProc_CopyValuesToCVars, L"If set, will copy values from FPostProcessSettings into cvars for viewing", 0);
 
-  PostProc_AddCVars(consoleManager);
+  PostProc_AddCVars(ConsoleManager);
 }
 
+AutoGameAddress NewAddr_CVarSystemResolution_dtor(
+  "CVarSystemResolution_dtor",
+  { 0 },
+  0x0
+);
 const uint32_t Addr_CVarSystemResolution_dtor = 0x3023470;
 typedef void(*CVarSystemResolution_dtor_Fn)();
 CVarSystemResolution_dtor_Fn CVarSystemResolution_dtor_Orig;
 void CVarSystemResolution_dtor_Hook()
 {
   CVarSystemResolution_dtor_Orig();
-  auto consoleManager = *(IConsoleManager**)(mBaseAddress + Addr_IConsoleManager__Singleton);
 
-  consoleManager->UnregisterConsoleObject(CVarCopyValuesToCVars);
+  if (!GetConsoleManager())
+    return;
+
+  ConsoleManager->UnregisterConsoleObject(CVarCopyValuesToCVars);
 
   for (auto& cvar : CVarPointers)
-    consoleManager->UnregisterConsoleObject(cvar);
+    ConsoleManager->UnregisterConsoleObject(cvar);
   CVarPointers.clear();
 }
 
@@ -474,7 +517,11 @@ struct __declspec(align(4)) FMarkRelevantStaticMeshesForViewData
   bool bFullEarlyZPass;
 };
 
-const uint32_t Addr_FRelevancePacket__FRelevancePacket = 0x1A3F7F0;
+AutoGameAddress Addr_FRelevancePacket__FRelevancePacket(
+  "FRelevancePacket::FRelevancePacket",
+  { 0x44, 0x89, 0x81, 0x48, 0x04, 0x00, 0x00, 0x44, 0x89, 0x81, 0x48, 0x06, 0x00, 0x00 },
+  -0x67
+);
 typedef void (*FRelevancePacket__FRelevancePacket_Fn)(
   void* thisptr, 
   void* InRHICmdList,
@@ -604,7 +651,11 @@ void FAchCharacterLODData_Reader_Hook(void* Dst, void* Src, size_t Size)
 // previously was a seperate thread, but that wasn't in sync with the game engine that well
 // hooking engine loop should solve that though :)
 
-const uint32_t Addr_FEngineLoop__Tick = 0x5CF1F0;
+AutoGameAddress Addr_FEngineLoop__Tick(
+  "FEngineLoop::Tick",
+  { 0xE8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC8, 0xB2, 0x01, 0xE8, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x80, 0x3D, 0x00 },
+  -0x2C
+);
 typedef void(*FEngineLoop__Tick_Fn)(void* thisptr);
 FEngineLoop__Tick_Fn FEngineLoop__Tick_Orig;
 void FEngineLoop__Tick_Hook(void* thisptr)
@@ -665,7 +716,11 @@ void FEngineLoop__Tick_Hook(void* thisptr)
 
 bool inited = false;
 
-const uint32_t Addr_RefreshEngineSettings = 0x2280550;
+AutoGameAddress Addr_RefreshEngineSettings(
+  "RefreshEngineSettings",
+  { 0x48, 0x83, 0xEC, 0x00, 0xE8, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x00, 0x00, 0x00, 0x00, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x83, 0xC4, 0x00, 0xE9, 0x00, 0x00, 0x00, 0x00 },
+  +0
+);
 typedef void(*RefreshEngineSettings_Fn)();
 RefreshEngineSettings_Fn RefreshEngineSettings_Orig;
 void RefreshEngineSettings_Hook()
@@ -677,7 +732,7 @@ void RefreshEngineSettings_Hook()
   if (!inited || PrevCharaLODMultiplier != Options.CharaLODMultiplier)
   {
     // change JLE to JMP if we're skipping them
-    SafeWrite(GameAddrs["CharacterSkipLODs_Patch"].Address, Options.CharaLODMultiplier == -1 ? uint8_t(0xEB) : uint8_t(0x7E));
+    SafeWrite(Addr_CharacterSkipLODs_Patch.Get(), Options.CharaLODMultiplier == -1 ? uint8_t(0xEB) : uint8_t(0x7E));
 
     PrevCharaLODMultiplier = Options.CharaLODMultiplier;
   }
@@ -688,14 +743,14 @@ void RefreshEngineSettings_Hook()
   {
     PrevUseUE4TAA = Options.UseUE4TAA;
     // Options.UseUE4TAA was changed, modify our patch...
-    SafeWrite(GameAddrs["FSceneView::SetupAntiAliasingMethod_DefaultMethod_Patch"].Address, PrevUseUE4TAA ? uint32_t(EAntiAliasingMethod::AAM_TemporalAA) : uint32_t(EAntiAliasingMethod::AAM_HybirdAA));
+    SafeWrite(Addr_FSceneView__SetupAntiAliasingMethod_DefaultMethod_Patch.Get(), PrevUseUE4TAA ? uint32_t(EAntiAliasingMethod::AAM_TemporalAA) : uint32_t(EAntiAliasingMethod::AAM_HybirdAA));
 
     // Fix EPrimaryScreenPercentageMethod::TemporalUpscale checks (when using r.TemporalAA.Upsampling = 1)
     // code is making sure AntiAliasingMethod == AAM_TemporalAA
     // but Arise added custom AAM_SMAA & AAM_HybridAA methods, and seems they forgot to fix the TemporalUpscale checks :/
     // seems AAM_TemporalAA is never actually used (even when the non-hybrid AA option is selected), so we'll apply these automatically
-    SafeWrite(GameAddrs["FSceneView::FSceneView_AAMethodCheck_Patch"].Address, PrevUseUE4TAA ? uint8_t(EAntiAliasingMethod::AAM_TemporalAA) : uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
-    SafeWrite(GameAddrs["FSceneRenderer::PrepareViewRectsForRendering_AAMethodCheck_Patch"].Address, PrevUseUE4TAA ? uint8_t(EAntiAliasingMethod::AAM_TemporalAA) : uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
+    SafeWrite(Addr_FSceneView__FSceneView_AAMethodCheck_Patch.Get(), PrevUseUE4TAA ? uint8_t(EAntiAliasingMethod::AAM_TemporalAA) : uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
+    SafeWrite(Addr_FSceneRenderer__PrepareViewRectsForRendering_AAMethodCheck_Patch.Get(), PrevUseUE4TAA ? uint8_t(EAntiAliasingMethod::AAM_TemporalAA) : uint8_t(EAntiAliasingMethod::AAM_HybirdAA));
   }
 
   // Keep trying to update URO cvar if we haven't already - cvar itself might not have been inited yet
@@ -710,7 +765,7 @@ void RefreshEngineSettings_Hook()
     // TODO: change this to use IConsoleManager, instead of finding a.URO.Enable pointer directly?
 
     // Update a.URO.Enable value if CVar has already been created
-    uint8_t* CVarUROEnable_ptr = GameAddrs["CVarUROEnable_Offset"].Address;
+    uint8_t* CVarUROEnable_ptr = Addr_CVarUROEnable_Offset.Get();
     int offset = *(int32_t*)CVarUROEnable_ptr;
     CVarUROEnable_ptr = CVarUROEnable_ptr + sizeof(int32_t) + offset;
 
@@ -732,8 +787,11 @@ void InitPlugin()
 {
   inited = false;
 
-  bool foundAllAddrs = GameAddrs.SearchAddresses((uint8_t*)mBaseAddress, 0x100000000);
-  int numFound = GameAddrs.NumValid();
+  int textSize = 0;
+  void* textSection = ModuleGetSection((void*)mBaseAddress, ".text", &textSize);
+
+  bool foundAllAddrs = AddressManager::Instance().SearchAddresses(textSection, textSize);
+  int numFound = AddressManager::Instance().NumValid();
 
   // Check that this is the EXE we were built against...
   uint32_t timestamp = *reinterpret_cast<uint32_t*>(mBaseAddress + Addr_Timestamp);
@@ -741,8 +799,6 @@ void InitPlugin()
   {
     // Not a known EXE timestamp, we'll checksum the .text section since some patches are known to just update timestamps...
     bool isKnown = false;
-    int textSize = 0;
-    void* textSection = ModuleGetSection((void*)mBaseAddress, ".text", &textSize);
     if (textSection)
     {
       auto checksum = rc_crc32(0, (char*)textSection, textSize);
@@ -758,19 +814,19 @@ void InitPlugin()
 
   PostProc_Init();
 
-  auto GNames = GameAddrs["GNames"].Address;
+  auto GNames = Addr_GNames.Get();
   int offset = *(int32_t*)GNames;
   FName::GNames = reinterpret_cast<TNameEntryArray*>(GNames + sizeof(int32_t) + offset);
 
-  auto GObjects = GameAddrs["GObjects"].Address;
+  auto GObjects = Addr_GObjects.Get();
   offset = *(int32_t*)GObjects - 0x10; // value is +0x10 into FUObjectArray struct
   UObject::GObjects = reinterpret_cast<FUObjectArray*>(GObjects + sizeof(int32_t) + offset);
 
-  UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(GameAddrs["UObject::ProcessEvent"].Address);
-  StaticConstructObject_Internal = reinterpret_cast<StaticConstructObject_InternalFn>(GameAddrs["StaticConstructObject_Internal"].Address);
+  UObject::ProcessEventPtr = reinterpret_cast<ProcessEventFn>(Addr_UObject__ProcessEvent.Get());
+  StaticConstructObject_Internal = reinterpret_cast<StaticConstructObject_InternalFn>(Addr_StaticConstructObject_Internal.Get());
   
-  FConsoleVariable__GetFloat = reinterpret_cast<FConsoleVariable__GetFloat_Fn>(GameAddrs["FConsoleVariable<float>::GetFloat"].Address);
-  FConsoleVariableRef_bool__Set = reinterpret_cast<FConsoleVariableRef_bool__Set_Fn>(GameAddrs["FConsoleVariableRef<bool>::Set"].Address);
+  FConsoleVariable__GetFloat = reinterpret_cast<FConsoleVariable__GetFloat_Fn>(Addr_FConsoleVariable_float___GetFloat.Get());
+  FConsoleVariableRef_bool__Set = reinterpret_cast<FConsoleVariableRef_bool__Set_Fn>(Addr_FConsoleVariableRef_bool___Set.Get());
 
   MH_Initialize();
 
@@ -782,8 +838,8 @@ void InitPlugin()
   MH_GameHook(FSceneView__EndFinalPostprocessSettings);
 
   // Add our custom cvars, need to handle constructor & destructor for them
-  MH_GameHook(CVarSystemResolution_ctor);
-  MH_GameHook(CVarSystemResolution_dtor);
+  MH_GameHookOld(CVarSystemResolution_ctor);
+  MH_GameHookOld(CVarSystemResolution_dtor);
   MH_GameHook(RefreshEngineSettings);
 
   // Add support for r.ForceLOD
@@ -795,21 +851,21 @@ void InitPlugin()
 
   if (true)
   {
-    uint8_t* trampolineAddr = GameAddrs["FAchCharacterLODData::ReadsData_Trampoline"].Address;
+    uint8_t* trampolineAddr = Addr_FAchCharacterLODData__ReadsData_Trampoline.Get();
 
     // Have to write a trampoline somewhere near the hooked addr, needs 12 bytes...
     uint8_t trampoline[] = { 0x48, 0xB8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xFF, 0xE0 };
     *(uintptr_t*)&trampoline[2] = (uintptr_t)&FAchCharacterLODData_Reader_Hook;
 
     SafeWrite(trampolineAddr, trampoline, 12);
-    PatchCall(GameAddrs["FAchCharacterLODData::ReadsData_Hook"].Address, trampolineAddr);
+    PatchCall(Addr_FAchCharacterLODData__ReadsData_Hook.Get(), trampolineAddr);
   }
 
   // Render target resizing (fixing cutscene/skit resolution)
   if (Options.CutsceneRenderFix)
   {
-    uint8_t* trampolineAddr = GameAddrs["UKismetRenderingLibrary::execCreateRenderTarget2D_Trampoline"].Address;
-    uint8_t* hookAddr = GameAddrs["UKismetRenderingLibrary::execCreateRenderTarget2D_Hook"].Address;
+    uint8_t* trampolineAddr = Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Trampoline.Get();
+    uint8_t* hookAddr = Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Hook.Get();
 
     // Have to write a trampoline somewhere near the hooked addr, needs 12 bytes...
     uint8_t trampoline[] = { 0x48, 0xB8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xFF, 0xE0 };
@@ -823,7 +879,7 @@ void InitPlugin()
 
     // USceneCaptureComponent2D ctor: change "ShowFlags.TemporalAA = false; ShowFlags.MotionBlur = false;" to " = true" 
     // Not certain if ToA's custom TAA impl. works on this or not though (may need more AAM_TemporalAA checks to be fixed...)
-    uint8_t* patchAddr = GameAddrs["USceneCaptureComponent2D::USceneCaptureComponent2D_Patch"].Address;
+    uint8_t* patchAddr = Addr_USceneCaptureComponent2D__USceneCaptureComponent2D_Patch.Get();
     // Change "and dword ptr [rbx+2B8h], 0FFFFDFF7h" to "or dword ptr [rbx+2B8h], 2008h", so it sets the bits instead of removing them
     uint8_t Patch_USceneCaptureComponent2D_ctor[] = { 0x81, 0x8B, 0xB8, 0x02, 0x00, 0x00, 0x08, 0x20, 0x00, 0x00 };
     SafeWrite(patchAddr, Patch_USceneCaptureComponent2D_ctor, 0xA);
@@ -836,18 +892,18 @@ void InitPlugin()
 
     // UPFNpcCameraFadeComponent fade distances
     // (used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController)
-    SafeWrite(GameAddrs["UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_CameraFarFadeInDistance"].Address, Options.MinNPCDistance - FadeInDelta);
-    SafeWrite(GameAddrs["UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_CameraFarFadeOutDistance"].Address, Options.MinNPCDistance);
-    SafeWrite(GameAddrs["UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_FarFadeInDistance"].Address, Options.MinNPCDistance - FadeInDelta);
-    SafeWrite(GameAddrs["UPFNpcCameraFadeComponent::UPFNpcCameraFadeComponent_FarFadeOutDistance"].Address, Options.MinNPCDistance);
+    SafeWrite(Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_CameraFarFadeInDistance.Get(), Options.MinNPCDistance - FadeInDelta);
+    SafeWrite(Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_CameraFarFadeOutDistance.Get(), Options.MinNPCDistance);
+    SafeWrite(Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_FarFadeInDistance.Get(), Options.MinNPCDistance - FadeInDelta);
+    SafeWrite(Addr_UPFNpcCameraFadeComponent__UPFNpcCameraFadeComponent_FarFadeOutDistance.Get(), Options.MinNPCDistance);
 
     // FPFNpcCameraSettingsData ICppStructOps::Construct
-    SafeWrite(GameAddrs["FPFNpcCameraSettingsData::ICppStructOps::Construct_CameraFarFadeInDistance"].Address, Options.MinNPCDistance - FadeInDelta);
-    SafeWrite(GameAddrs["FPFNpcCameraSettingsData::ICppStructOps::Construct_CameraFarFadeOutDistance"].Address, Options.MinNPCDistance);
+    SafeWrite(Addr_FPFNpcCameraSettingsData__ICppStructOps__Construct_CameraFarFadeInDistance.Get(), Options.MinNPCDistance - FadeInDelta);
+    SafeWrite(Addr_FPFNpcCameraSettingsData__ICppStructOps__Construct_CameraFarFadeOutDistance.Get(), Options.MinNPCDistance);
   }
 
   MH_GameHook(UAchCharacterBuildComponent__SetCulling);
-  MH_GameHook(AEncountGroup__IsWithinRange);
+  MH_GameHook(AEncountGroup__IsSpawnRangePlayer);
 
   // Prevent resolution change on game launch
   // (requires r.SetRes = 2560x1440f line inside Engine.ini to work properly, change with your desired resolution)
@@ -856,22 +912,22 @@ void InitPlugin()
   {
     // Disable UGameUserSettings::PreloadResolutionSettings
     // (seems to read from an unused settings file, making game switch to 1280x720 briefly)
-    SafeWrite(GameAddrs["UGameUserSettings::PreloadResolutionSettings_CallerPatch"].Address, uint8_t(0xEB));
+    SafeWrite(Addr_UGameUserSettings__PreloadResolutionSettings_CallerPatch.Get(), uint8_t(0xEB));
 
     // Disable r.setres being changed by game code to 1280x720
-    auto addr = GameAddrs["SetRes_720p_CallerPatch"].Address;
+    auto addr = Addr_SetRes_720p_CallerPatch.Get();
     SafeWrite(addr, uint8_t(0x90), 4);
   }
 
   // Remove ECVF_Cheat flag check from FConsoleManager::ProcessUserConsoleInput
   // (allows even more cvars to be changed from dev-console)
-  SafeWrite(GameAddrs["FConsoleManager::ProcessUserConsoleInput_CheatCheck"].Address, uint8_t(0x90), 6);
+  SafeWrite(Addr_FConsoleManager__ProcessUserConsoleInput_CheatCheck.Get(), uint8_t(0x90), 6);
 
   // Remove ECVF_ReadOnly flag check
-  SafeWrite(GameAddrs["FConsoleManager::ProcessUserConsoleInput_ReadOnlyCheck"].Address, uint16_t(0xC031)); // xor eax, eax
+  SafeWrite(Addr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck.Get(), uint16_t(0xC031)); // xor eax, eax
 
   // Flip GRHISupportsDynamicResolution to true, so r.DynamicRes.* can work
-  auto* addrPtr = GameAddrs["FDefaultDynamicResolutionState::IsSupported_GRHISupportsDynamicResolution_Addr"].Address;
+  auto* addrPtr = Addr_FDefaultDynamicResolutionState__IsSupported_GRHISupportsDynamicResolution.Get();
   offset = *(int32_t*)addrPtr;
   uint8_t* GRHISupportsDynamicResolution = reinterpret_cast<uint8_t*>(addrPtr + sizeof(int32_t) + offset);
   SafeWrite(GRHISupportsDynamicResolution, uint8_t(1));
@@ -885,17 +941,17 @@ void InitPlugin()
 
   // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
   if (Options.SkipIntroLogos)
-    SafeWrite(GameAddrs["BootSceneController::execStart_JmpPatch"].Address, uint16_t(0x9090)); // jne -> nop
+    SafeWrite(Addr_BootSceneController__execStart_JmpPatch.Get(), uint16_t(0x9090)); // jne -> nop
 
   // Remove limit from r.Shadow.DistanceScale
-  SafeWrite(GameAddrs["GetCSMMaxDistance_Patch"].Address, uint8_t(0x90), 8);
+  SafeWrite(Addr_GetCSMMaxDistance_Patch.Get(), uint8_t(0x90), 8);
 
   // Patch the games ScreenPercentage & MaxCSMResolution overwriting code to use a lower priority
   // This'll make the users Engine.ini settings preferred over the games choice - without us needing to break the games in-game setting for people that don't use Engine.ini!)
   // without patching it the game will always overwrite any INI value set for this, limiting it to 4096 and below
   // using console you can set this to 8192+, but without this there's no way to make it stick, since game will overwrite your INI changes
-  SafeWrite(GameAddrs["ScreenPercentage_SetBy_Patch"].Address, uint32_t(EConsoleVariableFlags::ECVF_SetByScalability));
-  SafeWrite(GameAddrs["MaxCSMResolution_SetBy_Patch"].Address, uint32_t(EConsoleVariableFlags::ECVF_SetByScalability));
+  SafeWrite(Addr_ScreenPercentage_SetBy_Patch.Get(), uint32_t(EConsoleVariableFlags::ECVF_SetByScalability));
+  SafeWrite(Addr_MaxCSMResolution_SetBy_Patch.Get(), uint32_t(EConsoleVariableFlags::ECVF_SetByScalability));
 
   // Unlock dev-console & allow loading loose files
   Init_UE4Hook();

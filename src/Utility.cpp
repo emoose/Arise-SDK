@@ -104,7 +104,6 @@ rc_crc32(uint32_t crc, const char* buf, size_t len)
   return ~crc;
 }
 
-
 uint8_t* SearchSignature(uint8_t* Base, size_t BaseLength, const std::vector<uint8_t>& Signature)
 {
   for (size_t i = 0; i < BaseLength; i++)
@@ -127,28 +126,47 @@ uint8_t* SearchSignature(uint8_t* Base, size_t BaseLength, const std::vector<uin
   return nullptr;
 }
 
+AutoGameAddress::AutoGameAddress(std::string_view Name, std::initializer_list<uint8_t> Signature, int Offset, std::string_view SignatureStartAddr, bool MultipleMatches)
+  : Name(Name), Signature(Signature), Offset(Offset), SignatureStartAddr(SignatureStartAddr), MultipleMatches(MultipleMatches)
+{
+  AddressManager::Instance().Add(this);
+}
+
 // Returns whether all addresses were found
 // Count of addresses that were found can be found with .NumValid()
-bool AddressManager::SearchAddresses(uint8_t* Base, size_t BaseLength)
+bool AddressManager::SearchAddresses(void* Base, size_t BaseLength)
 {
+  uint8_t* base = (uint8_t*)Base;
   _numValid = 0;
-  for (GameAddress& address : _addresses)
+
+  for (AutoGameAddress* address : _addresses)
   {
-    uint8_t* StartAddr = Base;
+    uint8_t* StartAddr = base;
     size_t AddrLength = BaseLength;
-    if (!address.SignatureStartAddr.empty())
+    if (!address->SignatureStartAddr.empty())
     {
       // Addr wants our search to start from another addrs position
-      auto addr = (*this)[address.SignatureStartAddr];
-      StartAddr = addr.Address;
-      AddrLength = BaseLength - (StartAddr - Base);
+      auto addr = (*this)[address->SignatureStartAddr];
+      StartAddr = addr.Get(0);
+      AddrLength = BaseLength - (StartAddr - base);
     }
 
-    uint8_t* foundAddr = SearchSignature(StartAddr, AddrLength, address.Signature);
-    if (!foundAddr)
+    uint8_t* foundAddr = SearchSignature(StartAddr, AddrLength, address->Signature);
+    while (foundAddr)
+    {
+      address->_matches.push_back(foundAddr + address->Offset);
+
+      if (!address->MultipleMatches)
+        break;
+
+      StartAddr = foundAddr + address->Signature.size();
+      AddrLength = BaseLength - (StartAddr - base);
+      foundAddr = SearchSignature(StartAddr, AddrLength, address->Signature);
+    }
+
+    if (address->_matches.size() <= 0)
       return false;
 
-    address.Address = foundAddr + address.Offset;
     _numValid++;
   }
 
