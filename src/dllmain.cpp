@@ -280,18 +280,19 @@ void APFNpcManager__InitsDistances_Hook(APFNpcManager* a1, bool a2)
   }
 }
 
-AutoGameAddress Addr_BP_PF_NPC_Walk_AIController__InitNPCDistance( // patch0: 0x140E2B980
-  "BP_PF_NPC_Walk_AIController::InitNPCDistance", // maybe PFNpcWalkSystem::CreateSpawnData
+// APFNpcWalkSystem::CreateSpawnData handles spawn/despawn of walking NPCs
+AutoGameAddress Addr_APFNpcWalkSystem__CreateSpawnData( // patch0: 0x140E2B980
+  "APFNpcWalkSystem::CreateSpawnData",
   { 0x4C, 0x8D, 0xA9, 0xA0, 0x03, 0x00, 0x00, 0xF2, 0x0F, 0x11, 0x81, 0x80, 0x03, 0x00, 0x00 },
   -0x22
 );
-typedef void(*BP_PF_NPC_Walk_AIController__InitNPCDistance_Fn)(void* a1, void* a2, float* a3);
-BP_PF_NPC_Walk_AIController__InitNPCDistance_Fn BP_PF_NPC_Walk_AIController__InitNPCDistance_Orig;
-void BP_PF_NPC_Walk_AIController__InitNPCDistance_Hook(void* a1, void* a2, float* a3)
+typedef void(*APFNpcWalkSystem__CreateSpawnData_Fn)(APFNpcWalkSystem* thisptr, const struct FPFNpcDefineID& DefineID, const struct FPFNpcWalkSpawnParams& Params);
+APFNpcWalkSystem__CreateSpawnData_Fn APFNpcWalkSystem__CreateSpawnData_Orig;
+void APFNpcWalkSystem__CreateSpawnData_Hook(APFNpcWalkSystem* thisptr, const struct FPFNpcDefineID& DefineID, const struct FPFNpcWalkSpawnParams& Params)
 {
-  if (a3)
-    a3[2] = Options.MinNPCDistance;
-  BP_PF_NPC_Walk_AIController__InitNPCDistance_Orig(a1, a2, a3);
+  FPFNpcWalkSpawnParams params = Params;
+  params.DespawnMaxDistance = Options.MinNPCDistance;
+  APFNpcWalkSystem__CreateSpawnData_Orig(thisptr, DefineID, params);
   // ^ updates a1 + 0x388 with the distance
   // which is then checked at 0x140E2AC96 to see if NPC should be deleted or not
 }
@@ -534,13 +535,35 @@ void FRelevancePacket__FRelevancePacket_Hook(
     InMarkMasks, InPrimitiveCustomDataMemStack, InOutHasViewCustomDataMasks);
 }
 
+struct FSystemResolution
+{
+  int ResX;
+  int ResY;
+  int WindowMode;
+  bool bForceRefresh;
+};
+
+AutoGameAddress Addr_GSystemResolution_Offset(
+  "GSystemResolution_Offset",
+  { 0x83, 0x3D, 0x00, 0x00, 0x00, 0x00, 0x02, 0x75, 0x00, 0x8B, 0x15, 0x00, 0x00, 0x00, 0x00, 0x44, 0x8B, 0x05, 0x00, 0x00, 0x00, 0x00 },
+  +0xB
+);
+FSystemResolution* GSystemResolution = nullptr;
+
 // Called during UKismetRenderingLibrary::execCreateRenderTarget2D, so we can overwrite the target size etc.
 void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 {
   if (Options.CutsceneRenderFix)
   {
-    double ScreenSizeX = double(*(uint32_t*)(mBaseAddress + 0x455A4F0));
-    double ScreenSizeY = double(*(uint32_t*)(mBaseAddress + 0x455A4F4));
+    if (!GSystemResolution)
+    {
+      uint8_t* GSystemResolution_ptr = Addr_GSystemResolution_Offset.Get();
+      GSystemResolution_ptr = GSystemResolution_ptr + sizeof(int32_t) + *(int32_t*)GSystemResolution_ptr;
+      GSystemResolution = (FSystemResolution*)GSystemResolution_ptr;
+    }
+
+    double ScreenSizeX = double(GSystemResolution->ResX);
+    double ScreenSizeY = double(GSystemResolution->ResY);
 
     // Apply Options.CutsceneScreenPercentage to the screen size
     {
@@ -875,7 +898,7 @@ void InitPlugin()
   if (Options.MinNPCDistance >= 0)
   {
     MH_GameHook(APFNpcManager__InitsDistances);
-    MH_GameHook(BP_PF_NPC_Walk_AIController__InitNPCDistance);
+    MH_GameHook(APFNpcWalkSystem__CreateSpawnData);
 
     // UPFNpcCameraFadeComponent fade distances
     // (used by BP_PF_NPC_Walk_System / BP_PF_NPC_Walk_AIController)
