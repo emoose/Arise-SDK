@@ -331,6 +331,15 @@ void ULevelSequence__PostLoad_Hook(ULevelSequence* thisptr)
     thisptr->MovieScene->EvaluationType = EMovieSceneEvaluationType::WithSubFrames;
 }
 
+typedef void(*UActorSequence__PostInitProperties_Fn)(UActorSequence* thisptr);
+UActorSequence__PostInitProperties_Fn UActorSequence__PostInitProperties_Orig = (UActorSequence__PostInitProperties_Fn)0x140ABF3B0;
+void UActorSequence__PostInitProperties_Hook(UActorSequence* thisptr)
+{
+  UActorSequence__PostInitProperties_Orig(thisptr);
+  if (Options.CutsceneAllowSubframes && thisptr->MovieScene)
+    thisptr->MovieScene->EvaluationType = EMovieSceneEvaluationType::WithSubFrames;
+}
+
 #ifdef _DEBUG
 // hook for testing stuff
 // previously was a seperate thread, but that wasn't in sync with the game engine that well
@@ -510,6 +519,8 @@ void InitPlugin()
   // UActorSequence seems to use the same kind of system as ULevelSequence
   // MovieScene field is even at same offset, so we can reuse ULevelSequence__PostLoad_Hook :)
   uintptr_t* UActorSequence_vftable = Addr_UActorSequence_vftable.Get();
+  UActorSequence__PostInitProperties_Orig = (UActorSequence__PostInitProperties_Fn)ULevelSequence_vftable[9];
+  SafeWrite((uintptr_t)&UActorSequence_vftable[9], (uintptr_t)&UActorSequence__PostInitProperties_Hook);
   SafeWrite((uintptr_t)&UActorSequence_vftable[0x10], (uintptr_t)&ULevelSequence__PostLoad_Hook);
 
   // Patch the games ScreenPercentage & MaxCSMResolution overwriting code to use a lower priority
