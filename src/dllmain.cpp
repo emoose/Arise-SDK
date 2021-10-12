@@ -11,7 +11,7 @@ HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
-#define SDK_VERSION "0.1.27b"
+#define SDK_VERSION "0.1.28"
 
 // UE4 stuff
 AutoGameAddress<TNameEntryArray*> Addr_GNames( // patch0: 0x14132000D
@@ -129,6 +129,7 @@ bool TryLoadINIOptions(const WCHAR* IniFilePath)
   Options.CutsceneRenderFix = INI_GetBool(IniPath, L"Graphics", L"CutsceneRenderFix", Options.CutsceneRenderFix);
   Options.CutsceneScreenPercentage = INI_GetFloat(IniPath, L"Graphics", L"CutsceneScreenPercentage", Options.CutsceneScreenPercentage);
   Options.CutsceneForceUpscaleFiltering = INI_GetBool(IniPath, L"Graphics", L"CutsceneForceUpscaleFiltering", Options.CutsceneForceUpscaleFiltering);
+  Options.CutsceneAllowSubframes = INI_GetBool(IniPath, L"Graphics", L"CutsceneAllowSubframes", Options.CutsceneAllowSubframes);
   Options.OverrideTemporalAAJitterScale = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAAJitterScale", Options.OverrideTemporalAAJitterScale);
   Options.OverrideTemporalAASharpness = INI_GetFloat(IniPath, L"Graphics", L"OverrideTAASharpness", Options.OverrideTemporalAASharpness);
   Options.UseUE4TAA = INI_GetBool(IniPath, L"Graphics", L"UseUE4TAA", Options.UseUE4TAA);
@@ -257,6 +258,7 @@ void CVars_Create()
   CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.DisableCutsceneCA", Options.DisableCutsceneCA, L"Whether to prevent chromatic aberration from being applied (this setting affects the whole game, not just cutscenes)", 0));
 
   CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneRenderFix", Options.CutsceneRenderFix, L"Enable/disable skit cutscene resolution scaling", 0));
+  CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneAllowSubframes", Options.CutsceneAllowSubframes, L"Allow cutscenes to have subframes added for your display rate", 0));
   CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneScreenPercentage", Options.CutsceneScreenPercentage, L"ScreenPercentage to apply to skit cutscenes", 0));
   CVarPointers.push_back(ConsoleManager->RegisterConsoleVariableRef(L"sdk.CutsceneForceUpscaleFiltering", Options.CutsceneForceUpscaleFiltering, L"CutsceneForceUpscaleFiltering", 0));
   
@@ -304,6 +306,22 @@ void CVar_dtor_Hook()
   for (auto& cvar : CVarPointers)
     ConsoleManager->UnregisterConsoleObject(cvar);
   CVarPointers.clear();
+}
+
+AutoGameAddress<uintptr_t*> Addr_ULevelSequence_vftable( // patch0: 0x143E6E9E0
+  "ULevelSequence_vftable",
+  { 0x48, 0xC7, 0x43, 0x48, 0x02, 0x00, 0x00, 0x00, 0x48, 0x89, 0x03, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x89, 0xBB, 0x48, 0x03, 0x00, 0x00, 0x48, 0x8D, 0x05 },
+  +0x1A,
+  GameAddressType::Offset4
+);
+
+typedef void(*ULevelSequence__PostLoad_Fn)(ULevelSequence* thisptr);
+ULevelSequence__PostLoad_Fn ULevelSequence__PostLoad_Orig = (ULevelSequence__PostLoad_Fn)0x140620CF0;
+void ULevelSequence__PostLoad_Hook(ULevelSequence* thisptr)
+{
+  ULevelSequence__PostLoad_Orig(thisptr);
+  if (Options.CutsceneAllowSubframes)
+    thisptr->MovieScene->EvaluationType = EMovieSceneEvaluationType::WithSubFrames;
 }
 
 #ifdef _DEBUG
@@ -475,6 +493,13 @@ void InitPlugin()
   // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
   if (Options.SkipIntroLogos)
     SafeWrite(Addr_BootSceneController__execStart_JmpPatch.Get(), uint16_t(0x9090)); // jne -> nop
+
+  // Hook ULevelSequence::PostLoad by overwriting vftable pointer to it
+  // This lets us modify the ULevelSequence vars after game has loaded cutscene in
+
+  uintptr_t* ULevelSequence_vftable = Addr_ULevelSequence_vftable.Get();
+  ULevelSequence__PostLoad_Orig = (ULevelSequence__PostLoad_Fn)ULevelSequence_vftable[0x10];
+  SafeWrite((uintptr_t)&ULevelSequence_vftable[0x10], (uintptr_t)&ULevelSequence__PostLoad_Hook);
 
   // Patch the games ScreenPercentage & MaxCSMResolution overwriting code to use a lower priority
   // This'll make the users Engine.ini settings preferred over the games choice - without us needing to break the games in-game setting for people that don't use Engine.ini!)

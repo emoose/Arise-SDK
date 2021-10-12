@@ -31,6 +31,7 @@ struct SDKOptions
 	bool CutsceneRenderFix = false;
 	float CutsceneScreenPercentage = 100;
 	bool CutsceneForceUpscaleFiltering = false;
+	bool CutsceneAllowSubframes = false;
 	float OverrideTemporalAAJitterScale = -1;
 	float OverrideTemporalAASharpness = -1;
 	bool UseUE4TAA = false;

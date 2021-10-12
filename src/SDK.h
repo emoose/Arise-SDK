@@ -234,6 +234,10 @@
 #include "SDK/Landscape_classes.h"
 #include "SDK/Landscape_parameters.h"
 
+#include "SDK/LevelSequence_structs.h"
+#include "SDK/LevelSequence_classes.h"
+#include "SDK/LevelSequence_parameters.h"
+
 /*
 #include "SDK/ABP_CHR_NFC_HUM_000_PHY_structs.h"
 #include "SDK/ABP_CHR_NFC_HUM_000_PHY_classes.h"
