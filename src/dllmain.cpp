@@ -11,7 +11,7 @@ HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
-#define SDK_VERSION "0.1.28"
+#define SDK_VERSION "0.1.28a"
 
 // UE4 stuff
 AutoGameAddress<TNameEntryArray*> Addr_GNames( // patch0: 0x14132000D
@@ -315,6 +315,13 @@ AutoGameAddress<uintptr_t*> Addr_ULevelSequence_vftable( // patch0: 0x143E6E9E0
   GameAddressType::Offset4
 );
 
+AutoGameAddress<uintptr_t*> Addr_UActorSequence_vftable( // patch0: 0x143CBBD48
+  "ULevelSequence_vftable",
+  { 0x48, 0xC7, 0x43, 0x48, 0x02, 0x00, 0x00, 0x00, 0x48, 0x89, 0x03, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x48, 0x89, 0xAB, 0x48, 0x03, 0x00, 0x00, 0x48, 0x8D, 0x05 },
+  +0x1A,
+  GameAddressType::Offset4
+);
+
 typedef void(*ULevelSequence__PostLoad_Fn)(ULevelSequence* thisptr);
 ULevelSequence__PostLoad_Fn ULevelSequence__PostLoad_Orig = (ULevelSequence__PostLoad_Fn)0x140620CF0;
 void ULevelSequence__PostLoad_Hook(ULevelSequence* thisptr)
@@ -496,10 +503,14 @@ void InitPlugin()
 
   // Hook ULevelSequence::PostLoad by overwriting vftable pointer to it
   // This lets us modify the ULevelSequence vars after game has loaded cutscene in
-
   uintptr_t* ULevelSequence_vftable = Addr_ULevelSequence_vftable.Get();
   ULevelSequence__PostLoad_Orig = (ULevelSequence__PostLoad_Fn)ULevelSequence_vftable[0x10];
   SafeWrite((uintptr_t)&ULevelSequence_vftable[0x10], (uintptr_t)&ULevelSequence__PostLoad_Hook);
+
+  // UActorSequence seems to use the same kind of system as ULevelSequence
+  // MovieScene field is even at same offset, so we can reuse ULevelSequence__PostLoad_Hook :)
+  uintptr_t* UActorSequence_vftable = Addr_UActorSequence_vftable.Get();
+  SafeWrite((uintptr_t)&UActorSequence_vftable[0x10], (uintptr_t)&ULevelSequence__PostLoad_Hook);
 
   // Patch the games ScreenPercentage & MaxCSMResolution overwriting code to use a lower priority
   // This'll make the users Engine.ini settings preferred over the games choice - without us needing to break the games in-game setting for people that don't use Engine.ini!)
