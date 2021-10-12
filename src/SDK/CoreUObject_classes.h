@@ -22,11 +22,11 @@ public:
 	static ProcessEventFn ProcessEventPtr;
 	static FUObjectArray*                              GObjects;                                                 // 0x0000(0x0000)
 	void*                                              Vtable;                                                   // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	int32_t                                            ObjectFlags;                                              // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	int32_t                                            InternalIndex;                                            // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	class UClass*                                      Class;                                                    // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	FName                                              Name;                                                     // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	class UObject*                                     Outer;                                                    // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
+	int32_t                                            ObjectFlags;                                              // 0x0008(0x0000) NOT AUTO-GENERATED PROPERTY
+	int32_t                                            InternalIndex;                                            // 0x000C(0x0000) NOT AUTO-GENERATED PROPERTY
+	class UClass*                                      Class;                                                    // 0x0010(0x0000) NOT AUTO-GENERATED PROPERTY
+	FName                                              Name;                                                     // 0x0018(0x0000) NOT AUTO-GENERATED PROPERTY
+	class UObject*                                     Outer;                                                    // 0x0020(0x0000) NOT AUTO-GENERATED PROPERTY
 
 	static inline TUObjectArray& GetGlobalObjects()
 	{

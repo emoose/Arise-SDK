@@ -128,7 +128,7 @@ static PHOOK_ENTRY AddHookEntry()
     else if (g_hooks.size >= g_hooks.capacity)
     {
         PHOOK_ENTRY p = (PHOOK_ENTRY)HeapReAlloc(
-            g_hHeap, 0, g_hooks.pItems, (g_hooks.capacity * 2) * sizeof(HOOK_ENTRY));
+            g_hHeap, 0, g_hooks.pItems, ((size_t)g_hooks.capacity * 2) * sizeof(HOOK_ENTRY));
         if (p == NULL)
             return NULL;
 

@@ -80,6 +80,11 @@ GameAddress Addr_MaxCSMResolution_SetBy_Patch( // patch0: 0x140E52ED9
   { 0xBA, 0xC8, 0x00, 0x00, 0x00, 0x48, 0x8B, 0x0D, 0x00, 0x00, 0x00, 0x00, 0x41, 0xB8, 0x00, 0x00, 0x00, 0x08 },
   +0xE
 );
+GameAddress Addr_MaxFPS_Setter_Patch( // patch0: 0x14228A246
+  "MaxFPS_Setter_Patch",
+  { 0x25, 0x00, 0x00, 0x00, 0xFF, 0x0F, 0x44, 0xC1 },
+  +0x5
+);
 GameAddress Addr_FSceneView__SetupAntiAliasingMethod_DefaultMethod_Patch( // patch0: 0x142175D90
   "FSceneView::SetupAntiAliasingMethod_DefaultMethod_Patch",
   { 0xC7, 0x83, 0xE0, 0x1B, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00 },
@@ -477,6 +482,11 @@ void InitPlugin()
   // using console you can set this to 8192+, but without this there's no way to make it stick, since game will overwrite your INI changes
   SafeWrite(Addr_ScreenPercentage_SetBy_Patch.Get(), uint32_t(EConsoleVariableFlags::ECVF_SetByScalability));
   SafeWrite(Addr_MaxCSMResolution_SetBy_Patch.Get(), uint32_t(EConsoleVariableFlags::ECVF_SetByScalability));
+  // MaxFPS overwriter includes code to copy existing SetBy of t.MaxFPS for some reason?
+  // Probably some attempt to make sure it always overwrites regardless of older SetBy
+  // Patch that to always use value from ecx instead (ECVF_SetByScalability)
+  uint8_t MaxFPSPatch[] = { 0x89, 0xc8, 0x90 };
+  SafeWrite(Addr_MaxFPS_Setter_Patch.Get(), MaxFPSPatch, 3);
 
   // Unlock dev-console & allow loading loose files
   Init_UE4Hook();
