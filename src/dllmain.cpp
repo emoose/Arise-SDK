@@ -11,7 +11,7 @@ HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
-#define SDK_VERSION "0.1.28a"
+#define SDK_VERSION "0.1.28b"
 
 // UE4 stuff
 AutoGameAddress<TNameEntryArray*> Addr_GNames( // patch0: 0x14132000D

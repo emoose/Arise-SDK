@@ -23,18 +23,44 @@ enum EConsoleVariableFlags
 	ECVF_SetByConsole = 0x09000000,
 };
 
+template <class T>
+class TConsoleVariableData
+{
+public:
+	T ShadowedValue[2];
+};
+
 class IConsoleObject
 {
 public:
-	void* vftable;
+	virtual ~IConsoleObject() = 0;
+	virtual const wchar_t* GetHelp() = 0;
+	virtual void SetHelp(const wchar_t* Value) = 0;
+	virtual EConsoleVariableFlags GetFlags() = 0;
+	virtual void SetFlags(const EConsoleVariableFlags Value) = 0;
+	virtual class IConsoleVariable* AsVariable() = 0;
+	virtual bool IsVariableInt() = 0;
+	virtual TConsoleVariableData<int>* AsVariableInt() = 0;
+	virtual TConsoleVariableData<float>* AsVariableFloat() = 0;
+	virtual TConsoleVariableData<FString>* AsVariableString() = 0;
+	virtual class IConsoleCommand* AsCommand() = 0;
+	virtual void Release() = 0;
 };
 
 class IConsoleVariable : public IConsoleObject
 {
+public:
+	virtual void Set(const wchar_t* InValue, EConsoleVariableFlags SetBy) = 0;
+	virtual int GetInt() = 0;
+	virtual float GetFloat() = 0;
+	virtual FString* GetString(FString* result) = 0;
+	virtual void SetOnChangedCallback(const void* Callback) = 0; // TBaseDelegate<void, IConsoleVariable*>*
 };
 
 class IConsoleCommand : public IConsoleObject
 {
+public:
+	virtual bool Execute(const void* Args, UWorld* InWorld, FOutputDevice* OutputDevice) = 0; // Args = TArray<FString, FDefaultAllocator>*
 };
 
 class FConsoleVariableBase : public IConsoleVariable
