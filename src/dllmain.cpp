@@ -11,7 +11,7 @@ HMODULE DllHModule;
 HMODULE GameHModule;
 uintptr_t mBaseAddress;
 
-#define SDK_VERSION "0.1.28b"
+#define SDK_VERSION "0.1.28c"
 
 // UE4 stuff
 AutoGameAddress<TNameEntryArray*> Addr_GNames( // patch0: 0x14132000D
@@ -60,7 +60,7 @@ GameAddress Addr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck( // patc
 );
 GameAddress Addr_BootSceneController__execStart_NearBeginning( // patch0: 0x140F4B1FB
   "BootSceneController::execStart_NearBeginning",
-  { 0x4C, 0x03, 0xC0, 0x80, 0x3D, 0xCF },
+  { 0x4C, 0x03, 0xC0, 0x80, 0x3D },
   +0
 );
 GameAddress Addr_BootSceneController__execStart_JmpPatch( // patch0: 0x140F4B213
