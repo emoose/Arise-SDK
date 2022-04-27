@@ -23,7 +23,7 @@ struct SDKOptions
 	float MonsterDistanceMultiplier = 1;
 	bool SkipIntroLogos = true;
 	bool DisableCutsceneCA = false;
-	bool EnableResolutionFix = true;
+	bool EnableResolutionFix = false;
 	float OverrideCharaSharpenFilterStrength = -1;
 	float OverrideStageSharpenFilterStrength = -1;
 	float MinStageEdgeBaseDistance = 0;
@@ -158,12 +158,14 @@ inline void UnsafeWriteModule(uintptr_t offset, T value)
   *reinterpret_cast<T*>(mBaseAddress + offset) = value;
 }
 
-inline void PatchCall(void* CallAddr, void* CallDest)
+inline void PatchCall(void* CallAddr, void* CallDest, bool jump = false)
 {
 	uint8_t* callAddr = (uint8_t*)CallAddr;
 	uint8_t* callDest = (uint8_t*)CallDest;
 
   uint8_t callBuf[] = { 0xE8, 0x00, 0x00, 0x00, 0x00 };
+	if (jump)
+		callBuf[0] = 0xE9;
   uint32_t diff = uint32_t(callDest - (callAddr + 5));
   *(uint32_t*)&callBuf[1] = diff;
 

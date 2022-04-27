@@ -23,6 +23,8 @@ public:
   std::string Name;
   // Signature to search for to find this address, 00 bytes are wildcard
   std::vector<uint8_t> Signature;
+  std::vector<uint8_t> SignatureAlternate;
+
   // Offset from the signature to where this address is found
   int Offset;
   // Type of GameAddress
@@ -33,6 +35,8 @@ public:
   bool MultipleMatches;
 
   GameAddress(std::string_view Name, std::initializer_list<uint8_t> Signature, int Offset, GameAddressType Type = GameAddressType::Pointer, GameAddress* SearchStartAddr = nullptr, bool MultipleMatches = false);
+
+  GameAddress(std::string_view Name, std::initializer_list<uint8_t> Signature, std::initializer_list<uint8_t> SignatureAlternate, int Offset, GameAddressType Type = GameAddressType::Pointer, GameAddress* SearchStartAddr = nullptr, bool MultipleMatches = false);
 
   uint8_t* Get(int MatchIndex = 0)
   {
@@ -46,6 +50,9 @@ class AutoGameAddress : public GameAddress
 public:
   AutoGameAddress(std::string_view Name, std::initializer_list<uint8_t> Signature, int Offset, GameAddressType Type = GameAddressType::Pointer, GameAddress* SearchStartAddr = nullptr, bool MultipleMatches = false)
     : GameAddress(Name, Signature, Offset, Type, SearchStartAddr, MultipleMatches)
+  {}
+  AutoGameAddress(std::string_view Name, std::initializer_list<uint8_t> Signature, std::initializer_list<uint8_t> SignatureAlternate, int Offset, GameAddressType Type = GameAddressType::Pointer, GameAddress * SearchStartAddr = nullptr, bool MultipleMatches = false)
+    : GameAddress(Name, Signature, SignatureAlternate, Offset, Type, SearchStartAddr, MultipleMatches)
   {}
 
   T Get(int MatchIndex = 0)

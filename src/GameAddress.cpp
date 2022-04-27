@@ -10,6 +10,16 @@ GameAddress::GameAddress(std::string_view Name, std::initializer_list<uint8_t> S
   AddressManager::Instance().Add(this);
 }
 
+GameAddress::GameAddress(std::string_view Name, std::initializer_list<uint8_t> Signature, std::initializer_list<uint8_t> SignatureAlternate, int Offset, GameAddressType Type, GameAddress* SearchStartAddr, bool MultipleMatches)
+  : Name(Name), Signature(Signature), SignatureAlternate(SignatureAlternate), Offset(Offset), Type(Type), SearchStartAddr(SearchStartAddr), MultipleMatches(MultipleMatches)
+{
+  // If we're using a SignatureStartAddr, make sure it's added before us
+  if (SearchStartAddr)
+    AddressManager::Instance().Add(SearchStartAddr);
+
+  AddressManager::Instance().Add(this);
+}
+
 // Returns whether all addresses were found
 // Count of addresses that were found can be found with .NumValid()
 bool AddressManager::SearchAddresses(void* Base, size_t BaseLength)
@@ -25,11 +35,19 @@ bool AddressManager::SearchAddresses(void* Base, size_t BaseLength)
     if (address->SearchStartAddr)
     {
       // Addr wants our search to start from another addrs position
+      if (!address->SearchStartAddr->_matches.size())
+      {
+        foundAll = false;
+        continue;
+      }
       StartAddr = address->SearchStartAddr->Get(0);
       AddrLength = BaseLength - (StartAddr - base);
     }
 
     uint8_t* foundAddr = SearchSignature(StartAddr, AddrLength, address->Signature);
+    if (!foundAddr) // try alternate sig, but only for first hit
+      foundAddr = SearchSignature(StartAddr, AddrLength, address->SignatureAlternate);
+
     while (foundAddr)
     {
       if (address->Type == GameAddressType::Pointer)

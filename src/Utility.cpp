@@ -104,8 +104,11 @@ rc_crc32(uint32_t crc, const char* buf, size_t len)
   return ~crc;
 }
 
-uint8_t* SearchSignature(uint8_t* Base, size_t BaseLength, const std::vector<uint8_t>& Signature)
+uint8_t* SearchSignature(uint8_t * Base, size_t BaseLength, const std::vector<uint8_t>& Signature)
 {
+  if (!Signature.size())
+    return nullptr;
+
   const uint8_t* signature = Signature.data();
   size_t signatureLength = Signature.size();
 
