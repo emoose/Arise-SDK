@@ -36,7 +36,7 @@ AutoGameAddress<ProcessEventFn> Addr_UObject__ProcessEvent( // patch0: 0x1414CBA
 AutoGameAddress<StaticConstructObject_InternalFn> Addr_StaticConstructObject_Internal( // patch0: 0x1414EA190, patch-2022-2: 0x141010280
   "StaticConstructObject_Internal",
   { 0xF7, 0x81, 0xB4, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x10, 0x45 },
-  -0x3A
+  -0x29
 );
 AutoGameAddress<FConsoleVariable__GetFloat_Fn> Addr_FConsoleVariable_float___GetFloat( // patch0: 0x14124A690, patch-2022-2: 0x140d97290
   "FConsoleVariable<float>::GetFloat",
@@ -64,14 +64,12 @@ GameAddress Addr_FConsoleManager__ProcessUserConsoleInput_ReadOnlyCheck( // patc
 GameAddress Addr_BootSceneController__execStart_NearBeginning( // patch0: 0x140F4B1FB, patch-2022-2: 0x140b44d08
   "BootSceneController::execStart_NearBeginning",
   { 0x4C, 0x03, 0xC0, 0x80, 0x3D },
-  { 0x74, 0x00, 0xE8, 0x00, 0x00, 0x00, 0x00, 0x0F, 0xB6, 0x48, 0x02, 0x83, 0xE9, 0x01, 0x74 },
   +0
 );
 GameAddress Addr_BootSceneController__execStart_JmpPatch( // patch0: 0x140F4B213, patch-2022-2: 0x140b44d67
   "BootSceneController::execStart_JmpPatch",
-  //{ 0x75, 0x00, 0x48, 0x8B, 0x15 },
-  { 0x0F, 0x85, 0x00, 0x00, 0x00, 0x00, 0xE9, 0x00, 0x00, 0x00, 0x00, 0xCC },
-  +0,
+  { 0x75, 0x00, 0x48, 0x8B, 0x15 },
+  +0x0,
   GameAddressType::Pointer,
   &Addr_BootSceneController__execStart_NearBeginning
 );
@@ -498,7 +496,9 @@ void InitPlugin()
   MH_Initialize();
 
 #ifdef _DEBUG
+#if 0
   MH_GameHook(FEngineLoop__Tick);
+#endif
 #endif
 
   MH_GameHook(CVar_dtor); // for destructing our added CVars 
@@ -517,10 +517,7 @@ void InitPlugin()
 
   // Patch UBootSceneController::Start to call StartLogin instead of StartLogo
   if (Options.SkipIntroLogos)
-  {
-    uint8_t nop6[] = { 0x90, 0x90, 0x90, 0x90, 0x90, 0x90 };
-    SafeWrite<uint8_t>(Addr_BootSceneController__execStart_JmpPatch.Get(), nop6, 6); // jnz -> nop
-  }
+      SafeWrite(Addr_BootSceneController__execStart_JmpPatch.Get(), uint16_t(0x9090)); // jne -> nop
 
   // Hook ULevelSequence::PostLoad by overwriting vftable pointer to it
   // This lets us modify the ULevelSequence vars after game has loaded cutscene in

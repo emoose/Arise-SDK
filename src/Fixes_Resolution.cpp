@@ -2,8 +2,8 @@
 
 GameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Hook( // patch0: 0x142699D98, patch-2022-2: 0x141cd7840
   "UKismetRenderingLibrary::execCreateRenderTarget2D_Hook",
-  { 0x89, 0x91, 0xC0, 0x00, 0x00, 0x00, 0x44, 0x89, 0x81, 0xC4, 0x00, 0x00, 0x00, 0x48, 0xFF, 0xA0, 0x48, 0x02, 0x00, 0x00 },
-  +0xD
+  { 0x44, 0x89, 0xB8, 0xC0, 0x00, 0x00, 0x00, 0x44, 0x89, 0xB0, 0xC4, 0x00, 0x00, 0x00 },
+  +0xE
 );
 GameAddress Addr_UKismetRenderingLibrary__execCreateRenderTarget2D_Trampoline( // patch0: 0x142699E12, patch-2022-2: 0x141cd7d43
   "UKismetRenderingLibrary::execCreateRenderTarget2D_Trampoline",
@@ -49,7 +49,7 @@ AutoGameAddress<FSystemResolution*> Addr_GSystemResolution( // patch0: 0x14455A4
 FSystemResolution* GSystemResolution = nullptr;
 
 // Called during UKismetRenderingLibrary::execCreateRenderTarget2D, so we can overwrite the target size etc.
-void CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
+void __fastcall CreateRenderTarget2D_Hook(UTextureRenderTarget2D* thisptr)
 {
   if (Options.CutsceneRenderFix)
   {
@@ -139,8 +139,8 @@ void Fixes_Resolution_Init()
     SafeWrite(trampolineAddr, trampoline, 12);
 
     // Hook UKismetRenderingLibrary::execCreateRenderTarget2D
-    SafeWrite(hookAddr, uint16_t(0x9090));
-    PatchCall(hookAddr + 2, trampolineAddr, true);
+    SafeWrite(hookAddr, uint8_t(0x90));
+    PatchCall(hookAddr + 1, trampolineAddr);
 
     // USceneCaptureComponent2D ctor: change "ShowFlags.TemporalAA = false; ShowFlags.MotionBlur = false;" to " = true" 
     // Not certain if ToA's custom TAA impl. works on this or not though (may need more AAM_TemporalAA checks to be fixed...)

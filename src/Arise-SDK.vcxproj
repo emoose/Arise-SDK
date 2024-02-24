@@ -253,7 +253,7 @@
       <OutputFile>$(OutDir)xinput1_3$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetDir)xinput1_3.dll" "C:\Program Files (x86)\Steam\steamapps\common\Tales of Arise\Arise\Binaries\Win64\xinput1_3.dll"</Command>
+      <Command>copy /Y "$(TargetDir)xinput1_3.dll" "E:\SteamLibrary\steamapps\common\Tales of Arise\Arise\Binaries\Win64\xinput1_3.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Clang-Debug|x64'">
@@ -297,7 +297,7 @@
       <OutputFile>$(OutDir)xinput1_3$(TargetExt)</OutputFile>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetDir)xinput1_3.dll" "C:\Program Files (x86)\Steam\steamapps\common\Tales of Arise\Arise\Binaries\Win64\xinput1_3.dll"</Command>
+      <Command>copy /Y "$(TargetDir)xinput1_3.dll" "E:\SteamLibrary\steamapps\common\Tales of Arise\Arise\Binaries\Win64\xinput1_3.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Clang-Release|x64'">
