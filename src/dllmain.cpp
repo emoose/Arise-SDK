@@ -462,6 +462,9 @@ void RefreshEngineSettings_Hook()
 // Some parts of the game might already be inited by this time though, requiring a different method of handling them
 void InitPlugin()
 {
+  // Fix UE4s weird DPI scaling which makes borderless-windowed blurry when desktop DPI is above 100%...
+  SetProcessDPIAware();
+
   inited = false;
 
   int textSize = 0;
